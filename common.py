@@ -1,0 +1,99 @@
+# Componentes compartidos: nav, footer, estilos base, datos institucionales
+SOCIAL_ICONS = {
+"ig": '<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>',
+"fb": '<svg viewBox="0 0 24 24"><path d="M14 21v-8h2.6l.4-3H14V8c0-.9.3-1.5 1.6-1.5H17V4c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1V10H8v3h2.6v8h3.4z" fill="currentColor"/></svg>',
+"tt": '<svg viewBox="0 0 24 24"><path d="M16 2h2.8c.3 2 1.8 3.5 3.7 3.8v2.9c-1.4 0-2.7-.4-3.7-1.1v6.6c0 3.4-2.7 6-6.1 6a6 6 0 0 1-1.4-11.9v3.1a2.9 2.9 0 1 0 2.4 2.9V2z" fill="currentColor"/></svg>',
+"yt": '<svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 9.5l6 2.5-6 2.5z" fill="currentColor"/></svg>',
+"mail": '<svg class="mail-icon" viewBox="0 0 24 24"><path d="M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1zm0 2.4V17h16V8.4l-7.4 5.1a1 1 0 0 1-1.2 0L4 8.4zm.6-.4 7.4 5 7.4-5H4.6z" fill="currentColor"/></svg>',
+"phone": '<svg class="phone-icon" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1L6.6 10.8z" fill="currentColor"/></svg>',
+}
+
+def social_row(cls="social-row"):
+    return f'''<div class="{cls}" aria-label="Redes sociales">
+      <a href="https://instagram.com/rccpatersonnj" target="_blank" rel="noopener" aria-label="Instagram">{SOCIAL_ICONS['ig']}</a>
+      <a href="https://facebook.com/rccpatersonnj" target="_blank" rel="noopener" aria-label="Facebook">{SOCIAL_ICONS['fb']}</a>
+      <a href="https://tiktok.com/@rccpatersonnj" target="_blank" rel="noopener" aria-label="TikTok">{SOCIAL_ICONS['tt']}</a>
+      <a href="https://youtube.com/@rccpatersonnj" target="_blank" rel="noopener" aria-label="YouTube">{SOCIAL_ICONS['yt']}</a>
+    </div>'''
+
+def nav(root=""):
+    """root = '' para paginas en la raiz, '../' para paginas en subcarpetas"""
+    r = root
+    return f'''<nav class="site-nav">
+  <div class="container">
+    <a class="nav-brand" href="{r}index.html">
+      <img src="{r}assets/img/escudo-rcc-oficial.png" alt="RCC Paterson NJ">
+      RCC Paterson NJ
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menú" onclick="document.querySelector('.nav-links').classList.toggle('is-open')">☰</button>
+    <div class="nav-links">
+      <div class="nav-item has-dropdown">
+        <a href="{r}index.html#quienes-somos">Quiénes Somos</a>
+        <div class="nav-dropdown">
+          <a href="{r}index.html#quienes-somos">Quiénes Somos</a>
+          <a href="{r}index.html#identidad">Misión, Visión y Valores</a>
+          <a href="{r}index.html#comite">Comité Diocesano</a>
+        </div>
+      </div>
+      <div class="nav-item has-dropdown">
+        <a href="{r}index.html#ministerios">Ministerios</a>
+        <div class="nav-dropdown">
+          <a href="{r}ministerios/intercesion.html">Intercesión</a>
+          <a href="{r}ministerios/hombres-alabanza.html">Hombres de Alabanza</a>
+          <a href="{r}ministerios/mujeres-alabanza.html">Mujeres de Alabanza</a>
+          <a href="{r}index.html#ministerios">Comunicación y Publicidad</a>
+          <a href="{r}index.html#ministerios">Ministerios de Música</a>
+          <a href="{r}index.html#ministerios">RCC Youth</a>
+          <a href="{r}ministerios/escuela-formacion-lideres.html">Escuela de Formación de Líderes</a>
+          <a href="{r}index.html#ministerios">Seminario de Vida en el Espíritu</a>
+        </div>
+      </div>
+      <a href="{r}index.html#grupos-oracion">Grupos de Oración</a>
+      <a href="{r}ministerios/escuela-formacion-lideres.html">Escuela de Líderes</a>
+      <a href="{r}index.html#eventos">Eventos</a>
+      <a href="{r}index.html#contacto">Contacto</a>
+    </div>
+  </div>
+</nav>'''
+
+def footer(root=""):
+    r = root
+    return f'''<footer class="site-footer" id="contacto">
+  <img class="footer-logo" src="{r}assets/img/escudo-rcc-oficial.png" alt="Logo RCC Paterson NJ">
+  {social_row()}
+  <p class="footer-org">Renovación Carismática Católica &middot; Diócesis de Paterson</p>
+  <p class="footer-email">
+    <a href="mailto:renovacion@rccpaterson.org">{SOCIAL_ICONS['mail']} renovacion@rccpaterson.org</a>
+  </p>
+  <p><a class="back-home" href="{r}index.html">&larr; Volver al inicio</a></p>
+  <p class="fine-print">BORRADOR de reestructuración — RCC Paterson NJ · No publicado</p>
+</footer>
+
+<script src="{r}assets/js/site.js"></script>'''
+
+PREVIEW_BANNER = '<div class="preview-banner">⚠ Borrador sin publicar — vista previa offline para revisión de Marvin</div>'
+
+def head(title, desc, root="", extra=""):
+    r = root
+    return f'''<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[BORRADOR] {title}</title>
+<meta name="description" content="{desc}">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{r}assets/css/style.css">
+{extra}
+</head>
+<body>
+{PREVIEW_BANNER}
+{nav(r)}'''
+
+TAIL = '''
+</body>
+</html>
+'''
