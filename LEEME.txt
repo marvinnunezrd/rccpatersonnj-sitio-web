@@ -1,0 +1,65 @@
+SITIO WEB — RENOVACIÓN CARISMÁTICA CATÓLICA, DIÓCESIS DE PATERSON
+===================================================================
+(v2 — reestructuración multi-página, reemplaza la versión de una sola página)
+
+ESTRUCTURA
+----------
+index.html                              -> www.rccpatersonnj.com
+ministerios/intercesion.html            -> www.rccpatersonnj.com/ministerios/intercesion.html
+ministerios/hombres-alabanza.html       -> www.rccpatersonnj.com/ministerios/hombres-alabanza.html
+ministerios/mujeres-alabanza.html       -> www.rccpatersonnj.com/ministerios/mujeres-alabanza.html
+ministerios/escuela-formacion-lideres.html -> www.rccpatersonnj.com/ministerios/escuela-formacion-lideres.html
+eccads/index.html                       -> www.rccpatersonnj.com/eccads
+assets/css/style.css                    -> estilos compartidos por todas las páginas
+assets/js/                              -> scripts compartidos (menú, galería ECCADS)
+assets/img/                             -> logos, escudos y fotos optimizados para web
+favicon.ico, apple-touch-icon.png,
+assets/img/favicon/, site.webmanifest   -> ícono de pestaña e íconos PWA
+
+CÓMO PUBLICARLO
+----------------
+Son archivos estáticos (HTML/CSS/JS/imágenes), no requieren WordPress
+ni ningún backend. Para publicarlos en rccpatersonnj.com:
+
+1. Entra al panel de tu proveedor de hosting (GoDaddy, Hostinger, etc.)
+   o al administrador de archivos / FTP de tu dominio.
+2. Borra o respalda el contenido actual de la raíz pública (normalmente
+   "public_html", "www" o "htdocs") — es la versión de una sola página.
+3. Sube TODA esta carpeta (conservando la estructura de subcarpetas:
+   assets/, eccads/, ministerios/) a la raíz pública del sitio.
+4. Verifica que "index.html" quede en la raíz, y que "eccads" y
+   "ministerios" queden también en la raíz (no dentro de otra carpeta),
+   para que las URLs resulten exactamente como se listan arriba.
+
+DATOS QUE YA ESTÁN CARGADOS
+----------------------------
+- Redes sociales: @rccpatersonnj (Instagram, Facebook, TikTok, YouTube)
+- Correo: renovacion@rccpaterson.org
+- Comité Diocesano, los 8 ministerios, los 17 grupos de oración (con
+  teléfono, zona y horario provisional 7:00 pm–9:30 pm — falta que el
+  Comité confirme el horario real de cada uno), la agenda pública de
+  eventos, y la Escuela de Formación de Líderes con su plan de estudios.
+- Evento ECCADS 2026 (galería de 30 fotos incluida).
+
+CÓMO ACTUALIZAR ALGO DESPUÉS
+------------------------------
+- Este sitio se genera con scripts Python (build_index.py, build_efl.py,
+  build_ministerios.py) a partir de los datos en data.py y las
+  plantillas compartidas en common.py — editar ahí y volver a correr
+  los scripts regenera los .html. No editar los .html a mano si se
+  puede evitar, se sobrescriben en el próximo build.
+- Los colores y tipografías están centralizados en assets/css/style.css
+  (bloque ":root" al inicio del archivo).
+- Si cambian los links de redes sociales, están centralizados en la
+  función social_row() de common.py — se actualizan en todas las
+  páginas a la vez.
+
+PENDIENTE
+---------
+- Confirmar con el Comité Diocesano el horario real de cada uno de los
+  17 grupos de oración (por ahora todos muestran 7:00 pm–9:30 pm como
+  provisional).
+- Confirmar las Zonas (A–D) asignadas a cada grupo y dos direcciones de
+  parroquia con inconsistencia detectada (St. Therese de Lisieux y
+  Sacred Heart & Holy Rosary, Dover) — ver lista enviada a Marvin.
+- Agregar robots.txt y sitemap.xml para SEO (pendiente, no bloqueante).
