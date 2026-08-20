@@ -230,7 +230,7 @@ HTML = head("Renovación Carismática Católica — Diócesis de Paterson", "Cen
     <div class="zona-legend">{zona_legend}</div>
     <div class="grupos-by-day">{grupos_by_day_html}
     </div>
-    <p class="grupos-note">Los horarios exactos de reunión de cada grupo están pendientes de confirmación final del Comité Diocesano y se publicarán aquí en cuanto se confirmen. Si coordinas un grupo y tu información no aparece o necesita corrección, contáctanos.</p>
+    <p class="grupos-note">El horario de 7:00 pm – 9:30 pm es provisional para todos los grupos mientras se confirma el horario real de cada uno con el Comité Diocesano. Si coordinas un grupo y tu información no aparece o necesita corrección, contáctanos.</p>
   </div>
 </section>
 
