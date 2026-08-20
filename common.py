@@ -66,12 +66,10 @@ def footer(root=""):
     <a href="mailto:renovacion@rccpaterson.org">{SOCIAL_ICONS['mail']} renovacion@rccpaterson.org</a>
   </p>
   <p><a class="back-home" href="{r}index.html">&larr; Volver al inicio</a></p>
-  <p class="fine-print">BORRADOR de reestructuración — RCC Paterson NJ · No publicado</p>
+  <p class="fine-print">&copy; 2026 Renovación Carismática Católica — Diócesis de Paterson. Todos los derechos reservados.</p>
 </footer>
 
 <script src="{r}assets/js/site.js"></script>'''
-
-PREVIEW_BANNER = '<div class="preview-banner">⚠ Borrador sin publicar — vista previa offline para revisión de Marvin</div>'
 
 def head(title, desc, root="", extra=""):
     r = root
@@ -80,9 +78,8 @@ def head(title, desc, root="", extra=""):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>[BORRADOR] {title}</title>
+<title>{title}</title>
 <meta name="description" content="{desc}">
-<meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/x-icon" href="{r}favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="{r}assets/img/favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="{r}assets/img/favicon/favicon-16x16.png">
@@ -95,7 +92,6 @@ def head(title, desc, root="", extra=""):
 {extra}
 </head>
 <body>
-{PREVIEW_BANNER}
 {nav(r)}'''
 
 TAIL = '''
