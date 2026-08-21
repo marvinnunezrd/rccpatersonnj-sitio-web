@@ -238,7 +238,7 @@ HTML = head("RCC Paterson NJ — Sitio Oficial de la Renovación Carismática Ca
   <div class="container">
     <div class="section-title">
       <span class="eyebrow">Vida diocesana</span>
-      <h2>Agenda pública de eventos</h2>
+      <h2>Nuestros próximos eventos</h2>
       <p>Los próximos encuentros abiertos a toda la comunidad de la Renovación Carismática Católica de la Diócesis de Paterson.</p>
     </div>
     <div class="agenda-list">{agenda_items_html}
