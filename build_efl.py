@@ -14,7 +14,7 @@ html = head(
 <header class="hero-sub">
   <div class="container">
     <div class="breadcrumb"><a href="{R}index.html">Inicio</a> / <a href="{R}index.html#ministerios">Ministerios</a> / Escuela de Formación de Líderes</div>
-    <img class="hero-shield-sm" src="{R}assets/img/escudo-efl.png" alt="Logo Escuela de Formación de Líderes" width="560" height="560">
+    <img class="hero-shield-sm" src="{R}assets/img/escudo-efl.webp" alt="Logo Escuela de Formación de Líderes" width="560" height="560">
     <h1>Escuela de Formación de Líderes</h1>
     <p class="subtitle">Formando servidores que lideran desde el servicio, como Jesús.</p>
   </div>

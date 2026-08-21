@@ -7,13 +7,13 @@ PHONE_ICON = SOCIAL_ICONS['phone']
 
 IMG = {
   "escudo_rcc": "assets/img/escudo-rcc-oficial.webp",
-  "escudo_efl": "assets/img/escudo-efl.png",
-  "m_intercesion": "assets/img/ministerios/intercesion.png",
-  "m_hombres": "assets/img/ministerios/hombres-alabanza.png",
-  "m_mujeres": "assets/img/ministerios/mujeres-alabanza.png",
-  "m_comunicacion": "assets/img/ministerios/comunicacion.png",
-  "m_musica": "assets/img/ministerios/musica.png",
-  "m_youth": "assets/img/ministerios/youth.png",
+  "escudo_efl": "assets/img/escudo-efl.webp",
+  "m_intercesion": "assets/img/ministerios/intercesion.webp",
+  "m_hombres": "assets/img/ministerios/hombres-alabanza.webp",
+  "m_mujeres": "assets/img/ministerios/mujeres-alabanza.webp",
+  "m_comunicacion": "assets/img/ministerios/comunicacion.webp",
+  "m_musica": "assets/img/ministerios/musica.webp",
+  "m_youth": "assets/img/ministerios/youth.webp",
   "m_sve": "assets/img/ministerios/sve.webp",
   "eccads_mini": "assets/img/eccads-mini.png",
   "featured": "assets/img/featured-comite-obispo.webp",
@@ -24,6 +24,13 @@ carousel_slides = "\n".join(
     f'<div class="hero-bg-slide{" is-active" if i == 0 else ""}" style="background-image:url({f})"></div>'
     for i, f in enumerate(CAROUSEL_FILES)
 )
+
+# Precarga la primera imagen del carrusel del hero -- es el elemento LCP (Largest
+# Contentful Paint) de la portada, pero al cargarse como background-image de un
+# <div> (no como <img>) el navegador no la descubre hasta que corre el JS del
+# carrusel. Este preload la hace descubrible desde el HTML y con fetchpriority
+# alto, tal como recomienda el reporte de PageSpeed Insights (agregado 2026-08-21).
+HERO_LCP_PRELOAD = f'<link rel="preload" as="image" href="{CAROUSEL_FILES[0]}" fetchpriority="high">'
 
 def comite_card(name, role, parish):
     parish_html = f'<p class="parish">{parish}</p>' if parish else ""
@@ -133,7 +140,7 @@ HTML = head(
     "Sitio web oficial de la Renovación Carismática Católica de la Diócesis de Paterson, NJ: grupos de oración, ministerios, eventos y el Comité Diocesano.",
     path="",
     og_description="El Centro Carismático Católico Digital de la Diócesis de Paterson: grupos de oración, ministerios, eventos y el Comité Diocesano, todos bajo un mismo techo.",
-    extra=FAQ_JSONLD,
+    extra=HERO_LCP_PRELOAD + FAQ_JSONLD,
 ) + f'''
 <header class="hero-main">
   <div class="hero-bg-carousel">{carousel_slides}</div>
@@ -168,7 +175,7 @@ HTML = head(
         </div>
       </div>
       <div class="about-photo">
-        <img src="{IMG['featured']}" alt="Monseñor Kevin Sweeney junto al Comité Diocesano de la RCC Paterson en el ECCADS 2026" width="1700" height="1133">
+        <img src="{IMG['featured']}" alt="Monseñor Kevin Sweeney junto al Comité Diocesano de la RCC Paterson en el ECCADS 2026" width="1200" height="800">
         <div class="caption"><strong>Mons. Kevin Sweeney</strong> junto al Comité Diocesano — ECCADS 2026</div>
       </div>
     </div>
