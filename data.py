@@ -40,7 +40,7 @@ GRUPOS_ORACION = [
     {"dia": "Martes", "horario": "7:00 pm – 9:30 pm", "grupo": "\"Ríos de Agua Viva\"", "parroquia": "St. Brendan, Clifton",
      "direccion": "154 East First St, Clifton, NJ 07011", "coordinador": "María García", "telefono": "(973) 930-8429", "zona": "Zona C"},
     {"dia": "Martes", "horario": "7:00 pm – 9:30 pm", "grupo": "\"Vive Jesús: El Amor\"", "parroquia": "St. Paul, Clifton",
-     "direccion": "231 Second St, Clifton, NJ 07011", "coordinador": "Roberto Boiter", "telefono": "(646) 879-4655", "zona": "Zona C"},
+     "direccion": "124 Union Ave, Clifton, NJ 07011", "coordinador": "Roberto Boiter", "telefono": "(646) 879-4655", "zona": "Zona C"},
 
     {"dia": "Miércoles", "horario": "7:00 pm – 9:30 pm", "grupo": "Our Lady of Victories", "parroquia": "Our Lady of Victories, Paterson",
      "direccion": "169 Broadway, Paterson, NJ 07501", "coordinador": "Israel Torres", "telefono": "(862) 271-9966", "zona": "Zona B"},
@@ -66,7 +66,7 @@ GRUPOS_ORACION = [
 
 AGENDA = [
   ("20","SEP","2026","Gran Asamblea Diocesana – Septiembre 2026","2:30 pm – 6:00 pm","Salón Principal de la Escuela Santa Teresita, 765 14th Ave, Paterson, NJ 07504","Predicación: Diácono José Luis Abreu · Música: Marvin Núñez"),
-  ("26–27","SEP","2026","Congreso Regional","Todo el día","Newark, NJ",""),
+  ("26","SEP","2026","Encuentro Regional 2026 — Llamados a la Santidad","9:00 am – 6:00 pm","Parroquia Our Lady of Libera, 5808 John F Kennedy Blvd, West New York, NJ 07093","Predican Su Excelencia Pedro Bismarck Chau (Obispo Auxiliar de Newark) y Mons. Joseph Malagreca · Donación: $30 (incluye almuerzo)","eventos/encuentro-regional-2026.html"),
   ("24–25","OCT","2026","Retiro de Sanación y Liberación","Sáb. 9:00 am–5:00 pm","Ubicación por confirmar","Predicación: Osvaldo Fernández, P. Starli Castaños (sáb.) y P. Yasid Salas (dom.)"),
   ("15","NOV","2026","Gran Asamblea Diocesana – Noviembre 2026","2:30 pm – 6:00 pm","Salón Principal de la Escuela Santa Teresita, 765 14th Ave, Paterson, NJ 07504","Predicación: María Batista"),
   ("20","DIC","2026","Gran Asamblea Diocesana – Diciembre 2026","2:30 pm – 6:00 pm","Salón Principal de la Escuela Santa Teresita, 765 14th Ave, Paterson, NJ 07504",""),

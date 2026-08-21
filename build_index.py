@@ -49,15 +49,16 @@ def min_card(key, name, desc, href):
 
 min_cards = "\n".join(min_card(*m) for m in MINISTERIOS)
 
-def agenda_item(d, mes, anio, titulo, hora, lugar, nota):
+def agenda_item(d, mes, anio, titulo, hora, lugar, nota, href=None):
     nota_html = f'<p class="agenda-note">{nota}</p>' if nota else ""
+    link_html = f'<p class="agenda-note"><a class="agenda-link" href="{href}">Ver detalles y flyer completo →</a></p>' if href else ""
     return f'''
       <div class="agenda-item">
         <div class="agenda-date"><div class="d">{d}</div><div class="m">{mes}</div><div class="y">{anio}</div></div>
         <div class="agenda-body">
           <h4>{titulo}</h4>
           <p class="agenda-meta">🕑 {hora} &nbsp;·&nbsp; 📍 {lugar}</p>
-          {nota_html}
+          {nota_html}{link_html}
         </div>
       </div>'''
 

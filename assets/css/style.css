@@ -423,3 +423,19 @@ footer.site-footer .fine-print{margin-top:22px;padding-top:18px;border-top:1px s
   .info-strip .container{grid-template-columns:repeat(2,1fr);}
   .info-item{border-right:none;border-bottom:1px solid rgba(8,43,76,.1);}
 }
+
+/* ---- Páginas de eventos individuales (flyer clickeable, FAQ, links de agenda) ---- */
+.hero-flyer.gallery-item{aspect-ratio:auto;width:220px;margin:26px auto 6px;box-shadow:0 14px 34px rgba(5,27,50,.35);border:2px solid var(--gold);border-radius:10px;}
+.hero-flyer.gallery-item img{width:100%;height:auto;display:block;object-fit:unset;}
+.hero-flyer-caption{font-size:.78rem;color:var(--gold-light);letter-spacing:.03em;margin:0 0 20px;}
+
+.agenda-link{color:var(--gold-light);font-weight:700;text-decoration:none;font-size:.85rem;}
+.agenda-link:hover{color:var(--white);text-decoration:underline;}
+
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:16px;}
+.faq-item{background:var(--navy);border:1px solid var(--gold);border-radius:10px;padding:22px 26px;box-shadow:0 8px 20px rgba(8,43,76,.15);}
+.faq-item h3{font-family:var(--font-title);font-size:1.02rem;color:var(--gold-light);margin:0 0 8px;}
+.faq-item p{margin:0;font-size:.92rem;color:rgba(255,243,214,.85);line-height:1.55;}
+.bg-navy .faq-item{background:var(--white);border-color:rgba(8,43,76,.1);box-shadow:0 6px 18px rgba(8,43,76,.06);}
+.bg-navy .faq-item h3{color:var(--navy);}
+.bg-navy .faq-item p{color:#444;}
