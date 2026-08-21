@@ -40,7 +40,7 @@ def min_card(key, name, desc, href):
     return f'''
         <div class="min-card">
           <a href="{href}">
-          <img src="{IMG[key]}" alt="Logo {name}">
+          <img src="{IMG[key]}" alt="Logo {name}" width="360" height="360">
           <h3>{name}</h3>
           <p>{desc}</p>
           <span class="card-cta">Conocer más →</span>
@@ -107,15 +107,20 @@ def build_grupos_by_day(grupos):
 
 grupos_by_day_html = build_grupos_by_day(GRUPOS_ORACION)
 
-HTML = head("RCC Paterson NJ — Sitio Oficial de la Renovación Carismática Católica", "Sitio web oficial de la Renovación Carismática Católica de la Diócesis de Paterson, NJ: grupos de oración, ministerios, eventos y el Comité Diocesano.", path="") + f'''
+HTML = head(
+    "RCC Paterson NJ — Renovación Carismática Católica",
+    "Sitio web oficial de la Renovación Carismática Católica de la Diócesis de Paterson, NJ: grupos de oración, ministerios, eventos y el Comité Diocesano.",
+    path="",
+    og_description="El Centro Carismático Católico Digital de la Diócesis de Paterson: grupos de oración, ministerios, eventos y el Comité Diocesano, todos bajo un mismo techo.",
+) + f'''
 <header class="hero-main">
   <div class="hero-bg-carousel">{carousel_slides}</div>
   <div class="hero-bg-overlay"></div>
   <div class="container">
-    <img class="hero-shield" src="{IMG['escudo_rcc']}" alt="Escudo oficial de la Renovación Carismática Católica de la Diócesis de Paterson">
+    <img class="hero-shield" src="{IMG['escudo_rcc']}" alt="Escudo oficial de la Renovación Carismática Católica de la Diócesis de Paterson" width="700" height="700">
     <span class="eyebrow">Diócesis de Paterson, Nueva Jersey</span>
     <h1>Renovación Carismática<br>Católica</h1>
-    <p class="hero-tagline">El centro de información de nuestra comunidad diocesana</p>
+    <p class="hero-tagline">El Centro Carismático Católico Digital de la Diócesis de Paterson</p>
     <p class="hero-lema">&ldquo;Ven Espíritu Santo, enciende tu fuego&rdquo;</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="eccads/index.html">ECCADS 2026 →</a>
@@ -133,7 +138,7 @@ HTML = head("RCC Paterson NJ — Sitio Oficial de la Renovación Carismática Ca
         <span class="eyebrow">Quiénes somos</span>
         <h2 style="color:var(--navy);font-size:1.9rem;">Una comunidad, muchos ministerios, un mismo Espíritu</h2>
         <p>La <strong>Renovación Carismática Católica de la Diócesis de Paterson</strong> reúne a los grupos de oración de toda la diócesis bajo un mismo Comité Diocesano, con un escudo que resume nuestra identidad: la paloma del Espíritu Santo, los siete dones, y María, Nuestra Señora de Pentecostés.</p>
-        <p>Vivimos y servimos dentro de la Iglesia Católica, en comunión con nuestros pastores y con la Diócesis de Paterson, y en comunión con la Renovación Carismática Católica a nivel nacional (Estados Unidos y Canadá) — presentes en la vida parroquial a través de nuestros ministerios, escuelas de formación y encuentros diocesanos.</p>
+        <p>Vivimos y servimos dentro de la Iglesia Católica, en comunión con nuestros pastores y con la Diócesis de Paterson, y en comunión con la Renovación Carismática Católica a nivel regional (Región 2) y nacional (Estados Unidos y Canadá) — presentes en la vida parroquial a través de nuestros ministerios, escuelas de formación y encuentros diocesanos.</p>
         <div class="about-stats">
           <div class="about-stat"><div class="num">17</div><div class="lbl">Grupos de oración</div></div>
           <div class="about-stat"><div class="num">8</div><div class="lbl">Ministerios diocesanos</div></div>
@@ -141,7 +146,7 @@ HTML = head("RCC Paterson NJ — Sitio Oficial de la Renovación Carismática Ca
         </div>
       </div>
       <div class="about-photo">
-        <img src="{IMG['featured']}" alt="Monseñor Kevin Sweeney junto al Comité Diocesano de la RCC Paterson en el ECCADS 2026">
+        <img src="{IMG['featured']}" alt="Monseñor Kevin Sweeney junto al Comité Diocesano de la RCC Paterson en el ECCADS 2026" width="1700" height="1133">
         <div class="caption"><strong>Mons. Kevin Sweeney</strong> junto al Comité Diocesano — ECCADS 2026</div>
       </div>
     </div>
@@ -153,7 +158,7 @@ HTML = head("RCC Paterson NJ — Sitio Oficial de la Renovación Carismática Ca
     <div class="section-title">
       <span class="eyebrow">Nuestra identidad</span>
       <h2>Misión, Visión y Valores</h2>
-      <p>En comunión con la Renovación Carismática Católica de los Estados Unidos y Canadá.</p>
+      <p>En comunión con la Renovación Carismática Católica Región 2 y de los Estados Unidos y Canadá.</p>
     </div>
     <div class="identity-cards">
       <div class="identity-card">
@@ -210,7 +215,7 @@ HTML = head("RCC Paterson NJ — Sitio Oficial de la Renovación Carismática Ca
 <section id="escuela">
   <div class="container">
     <div class="featured-banner">
-      <img src="{IMG['escudo_efl']}" alt="Logo Escuela de Formación de Líderes">
+      <img src="{IMG['escudo_efl']}" alt="Logo Escuela de Formación de Líderes" width="560" height="560">
       <div>
         <span class="eyebrow">Formación</span>
         <h2>Escuela de Formación de Líderes<span class="badge-live">Inscripciones abiertas</span></h2>
@@ -257,7 +262,7 @@ HTML = head("RCC Paterson NJ — Sitio Oficial de la Renovación Carismática Ca
     </div>
     <div class="events-grid">
       <div class="event-card">
-        <div class="ev-top"><img src="{IMG['eccads_mini']}" alt="Logo ECCADS 2026"></div>
+        <div class="ev-top"><img src="{IMG['eccads_mini']}" alt="Logo ECCADS 2026" width="420" height="420"></div>
         <div class="ev-body">
           <span class="event-tag event-tag--done">Realizado · 1 ago 2026</span>
           <h3>ECCADS 2026</h3>

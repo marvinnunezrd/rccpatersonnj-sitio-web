@@ -22,7 +22,7 @@ def nav(root=""):
     return f'''<nav class="site-nav">
   <div class="container">
     <a class="nav-brand" href="{r}index.html">
-      <img src="{r}assets/img/escudo-rcc-oficial.png" alt="RCC Paterson NJ">
+      <img src="{r}assets/img/escudo-rcc-oficial.png" alt="RCC Paterson NJ" width="700" height="700">
       RCC Paterson NJ
     </a>
     <button class="nav-toggle" aria-label="Abrir menú" onclick="document.querySelector('.nav-links').classList.toggle('is-open')">☰</button>
@@ -59,7 +59,7 @@ def nav(root=""):
 def footer(root=""):
     r = root
     return f'''<footer class="site-footer" id="contacto">
-  <img class="footer-logo" src="{r}assets/img/escudo-rcc-oficial.png" alt="Logo RCC Paterson NJ">
+  <img class="footer-logo" src="{r}assets/img/escudo-rcc-oficial.png" alt="Logo RCC Paterson NJ" width="700" height="700">
   {social_row()}
   <p class="footer-org">Renovación Carismática Católica &middot; Diócesis de Paterson</p>
   <p class="footer-email">
@@ -73,19 +73,68 @@ def footer(root=""):
 
 SITE_URL = "https://rccpatersonnj.com"
 SITE_NAME = "RCC Paterson NJ"
+GA_MEASUREMENT_ID = "G-ZNXPXCSJ95"
 
-def head(title, desc, root="", extra="", path="", og_image=""):
+GA_SNIPPET = f'''<script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+  gtag('config', '{GA_MEASUREMENT_ID}');
+</script>'''
+
+# Verificacion de propiedad en Google Search Console (metodo secundario,
+# ademas de la verificacion automatica via Google Analytics) -- agregado
+# 2026-08-22. No quitar aunque la verificacion ya este activa.
+GSC_VERIFICATION = '<meta name="google-site-verification" content="NYK79oYRoS6LrTeZdFkwwYazL9m3hNlgPl2D6oS4g9c" />'
+
+# Datos estructurados (JSON-LD) de la organización -- se inyectan en TODAS las
+# paginas via head() para que Google/IA puedan identificar quienes somos,
+# donde estamos y como contactarnos (AEO). No se declara una direccion fisica
+# propia porque la RCC no tiene sede unica -- opera a traves de los grupos de
+# oracion en distintas parroquias de la Diocesis de Paterson.
+ORG_JSONLD = f'''<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "ReligiousOrganization",
+  "name": "Renovación Carismática Católica - Diócesis de Paterson",
+  "alternateName": ["RCC Paterson NJ", "Centro Carismático Católico Digital de la Diócesis de Paterson"],
+  "url": "{SITE_URL}/",
+  "logo": "{SITE_URL}/assets/img/escudo-rcc-oficial.png",
+  "image": "{SITE_URL}/assets/img/escudo-rcc-oficial.png",
+  "email": "renovacion@rccpaterson.org",
+  "areaServed": {{
+    "@type": "AdministrativeArea",
+    "name": "Diócesis de Paterson, Nueva Jersey"
+  }},
+  "sameAs": [
+    "https://instagram.com/rccpatersonnj",
+    "https://facebook.com/rccpatersonnj",
+    "https://tiktok.com/@rccpatersonnj",
+    "https://youtube.com/@rccpatersonnj"
+  ]
+}}
+</script>'''
+
+def head(title, desc, root="", extra="", path="", og_image="", og_description=""):
     """path = ruta relativa desde la raiz del sitio para la URL canonica,
     ej. '' (home), 'eccads/', 'ministerios/intercesion.html'.
     og_image = ruta relativa a una imagen 1200x630 para redes sociales;
-    si se omite, usa la imagen genérica del sitio."""
+    si se omite, usa la imagen genérica del sitio.
+    og_description = texto para la vista previa al compartir el link (WhatsApp,
+    Telegram, Facebook, etc.) -- si se omite, usa el mismo texto que `desc`
+    (la meta description de SEO). Se agregó 2026-08 para poder tener un mensaje
+    de marca distinto al compartir el link sin afectar el snippet de Google."""
     r = root
     canonical = f"{SITE_URL}/{path}"
     image = f"{SITE_URL}/{og_image}" if og_image else f"{SITE_URL}/assets/img/og-image.jpg"
+    share_desc = og_description if og_description else desc
     return f'''<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+{GSC_VERIFICATION}
+{GA_SNIPPET}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title}</title>
 <meta name="description" content="{desc}">
@@ -94,14 +143,14 @@ def head(title, desc, root="", extra="", path="", og_image=""):
 <meta property="og:site_name" content="{SITE_NAME}">
 <meta property="og:url" content="{canonical}">
 <meta property="og:title" content="{title}">
-<meta property="og:description" content="{desc}">
+<meta property="og:description" content="{share_desc}">
 <meta property="og:image" content="{image}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="es_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{title}">
-<meta name="twitter:description" content="{desc}">
+<meta name="twitter:description" content="{share_desc}">
 <meta name="twitter:image" content="{image}">
 <link rel="icon" type="image/x-icon" href="{r}favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="{r}assets/img/favicon/favicon-32x32.png">
@@ -112,6 +161,7 @@ def head(title, desc, root="", extra="", path="", og_image=""):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{r}assets/css/style.css">
+{ORG_JSONLD}
 {extra}
 </head>
 <body>
