@@ -72,7 +72,7 @@ EVENT_JSONLD = f'''<script type="application/ld+json">
 
 html = head(
     "Encuentro Regional 2026 — Llamados a la Santidad | RCC Región 2",
-    "Encuentro Regional 2026 de la Renovación Carismática Católica Región 2, tema 'Llamados a la Santidad'. Sábado 26 de septiembre de 2026, 9:00 am–6:00 pm, Parroquia Our Lady of Libera, West New York, NJ. Donación $30 (incluye almuerzo).",
+    "Encuentro Regional 2026 de la RCC Región 2: 'Llamados a la Santidad'. Sábado 26 de septiembre, Our Lady of Libera, West New York, NJ. Info y detalles aquí.",
     root=R, path="eventos/encuentro-regional-2026.html",
     og_image="assets/img/eventos/encuentro-regional-2026-og.jpg",
     extra=EVENT_JSONLD
@@ -85,7 +85,7 @@ html = head(
     <p class="lema">Llamados a la Santidad</p>
     <p class="subtitle">Sábado 26 de septiembre de 2026 · 9:00 am – 6:00 pm · Parroquia Our Lady of Libera, West New York, NJ</p>
     <a class="hero-flyer gallery-item" href="{R}assets/img/eventos/encuentro-regional-2026-flyer.jpg">
-      <img src="{R}assets/img/eventos/encuentro-regional-2026-thumb.jpg" alt="Flyer oficial del Encuentro Regional 2026 — Llamados a la Santidad">
+      <img src="{R}assets/img/eventos/encuentro-regional-2026-thumb.jpg" alt="Flyer oficial del Encuentro Regional 2026 — Llamados a la Santidad" width="420" height="560">
     </a>
     <p class="hero-flyer-caption">Toca el flyer para verlo completo</p>
   </div>
@@ -215,6 +215,216 @@ html = head(
 ''' + TAIL
 
 filename = "eventos/encuentro-regional-2026.html"
+with open(filename, "w", encoding="utf-8") as f:
+    f.write(html)
+print(filename, len(html.encode("utf-8")), "bytes")
+
+# ---------- GRAN ASAMBLEA DIOCESANA — SEPTIEMBRE 2026 ----------
+
+ASAMBLEA_JSONLD = f'''<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Gran Asamblea Diocesana — Septiembre 2026",
+  "startDate": "2026-09-20T14:30:00-04:00",
+  "endDate": "2026-09-20T18:00:00-04:00",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {{
+    "@type": "Place",
+    "name": "Salón Principal de la Escuela Santa Teresita",
+    "address": {{
+      "@type": "PostalAddress",
+      "streetAddress": "765 14th Avenue",
+      "addressLocality": "Paterson",
+      "addressRegion": "NJ",
+      "postalCode": "07504",
+      "addressCountry": "US"
+    }}
+  }},
+  "image": ["{SITE_URL}/assets/img/eventos/gran-asamblea-sep-2026-og.jpg"],
+  "description": "Gran Asamblea Diocesana de la Renovación Carismática Católica de la Diócesis de Paterson. Domingo 20 de septiembre de 2026, 2:30 pm a 6:00 pm, en el Salón Principal de la Escuela Santa Teresita, Paterson, NJ. Predicación y Exposición del Santísimo: Diácono José Luis Abreu. Tema: 'Alma Sana, Corazón Libre'.",
+  "organizer": {{
+    "@type": "Organization",
+    "name": "Renovación Carismática Católica — Diócesis de Paterson",
+    "url": "{SITE_URL}"
+  }},
+  "performer": [
+    {{"@type": "Person", "name": "Diácono José Luis Abreu"}},
+    {{"@type": "Person", "name": "Marvin Núñez"}}
+  ]
+}}
+</script>
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {{"@type": "Question", "name": "¿Cuándo es la Gran Asamblea Diocesana de septiembre 2026?",
+      "acceptedAnswer": {{"@type": "Answer", "text": "El domingo 20 de septiembre de 2026, de 2:30 pm a 6:00 pm."}}}},
+    {{"@type": "Question", "name": "¿Dónde es la Gran Asamblea Diocesana de septiembre 2026?",
+      "acceptedAnswer": {{"@type": "Answer", "text": "En el Salón Principal de la Escuela Santa Teresita, 765 14th Avenue, Paterson, NJ 07504."}}}},
+    {{"@type": "Question", "name": "¿Quién predica en la Gran Asamblea de septiembre 2026?",
+      "acceptedAnswer": {{"@type": "Answer", "text": "El Diácono José Luis Abreu, quien dirigirá la predicación y la Exposición del Santísimo. En la música participa Marvin Núñez."}}}},
+    {{"@type": "Question", "name": "¿Cómo obtengo más información sobre la Gran Asamblea de septiembre 2026?",
+      "acceptedAnswer": {{"@type": "Answer", "text": "Puedes llamar al 862-271-4805."}}}}
+  ]
+}}
+</script>'''
+
+html = head(
+    "Gran Asamblea Diocesana — Septiembre 2026 | RCC Paterson NJ",
+    "Gran Asamblea Diocesana RCC Paterson: 'Alma Sana, Corazón Libre'. Domingo 20 sept., Escuela Santa Teresita, Paterson NJ. Predica Diácono José Luis Abreu.",
+    root=R, path="eventos/gran-asamblea-septiembre-2026.html",
+    og_image="assets/img/eventos/gran-asamblea-sep-2026-og.jpg",
+    extra=ASAMBLEA_JSONLD
+) + f'''
+<header class="hero-sub">
+  <div class="container">
+    <div class="breadcrumb"><a href="{R}index.html">Inicio</a> / <a href="{R}index.html#eventos">Eventos</a> / Gran Asamblea Diocesana</div>
+    <span class="hero-edition">Renovación Carismática Católica — Diócesis de Paterson</span>
+    <h1>Gran Asamblea Diocesana</h1>
+    <p class="lema">Alma Sana, Corazón Libre</p>
+    <p class="subtitle">Domingo 20 de septiembre de 2026 · 2:30 pm – 6:00 pm · Salón Principal, Escuela Santa Teresita, Paterson, NJ</p>
+    <a class="hero-flyer gallery-item" href="{R}assets/img/eventos/gran-asamblea-sep-2026-flyer.jpg">
+      <img src="{R}assets/img/eventos/gran-asamblea-sep-2026-thumb.jpg" alt="Flyer oficial de la Gran Asamblea Diocesana — Septiembre 2026" width="420" height="553">
+    </a>
+    <p class="hero-flyer-caption">Toca el flyer para verlo completo</p>
+  </div>
+</header>
+
+<section class="info-strip">
+  <div class="container">
+    <div class="info-item">
+      <div class="icon">📅</div>
+      <h3>Fecha</h3>
+      <p>Domingo 20 de septiembre de 2026</p>
+    </div>
+    <div class="info-item">
+      <div class="icon">🕑</div>
+      <h3>Horario</h3>
+      <p>2:30 pm – 6:00 pm</p>
+    </div>
+    <div class="info-item">
+      <div class="icon">📖</div>
+      <h3>Predicación</h3>
+      <p>Diácono José Luis Abreu</p>
+    </div>
+    <div class="info-item">
+      <div class="icon">🎵</div>
+      <h3>Música</h3>
+      <p>Marvin Núñez</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Sobre la asamblea</span>
+      <h2>Alma sana, corazón libre</h2>
+    </div>
+    <p style="max-width:760px;margin:0 auto 18px;">La <strong>Gran Asamblea Diocesana</strong> reúne a toda la Renovación Carismática Católica de la Diócesis de Paterson en un mismo lugar: un domingo de predicación, adoración y Exposición del Santísimo, bajo el tema <strong>"Alma Sana, Corazón Libre"</strong>. Se celebrará el <strong>domingo 20 de septiembre de 2026, de 2:30 pm a 6:00 pm</strong>, en el <strong>Salón Principal de la Escuela Santa Teresita</strong>, en Paterson, NJ.</p>
+    <p style="max-width:760px;margin:0 auto;font-style:italic;">"Entren, inclinémonos para adorar; doblemos la rodilla ante el Señor que nos creó." — Salmo 95,6</p>
+  </div>
+</section>
+
+<section class="bg-navy">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Quiénes nos acompañan</span>
+      <h2>Predicación y música</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card"><h4>Diácono José Luis Abreu</h4><p class="role">Predicación y Exposición del Santísimo</p></div>
+      <div class="team-card"><h4>Marvin Núñez</h4><p class="role">En la Música</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Ubicación</span>
+      <h2>Cómo llegar</h2>
+    </div>
+    <div class="location-card">
+      <svg class="pin-icon-lg" viewBox="0 0 24 24"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.4 6.9 11.1 7.2 11.4a1.2 1.2 0 0 0 1.6 0C13.1 21.1 20 15.4 20 10c0-4.4-3.6-8-8-8zm0 10.8A2.8 2.8 0 1 1 12 7.2a2.8 2.8 0 0 1 0 5.6z"/></svg>
+      <h3>Escuela Santa Teresita — Salón Principal</h3>
+      <p class="address">765 14th Avenue<br>Paterson, NJ 07504</p>
+      <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=765+14th+Avenue%2C+Paterson%2C+NJ+07504" target="_blank" rel="noopener">Ver en Google Maps →</a>
+    </div>
+  </div>
+</section>
+
+<section class="bg-navy">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Contacto e información</span>
+      <h2>¿Tienes preguntas?</h2>
+    </div>
+    <div class="team-grid" style="max-width:340px;margin:0 auto;">
+      <div class="team-card"><h4>Información</h4><a class="phone" href="https://wa.me/18622714805" target="_blank" rel="noopener">{PHONE_ICON} 862-271-4805</a></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Otros formatos del flyer</span>
+      <h2>Descarga la versión que prefieras</h2>
+    </div>
+    <div class="download-grid">
+      <a class="download-card" href="{R}assets/img/eventos/gran-asamblea-sep-2026-alt.jpg" download>
+        <img src="{R}assets/img/eventos/gran-asamblea-sep-2026-alt-thumb.jpg" alt="Flyer alterno vertical — Gran Asamblea Diocesana Septiembre 2026" width="260" height="428">
+        <h4>Versión vertical alterna</h4>
+        <p>Descargar imagen</p>
+      </a>
+      <a class="download-card" href="{R}assets/img/eventos/gran-asamblea-sep-2026-banner.jpg" download>
+        <img src="{R}assets/img/eventos/gran-asamblea-sep-2026-banner-thumb.jpg" alt="Flyer horizontal — Gran Asamblea Diocesana Septiembre 2026" width="300" height="168">
+        <h4>Versión horizontal (banner)</h4>
+        <p>Descargar imagen</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="bg-navy">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2>Todo lo que debes saber</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>¿Cuándo es la Gran Asamblea Diocesana de septiembre 2026?</h3>
+        <p>El domingo 20 de septiembre de 2026, de 2:30 pm a 6:00 pm.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Dónde es?</h3>
+        <p>En el Salón Principal de la Escuela Santa Teresita, 765 14th Avenue, Paterson, NJ 07504.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Quién predica?</h3>
+        <p>El Diácono José Luis Abreu, quien dirigirá la predicación y la Exposición del Santísimo. En la música participa Marvin Núñez.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Cómo obtengo más información?</h3>
+        <p>Puedes llamar al 862-271-4805.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-navy" style="text-align:center;padding-top:50px;padding-bottom:60px;">
+  <a class="btn btn-outline" href="{R}index.html#eventos">&larr; Volver a la agenda de eventos</a>
+</section>
+''' + footer(root=R) + f'''
+<script src="{R}assets/js/lightbox.js"></script>
+''' + TAIL
+
+filename = "eventos/gran-asamblea-septiembre-2026.html"
 with open(filename, "w", encoding="utf-8") as f:
     f.write(html)
 print(filename, len(html.encode("utf-8")), "bytes")
