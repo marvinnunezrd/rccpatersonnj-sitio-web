@@ -148,11 +148,11 @@ html = head(
       <span class="eyebrow">Ubicación</span>
       <h2>Cómo llegar</h2>
     </div>
-    <div style="max-width:520px;margin:0 auto;text-align:center;">
-      <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=5808+John+F+Kennedy+Blvd%2C+West+New+York%2C+NJ+07093" target="_blank" rel="noopener" aria-label="Abrir ubicación en el mapa">
-        <span class="map-venue"><svg class="pin-icon" viewBox="0 0 24 24"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.4 6.9 11.1 7.2 11.4a1.2 1.2 0 0 0 1.6 0C13.1 21.1 20 15.4 20 10c0-4.4-3.6-8-8-8zm0 10.8A2.8 2.8 0 1 1 12 7.2a2.8 2.8 0 0 1 0 5.6z"/></svg>Parroquia Our Lady of Libera</span>
-        <span class="map-address">5808 John F Kennedy Blvd, West New York, NJ 07093 <svg class="go-icon" viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.4l-9.3 9.3-1.4-1.4L17.6 5H14V3zM5 5h6v2H5v12h12v-6h2v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg></span>
-      </a>
+    <div class="location-card">
+      <svg class="pin-icon-lg" viewBox="0 0 24 24"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.4 6.9 11.1 7.2 11.4a1.2 1.2 0 0 0 1.6 0C13.1 21.1 20 15.4 20 10c0-4.4-3.6-8-8-8zm0 10.8A2.8 2.8 0 1 1 12 7.2a2.8 2.8 0 0 1 0 5.6z"/></svg>
+      <h3>Parroquia Our Lady of Libera</h3>
+      <p class="address">5808 John F Kennedy Blvd<br>West New York, NJ 07093</p>
+      <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=5808+John+F+Kennedy+Blvd%2C+West+New+York%2C+NJ+07093" target="_blank" rel="noopener">Ver en Google Maps →</a>
     </div>
   </div>
 </section>
