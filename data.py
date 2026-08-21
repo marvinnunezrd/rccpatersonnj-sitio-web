@@ -36,7 +36,7 @@ GRUPOS_ORACION = [
     {"dia": "Martes", "horario": "7:00 pm – 9:30 pm", "grupo": "Our Lady of Lourdes", "parroquia": "Our Lady of Lourdes, Paterson",
      "direccion": "440 River St, Paterson, NJ 07524", "coordinador": "Rosy Taveras", "telefono": "(973) 849-5180", "zona": "Zona B"},
     {"dia": "Martes", "horario": "7:00 pm – 9:30 pm", "grupo": "\"Luz de María\"", "parroquia": "St. Mary Assumption, Passaic",
-     "direccion": "181 Market St, Passaic, NJ 07055", "coordinador": "Cruxista Reyes", "telefono": "(703) 839-6044", "zona": "Zona C"},
+     "direccion": "181 Market St, Passaic, NJ 07055", "coordinador": "Crecita Reyes", "telefono": "(973) 653-7911", "zona": "Zona C"},
     {"dia": "Martes", "horario": "7:00 pm – 9:30 pm", "grupo": "\"Ríos de Agua Viva\"", "parroquia": "St. Brendan, Clifton",
      "direccion": "154 East First St, Clifton, NJ 07011", "coordinador": "María García", "telefono": "(973) 930-8429", "zona": "Zona C"},
     {"dia": "Martes", "horario": "7:00 pm – 9:30 pm", "grupo": "\"Vive Jesús: El Amor\"", "parroquia": "St. Paul, Clifton",
