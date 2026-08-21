@@ -18,11 +18,8 @@ h1,h2,h3{font-family:var(--font-title);margin:0 0 .5em 0;letter-spacing:.02em;}
 .btn-outline{background:transparent;color:var(--gold-light);border:1.5px solid var(--gold);}
 .btn-outline:hover{background:rgba(217,161,46,.12);}
 
-/* preview banner */
-.preview-banner{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--red);color:var(--ivory);text-align:center;font-size:.78rem;letter-spacing:.05em;padding:8px 16px;font-weight:700;text-transform:uppercase;box-shadow:0 2px 10px rgba(0,0,0,.25);}
-
 /* nav */
-.site-nav{position:sticky;top:32px;z-index:900;background:rgba(5,27,50,.95);backdrop-filter:blur(6px);border-bottom:1px solid rgba(217,161,46,.25);}
+.site-nav{position:sticky;top:0;z-index:900;background:rgba(5,27,50,.95);backdrop-filter:blur(6px);border-bottom:1px solid rgba(217,161,46,.25);}
 .site-nav .container{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;}
 .nav-brand{display:flex;align-items:center;gap:12px;color:var(--ivory);font-family:var(--font-title);font-size:1rem;}
 .nav-brand img{width:34px;height:34px;}
