@@ -158,9 +158,7 @@ def head(title, desc, root="", extra="", path="", og_image="", og_description=""
 <link rel="icon" type="image/png" sizes="16x16" href="{r}assets/img/favicon/favicon-16x16.png">
 <link rel="apple-touch-icon" href="{r}apple-touch-icon.png">
 <link rel="manifest" href="{r}site.webmanifest">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{r}assets/css/fonts.css">
 <link rel="stylesheet" href="{r}assets/css/style.css">
 {ORG_JSONLD}
 {extra}
