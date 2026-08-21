@@ -51,7 +51,7 @@ def nav(root=""):
       <a href="{r}index.html#grupos-oracion">Grupos de Oración</a>
       <a href="{r}ministerios/escuela-formacion-lideres.html">Escuela de Líderes</a>
       <a href="{r}index.html#eventos">Eventos</a>
-      <a href="{r}index.html#preguntas-frecuentes">Preguntas Frecuentes</a>
+      <a href="{r}index.html#preguntas-frecuentes">Preguntas</a>
       <a href="{r}index.html#contacto">Contacto</a>
     </div>
   </div>
