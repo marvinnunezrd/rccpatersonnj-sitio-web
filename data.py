@@ -8,7 +8,7 @@ COMITE = [
     ("Alis Amparo", "Tesorero", "St. John the Baptist, Paterson"),
     ("Juana De Jesús", "Directora Escuela de Formación de Líderes (EFL)", "St. Therese de Lisieux, Paterson"),
     ("Marvin Núñez", "Director de Ministerios de Música y Comunicación/Publicidad", "St. Anthony of Padua, Passaic"),
-    ("Marizabel Pérez", "Coordinadora Ministerio de Intercesión", None),
+    ("Marizabel Pérez", "Coordinadora Ministerio de Intercesión", "St. Anthony of Padua, Passaic"),
 ]
 
 ZONA_COORDINADORES = [
@@ -36,7 +36,7 @@ GRUPOS_ORACION = [
     {"dia": "Martes", "horario": "7:00 pm – 9:30 pm", "grupo": "Our Lady of Lourdes", "parroquia": "Our Lady of Lourdes, Paterson",
      "direccion": "440 River St, Paterson, NJ 07524", "coordinador": "Rosy Taveras", "telefono": "(973) 849-5180", "zona": "Zona B"},
     {"dia": "Martes", "horario": "7:00 pm – 9:30 pm", "grupo": "\"Luz de María\"", "parroquia": "St. Mary Assumption, Passaic",
-     "direccion": "181 Market St, Passaic, NJ 07055", "coordinador": "Cruxista Reyes / Carlos César Martínez (Gómez)", "telefono": "(703) 839-6044 / (973) 653-7911", "zona": "Zona C"},
+     "direccion": "181 Market St, Passaic, NJ 07055", "coordinador": "Cruxista Reyes", "telefono": "(703) 839-6044", "zona": "Zona C"},
     {"dia": "Martes", "horario": "7:00 pm – 9:30 pm", "grupo": "\"Ríos de Agua Viva\"", "parroquia": "St. Brendan, Clifton",
      "direccion": "154 East First St, Clifton, NJ 07011", "coordinador": "María García", "telefono": "(973) 930-8429", "zona": "Zona C"},
     {"dia": "Martes", "horario": "7:00 pm – 9:30 pm", "grupo": "\"Vive Jesús: El Amor\"", "parroquia": "St. Paul, Clifton",
@@ -65,9 +65,9 @@ GRUPOS_ORACION = [
 ]
 
 AGENDA = [
-  ("20","SEP","2026","Gran Asamblea Diocesana – Septiembre 2026","2:30 pm – 6:00 pm","Salón Principal de la Escuela Santa Teresita, 765 14th Ave, Paterson, NJ 07504","Predicación: Diácono José Luis Abreu · Música: Marvin Núñez"),
+  ("20","SEP","2026","Gran Asamblea Diocesana – Septiembre 2026","2:30 pm – 6:00 pm","Salón Principal de la Escuela Santa Teresita, 765 14th Ave, Paterson, NJ 07504","Predicación: Diácono José Luis Abreu · Música: Marvin Núñez","eventos/gran-asamblea-septiembre-2026.html"),
   ("26","SEP","2026","Encuentro Regional 2026 — Llamados a la Santidad","9:00 am – 6:00 pm","Parroquia Our Lady of Libera, 5808 John F Kennedy Blvd, West New York, NJ 07093","Predican Su Excelencia Pedro Bismarck Chau (Obispo Auxiliar de Newark) y Mons. Joseph Malagreca · Donación: $30 (incluye almuerzo)","eventos/encuentro-regional-2026.html"),
-  ("24–25","OCT","2026","Retiro de Sanación y Liberación","Sáb. 9:00 am–5:00 pm","Ubicación por confirmar","Predicación: Osvaldo Fernández, P. Starli Castaños (sáb.) y P. Yasid Salas (dom.)"),
+  ("24–25","OCT","2026","Gran Congreso de Sanación y Liberación","Sáb. 9:00 am – 5:00 pm · Dom. 2:30 pm – 6:00 pm","Ubicación por confirmar","Predicación: Osvaldo Fernández, P. Starli Castaños (sáb.) y P. Yasid Salas (dom.)"),
   ("15","NOV","2026","Gran Asamblea Diocesana – Noviembre 2026","2:30 pm – 6:00 pm","Salón Principal de la Escuela Santa Teresita, 765 14th Ave, Paterson, NJ 07504","Predicación: María Batista"),
   ("20","DIC","2026","Gran Asamblea Diocesana – Diciembre 2026","2:30 pm – 6:00 pm","Salón Principal de la Escuela Santa Teresita, 765 14th Ave, Paterson, NJ 07504",""),
 ]
