@@ -1,7 +1,7 @@
 # Datos institucionales reales (Base_de_Datos_RCC_Paterson.xlsx, calendario Google, guias pastorales)
 
 COMITE = [
-    ("Rev. Yasid Salas", "Director / Director Espiritual", "St. Therese de Lisieux, Paterson"),
+    ("Rev. Yasid Salas", "Director Espiritual", "St. Therese de Lisieux, Paterson"),
     ("Teresa Amparo", "Coordinadora General Diocesana", "St. Paul, Clifton"),
     ("Librada Rosario", "Sub-Coordinadora Diocesana", "Our Lady of Lourdes, Paterson"),
     ("Dariberkis Taveras-Beato", "Secretaria Diocesana", "St. Stephen, Paterson"),
