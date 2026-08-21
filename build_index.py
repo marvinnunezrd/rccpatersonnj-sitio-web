@@ -6,7 +6,7 @@ from data import COMITE, ZONA_COORDINADORES, GRUPOS_ORACION, AGENDA, MINISTERIOS
 PHONE_ICON = SOCIAL_ICONS['phone']
 
 IMG = {
-  "escudo_rcc": "assets/img/escudo-rcc-oficial.png",
+  "escudo_rcc": "assets/img/escudo-rcc-oficial.webp",
   "escudo_efl": "assets/img/escudo-efl.png",
   "m_intercesion": "assets/img/ministerios/intercesion.png",
   "m_hombres": "assets/img/ministerios/hombres-alabanza.png",
@@ -14,12 +14,12 @@ IMG = {
   "m_comunicacion": "assets/img/ministerios/comunicacion.png",
   "m_musica": "assets/img/ministerios/musica.png",
   "m_youth": "assets/img/ministerios/youth.png",
-  "m_sve": "assets/img/ministerios/sve.png",
+  "m_sve": "assets/img/ministerios/sve.webp",
   "eccads_mini": "assets/img/eccads-mini.png",
-  "featured": "assets/img/featured-comite-obispo.jpg",
+  "featured": "assets/img/featured-comite-obispo.webp",
 }
 
-CAROUSEL_FILES = [f"assets/img/carousel/slide-{i:02d}.jpg" for i in range(11)]
+CAROUSEL_FILES = [f"assets/img/carousel/slide-{i:02d}.webp" for i in range(11)]
 carousel_slides = "\n".join(
     f'<div class="hero-bg-slide{" is-active" if i == 0 else ""}" style="background-image:url({f})"></div>'
     for i, f in enumerate(CAROUSEL_FILES)

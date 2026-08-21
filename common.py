@@ -22,7 +22,7 @@ def nav(root=""):
     return f'''<nav class="site-nav">
   <div class="container">
     <a class="nav-brand" href="{r}index.html">
-      <img src="{r}assets/img/escudo-rcc-oficial.png" alt="RCC Paterson NJ" width="700" height="700">
+      <img src="{r}assets/img/escudo-rcc-oficial.webp" alt="RCC Paterson NJ" width="700" height="700">
       RCC Paterson NJ
     </a>
     <button class="nav-toggle" aria-label="Abrir menú" onclick="document.querySelector('.nav-links').classList.toggle('is-open')">☰</button>
@@ -60,7 +60,7 @@ def nav(root=""):
 def footer(root=""):
     r = root
     return f'''<footer class="site-footer" id="contacto">
-  <img class="footer-logo" src="{r}assets/img/escudo-rcc-oficial.png" alt="Logo RCC Paterson NJ" width="700" height="700">
+  <img class="footer-logo" src="{r}assets/img/escudo-rcc-oficial.webp" alt="Logo RCC Paterson NJ" width="700" height="700">
   {social_row()}
   <p class="footer-org">Renovación Carismática Católica &middot; Diócesis de Paterson</p>
   <p class="footer-email">
@@ -101,8 +101,8 @@ ORG_JSONLD = f'''<script type="application/ld+json">
   "name": "Renovación Carismática Católica - Diócesis de Paterson",
   "alternateName": ["RCC Paterson NJ", "Centro Carismático Católico Digital de la Diócesis de Paterson"],
   "url": "{SITE_URL}/",
-  "logo": "{SITE_URL}/assets/img/escudo-rcc-oficial.png",
-  "image": "{SITE_URL}/assets/img/escudo-rcc-oficial.png",
+  "logo": "{SITE_URL}/assets/img/escudo-rcc-oficial.webp",
+  "image": "{SITE_URL}/assets/img/escudo-rcc-oficial.webp",
   "email": "renovacion@rccpaterson.org",
   "areaServed": {{
     "@type": "AdministrativeArea",

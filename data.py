@@ -60,7 +60,7 @@ GRUPOS_ORACION = [
 
     {"dia": "Viernes", "horario": "7:00 pm – 9:30 pm", "grupo": "\"Verdad y Vida\"", "parroquia": "Our Lady of Fatima & St. Nicholas, Passaic",
      "direccion": "153 Washington Pl, Passaic, NJ 07055", "coordinador": "Susano José (Joseito)", "telefono": "(862) 571-7598", "zona": "Zona C"},
-    {"dia": "Viernes", "horario": "7:00 pm – 9:30 pm", "grupo": "\"Luz y Sal del Mundo\"", "parroquia": "St. Margaret of Scotland, Morristown",
+    {"dia": "Viernes", "horario": "7:00 pm – 9:30 pm", "grupo": "\"Sal y Luz del Mundo\"", "parroquia": "St. Margaret of Scotland, Morristown",
      "direccion": "6 Sussex Ave, Morristown, NJ 07960", "coordinador": "Daniel Cornejo", "telefono": "(202) 286-0759", "zona": "Zona D"},
 ]
 

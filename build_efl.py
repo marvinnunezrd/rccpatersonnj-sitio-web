@@ -14,7 +14,7 @@ html = head(
 <header class="hero-sub">
   <div class="container">
     <div class="breadcrumb"><a href="{R}index.html">Inicio</a> / <a href="{R}index.html#ministerios">Ministerios</a> / Escuela de Formación de Líderes</div>
-    <img class="hero-shield-sm" src="{R}assets/img/escudo-efl.png" alt="Logo Escuela de Formación de Líderes">
+    <img class="hero-shield-sm" src="{R}assets/img/escudo-efl.png" alt="Logo Escuela de Formación de Líderes" width="560" height="560">
     <h1>Escuela de Formación de Líderes</h1>
     <p class="subtitle">Formando servidores que lideran desde el servicio, como Jesús.</p>
   </div>
@@ -28,7 +28,7 @@ html = head(
       <p>Módulo 3: Seminario de Vida en el Espíritu — en comunión con el Comité Nacional de Servicio Hispano (CNSH).</p>
     </div>
     <div class="flyer-block">
-      <img src="{R}assets/img/modulo-3-flyer.jpg" alt="Flyer Módulo 3: Seminario de Vida en el Espíritu — Talleres de Formación Nacional, RCC Paterson NJ">
+      <img src="{R}assets/img/modulo-3-flyer.webp" alt="Flyer Módulo 3: Seminario de Vida en el Espíritu — Talleres de Formación Nacional, RCC Paterson NJ" width="853" height="1280">
       <div class="flyer-details">
         <h3>Módulo 3 — Seminario de Vida en el Espíritu</h3>
         <p class="detail-line"><strong>Coordina</strong> Enrique Méndez, Coordinador de la Formación Nacional de la RCC de EE.UU. y Canadá</p>

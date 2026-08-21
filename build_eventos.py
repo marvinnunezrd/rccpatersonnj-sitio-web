@@ -84,8 +84,8 @@ html = head(
     <h1>Encuentro Regional 2026</h1>
     <p class="lema">Llamados a la Santidad</p>
     <p class="subtitle">Sábado 26 de septiembre de 2026 · 9:00 am – 6:00 pm · Parroquia Our Lady of Libera, West New York, NJ</p>
-    <a class="hero-flyer gallery-item" href="{R}assets/img/eventos/encuentro-regional-2026-flyer.jpg">
-      <img src="{R}assets/img/eventos/encuentro-regional-2026-thumb.jpg" alt="Flyer oficial del Encuentro Regional 2026 — Llamados a la Santidad" width="420" height="560">
+    <a class="hero-flyer gallery-item" href="{R}assets/img/eventos/encuentro-regional-2026-flyer.webp">
+      <img src="{R}assets/img/eventos/encuentro-regional-2026-thumb.webp" alt="Flyer oficial del Encuentro Regional 2026 — Llamados a la Santidad" width="420" height="560">
     </a>
     <p class="hero-flyer-caption">Toca el flyer para verlo completo</p>
   </div>
@@ -286,8 +286,8 @@ html = head(
     <h1>Gran Asamblea Diocesana</h1>
     <p class="lema">Alma Sana, Corazón Libre</p>
     <p class="subtitle">Domingo 20 de septiembre de 2026 · 2:30 pm – 6:00 pm · Salón Principal, Escuela Santa Teresita, Paterson, NJ</p>
-    <a class="hero-flyer gallery-item" href="{R}assets/img/eventos/gran-asamblea-sep-2026-flyer.jpg">
-      <img src="{R}assets/img/eventos/gran-asamblea-sep-2026-thumb.jpg" alt="Flyer oficial de la Gran Asamblea Diocesana — Septiembre 2026" width="420" height="553">
+    <a class="hero-flyer gallery-item" href="{R}assets/img/eventos/gran-asamblea-sep-2026-flyer.webp">
+      <img src="{R}assets/img/eventos/gran-asamblea-sep-2026-thumb.webp" alt="Flyer oficial de la Gran Asamblea Diocesana — Septiembre 2026" width="420" height="553">
     </a>
     <p class="hero-flyer-caption">Toca el flyer para verlo completo</p>
   </div>
@@ -376,13 +376,13 @@ html = head(
       <h2>Descarga la versión que prefieras</h2>
     </div>
     <div class="download-grid">
-      <a class="download-card" href="{R}assets/img/eventos/gran-asamblea-sep-2026-alt.jpg" download>
-        <img src="{R}assets/img/eventos/gran-asamblea-sep-2026-alt-thumb.jpg" alt="Flyer alterno vertical — Gran Asamblea Diocesana Septiembre 2026" width="260" height="428">
+      <a class="download-card" href="{R}assets/img/eventos/gran-asamblea-sep-2026-alt.webp" download>
+        <img src="{R}assets/img/eventos/gran-asamblea-sep-2026-alt-thumb.webp" alt="Flyer alterno vertical — Gran Asamblea Diocesana Septiembre 2026" width="260" height="428">
         <h4>Versión vertical alterna</h4>
         <p>Descargar imagen</p>
       </a>
-      <a class="download-card" href="{R}assets/img/eventos/gran-asamblea-sep-2026-banner.jpg" download>
-        <img src="{R}assets/img/eventos/gran-asamblea-sep-2026-banner-thumb.jpg" alt="Flyer horizontal — Gran Asamblea Diocesana Septiembre 2026" width="300" height="168">
+      <a class="download-card" href="{R}assets/img/eventos/gran-asamblea-sep-2026-banner.webp" download>
+        <img src="{R}assets/img/eventos/gran-asamblea-sep-2026-banner-thumb.webp" alt="Flyer horizontal — Gran Asamblea Diocesana Septiembre 2026" width="300" height="168">
         <h4>Versión horizontal (banner)</h4>
         <p>Descargar imagen</p>
       </a>
