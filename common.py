@@ -72,6 +72,7 @@ def footer(root=""):
 <script src="{r}assets/js/site.js"></script>'''
 
 SITE_URL = "https://rccpatersonnj.com"
+SITE_NAME = "RCC Paterson NJ"
 
 def head(title, desc, root="", extra="", path="", og_image=""):
     """path = ruta relativa desde la raiz del sitio para la URL canonica,
@@ -90,6 +91,7 @@ def head(title, desc, root="", extra="", path="", og_image=""):
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{canonical}">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="{SITE_NAME}">
 <meta property="og:url" content="{canonical}">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
