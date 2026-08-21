@@ -441,6 +441,16 @@ footer.site-footer .fine-print{margin-top:22px;padding-top:18px;border-top:1px s
 .bg-navy .location-card .address{color:#555;}
 .bg-navy .location-card .pin-icon-lg{fill:var(--wine);}
 
+.download-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:600px;margin:0 auto;align-items:start;}
+.download-card{display:block;background:var(--navy);border:1px solid var(--gold);border-radius:12px;padding:18px;text-align:center;box-shadow:0 10px 24px rgba(8,43,76,.18);text-decoration:none;transition:transform .15s ease;}
+.download-card:hover{transform:translateY(-3px);}
+.download-card img{width:100%;height:auto;border-radius:6px;margin-bottom:14px;border:1px solid rgba(217,161,46,.3);display:block;}
+.download-card h4{font-size:.88rem;color:var(--white);margin:0 0 4px;font-family:var(--font-body);font-weight:700;}
+.download-card p{font-size:.72rem;color:var(--gold-light);margin:0;text-transform:uppercase;letter-spacing:.08em;font-weight:700;}
+.bg-navy .download-card{background:var(--white);border-color:rgba(8,43,76,.1);}
+.bg-navy .download-card h4{color:var(--navy);}
+.bg-navy .download-card p{color:var(--wine);}
+
 .faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:16px;}
 .faq-item{background:var(--navy);border:1px solid var(--gold);border-radius:10px;padding:22px 26px;box-shadow:0 8px 20px rgba(8,43,76,.15);}
 .faq-item h3{font-family:var(--font-title);font-size:1.02rem;color:var(--gold-light);margin:0 0 8px;}
