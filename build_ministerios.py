@@ -80,10 +80,10 @@ page(
 page(
   "ministerios/mujeres-alabanza.html",
   "Mujeres de Alabanza — RCC Paterson NJ",
-  "Ministerio Mujeres de Alabanza de la Renovación Carismática Católica de la Diócesis de Paterson.",
+  "Mujeres de Alabanza: Ministerio Diocesano de Acompañamiento Espiritual para la mujer, de la Renovación Carismática Católica de la Diócesis de Paterson.",
   "escudo-mujeres-alabanza.png",
   "Mujeres de Alabanza",
-  "Mujeres consagradas a la adoración, inspiradas en María.",
+  "Ministerio Diocesano de Acompañamiento Espiritual para la mujer.",
   f'''
 <section>
   <div class="container">
@@ -93,10 +93,10 @@ page(
       </div>
       <div class="min-content" style="max-width:none;">
         <span class="eyebrow">Identidad y Misión</span>
-        <h2 style="color:var(--navy);">Inspiradas en la primera adoradora</h2>
-        <p>Las Mujeres de Alabanza son un grupo de mujeres consagradas al servicio de la adoración dentro de la RCC de la Diócesis de Paterson. Su misión es glorificar a Dios con sus voces y dones, abriendo los corazones de la comunidad a la presencia del Espíritu Santo mediante el canto y la alabanza.</p>
-        <p>Se inspiran en María como &ldquo;la primera adoradora del Nuevo Testamento&rdquo;, en cuatro momentos marianos como modelo: la Anunciación (el &ldquo;sí&rdquo; de fe, Lc 1:38), el Magníficat (alabanza profética, Lc 1:46-55), Caná (intercesión sencilla, Jn 2:3-5) y Pentecostés (perseverancia en oración, Hch 1:14).</p>
-        <p>Fundamento bíblico adicional: Salmo 68:26 y Éxodo 15:20-21 (Miriam guiando al pueblo con el pandero), Efesios 5:19, Colosenses 3:16. Buscan ser adoradoras genuinas, mujeres de la Palabra, humildes, obedientes al liderazgo y de testimonio de vida coherente — creen que &ldquo;la mujer que alaba levanta su casa&rdquo;.</p>
+        <h2 style="color:var(--navy);">Aquí no estás sola</h2>
+        <p>Mujeres de Alabanza nace como un ministerio diocesano al servicio de la mujer dentro de la Renovación Carismática Católica de la Diócesis de Paterson. Es un espacio de escucha, oración y acompañamiento espiritual para mujeres que hoy atraviesan momentos de dolor, angustia, tristeza o confusión — un lugar para saber que no están solas, que Dios conoce su corazón y ve sus lágrimas.</p>
+        <p>A través del acompañamiento espiritual, este ministerio ayuda a cada mujer a abrir su corazón a la acción del Espíritu Santo, para que descubra que, aún en medio de la dificultad, Dios sigue obrando en su vida. El Señor desea levantarla, devolverle la paz y fortalecerla con su amor.</p>
+        <p>Como María, Madre que permanece junto a sus hijos en el dolor y en la esperanza, las Mujeres de Alabanza acompañan con un corazón disponible y confiado en Dios. Este ministerio nace de la misma inspiración que dio origen a Hombres de Alabanza — un llamado discernido en oración dentro del Equipo Diocesano.</p>
       </div>
     </div>
   </div>
@@ -104,7 +104,17 @@ page(
 
 <section class="bg-navy">
   <div class="container">
-    <div class="pull-quote" style="background:rgba(255,255,255,.05);border-left-color:var(--gold);">
+    <div class="section-title">
+      <span class="eyebrow">Nuestro Compromiso</span>
+      <h2>Acompañar con amor, fe y discreción</h2>
+      <p>Si necesitas apoyo, oración o simplemente alguien que te escuche, no dudes en comunicarte. Estamos aquí para acompañarte con amor, fe y discreción.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card"><div class="vnum">I</div><h4>Amor</h4><p>Acompañamos sin juzgar, con un corazón disponible para escuchar.</p></div>
+      <div class="value-card"><div class="vnum">II</div><h4>Fe</h4><p>Ponemos los ojos en Jesucristo como camino de esperanza.</p></div>
+      <div class="value-card"><div class="vnum">III</div><h4>Discreción</h4><p>Escuchamos con respeto y confidencialidad, en confianza.</p></div>
+    </div>
+    <div class="pull-quote" style="background:rgba(255,255,255,.05);border-left-color:var(--gold);margin-top:50px;">
       <p style="color:var(--gold-light);">&ldquo;Si hoy estás atravesando momentos de dolor, angustia, tristeza o confusión, no estás sola. Dios conoce tu corazón y ve tus lágrimas... Como María, Madre que permanece junto a sus hijos en el dolor y en la esperanza, queremos acompañarte con un corazón disponible y confiado en Dios.&rdquo;</p>
       <cite style="color:rgba(255,243,214,.6);">— Carta Pastoral, Mujeres de Alabanza · RCC Paterson NJ</cite>
     </div>
