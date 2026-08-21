@@ -8,7 +8,8 @@ PHONE_ICON = SOCIAL_ICONS['phone']
 html = head(
   "Escuela de Formación de Líderes — RCC Paterson NJ",
   "Escuela de Formación de Líderes (EFL) de la Renovación Carismática Católica de la Diócesis de Paterson. Inscripciones abiertas al Módulo 3.",
-  root=R
+  root=R,
+  path="ministerios/escuela-formacion-lideres.html"
 ) + f'''
 <header class="hero-sub">
   <div class="container">

@@ -6,7 +6,7 @@ R = "../"
 PHONE_ICON = SOCIAL_ICONS['phone']
 
 def page(filename, title, desc, escudo, breadcrumb_name, subtitle, content_html):
-    html = head(title, desc, root=R) + f'''
+    html = head(title, desc, root=R, path=filename) + f'''
 <header class="hero-sub">
   <div class="container">
     <div class="breadcrumb"><a href="{R}index.html">Inicio</a> / <a href="{R}index.html#ministerios">Ministerios</a> / {breadcrumb_name}</div>
@@ -25,20 +25,20 @@ def page(filename, title, desc, escudo, breadcrumb_name, subtitle, content_html)
 page(
   "ministerios/hombres-alabanza.html",
   "Hombres de Alabanza — RCC Paterson NJ",
-  "Ministerio Hombres de Alabanza de la Renovación Carismática Católica de la Diócesis de Paterson.",
+  "Hombres de Alabanza: Ministerio Diocesano de Acompañamiento Espiritual para el hombre, de la Renovación Carismática Católica de la Diócesis de Paterson.",
   "escudo-hombres-alabanza.png",
   "Hombres de Alabanza",
-  "Varones de oración, de la Palabra y de carácter, al servicio de la adoración.",
+  "Ministerio Diocesano de Acompañamiento Espiritual para el hombre.",
   f'''
 <section>
   <div class="container">
     <div class="split-content">
       <div class="min-content" style="max-width:none;">
         <span class="eyebrow">Identidad y Misión</span>
-        <h2 style="color:var(--navy);">Adoradores antes que músicos</h2>
-        <p>Los Hombres de Alabanza son un grupo de varones al servicio de la adoración y la alabanza dentro de la RCC de la Diócesis de Paterson. Su llamado es glorificar a Dios con sus voces e instrumentos, conduciendo a la comunidad a un encuentro auténtico con el Señor a través del canto.</p>
-        <p>Se definen a sí mismos no como músicos sino como adoradores: su servicio es un acto de entrega, no de exhibición. Antes que talento musical, exigen carácter — hombres de oración, de la Palabra, de carácter íntegro, de comunidad y de equipo. Sirven bajo la autoridad del animador del grupo de oración y preparan el ambiente espiritual antes de la predicación.</p>
-        <p>Fundamento bíblico: Salmo 98:1 (&ldquo;Canten al Señor un cántico nuevo&rdquo;), Salmo 150, Efesios 5:18-19, Colosenses 3:16 y 1 Crónicas 15:16. El Catecismo (CIC 1156) enseña que &ldquo;el canto y la música son señales del gozo del corazón&rdquo;. Creen que el hombre que alaba transforma también su hogar y su entorno cotidiano — la alabanza es estilo de vida, no solo servicio dominical.</p>
+        <h2 style="color:var(--navy);">Un espacio de encuentro y acompañamiento para el hombre</h2>
+        <p>Hombres de Alabanza nace como un ministerio diocesano al servicio del hombre dentro de la Renovación Carismática Católica de la Diócesis de Paterson. Es un espacio de encuentro, fraternidad y acompañamiento espiritual para hombres que desean fortalecer su relación con Dios, crecer en su fe y asumir con valentía su llamado como hijos de Dios, esposos, padres y servidores dentro de la Iglesia y la sociedad.</p>
+        <p>Este ministerio busca fortalecer al hombre a través de la oración, la alabanza y la acción del Espíritu Santo, ayudándolo a descubrir su identidad en Cristo y a caminar hacia una vida espiritual más plena. Aquí los hombres son llamados a levantarse con fe, a vivir con integridad, a cuidar de sus familias y a ser testimonio vivo del amor de Dios en sus hogares, comunidades y en la Iglesia.</p>
+        <p>Este llamado nació discernido en oración durante una reunión del Equipo Diocesano, inspirado en hombres de fe como Abraham, Moisés, Josué y San José. Con el tiempo, esta misma inspiración dio origen también a Mujeres de Alabanza y, después, a Jóvenes de Alabanza.</p>
       </div>
       <div class="side-image">
         <img src="{R}assets/img/apoyo-hombres-alabanza.jpg" alt="Ilustración pastoral del ministerio Hombres de Alabanza">
@@ -49,8 +49,18 @@ page(
 
 <section class="bg-navy">
   <div class="container">
-    <div class="pull-quote" style="background:rgba(255,255,255,.05);border-left-color:var(--gold);">
-      <p style="color:var(--gold-light);">&ldquo;Si hoy estás atravesando momentos de dolor, angustia, confusión o cansancio interior, queremos que sepas que no estás solo. Dios conoce tu corazón y ve cada una de tus luchas... Inspirados en el ejemplo de San José, hombre justo y fiel, queremos acompañarte para que redescubras tu identidad como hijo de Dios.&rdquo;</p>
+    <div class="section-title">
+      <span class="eyebrow">Visión y Misión</span>
+      <h2>Hombres restaurados, firmes en la fe</h2>
+      <p>Ser un ministerio diocesano que forme hombres restaurados, firmes en la fe y llenos del Espíritu Santo, capaces de vivir una vida cristiana madura y de alabar a Dios con todo su corazón — hombres que, fortalecidos en Cristo, impacten positivamente a sus familias, comunidades y a la Iglesia.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card"><div class="vnum">I</div><h4>Comunión</h4><p>Caminamos como hermanos en unidad, parte de un mismo Cuerpo en Cristo.</p></div>
+      <div class="value-card"><div class="vnum">II</div><h4>Escucha y Acompañamiento</h4><p>Acogemos a cada hombre con respeto, discreción y misericordia.</p></div>
+      <div class="value-card"><div class="vnum">III</div><h4>Fidelidad al Espíritu Santo</h4><p>Discerniendo en oración cada paso, dóciles a su voz.</p></div>
+    </div>
+    <div class="pull-quote" style="background:rgba(255,255,255,.05);border-left-color:var(--gold);margin-top:50px;">
+      <p style="color:var(--gold-light);">&ldquo;Si hoy estás atravesando momentos de dolor, angustia, confusión o cansancio interior, queremos que sepas que no estás solo. Dios conoce tu corazón y ve cada una de tus luchas... El Señor desea levantarte, restaurar tu corazón y fortalecerte con su amor. Inspirados en el ejemplo de San José, hombre justo y fiel, queremos acompañarte para que redescubras tu identidad como hijo de Dios.&rdquo;</p>
       <cite style="color:rgba(255,243,214,.6);">— Carta Pastoral, Hombres de Alabanza · RCC Paterson NJ</cite>
     </div>
     <div class="section-title">

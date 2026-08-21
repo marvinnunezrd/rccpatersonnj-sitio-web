@@ -106,7 +106,7 @@ def build_grupos_by_day(grupos):
 
 grupos_by_day_html = build_grupos_by_day(GRUPOS_ORACION)
 
-HTML = head("Renovación Carismática Católica — Diócesis de Paterson", "Centro de información de la Renovación Carismática Católica de la Diócesis de Paterson, NJ.") + f'''
+HTML = head("Renovación Carismática Católica — Diócesis de Paterson", "Centro de información de la Renovación Carismática Católica de la Diócesis de Paterson, NJ.", path="") + f'''
 <header class="hero-main">
   <div class="hero-bg-carousel">{carousel_slides}</div>
   <div class="hero-bg-overlay"></div>

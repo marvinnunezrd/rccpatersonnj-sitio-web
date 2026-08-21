@@ -15,6 +15,9 @@ assets/js/                              -> scripts compartidos (menú, galería 
 assets/img/                             -> logos, escudos y fotos optimizados para web
 favicon.ico, apple-touch-icon.png,
 assets/img/favicon/, site.webmanifest   -> ícono de pestaña e íconos PWA
+robots.txt                              -> permite indexación y apunta al sitemap
+sitemap.xml                             -> mapa del sitio para buscadores (Google, Bing)
+assets/img/og-image.jpg                 -> imagen que aparece al compartir el sitio en redes
 
 CÓMO PUBLICARLO
 ----------------
@@ -54,12 +57,25 @@ CÓMO ACTUALIZAR ALGO DESPUÉS
   función social_row() de common.py — se actualizan en todas las
   páginas a la vez.
 
+SEO
+---
+- robots.txt permite a los buscadores indexar todo el sitio y apunta a
+  sitemap.xml.
+- sitemap.xml lista las 6 páginas principales para que Google/Bing las
+  encuentren más rápido. Si agregas una página nueva, agrégala también
+  aquí.
+- Cada página tiene su URL canónica y su tarjeta de vista previa para
+  redes sociales (Facebook/WhatsApp/X) — imagen genérica en
+  assets/img/og-image.jpg, la de ECCADS usa eccads/og-image.jpg.
+- Cuando el sitio ya esté en línea, regístralo en Google Search Console
+  (search.google.com/search-console) y envía sitemap.xml ahí — eso
+  acelera que Google lo indexe. Esto no requiere tocar el código.
+
 PENDIENTE
 ---------
 - Confirmar con el Comité Diocesano el horario real de cada uno de los
   17 grupos de oración (por ahora todos muestran 7:00 pm–9:30 pm como
-  provisional).
+  provisional, publicado así a propósito).
 - Confirmar las Zonas (A–D) asignadas a cada grupo y dos direcciones de
   parroquia con inconsistencia detectada (St. Therese de Lisieux y
   Sacred Heart & Holy Rosary, Dover) — ver lista enviada a Marvin.
-- Agregar robots.txt y sitemap.xml para SEO (pendiente, no bloqueante).

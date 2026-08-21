@@ -3,7 +3,7 @@
 COMITE = [
     ("Rev. Yasid Salas", "Director / Director Espiritual", "St. Therese de Lisieux, Paterson"),
     ("Teresa Amparo", "Coordinadora General Diocesana", "St. Paul, Clifton"),
-    ("Librada Rosario (De León)", "Sub-Coordinadora Diocesana", "Our Lady of Lourdes, Paterson"),
+    ("Librada Rosario", "Sub-Coordinadora Diocesana", "Our Lady of Lourdes, Paterson"),
     ("Dariberkis Taveras-Beato", "Secretaria Diocesana", "St. Stephen, Paterson"),
     ("Alis Amparo", "Tesorero", "St. John the Baptist, Paterson"),
     ("Juana De Jesús", "Directora Escuela de Formación de Líderes (EFL)", "St. Therese de Lisieux, Paterson"),
@@ -74,7 +74,7 @@ AGENDA = [
 
 MINISTERIOS = [
   ("m_intercesion","Intercesión","El corazón orante de la Renovación: sostiene en oración a la comunidad, los eventos y a cada líder diocesano.","ministerios/intercesion.html"),
-  ("m_hombres","Hombres de Alabanza","Varones de oración, la Palabra y el carácter, que lideran la alabanza en grupos de oración, retiros y eventos diocesanos.","ministerios/hombres-alabanza.html"),
+  ("m_hombres","Hombres de Alabanza","Ministerio Diocesano de Acompañamiento Espiritual para el hombre: fraternidad, oración y sanación interior para vivir con fe su llamado como hijo de Dios, esposo y padre.","ministerios/hombres-alabanza.html"),
   ("m_mujeres","Mujeres de Alabanza","Mujeres consagradas a la adoración, inspiradas en María, que lideran la alabanza con humildad y testimonio de vida.","ministerios/mujeres-alabanza.html"),
   ("m_comunicacion","Comunicación y Publicidad","Evangelización a través de los medios: diseño, redes sociales e identidad de marca de toda la RCC Paterson.","#ministerios"),
   ("m_musica","Ministerios de Música","Coordina, forma y anima a todos los grupos de música de la RCC Paterson. La música es oración, no espectáculo.","#ministerios"),
