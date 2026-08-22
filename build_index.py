@@ -21,7 +21,15 @@ IMG = {
 
 CAROUSEL_FILES = [f"assets/img/carousel/slide-{i:02d}.webp" for i in range(11)]
 carousel_slides = "\n".join(
-    f'<div class="hero-bg-slide{" is-active" if i == 0 else ""}" style="background-image:url({f})"></div>'
+    # La primera slide lleva "is-first" ademas de "is-active": esa clase
+    # anula la transicion de opacidad SOLO en la primera pintura de la
+    # pagina, para que el elemento LCP (esta imagen de fondo) no espere la
+    # animacion de 1.6s antes de considerarse "pintado". site.js le quita
+    # la clase "is-first" en el primer cambio de slide, asi que el efecto
+    # de fundido del carrusel sigue intacto para todos los demas cambios
+    # (agregado 2026-08-22, hallazgo de PageSpeed Insights: "Retraso en la
+    # renderizacion del elemento" ~2s coincidia con esta transicion).
+    f'<div class="hero-bg-slide{" is-active is-first" if i == 0 else ""}" style="background-image:url({f})"></div>'
     for i, f in enumerate(CAROUSEL_FILES)
 )
 

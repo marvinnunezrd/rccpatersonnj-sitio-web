@@ -52,6 +52,7 @@ h1,h2,h3{font-family:var(--font-title);margin:0 0 .5em 0;letter-spacing:.02em;}
 .hero-bg-carousel{position:absolute;inset:0;z-index:0;}
 .hero-bg-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.6s ease;}
 .hero-bg-slide.is-active{opacity:1;}
+.hero-bg-slide.is-first{transition:none;}
 .hero-bg-overlay{position:absolute;inset:0;z-index:1;background:radial-gradient(circle at 50% 10%, rgba(242,203,105,.18), transparent 55%),linear-gradient(180deg, rgba(5,27,50,.80) 0%, rgba(5,27,50,.90) 55%, var(--navy-deep) 100%);}
 .hero-main::before{content:"";position:absolute;inset:0;z-index:1;background-image:radial-gradient(rgba(217,161,46,.5) 1px, transparent 1px);background-size:34px 34px;opacity:.06;pointer-events:none;}
 .hero-main .container{position:relative;z-index:2;}
