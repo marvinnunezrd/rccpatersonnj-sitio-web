@@ -77,7 +77,7 @@ MINISTERIOS = [
   ("m_hombres","Hombres de Alabanza","Ministerio Diocesano de Acompañamiento Espiritual para el hombre: fraternidad, oración y sanación interior para vivir con fe su llamado como hijo de Dios, esposo y padre.","ministerios/hombres-alabanza.html"),
   ("m_mujeres","Mujeres de Alabanza","Ministerio Diocesano de Acompañamiento Espiritual para la mujer: escucha, oración y acompañamiento en momentos de dolor, inspirado en María.","ministerios/mujeres-alabanza.html"),
   ("m_comunicacion","Comunicación y Publicidad","Evangelización a través de los medios: diseño, redes sociales e identidad de marca de toda la RCC Paterson.","#ministerios"),
-  ("m_musica","Ministerios de Música","Coordina, forma y anima a todos los grupos de música de la RCC Paterson. La música es oración, no espectáculo.","#ministerios"),
+  ("m_musica","Ministerios de Música","Coordina, forma y anima a todos los grupos de música de la RCC Paterson. La música es oración, no espectáculo.","ministerios/musica.html"),
   ("m_youth","RCC Youth","Acompaña a los jóvenes en su encuentro personal con Jesucristo y los envía como evangelizadores a sus familias y escuelas.","#ministerios"),
   ("escudo_efl","Escuela de Formación de Líderes","Forma y madura servidores capaces de liderar con sabiduría y fidelidad, desde lo humano, lo espiritual y lo doctrinal.","ministerios/escuela-formacion-lideres.html"),
   ("m_sve","Seminario de Vida en el Espíritu","La puerta de entrada a la Renovación: siete sesiones que renuevan la fe bautismal y abren a los dones del Espíritu Santo.","#ministerios"),

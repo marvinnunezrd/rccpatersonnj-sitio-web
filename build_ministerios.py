@@ -4,13 +4,14 @@ from common import head, footer, TAIL, SOCIAL_ICONS
 
 R = "../"
 PHONE_ICON = SOCIAL_ICONS['phone']
+IG_ICON = SOCIAL_ICONS['ig']
 
-def page(filename, title, desc, escudo, breadcrumb_name, subtitle, content_html):
-    html = head(title, desc, root=R, path=filename) + f'''
+def page(filename, title, desc, escudo, breadcrumb_name, subtitle, content_html, extra_head=""):
+    html = head(title, desc, root=R, path=filename, extra=extra_head) + f'''
 <header class="hero-sub">
   <div class="container">
     <div class="breadcrumb"><a href="{R}index.html">Inicio</a> / <a href="{R}index.html#ministerios">Ministerios</a> / {breadcrumb_name}</div>
-    <img class="hero-shield-sm" src="{R}assets/img/{escudo}" alt="Logo {breadcrumb_name}">
+    <img class="hero-shield-sm" src="{R}assets/img/{escudo}" alt="Logo {breadcrumb_name}" width="560" height="560">
     <h1>{breadcrumb_name}</h1>
     <p class="subtitle">{subtitle}</p>
   </div>
@@ -41,7 +42,7 @@ page(
         <p>Este llamado nació discernido en oración durante una reunión del Equipo Diocesano, inspirado en hombres de fe como Abraham, Moisés, Josué y San José. Con el tiempo, esta misma inspiración dio origen también a Mujeres de Alabanza y, después, a Jóvenes de Alabanza.</p>
       </div>
       <div class="side-image">
-        <img src="{R}assets/img/apoyo-hombres-alabanza.jpg" alt="Ilustración pastoral del ministerio Hombres de Alabanza">
+        <img src="{R}assets/img/apoyo-hombres-alabanza.jpg" alt="Ilustración pastoral del ministerio Hombres de Alabanza" width="900" height="1350">
       </div>
     </div>
   </div>
@@ -89,7 +90,7 @@ page(
   <div class="container">
     <div class="split-content">
       <div class="side-image" style="order:-1;">
-        <img src="{R}assets/img/maria-mujeres-alabanza.jpg" alt="Ilustración pastoral del ministerio Mujeres de Alabanza, inspirada en María">
+        <img src="{R}assets/img/maria-mujeres-alabanza.jpg" alt="Ilustración pastoral del ministerio Mujeres de Alabanza, inspirada en María" width="900" height="1350">
       </div>
       <div class="min-content" style="max-width:none;">
         <span class="eyebrow">Identidad y Misión</span>
@@ -135,7 +136,7 @@ page(
 page(
   "ministerios/intercesion.html",
   "Intercesión — RCC Paterson NJ",
-  "Ministerio de Intercesión de la Renovación Carismática Católica de la Diócesis de Paterson.",
+  "Ministerio de Intercesión de la RCC Paterson NJ: el corazón orante de la comunidad, sosteniendo en oración a la diócesis, líderes, eventos y familias.",
   "escudo-intercesion.png",
   "Intercesión",
   "El corazón orante de la Renovación Carismática Católica de la Diócesis de Paterson.",
@@ -174,5 +175,75 @@ page(
   </div>
 </section>
 ''')
+
+# ---------- MINISTERIOS DE MÚSICA ----------
+MUSICOS = [
+    ("Marvin Núñez", "Director de Ministerios de Música", "@marvinnunezrd",
+     "https://www.instagram.com/marvinnunezrd/", "comite/marvin-nunez.webp"),
+    ("Starlyn Veloz", "Ministerio de Música", "@starlynveloz98",
+     "https://www.instagram.com/starlynveloz98/", "musica-starlyn-veloz.webp"),
+    ("Son D' Fe", "Ministerio de Música", "@son_dfe",
+     "https://www.instagram.com/son_dfe/", "pentecostes-2026-musica-starlyn-veloz-son-de-fe.webp"),
+    ("Johanna Tavarez", "Ministerio de Música", "@johannatavarez",
+     "https://www.instagram.com/johannatavarez/", "pentecostes-2026-musica-johanna-tavarez.webp"),
+    ("Luis Castillo", "Ministerio de Música", "@luiscastilloministry",
+     "https://www.instagram.com/luiscastilloministry/", "pentecostes-2026-musica-luis-castillo.webp"),
+    ("Salvatore Moreno", "Ministerio de Música", "@salvatoremusicdr",
+     "https://www.instagram.com/salvatoremusicdr/", "pentecostes-2026-musica-salvatore-moreno.webp"),
+]
+
+def musico_card(name, role, handle, ig_url, photo):
+    return f'''
+        <div class="guest-card">
+          <div class="guest-photo"><img src="{R}assets/img/{photo}" alt="{name}" width="700" height="700" loading="lazy"></div>
+          <h3>{name}</h3>
+          <p>{role}</p>
+          <a class="ig-link" href="{ig_url}" target="_blank" rel="noopener">{IG_ICON} {handle}</a>
+        </div>'''
+
+musico_cards = "\n".join(musico_card(*m) for m in MUSICOS)
+
+MUSICA_STYLE = '''<style>
+#musicos .guests-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:34px;max-width:820px;margin:0 auto;}
+#musicos .guest-card{flex:0 0 240px;}
+#musicos .guest-card .ig-link{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:.78rem;font-weight:600;color:var(--wine);text-decoration:none;}
+#musicos .guest-card .ig-link:hover{color:var(--red);}
+#musicos .guest-card .ig-link svg{width:15px;height:15px;fill:none;stroke:currentColor;flex-shrink:0;}
+</style>'''
+
+page(
+  "ministerios/musica.html",
+  "Ministerios de Música — RCC Paterson NJ",
+  "Ministerios de Música de la Renovación Carismática Católica de la Diócesis de Paterson: los cantantes, músicos y grupos que animan con su talento nuestros eventos y celebraciones.",
+  "ministerios/musica.webp",
+  "Ministerios de Música",
+  "La música es oración, no espectáculo.",
+  f'''
+<section>
+  <div class="container">
+    <div class="min-content">
+      <span class="eyebrow">Identidad y Misión</span>
+      <h2 style="color:var(--navy);">La música como oración, no como espectáculo</h2>
+      <p>Los Ministerios de Música de la Renovación Carismática Católica de la Diócesis de Paterson acompañan con su talento cada Seminario de Vida en el Espíritu, Asamblea, Congreso, Vigilia de Pentecostés y demás actividades de nuestra comunidad diocesana. Su misión es preparar el corazón del pueblo para el encuentro con Dios a través del canto, la alabanza y la adoración.</p>
+      <p>Coordinados por Marvin Núñez, Director de Ministerios de Música de la RCC Paterson, estos hermanos y hermanas ponen sus dones y su talento al servicio del Espíritu Santo, recordando siempre que la música es oración, no espectáculo.</p>
+    </div>
+  </div>
+</section>
+
+<section id="musicos">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Voces y Talentos</span>
+      <h2>Algunos de nuestros ministerios de música</h2>
+      <p>Estos son algunos de los servidores que forman parte de este ministerio — ¡vienen más!</p>
+    </div>
+    <div class="guests-grid">
+{musico_cards}
+    </div>
+  </div>
+</section>
+''',
+  extra_head=MUSICA_STYLE
+)
 
 print("Páginas de ministerio generadas.")
