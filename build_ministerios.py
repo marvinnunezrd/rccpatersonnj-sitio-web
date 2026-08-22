@@ -6,14 +6,14 @@ R = "../"
 PHONE_ICON = SOCIAL_ICONS['phone']
 IG_ICON = SOCIAL_ICONS['ig']
 
-def page(filename, title, desc, escudo, breadcrumb_name, subtitle, content_html, extra_head="", og_image=""):
+def page(filename, title, desc, escudo, breadcrumb_name, subtitle, content_html, extra_head="", og_image="", extra_subtitle_class=""):
     html = head(title, desc, root=R, path=filename, extra=extra_head, og_image=og_image) + f'''
 <header class="hero-sub">
   <div class="container">
     <div class="breadcrumb"><a href="{R}index.html">Inicio</a> / <a href="{R}index.html#ministerios">Ministerios</a> / {breadcrumb_name}</div>
     <img class="hero-shield-sm" src="{R}assets/img/{escudo}" alt="Logo {breadcrumb_name}" width="560" height="560">
     <h1>{breadcrumb_name}</h1>
-    <p class="subtitle">{subtitle}</p>
+    <p class="subtitle{extra_subtitle_class}">{subtitle}</p>
   </div>
 </header>
 {content_html}
@@ -245,6 +245,10 @@ def musico_card(m):
 musico_cards = "\n".join(musico_card(m) for m in MUSICOS)
 
 MUSICA_STYLE = '''<style>
+.hero-sub .subtitle-quote{font-style:italic;}
+.hero-sub .subtitle-quote .quote-text::before{content:"\\201C";}
+.hero-sub .subtitle-quote .quote-text::after{content:"\\201D";}
+.hero-sub .subtitle-quote cite{display:block;margin-top:8px;font-size:.8rem;font-style:normal;color:rgba(255,255,255,.72);}
 #musicos .guests-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:34px;max-width:820px;margin:0 auto;}
 #musicos .guest-card{flex:0 0 240px;}
 #musicos .guest-card .musico-social{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px;}
@@ -261,16 +265,17 @@ page(
   "Ministerios de Música de la Renovación Carismática Católica de la Diócesis de Paterson: los cantantes, músicos y grupos que animan con su talento nuestros eventos y celebraciones.",
   "ministerios/musica.webp",
   "Ministerios de Música",
-  "El que canta ora dos veces.",
+  '<span class="quote-text">El que canta ora dos veces</span><cite>— San Agustín</cite>',
   og_image="assets/img/ministerios/musica-og.jpg",
+  extra_subtitle_class=" subtitle-quote",
   content_html=f'''
 <section>
   <div class="container">
     <div class="min-content">
       <span class="eyebrow">Identidad y Misión</span>
-      <h2 style="color:var(--navy);">La música como oración, no como espectáculo</h2>
+      <h2 style="color:var(--navy);">La música que prepara el corazón para el encuentro con Dios</h2>
       <p>Los Ministerios de Música de la Renovación Carismática Católica de la Diócesis de Paterson acompañan con su talento cada Seminario de Vida en el Espíritu, Asamblea, Congreso, Vigilia de Pentecostés y demás actividades de nuestra comunidad diocesana. Su misión es preparar el corazón del pueblo para el encuentro con Dios a través del canto, la alabanza y la adoración.</p>
-      <p>Coordinados por Marvin Núñez, Director de Ministerios de Música de la RCC Paterson, estos hermanos y hermanas ponen sus dones y su talento al servicio del Espíritu Santo, recordando siempre que la música es oración, no espectáculo.</p>
+      <p>Coordinados por Marvin Núñez, Director de Ministerios de Música de la RCC Paterson, estos hermanos y hermanas ponen sus dones y su talento al servicio del Espíritu Santo, conscientes siempre de que cada canto es, ante todo, una ofrenda de oración.</p>
     </div>
   </div>
 </section>
