@@ -16,6 +16,7 @@ IMG = {
   "m_youth": "assets/img/ministerios/youth.webp",
   "m_sve": "assets/img/ministerios/sve.webp",
   "eccads_mini": "assets/img/eccads-mini.png",
+  "pentecostes_mini": "assets/img/pentecostes-2026-mini.webp",
   "featured": "assets/img/featured-comite-obispo.webp",
 }
 
@@ -313,11 +314,20 @@ HTML = head(
 <section id="eccads-recap" class="bg-navy">
   <div class="container">
     <div class="section-title">
-      <span class="eyebrow">Evento insignia</span>
-      <h2>ECCADS 2026</h2>
-      <p>I Encuentro Carismático Católico Anual Diocesano de Servidores — nuestro primer gran encuentro anual de servidores.</p>
+      <span class="eyebrow">Eventos insignia</span>
+      <h2>Nuestros eventos insignia</h2>
+      <p>Los grandes encuentros de la Renovación Carismática Católica de la Diócesis de Paterson, ya realizados.</p>
     </div>
     <div class="events-grid">
+      <div class="event-card">
+        <div class="ev-top"><img src="{IMG['pentecostes_mini']}" alt="Logo Gran Vigilia de Pentecostés 2026" width="420" height="420"></div>
+        <div class="ev-body">
+          <span class="event-tag event-tag--done">Realizado · 16 may 2026</span>
+          <h3>Gran Vigilia de Pentecostés 2026</h3>
+          <p>Resumen de la noche, nuestro obispo y sacerdotes, ministerios de música y más de 120 fotos del evento.</p>
+          <a class="card-link" href="pentecostes-2026/index.html">Ver evento completo →</a>
+        </div>
+      </div>
       <div class="event-card">
         <div class="ev-top"><img src="{IMG['eccads_mini']}" alt="Logo ECCADS 2026" width="420" height="420"></div>
         <div class="ev-body">
