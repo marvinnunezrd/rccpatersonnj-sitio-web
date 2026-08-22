@@ -188,14 +188,14 @@ MUSICOS = [
      "yt": "https://www.youtube.com/@marvinnunezrd",
      "wa": "https://wa.me/19295308974",
      "mail": "mailto:marvinnunezrd@gmail.com"},
-    {"name": "Luis Castillo", "role": "Ministerio de Música", "photo": "pentecostes-2026-musica-luis-castillo.webp",
+    {"name": "Los Hijos del Padre", "role": "Ministerio de Música", "honor": "Rafael Beato — Ex-Director de los Ministerios de Música", "photo": "musica-los-hijos-del-padre.webp",
+     "wa": "https://wa.me/18626688233"},
+    {"name": "Luis Castillo", "role": "Ministerio de Música", "honor": "Ex-Director de los Ministerios de Música", "photo": "pentecostes-2026-musica-luis-castillo.webp",
      "ig": ("@luiscastilloministry", "https://www.instagram.com/luiscastilloministry/"),
      "fb": "https://www.facebook.com/luiscastilloministry",
      "yt": "https://www.youtube.com/channel/UC1Wl7143vd6w33pKbysx4dQ",
      "tt": "https://www.tiktok.com/@luiscastilloministry",
      "wa": "https://wa.me/19734135500"},
-    {"name": "Los Hijos del Padre", "role": "Ministerio de Música", "photo": "musica-los-hijos-del-padre.webp",
-     "wa": "https://wa.me/18626688233"},
     {"name": "Johanna Tavarez", "role": "Ministerio de Música", "photo": "pentecostes-2026-musica-johanna-tavarez.webp",
      "ig": ("@johannatavarez", "https://www.instagram.com/johannatavarez/"),
      "fb": "https://www.facebook.com/johannatavarezlozano",
@@ -231,11 +231,13 @@ def musico_card(m):
     if m.get("ig"):
         handle, ig_url = m["ig"]
         ig_line = f'<a class="ig-handle" href="{ig_url}" target="_blank" rel="noopener">{handle}</a>'
+    honor_html = f'<p class="musico-honor">{m["honor"]}</p>' if m.get("honor") else ""
     return f'''
         <div class="guest-card">
           <div class="guest-photo"><img src="{R}assets/img/{m["photo"]}" alt="{m["name"]}" width="700" height="700" loading="lazy"></div>
           <h3>{m["name"]}</h3>
           <p>{m["role"]}</p>
+          {honor_html}
           <div class="musico-social">
           {icons_html}
           </div>
@@ -255,6 +257,7 @@ MUSICA_STYLE = '''<style>
 #musicos .guest-card .musico-social a{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--wine);display:flex;align-items:center;justify-content:center;color:var(--wine);transition:.15s;}
 #musicos .guest-card .musico-social a:hover{background:var(--wine);color:var(--ivory);}
 #musicos .guest-card .musico-social svg{width:15px;height:15px;}
+#musicos .guest-card .musico-honor{font-size:.72rem;font-style:italic;font-weight:600;color:var(--wine);margin:2px 0 4px;line-height:1.35;}
 #musicos .guest-card .ig-handle{display:block;margin-top:8px;font-size:.78rem;font-weight:600;color:var(--wine);text-decoration:none;}
 #musicos .guest-card .ig-handle:hover{color:var(--red);}
 </style>'''
