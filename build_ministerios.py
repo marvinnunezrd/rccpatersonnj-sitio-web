@@ -6,8 +6,8 @@ R = "../"
 PHONE_ICON = SOCIAL_ICONS['phone']
 IG_ICON = SOCIAL_ICONS['ig']
 
-def page(filename, title, desc, escudo, breadcrumb_name, subtitle, content_html, extra_head=""):
-    html = head(title, desc, root=R, path=filename, extra=extra_head) + f'''
+def page(filename, title, desc, escudo, breadcrumb_name, subtitle, content_html, extra_head="", og_image=""):
+    html = head(title, desc, root=R, path=filename, extra=extra_head, og_image=og_image) + f'''
 <header class="hero-sub">
   <div class="container">
     <div class="breadcrumb"><a href="{R}index.html">Inicio</a> / <a href="{R}index.html#ministerios">Ministerios</a> / {breadcrumb_name}</div>
@@ -218,7 +218,8 @@ page(
   "ministerios/musica.webp",
   "Ministerios de Música",
   "La música es oración, no espectáculo.",
-  f'''
+  og_image="assets/img/ministerios/musica-og.jpg",
+  content_html=f'''
 <section>
   <div class="container">
     <div class="min-content">
