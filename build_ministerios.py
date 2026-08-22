@@ -177,38 +177,82 @@ page(
 ''')
 
 # ---------- MINISTERIOS DE MÚSICA ----------
+SOCIAL_LABELS = {"ig": "Instagram", "fb": "Facebook", "tt": "TikTok", "yt": "YouTube", "wa": "WhatsApp", "mail": "Correo"}
+ICON_ORDER = ["ig", "fb", "tt", "yt", "wa", "mail"]
+
 MUSICOS = [
-    ("Marvin Núñez", "Director de Ministerios de Música", "@marvinnunezrd",
-     "https://www.instagram.com/marvinnunezrd/", "comite/marvin-nunez.webp"),
-    ("Starlyn Veloz", "Ministerio de Música", "@starlynveloz98",
-     "https://www.instagram.com/starlynveloz98/", "musica-starlyn-veloz.webp"),
-    ("Son D' Fe", "Ministerio de Música", "@son_dfe",
-     "https://www.instagram.com/son_dfe/", "pentecostes-2026-musica-starlyn-veloz-son-de-fe.webp"),
-    ("Johanna Tavarez", "Ministerio de Música", "@johannatavarez",
-     "https://www.instagram.com/johannatavarez/", "pentecostes-2026-musica-johanna-tavarez.webp"),
-    ("Luis Castillo", "Ministerio de Música", "@luiscastilloministry",
-     "https://www.instagram.com/luiscastilloministry/", "pentecostes-2026-musica-luis-castillo.webp"),
-    ("Salvatore Moreno", "Ministerio de Música", "@salvatoremusicdr",
-     "https://www.instagram.com/salvatoremusicdr/", "pentecostes-2026-musica-salvatore-moreno.webp"),
+    {"name": "Marvin Núñez", "role": "Director de Ministerios de Música", "photo": "comite/marvin-nunez.webp",
+     "ig": ("@marvinnunezrd", "https://www.instagram.com/marvinnunezrd/"),
+     "fb": "https://www.facebook.com/marvinnunezrd",
+     "tt": "https://www.tiktok.com/@marvinnunezrd",
+     "yt": "https://www.youtube.com/@marvinnunezrd",
+     "wa": "https://wa.me/19295308974",
+     "mail": "mailto:marvinnunezrd@gmail.com"},
+    {"name": "Starlyn Veloz", "role": "Ministerio de Música", "photo": "musica-starlyn-veloz.webp",
+     "ig": ("@starlynveloz98", "https://www.instagram.com/starlynveloz98/"),
+     "fb": "https://www.facebook.com/starlin.velozbaez",
+     "yt": "https://www.youtube.com/channel/UCJt5eRy_uWbR4xNB3r16VjQ",
+     "wa": "https://wa.me/18622834237",
+     "mail": "mailto:Starlinveloz98@gmail.com"},
+    {"name": "Son D' Fe", "role": "Ministerio de Música", "photo": "pentecostes-2026-musica-starlyn-veloz-son-de-fe.webp",
+     "ig": ("@son_dfe", "https://www.instagram.com/son_dfe/"),
+     "fb": "https://www.facebook.com/profile.php?id=61579764351173",
+     "wa": "https://wa.me/18622834237"},
+    {"name": "Johanna Tavarez", "role": "Ministerio de Música", "photo": "pentecostes-2026-musica-johanna-tavarez.webp",
+     "ig": ("@johannatavarez", "https://www.instagram.com/johannatavarez/"),
+     "fb": "https://www.facebook.com/johannatavarezlozano",
+     "yt": "https://www.youtube.com/watch?v=6ehiny01doM"},
+    {"name": "Luis Castillo", "role": "Ministerio de Música", "photo": "pentecostes-2026-musica-luis-castillo.webp",
+     "ig": ("@luiscastilloministry", "https://www.instagram.com/luiscastilloministry/"),
+     "fb": "https://www.facebook.com/luiscastilloministry",
+     "yt": "https://www.youtube.com/channel/UC1Wl7143vd6w33pKbysx4dQ",
+     "tt": "https://www.tiktok.com/@luiscastilloministry",
+     "wa": "https://wa.me/19734135500"},
+    {"name": "Salvatore Moreno", "role": "Ministerio de Música", "photo": "pentecostes-2026-musica-salvatore-moreno.webp",
+     "ig": ("@salvatoremusicdr", "https://www.instagram.com/salvatoremusicdr/"),
+     "yt": "https://www.youtube.com/@SalvatoreMusic",
+     "fb": "https://www.facebook.com/salvatore.moreno1",
+     "tt": "https://www.tiktok.com/@salvatoremoreno1",
+     "wa": "https://wa.me/19739791977"},
+    {"name": "Los Hijos del Padre", "role": "Ministerio de Música", "photo": "musica-los-hijos-del-padre.webp",
+     "wa": "https://wa.me/18626688233"},
 ]
 
-def musico_card(name, role, handle, ig_url, photo):
+def musico_card(m):
+    icons = []
+    for key in ICON_ORDER:
+        val = m.get(key)
+        if not val:
+            continue
+        href = val[1] if key == "ig" else val
+        icons.append(f'<a href="{href}" target="_blank" rel="noopener" aria-label="{SOCIAL_LABELS[key]}">{SOCIAL_ICONS[key]}</a>')
+    icons_html = "\n          ".join(icons)
+    ig_line = ""
+    if m.get("ig"):
+        handle, ig_url = m["ig"]
+        ig_line = f'<a class="ig-handle" href="{ig_url}" target="_blank" rel="noopener">{handle}</a>'
     return f'''
         <div class="guest-card">
-          <div class="guest-photo"><img src="{R}assets/img/{photo}" alt="{name}" width="700" height="700" loading="lazy"></div>
-          <h3>{name}</h3>
-          <p>{role}</p>
-          <a class="ig-link" href="{ig_url}" target="_blank" rel="noopener">{IG_ICON} {handle}</a>
+          <div class="guest-photo"><img src="{R}assets/img/{m["photo"]}" alt="{m["name"]}" width="700" height="700" loading="lazy"></div>
+          <h3>{m["name"]}</h3>
+          <p>{m["role"]}</p>
+          <div class="musico-social">
+          {icons_html}
+          </div>
+          {ig_line}
         </div>'''
 
-musico_cards = "\n".join(musico_card(*m) for m in MUSICOS)
+musico_cards = "\n".join(musico_card(m) for m in MUSICOS)
 
 MUSICA_STYLE = '''<style>
 #musicos .guests-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:34px;max-width:820px;margin:0 auto;}
 #musicos .guest-card{flex:0 0 240px;}
-#musicos .guest-card .ig-link{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:.78rem;font-weight:600;color:var(--wine);text-decoration:none;}
-#musicos .guest-card .ig-link:hover{color:var(--red);}
-#musicos .guest-card .ig-link svg{width:15px;height:15px;fill:none;stroke:currentColor;flex-shrink:0;}
+#musicos .guest-card .musico-social{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px;}
+#musicos .guest-card .musico-social a{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--wine);display:flex;align-items:center;justify-content:center;color:var(--wine);transition:.15s;}
+#musicos .guest-card .musico-social a:hover{background:var(--wine);color:var(--ivory);}
+#musicos .guest-card .musico-social svg{width:15px;height:15px;}
+#musicos .guest-card .ig-handle{display:block;margin-top:8px;font-size:.78rem;font-weight:600;color:var(--wine);text-decoration:none;}
+#musicos .guest-card .ig-handle:hover{color:var(--red);}
 </style>'''
 
 page(
