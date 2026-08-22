@@ -261,7 +261,7 @@ page(
   "Ministerios de Música de la Renovación Carismática Católica de la Diócesis de Paterson: los cantantes, músicos y grupos que animan con su talento nuestros eventos y celebraciones.",
   "ministerios/musica.webp",
   "Ministerios de Música",
-  "La música es oración, no espectáculo.",
+  "El que canta ora dos veces.",
   og_image="assets/img/ministerios/musica-og.jpg",
   content_html=f'''
 <section>
