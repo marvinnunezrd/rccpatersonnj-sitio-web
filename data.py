@@ -74,6 +74,34 @@ AGENDA = [
   ("20","DIC","2026","Gran Asamblea Diocesana – Diciembre 2026","2:30 pm – 6:00 pm","Salón Principal de la Escuela Santa Teresita, 765 14th Ave, Paterson, NJ 07504",""),
 ]
 
+# URLs de los sitios web oficiales de cada parroquia (verificadas 2026-08-22 --
+# se confirmo cada sitio contra la direccion real de la parroquia antes de
+# enlazarlo). Las llaves deben coincidir EXACTAMENTE con el texto usado en
+# COMITE (tercer valor de cada tupla) y en GRUPOS_ORACION (campo "parroquia").
+# Si una parroquia llega a faltar aqui, su nombre se muestra como texto plano
+# (sin enlace) en vez de fallar la construccion del sitio.
+PARROQUIA_URLS = {
+    "St. Anthony of Padua, Paterson": "https://stanthonypaterson.com/",
+    "St. Anthony of Padua, Passaic": "https://stanthonypassaic.org/",
+    "Catedral San Juan Bautista, Paterson": "https://rcdopcathedral.org/",
+    "St. John the Baptist, Paterson": "https://rcdopcathedral.org/",
+    "St. Stephen, Paterson": "https://saintstephensparish.com/",
+    "St. Mary Help of Christians, Paterson": "https://stmarypaterson.org/",
+    "Our Lady of Lourdes, Paterson": "https://ollourdespaterson.org/",
+    "St. Mary Assumption, Passaic": "https://stmarypassaic.org/",
+    "St. Brendan, Clifton": "https://stbrendan-george.org/",
+    "St. Paul, Clifton": "https://www.stpaulcnj.org/",
+    "Our Lady of Victories, Paterson": "https://olvjude.org/",
+    "St. Therese de Lisieux, Paterson": "https://www.sttheresepaterson.com/",
+    "Sts. Cyril & Methodius, Clifton": "https://sscmrcchurch.org/",
+    "St. Joseph, Paterson": "https://www.sanjosepaterson.org/",
+    "St. Gerard Majella, Paterson": "https://stgerardmajella.org/",
+    "Holy Trinity, Passaic": "https://holytrinitypassaic.com/",
+    "Sacred Heart & Holy Rosary, Dover": "https://sacredheart-dover.com/",
+    "Our Lady of Fatima & St. Nicholas, Passaic": "https://fatimanicholas.org/",
+    "St. Margaret of Scotland, Morristown": "https://csmargaret.org/",
+}
+
 MINISTERIOS = [
   ("m_intercesion","Intercesión","El corazón orante de la Renovación: sostiene en oración a la comunidad, los eventos y a cada líder diocesano.","ministerios/intercesion.html"),
   ("m_hombres","Hombres de Alabanza","Ministerio Diocesano de Acompañamiento Espiritual para el hombre: fraternidad, oración y sanación interior para vivir con fe su llamado como hijo de Dios, esposo y padre.","ministerios/hombres-alabanza.html"),

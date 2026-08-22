@@ -1,7 +1,7 @@
 import sys
 sys.path.insert(0, ".")
 from common import head, footer, TAIL, social_row, SOCIAL_ICONS
-from data import COMITE, ZONA_COORDINADORES, GRUPOS_ORACION, AGENDA, MINISTERIOS
+from data import COMITE, ZONA_COORDINADORES, GRUPOS_ORACION, AGENDA, MINISTERIOS, PARROQUIA_URLS
 
 PHONE_ICON = SOCIAL_ICONS['phone']
 
@@ -55,8 +55,16 @@ COMITE_PHOTOS = {
     "Marizabel Pérez": "assets/img/comite/marizabel-perez.webp",
 }
 
+def parish_link(name):
+    """Devuelve el nombre de la parroquia como enlace a su sitio web oficial
+    si lo tenemos verificado en PARROQUIA_URLS; si no, el nombre en texto plano."""
+    url = PARROQUIA_URLS.get(name)
+    if not url:
+        return name
+    return f'<a href="{url}" target="_blank" rel="noopener">{name}</a>'
+
 def comite_card(name, role, parish):
-    parish_html = f'<p class="parish">{parish}</p>' if parish else ""
+    parish_html = f'<p class="parish">{parish_link(parish)}</p>' if parish else ""
     photo = COMITE_PHOTOS.get(name)
     photo_html = (
         f'<div class="comite-photo"><img src="{photo}" alt="{name}" width="180" height="180" loading="lazy"></div>'
@@ -114,7 +122,7 @@ def grupo_row(g):
         <div class="grupo-row">
           <div class="gr-col gr-horario"><span class="gr-label">Horario</span><span class="gr-value">{horario}</span></div>
           <div class="gr-col gr-nombre"><span class="gr-label">Grupo</span><span class="gr-value">{g["grupo"]}</span></div>
-          <div class="gr-col gr-parroquia"><span class="gr-label">Parroquia</span><span class="gr-value">{g["parroquia"]}</span></div>
+          <div class="gr-col gr-parroquia"><span class="gr-label">Parroquia</span><span class="gr-value">{parish_link(g["parroquia"])}</span></div>
           <div class="gr-col gr-direccion"><span class="gr-label">Dirección</span><span class="gr-value">{g["direccion"]}</span></div>
           <div class="gr-col gr-coord"><span class="gr-label">Coordinador(a)</span><span class="gr-value">{g["coordinador"]}</span></div>
           <div class="gr-col gr-tel"><span class="gr-label">Teléfono</span><span class="gr-value"><a href="{_tel_href(g["telefono"])}">{PHONE_ICON} {g["telefono"]}</a></span></div>
