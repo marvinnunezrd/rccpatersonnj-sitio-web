@@ -40,10 +40,30 @@ carousel_slides = "\n".join(
 # alto, tal como recomienda el reporte de PageSpeed Insights (agregado 2026-08-21).
 HERO_LCP_PRELOAD = f'<link rel="preload" as="image" href="{CAROUSEL_FILES[0]}" fetchpriority="high">'
 
+# Fotos individuales del Comité Diocesano (agregadas 2026-08-22). Recortadas
+# y centradas en el rostro de cada persona para el marco circular de la
+# tarjeta -- ver assets/img/comite/.
+COMITE_PHOTOS = {
+    "Rev. Yasid Salas": "assets/img/comite/yasid-salas.webp",
+    "Teresa Amparo": "assets/img/comite/teresa-amparo.webp",
+    "Librada Rosario": "assets/img/comite/librada-rosario.webp",
+    "Dariberkis Taveras-Beato": "assets/img/comite/dariberkis-taveras.webp",
+    "Alis Amparo": "assets/img/comite/alis-amparo.webp",
+    "Juana De Jesús": "assets/img/comite/juana-de-jesus.webp",
+    "Marvin Núñez": "assets/img/comite/marvin-nunez.webp",
+    "Marizabel Pérez": "assets/img/comite/marizabel-perez.webp",
+}
+
 def comite_card(name, role, parish):
     parish_html = f'<p class="parish">{parish}</p>' if parish else ""
+    photo = COMITE_PHOTOS.get(name)
+    photo_html = (
+        f'<div class="comite-photo"><img src="{photo}" alt="{name}" width="180" height="180" loading="lazy"></div>'
+        if photo else ""
+    )
     return f'''
         <div class="comite-card">
+          {photo_html}
           <h3>{name}</h3>
           <p class="role">{role}</p>
           {parish_html}
