@@ -20,7 +20,7 @@ ZONA_COORDINADORES = [
 
 # Grupos de oración, uno por diccionario. "horario": la Base de Datos no registra la hora
 # exacta de cada grupo (solo el dia) -- 2026-08-20 Marvin pidio usar "7:00 pm - 9:30 pm" como
-# horario provisional para los 17 grupos mientras se confirma el horario real de cada uno.
+# horario provisional para los grupos mientras se confirma el horario real de cada uno.
 # "direccion" y "zona" fueron verificadas/cruzadas 2026-08-20 contra la hoja "Parrocos (Referencia)"
 # de Base_de_Datos_RCC_Paterson.xlsx (columna "Ciudad / Zona") y sitios oficiales de cada parroquia.
 GRUPOS_ORACION = [
@@ -28,6 +28,8 @@ GRUPOS_ORACION = [
      "direccion": "138 Beech St, Paterson, NJ 07501", "coordinador": "Mario Hernández", "telefono": "(201) 932-4591", "zona": "Zona A"},
     {"dia": "Lunes", "horario": "7:00 pm – 9:30 pm", "grupo": "\"Luz de Cristo\"", "parroquia": "St. Anthony of Padua, Passaic",
      "direccion": "101-103 Myrtle Ave, Passaic, NJ 07055", "coordinador": "Angela Mieses", "telefono": "(973) 687-1119", "zona": "Zona C"},
+    {"dia": "Lunes", "horario": "7:00 pm – 9:30 pm", "grupo": "\"Luz y Vida\"", "parroquia": "Catedral San Juan Bautista, Paterson",
+     "direccion": "381 Grand St, Paterson, NJ 07505", "coordinador": "Alis Amparo", "telefono": "(973) 356-2543", "zona": "Zona A"},
 
     {"dia": "Martes", "horario": "7:00 pm – 9:30 pm", "grupo": "\"Alfa y Omega\"", "parroquia": "St. Stephen, Paterson",
      "direccion": "86 Martin St, Paterson, NJ 07501", "coordinador": "Sandra García", "telefono": "(973) 816-7291", "zona": "Zona A"},

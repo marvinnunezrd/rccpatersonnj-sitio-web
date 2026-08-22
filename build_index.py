@@ -149,13 +149,13 @@ FAQ_JSONLD = '''<script type="application/ld+json">
   "@type": "FAQPage",
   "mainEntity": [
     {"@type": "Question", "name": "¿Qué es la Renovación Carismática Católica?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Es un movimiento dentro de la Iglesia Católica que promueve la experiencia del Bautismo en el Espíritu Santo y busca renovar la vida de fe de la comunidad a través de la oración, la alabanza y el servicio. En la Diócesis de Paterson, NJ, agrupa a 17 grupos de oración y 8 ministerios diocesanos bajo un mismo Comité Diocesano."}},
+      "acceptedAnswer": {"@type": "Answer", "text": "Es un movimiento dentro de la Iglesia Católica que promueve la experiencia del Bautismo en el Espíritu Santo y busca renovar la vida de fe de la comunidad a través de la oración, la alabanza y el servicio. En la Diócesis de Paterson, NJ, agrupa a 18 grupos de oración y 8 ministerios diocesanos bajo un mismo Comité Diocesano."}},
     {"@type": "Question", "name": "¿La Renovación Carismática Católica es parte de la Iglesia Católica?",
       "acceptedAnswer": {"@type": "Answer", "text": "Sí. La RCC es un movimiento eclesial reconocido que vive y sirve en comunión con la Iglesia Católica, sus pastores y la Diócesis de Paterson — no es una iglesia aparte ni una denominación distinta."}},
     {"@type": "Question", "name": "¿Cuál es la diferencia entre la Renovación Carismática Católica y una iglesia pentecostal?",
       "acceptedAnswer": {"@type": "Answer", "text": "Ambas valoran la experiencia del Espíritu Santo, pero la RCC es un movimiento dentro de la Iglesia Católica —con Misa, sacramentos y comunión con el Papa y los obispos— mientras que las iglesias pentecostales son denominaciones protestantes independientes. La RCC Paterson funciona a través de las parroquias católicas de la diócesis."}},
     {"@type": "Question", "name": "¿Cómo me uno a un grupo de oración de la RCC Paterson?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Puedes visitar cualquiera de los 17 grupos de oración de la RCC Paterson, organizados por parroquia, día y zona — consulta el horario, la dirección y el coordinador de cada uno en la sección \\"Grupos de Oración\\" de esta página, o contáctanos directamente para que te orientemos hacia el más cercano a ti."}},
+      "acceptedAnswer": {"@type": "Answer", "text": "Puedes visitar cualquiera de los 18 grupos de oración de la RCC Paterson, organizados por parroquia, día y zona — consulta el horario, la dirección y el coordinador de cada uno en la sección \\"Grupos de Oración\\" de esta página, o contáctanos directamente para que te orientemos hacia el más cercano a ti."}},
     {"@type": "Question", "name": "¿Qué ministerios tiene la RCC Paterson?",
       "acceptedAnswer": {"@type": "Answer", "text": "Ocho: Intercesión, Hombres de Alabanza, Mujeres de Alabanza, Comunicación y Publicidad, Ministerios de Música, RCC Youth, la Escuela de Formación de Líderes y el Seminario de Vida en el Espíritu. Puedes conocer cada uno en la sección \\"Ministerios\\" de esta página."}},
     {"@type": "Question", "name": "¿Cómo contacto a la RCC Paterson?",
@@ -198,7 +198,7 @@ HTML = head(
         <p>La <strong>Renovación Carismática Católica de la Diócesis de Paterson</strong> reúne a los grupos de oración de toda la diócesis bajo un mismo Comité Diocesano, con un escudo que resume nuestra identidad: la paloma del Espíritu Santo, los siete dones, y María, Nuestra Señora de Pentecostés.</p>
         <p>Vivimos y servimos dentro de la Iglesia Católica, en comunión con nuestros pastores y con la Diócesis de Paterson, y en comunión con la Renovación Carismática Católica a nivel regional (Región 2) y nacional (Estados Unidos y Canadá) — presentes en la vida parroquial a través de nuestros ministerios, escuelas de formación y encuentros diocesanos.</p>
         <div class="about-stats">
-          <div class="about-stat"><div class="num">17</div><div class="lbl">Grupos de oración</div></div>
+          <div class="about-stat"><div class="num">18</div><div class="lbl">Grupos de oración</div></div>
           <div class="about-stat"><div class="num">8</div><div class="lbl">Ministerios diocesanos</div></div>
           <div class="about-stat"><div class="num">2026</div><div class="lbl">1ª Edición ECCADS</div></div>
         </div>
@@ -351,7 +351,7 @@ HTML = head(
     <div class="faq-list">
       <div class="faq-item">
         <h3>¿Qué es la Renovación Carismática Católica?</h3>
-        <p>Es un movimiento dentro de la Iglesia Católica que promueve la experiencia del Bautismo en el Espíritu Santo y busca renovar la vida de fe de la comunidad a través de la oración, la alabanza y el servicio. En la Diócesis de Paterson, NJ, agrupa a 17 grupos de oración y 8 ministerios diocesanos bajo un mismo Comité Diocesano.</p>
+        <p>Es un movimiento dentro de la Iglesia Católica que promueve la experiencia del Bautismo en el Espíritu Santo y busca renovar la vida de fe de la comunidad a través de la oración, la alabanza y el servicio. En la Diócesis de Paterson, NJ, agrupa a 18 grupos de oración y 8 ministerios diocesanos bajo un mismo Comité Diocesano.</p>
       </div>
       <div class="faq-item">
         <h3>¿La Renovación Carismática Católica es parte de la Iglesia Católica?</h3>
@@ -363,7 +363,7 @@ HTML = head(
       </div>
       <div class="faq-item">
         <h3>¿Cómo me uno a un grupo de oración de la RCC Paterson?</h3>
-        <p>Puedes visitar cualquiera de los 17 grupos de oración de la RCC Paterson, organizados por parroquia, día y zona — consulta el horario, la dirección y el coordinador de cada uno en la sección <a href="#grupos-oracion">Grupos de Oración</a> de esta página, o contáctanos directamente para que te orientemos hacia el más cercano a ti.</p>
+        <p>Puedes visitar cualquiera de los 18 grupos de oración de la RCC Paterson, organizados por parroquia, día y zona — consulta el horario, la dirección y el coordinador de cada uno en la sección <a href="#grupos-oracion">Grupos de Oración</a> de esta página, o contáctanos directamente para que te orientemos hacia el más cercano a ti.</p>
       </div>
       <div class="faq-item">
         <h3>¿Qué ministerios tiene la RCC Paterson?</h3>
