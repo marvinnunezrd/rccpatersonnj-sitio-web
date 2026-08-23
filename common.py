@@ -48,6 +48,8 @@ def nav(root=""):
           <a href="{r}index.html#ministerios">RCC Youth</a>
           <a href="{r}ministerios/escuela-formacion-lideres.html">Escuela de Formación de Líderes</a>
           <a href="{r}index.html#ministerios">Seminario de Vida en el Espíritu</a>
+          <a href="{r}ministerios/hospitalidad-caridad.html">Hospitalidad y Caridad</a>
+          <a href="{r}ministerios/colaboradores.html">Colaboradores</a>
         </div>
       </div>
       <a href="{r}index.html#grupos-oracion">Grupos de Oración</a>

@@ -15,6 +15,8 @@ IMG = {
   "m_musica": "assets/img/ministerios/musica.webp",
   "m_youth": "assets/img/ministerios/youth.webp",
   "m_sve": "assets/img/ministerios/sve.webp",
+  "m_hospitalidad": "assets/img/ministerios/hospitalidad-caridad.webp",
+  "m_colaboradores": "assets/img/ministerios/colaboradores.webp",
   "eccads_mini": "assets/img/eccads-mini.png",
   "pentecostes_mini": "assets/img/pentecostes-2026-mini.webp",
   "featured": "assets/img/featured-comite-obispo.webp",
@@ -176,7 +178,7 @@ FAQ_JSONLD = '''<script type="application/ld+json">
   "@type": "FAQPage",
   "mainEntity": [
     {"@type": "Question", "name": "¿Qué es la Renovación Carismática Católica?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Es un movimiento dentro de la Iglesia Católica que promueve la experiencia del Bautismo en el Espíritu Santo y busca renovar la vida de fe de la comunidad a través de la oración, la alabanza y el servicio. En la Diócesis de Paterson, NJ, agrupa a 18 grupos de oración y 8 ministerios diocesanos bajo un mismo Comité Diocesano."}},
+      "acceptedAnswer": {"@type": "Answer", "text": "Es un movimiento dentro de la Iglesia Católica que promueve la experiencia del Bautismo en el Espíritu Santo y busca renovar la vida de fe de la comunidad a través de la oración, la alabanza y el servicio. En la Diócesis de Paterson, NJ, agrupa a 18 grupos de oración y 10 ministerios diocesanos bajo un mismo Comité Diocesano."}},
     {"@type": "Question", "name": "¿La Renovación Carismática Católica es parte de la Iglesia Católica?",
       "acceptedAnswer": {"@type": "Answer", "text": "Sí. La RCC es un movimiento eclesial reconocido que vive y sirve en comunión con la Iglesia Católica, sus pastores y la Diócesis de Paterson — no es una iglesia aparte ni una denominación distinta."}},
     {"@type": "Question", "name": "¿Cuál es la diferencia entre la Renovación Carismática Católica y una iglesia pentecostal?",
@@ -184,7 +186,7 @@ FAQ_JSONLD = '''<script type="application/ld+json">
     {"@type": "Question", "name": "¿Cómo me uno a un grupo de oración de la RCC Paterson?",
       "acceptedAnswer": {"@type": "Answer", "text": "Puedes visitar cualquiera de los 18 grupos de oración de la RCC Paterson, organizados por parroquia, día y zona — consulta el horario, la dirección y el coordinador de cada uno en la sección \\"Grupos de Oración\\" de esta página, o contáctanos directamente para que te orientemos hacia el más cercano a ti."}},
     {"@type": "Question", "name": "¿Qué ministerios tiene la RCC Paterson?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Ocho: Intercesión, Hombres de Alabanza, Mujeres de Alabanza, Comunicación y Publicidad, Ministerios de Música, RCC Youth, la Escuela de Formación de Líderes y el Seminario de Vida en el Espíritu. Puedes conocer cada uno en la sección \\"Ministerios\\" de esta página."}},
+      "acceptedAnswer": {"@type": "Answer", "text": "Diez: Intercesión, Hombres de Alabanza, Mujeres de Alabanza, Comunicación y Publicidad, Ministerios de Música, RCC Youth, la Escuela de Formación de Líderes, el Seminario de Vida en el Espíritu, el Ministerio de Hospitalidad y Caridad y el Ministerio de Colaboradores. Puedes conocer cada uno en la sección \\"Ministerios\\" de esta página."}},
     {"@type": "Question", "name": "¿Cómo contacto a la RCC Paterson?",
       "acceptedAnswer": {"@type": "Answer", "text": "Puedes escribirnos a renovacion@rccpaterson.org, seguirnos en Instagram, Facebook, TikTok y YouTube como @rccpatersonnj, o contactar directamente al coordinador del grupo de oración o ministerio de tu interés."}}
   ]
@@ -226,7 +228,7 @@ HTML = head(
         <p>Vivimos y servimos dentro de la Iglesia Católica, en comunión con nuestros pastores y con la Diócesis de Paterson, y en comunión con la Renovación Carismática Católica a nivel regional (Región 2) y nacional (Estados Unidos y Canadá) — presentes en la vida parroquial a través de nuestros ministerios, escuelas de formación y encuentros diocesanos.</p>
         <div class="about-stats">
           <div class="about-stat"><div class="num">18</div><div class="lbl">Grupos de oración</div></div>
-          <div class="about-stat"><div class="num">8</div><div class="lbl">Ministerios diocesanos</div></div>
+          <div class="about-stat"><div class="num">10</div><div class="lbl">Ministerios diocesanos</div></div>
           <div class="about-stat"><div class="num">2026</div><div class="lbl">1ª Edición ECCADS</div></div>
         </div>
       </div>
@@ -289,7 +291,7 @@ HTML = head(
   <div class="container">
     <div class="section-title">
       <span class="eyebrow">Nuestros Ministerios</span>
-      <h2>Ocho ministerios, una misma misión</h2>
+      <h2>Diez ministerios, una misma misión</h2>
       <p>Cada ministerio de la RCC Paterson tiene un llamado específico dentro del cuerpo de Cristo. Conoce su identidad y propósito.</p>
     </div>
     <div class="min-grid">{min_cards}
@@ -394,7 +396,7 @@ HTML = head(
     <div class="faq-list">
       <div class="faq-item">
         <h3>¿Qué es la Renovación Carismática Católica?</h3>
-        <p>Es un movimiento dentro de la Iglesia Católica que promueve la experiencia del Bautismo en el Espíritu Santo y busca renovar la vida de fe de la comunidad a través de la oración, la alabanza y el servicio. En la Diócesis de Paterson, NJ, agrupa a 18 grupos de oración y 8 ministerios diocesanos bajo un mismo Comité Diocesano.</p>
+        <p>Es un movimiento dentro de la Iglesia Católica que promueve la experiencia del Bautismo en el Espíritu Santo y busca renovar la vida de fe de la comunidad a través de la oración, la alabanza y el servicio. En la Diócesis de Paterson, NJ, agrupa a 18 grupos de oración y 10 ministerios diocesanos bajo un mismo Comité Diocesano.</p>
       </div>
       <div class="faq-item">
         <h3>¿La Renovación Carismática Católica es parte de la Iglesia Católica?</h3>
@@ -410,7 +412,7 @@ HTML = head(
       </div>
       <div class="faq-item">
         <h3>¿Qué ministerios tiene la RCC Paterson?</h3>
-        <p>Ocho: Intercesión, Hombres de Alabanza, Mujeres de Alabanza, Comunicación y Publicidad, Ministerios de Música, RCC Youth, la Escuela de Formación de Líderes y el Seminario de Vida en el Espíritu. Puedes conocer cada uno en la sección <a href="#ministerios">Ministerios</a> de esta página.</p>
+        <p>Diez: Intercesión, Hombres de Alabanza, Mujeres de Alabanza, Comunicación y Publicidad, Ministerios de Música, RCC Youth, la Escuela de Formación de Líderes, el Seminario de Vida en el Espíritu, el Ministerio de Hospitalidad y Caridad y el Ministerio de Colaboradores. Puedes conocer cada uno en la sección <a href="#ministerios">Ministerios</a> de esta página.</p>
       </div>
       <div class="faq-item">
         <h3>¿Cómo contacto a la RCC Paterson?</h3>

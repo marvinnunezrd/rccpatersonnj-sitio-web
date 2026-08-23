@@ -299,4 +299,116 @@ page(
   extra_head=MUSICA_STYLE
 )
 
+# ---------- HOSPITALIDAD Y CARIDAD ----------
+page(
+  "ministerios/hospitalidad-caridad.html",
+  "Ministerio de Hospitalidad y Caridad — RCC Paterson NJ",
+  "Ministerio de Hospitalidad y Caridad de la Renovación Carismática Católica de la Diócesis de Paterson: acogida fraterna, servicio humilde y atención a quienes atraviesan enfermedad, soledad o dificultad.",
+  "escudo-hospitalidad-caridad.webp",
+  "Ministerio de Hospitalidad y Caridad",
+  "Acoger al hermano es recibir a Cristo; atenderlo con amor es hacer visible su misericordia.",
+  f'''
+<section>
+  <div class="container">
+    <div class="min-content">
+      <span class="eyebrow">Identidad y Misión</span>
+      <h2 style="color:var(--navy);">Acoger al hermano es recibir a Cristo</h2>
+      <p>Es el ministerio que manifiesta el amor de Cristo mediante la acogida fraterna, el servicio humilde y la atención prudente a las necesidades humanas y espirituales de los hermanos. Sirve en los eventos diocesanos y en el acompañamiento de personas enfermas, solas, recién llegadas o en dificultad. Cada persona debe ser recibida con dignidad, alegría, respeto y discreción.</p>
+      <p>Su misión es manifestar el amor de Cristo a través de la acogida fraterna, el servicio humilde, la oración y la atención organizada a las necesidades de quienes participan en las actividades diocesanas o atraviesan enfermedad, crisis, soledad o dificultad.</p>
+      <p>Su visión es consolidar una cultura de hospitalidad, caridad y solidaridad dentro de la Renovación Carismática Católica de la Diócesis de Paterson, para que cada persona que llegue se sienta recibida, acompañada e integrada a una comunidad donde pueda experimentar el amor de Dios.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bg-navy">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Nuestros valores</span>
+      <h2>Una presencia fraterna, no un protocolo</h2>
+      <p>No es solamente un equipo de protocolo, orden o acomodadores: es una presencia fraterna que recibe, escucha, orienta y acompaña — un puente entre la persona, la comunidad, los grupos de oración y los recursos pastorales.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card"><div class="vnum">I</div><h4>Amor fraterno</h4><p>El punto de partida de toda acogida.</p></div>
+      <div class="value-card"><div class="vnum">II</div><h4>Caridad</h4><p>Servicio humilde a quien lo necesita.</p></div>
+      <div class="value-card"><div class="vnum">III</div><h4>Humildad</h4><p>Sin protagonismo ni exposición pública.</p></div>
+      <div class="value-card"><div class="vnum">IV</div><h4>Hospitalidad</h4><p>Recibir con dignidad, alegría y respeto.</p></div>
+      <div class="value-card"><div class="vnum">V</div><h4>Discreción y confidencialidad</h4><p>Cuidar la privacidad de cada hermano.</p></div>
+    </div>
+    <div class="pull-quote" style="background:rgba(255,255,255,.05);border-left-color:var(--gold);margin-top:50px;">
+      <p style="color:var(--gold-light);">&ldquo;Acoger al hermano es recibir a Cristo; atenderlo con amor es hacer visible su misericordia.&rdquo;</p>
+      <cite style="color:rgba(255,243,214,.6);">— Concepto central, Guía Pastoral del Ministerio de Hospitalidad y Caridad · RCC Paterson NJ</cite>
+    </div>
+    <div class="pull-quote" style="background:rgba(255,255,255,.05);border-left-color:var(--gold);margin-top:24px;">
+      <p style="color:var(--gold-light);">&ldquo;Porque tuve hambre y ustedes me dieron de comer; tuve sed y me dieron de beber; fui forastero y me recibieron; estuve desnudo y me vistieron; enfermo y me visitaron; en la cárcel y vinieron a verme.&rdquo;</p>
+      <cite style="color:rgba(255,243,214,.6);">— Mateo 25,35-36 · fundamento bíblico del Ministerio de Hospitalidad y Caridad</cite>
+    </div>
+    <div class="section-title">
+      <span class="eyebrow">Coordinadoras</span>
+      <h2>Ministerio de Hospitalidad y Caridad</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card"><h4>Marisol Parra</h4><p class="role">Coordinadora</p><a class="phone" href="tel:+18626860358">{PHONE_ICON} (862) 686-0358</a></div>
+      <div class="team-card"><h4>Griselda Ortiz</h4><p class="role">Coordinadora</p><a class="phone" href="tel:+12014968246">{PHONE_ICON} (201) 496-8246</a></div>
+      <div class="team-card"><h4>Justina Peña (Luz)</h4><p class="role">Coordinadora</p><a class="phone" href="tel:+18622710877">{PHONE_ICON} (862) 271-0877</a></div>
+    </div>
+  </div>
+</section>
+''')
+
+# ---------- COLABORADORES ----------
+page(
+  "ministerios/colaboradores.html",
+  "Ministerio de Colaboradores — RCC Paterson NJ",
+  "Ministerio de Colaboradores de la Renovación Carismática Católica de la Diócesis de Paterson: la puerta de entrada al servicio, con formación y acompañamiento para quienes comienzan a servir.",
+  "escudo-colaboradores.webp",
+  "Ministerio de Colaboradores",
+  "Les he dado ejemplo para que hagan lo mismo que yo hice con ustedes.",
+  f'''
+<section>
+  <div class="container">
+    <div class="min-content">
+      <span class="eyebrow">Identidad y Misión</span>
+      <h2 style="color:var(--navy);">La puerta de entrada al servicio</h2>
+      <p>El Ministerio de Colaboradores acoge a quienes han recibido el llamado inicial del Espíritu Santo y desean comenzar a servir. Aquí se sirve de manera formada, acompañada y vinculada a una comunidad — no es solamente un grupo de voluntarios para cubrir eventos, sino un proceso pastoral de acogida, formación, acompañamiento, discernimiento y crecimiento en el servicio.</p>
+      <p>Como Simón de Cirene, quien venía del campo con sus propios afanes y terminó compartiendo la carga de Jesús, así el colaborador aprende a caminar con Cristo, a compartir las cargas y a colaborar con su misión: no carga en lugar de Cristo, aprende a cargar con Cristo.</p>
+      <p>Su misión es acoger, formar y acompañar a quienes comienzan a servir, para que el servicio nazca del amor y edifique la comunión. Su visión: colaboradores maduros, perseverantes y unidos a su parroquia y a su grupo de oración, listos para un servicio reconocido.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bg-navy">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Nuestros valores</span>
+      <h2>Un camino, no un ascenso</h2>
+      <p>Ninguno de los requisitos de este ministerio es una barrera. Todos son un camino: se caminan poco a poco, siempre acompañados.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card"><div class="vnum">I</div><h4>Humildad</h4><p>La base de todo servicio auténtico.</p></div>
+      <div class="value-card"><div class="vnum">II</div><h4>Caridad</h4><p>El servicio nace del amor, no del deber.</p></div>
+      <div class="value-card"><div class="vnum">III</div><h4>Comunión</h4><p>Nadie sirve solo: se sirve en comunidad.</p></div>
+      <div class="value-card"><div class="vnum">IV</div><h4>Perseverancia</h4><p>Un camino sostenido, no un impulso.</p></div>
+      <div class="value-card"><div class="vnum">V</div><h4>Disponibilidad</h4><p>Un corazón dispuesto a aprender y servir.</p></div>
+    </div>
+    <div class="pull-quote" style="background:rgba(255,255,255,.05);border-left-color:var(--gold);margin-top:50px;">
+      <p style="color:var(--gold-light);">&ldquo;El colaborador no carga en lugar de Cristo; aprende a cargar con Cristo.&rdquo;</p>
+      <cite style="color:rgba(255,243,214,.6);">— Como Simón de Cirene, Guía Pastoral del Ministerio de Colaboradores · RCC Paterson NJ</cite>
+    </div>
+    <div class="section-title">
+      <span class="eyebrow">Coordinadoras</span>
+      <h2>Ministerio de Colaboradores</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card"><h4>Mercedes González</h4><p class="role">Coordinadora</p><a class="phone" href="tel:+18626687852">{PHONE_ICON} (862) 668-7852</a></div>
+      <div class="team-card"><h4>Lidia Tapia</h4><p class="role">Coordinadora</p><a class="phone" href="tel:+12018873188">{PHONE_ICON} (201) 887-3188</a></div>
+      <div class="team-card"><h4>María Payano (Charo)</h4><p class="role">Coordinadora</p><a class="phone" href="tel:+19739315033">{PHONE_ICON} (973) 931-5033</a></div>
+    </div>
+    <div class="pull-quote" style="background:rgba(255,255,255,.05);border-left-color:var(--gold);margin-top:44px;">
+      <p style="color:var(--gold-light);">&ldquo;Señor Jesús, Maestro y Servidor, enséñanos a reconocer tu rostro en cada persona. Danos un corazón humilde, manos disponibles, palabras que edifiquen y la sabiduría de tu Espíritu. Que nuestro servicio nazca del amor, fortalezca la comunión y conduzca a otros hacia ti. Amén.&rdquo;</p>
+      <cite style="color:rgba(255,243,214,.6);">— Oración final, Guía Pastoral del Ministerio de Colaboradores · RCC Paterson NJ</cite>
+    </div>
+  </div>
+</section>
+''')
+
 print("Páginas de ministerio generadas.")
