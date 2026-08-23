@@ -110,7 +110,7 @@ MINISTERIOS = [
   ("m_musica","Ministerios de Música","Coordina, forma y anima a todos los grupos de música de la RCC Paterson. La música es oración, no espectáculo.","ministerios/musica.html"),
   ("m_youth","RCC Youth","Acompaña a los jóvenes en su encuentro personal con Jesucristo y los envía como evangelizadores a sus familias y escuelas.","#ministerios"),
   ("escudo_efl","Escuela de Formación de Líderes","Forma y madura servidores capaces de liderar con sabiduría y fidelidad, desde lo humano, lo espiritual y lo doctrinal.","ministerios/escuela-formacion-lideres.html"),
-  ("m_sve","Seminario de Vida en el Espíritu","La puerta de entrada a la Renovación: siete sesiones que renuevan la fe bautismal y abren a los dones del Espíritu Santo.","#ministerios"),
+  ("m_sve","Seminario de Vida en el Espíritu","La puerta de entrada a la Renovación: siete sesiones que renuevan la fe bautismal y abren a los dones del Espíritu Santo.","ministerios/seminario-vida-espiritu.html"),
   ("m_hospitalidad","Ministerio de Hospitalidad y Caridad","Manifiesta el amor de Cristo mediante la acogida fraterna y el servicio humilde: atiende con dignidad a los hermanos en los eventos y a quienes atraviesan enfermedad, soledad o dificultad.","ministerios/hospitalidad-caridad.html"),
   ("m_colaboradores","Ministerio de Colaboradores","La puerta de entrada al servicio: acoge, forma y acompaña a quienes sienten el llamado inicial del Espíritu Santo para comenzar a servir.","ministerios/colaboradores.html"),
 ]

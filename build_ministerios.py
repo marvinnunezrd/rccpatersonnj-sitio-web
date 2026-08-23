@@ -416,4 +416,67 @@ page(
 ''',
   og_image="assets/img/ministerios/colaboradores-og.jpg")
 
+# ---------- SEMINARIO DE VIDA EN EL ESPÍRITU ----------
+SVE_STYLE = '''<style>
+.hero-sub .subtitle-quote{font-style:italic;}
+.hero-sub .subtitle-quote .quote-text::before{content:"\\201C";}
+.hero-sub .subtitle-quote .quote-text::after{content:"\\201D";}
+.hero-sub .subtitle-quote cite{display:block;margin-top:8px;font-size:.8rem;font-style:normal;color:rgba(255,255,255,.72);}
+</style>'''
+
+page(
+  "ministerios/seminario-vida-espiritu.html",
+  "Seminario de Vida en el Espíritu — RCC Paterson NJ",
+  "Seminario de Vida en el Espíritu (SVE) de la Renovación Carismática Católica de la Diócesis de Paterson: la puerta de entrada a la experiencia del Bautismo en el Espíritu Santo.",
+  "escudo-sve.webp",
+  "Seminario de Vida en el Espíritu",
+  '<span class="quote-text">Yo enviaré sobre ustedes la promesa de mi Padre.</span><cite>— Lucas 24,49</cite>',
+  og_image="assets/img/ministerios/sve-og.jpg",
+  extra_subtitle_class=" subtitle-quote",
+  extra_head=SVE_STYLE,
+  content_html=f'''
+<section>
+  <div class="container">
+    <div class="min-content">
+      <span class="eyebrow">Identidad y Misión</span>
+      <h2 style="color:var(--navy);">La puerta de entrada a la Renovación</h2>
+      <p>El Seminario de Vida en el Espíritu (SVE) no es una clase teológica, sino una experiencia kerigmática diseñada para llevar a las personas a un encuentro personal con Jesucristo vivo. Su propósito es facilitar una transformación espiritual profunda: un encuentro personal con Cristo, la conversión del corazón, la experiencia del Espíritu Santo y la integración en la comunidad cristiana.</p>
+      <p>El SVE no &ldquo;crea&rdquo; algo nuevo — actualiza lo que Dios ya hizo en el bautismo y la confirmación. Se desarrolla en siete semanas: el amor del Padre, el pecado y sus consecuencias, Jesús Salvador del mundo, fe y conversión, el señorío de Jesús, la promesa del Padre —momento central de oración por la efusión del Espíritu Santo— y la comunidad como vida nueva en Cristo.</p>
+      <p>El ministerio del Seminario de Vida en el Espíritu está compuesto por un equipo base de 6 a 8 servidores comprometidos con la misión evangelizadora: coordinación, predicación, música, servidores de los grupos de diálogo e intercesión.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bg-navy">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Nuestros valores</span>
+      <h2>El Espíritu Santo es el agente principal</h2>
+      <p>El seminario busca mover el corazón, no solamente informar la mente. El Espíritu Santo es el agente principal de la transformación; los servidores somos instrumentos en sus manos.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card"><div class="vnum">I</div><h4>Unidad</h4><p>Trabajar en comunión, en amor humilde, sin divisiones.</p></div>
+      <div class="value-card"><div class="vnum">II</div><h4>Unción</h4><p>Comunicar una experiencia real con el Señor.</p></div>
+      <div class="value-card"><div class="vnum">III</div><h4>Humildad</h4><p>El coordinador no es el protagonista.</p></div>
+      <div class="value-card"><div class="vnum">IV</div><h4>Conocimiento</h4><p>Fieles a lo que enseña la Iglesia y su doctrina.</p></div>
+    </div>
+    <div class="pull-quote" style="background:rgba(255,255,255,.05);border-left-color:var(--gold);margin-top:50px;">
+      <p style="color:var(--gold-light);">&ldquo;El coordinador no es el protagonista: es quien cuida que todos puedan servir.&rdquo;</p>
+      <cite style="color:rgba(255,243,214,.6);">— Rol del coordinador, Guía Pastoral del Seminario de Vida en el Espíritu · RCC Paterson NJ</cite>
+    </div>
+    <div class="pull-quote" style="background:rgba(255,255,255,.05);border-left-color:var(--gold);margin-top:24px;">
+      <p style="color:var(--gold-light);">&ldquo;Yo enviaré sobre ustedes la promesa de mi Padre.&rdquo;</p>
+      <cite style="color:rgba(255,243,214,.6);">— Lucas 24,49 · texto central del Seminario de Vida en el Espíritu</cite>
+    </div>
+    <div class="section-title">
+      <span class="eyebrow">Coordinación</span>
+      <h2>Seminario de Vida en el Espíritu</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card"><h4>Fiordaliza Moya (Fior)</h4><p class="role">Coordinadora</p><a class="phone" href="tel:+19739304226">{PHONE_ICON} (973) 930-4226</a></div>
+    </div>
+  </div>
+</section>
+''')
+
 print("Páginas de ministerio generadas.")
