@@ -151,6 +151,20 @@ section{padding:84px 20px;}
 .min-card p{font-size:.85rem;color:rgba(255,243,214,.72);margin:0 0 12px;}
 .min-card .card-cta{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);font-weight:700;}
 
+/* departamentos */
+.depto-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;max-width:var(--max-width);margin:0 auto;}
+@media (max-width:760px){.depto-grid{grid-template-columns:1fr;}}
+.depto-card{background:linear-gradient(180deg,var(--navy) 0%,var(--navy-deep) 100%);border:1px solid rgba(217,161,46,.4);border-radius:14px;padding:32px 28px;box-shadow:0 14px 34px rgba(8,43,76,.22);transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;}
+.depto-card:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 22px 46px rgba(8,43,76,.32);}
+.depto-card h3{font-size:1.12rem;color:var(--gold-light);margin-bottom:12px;}
+.depto-card p{font-size:.85rem;color:rgba(255,243,214,.78);margin:0 0 20px;line-height:1.6;}
+.depto-coords{display:flex;flex-direction:column;gap:10px;border-top:1px solid rgba(217,161,46,.25);padding-top:16px;}
+.depto-coord{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 14px;}
+.depto-coord .dc-name{font-size:.82rem;color:var(--ivory);font-weight:600;}
+.depto-coord .dc-tel{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;color:var(--gold-light);text-decoration:none;font-weight:600;white-space:nowrap;}
+.depto-coord .dc-tel:hover{color:var(--white);}
+.depto-coord .dc-tel .phone-icon{width:13px;height:13px;fill:currentColor;flex-shrink:0;}
+
 /* featured banner */
 .featured-banner{max-width:var(--max-width);margin:0 auto;background:linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);border:1px solid var(--gold);border-radius:16px;padding:50px 40px;display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center;box-shadow:0 20px 50px rgba(8,43,76,.18);}
 .featured-banner img{width:190px;filter:drop-shadow(0 10px 24px rgba(0,0,0,.4));}
@@ -336,6 +350,7 @@ footer.site-footer .fine-print{margin-top:22px;padding-top:18px;border-top:1px s
 /* Invitados */
 .guests-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:34px;max-width:var(--max-width);margin:0 auto;}
 .guest-card{text-align:center;}
+.guest-card .musico-honor{font-size:.72rem;font-style:italic;font-weight:600;color:var(--wine);margin:2px 0 4px;line-height:1.35;}
 .guest-photo{width:160px;height:160px;border-radius:50%;overflow:hidden;margin:0 auto 16px;border:4px solid var(--gold);box-shadow:0 8px 20px rgba(8,43,76,.15);}
 .guest-photo img{width:100%;height:100%;object-fit:cover;}
 .guest-card h3{font-size:1.05rem;color:var(--navy);margin-bottom:4px;}

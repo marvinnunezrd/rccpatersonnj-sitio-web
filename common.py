@@ -34,6 +34,7 @@ def nav(root=""):
           <a href="{r}index.html#quienes-somos">Quiénes Somos</a>
           <a href="{r}index.html#identidad">Misión, Visión y Valores</a>
           <a href="{r}index.html#comite">Comité Diocesano</a>
+          <a href="{r}index.html#departamentos">Departamentos</a>
         </div>
       </div>
       <div class="nav-item has-dropdown">

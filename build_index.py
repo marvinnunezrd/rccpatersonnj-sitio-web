@@ -1,7 +1,7 @@
 import sys
 sys.path.insert(0, ".")
 from common import head, footer, TAIL, social_row, SOCIAL_ICONS
-from data import COMITE, ZONA_COORDINADORES, GRUPOS_ORACION, AGENDA, MINISTERIOS, PARROQUIA_URLS
+from data import COMITE, ZONA_COORDINADORES, GRUPOS_ORACION, AGENDA, MINISTERIOS, PARROQUIA_URLS, DEPARTAMENTOS
 
 PHONE_ICON = SOCIAL_ICONS['phone']
 
@@ -115,6 +115,25 @@ def _tel_href(telefono):
     first = telefono.split(" / ")[0]
     digits = "".join(ch for ch in first if ch.isdigit())
     return f"tel:+1{digits}" if digits else "#"
+
+def depto_coord(nombre, telefono):
+    return f'''
+              <div class="depto-coord">
+                <span class="dc-name">{nombre}</span>
+                <a class="dc-tel" href="{_tel_href(telefono)}">{PHONE_ICON} {telefono}</a>
+              </div>'''
+
+def depto_card(d):
+    coords_html = "\n".join(depto_coord(n, t) for n, t in d["coordinadores"])
+    return f'''
+        <div class="depto-card">
+          <h3>{d["nombre"]}</h3>
+          <p>{d["descripcion"]}</p>
+          <div class="depto-coords">{coords_html}
+          </div>
+        </div>'''
+
+depto_cards = "\n".join(depto_card(d) for d in DEPARTAMENTOS)
 
 def grupo_row(g):
     horario = g["horario"] or "Por confirmar"
@@ -349,6 +368,22 @@ HTML = head(
   </div>
 </section>
 
+
+<section id="departamentos">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Vida diocesana</span>
+      <h2>Departamentos</h2>
+      <p>Cuatro departamentos de apoyo interno sostienen la vida diocesana y cada uno de nuestros eventos. No son ministerios, sino equipos de servicio con sus propios coordinadores — comunícate directamente con ellos si deseas formar parte como voluntario, o apadrinar, patrocinar o donar para su labor.</p>
+    </div>
+    <div class="depto-grid">{depto_cards}
+    </div>
+    <div class="pull-quote" style="margin-top:44px;">
+      <p>&ldquo;Le damos la bienvenida a organizaciones o empresas que quisieran apadrinar, patrocinar o donar cualquier evento o necesidad de la RCC.&rdquo;</p>
+      <cite>— Mensaje de bienvenida a patrocinadores y donantes · RCC Paterson NJ</cite>
+    </div>
+  </div>
+</section>
 
 <section id="preguntas-frecuentes">
   <div class="container">

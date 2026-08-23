@@ -112,3 +112,42 @@ MINISTERIOS = [
   ("escudo_efl","Escuela de Formación de Líderes","Forma y madura servidores capaces de liderar con sabiduría y fidelidad, desde lo humano, lo espiritual y lo doctrinal.","ministerios/escuela-formacion-lideres.html"),
   ("m_sve","Seminario de Vida en el Espíritu","La puerta de entrada a la Renovación: siete sesiones que renuevan la fe bautismal y abren a los dones del Espíritu Santo.","#ministerios"),
 ]
+
+# Departamentos internos de apoyo (no son ministerios). Decision de Marvin
+# 2026-08-22: sin logo propio ni iconos estilo emoji/redes sociales; solo
+# mencion textual (nombre, descripcion y contacto de coordinadores) en su
+# propia seccion del sitio. Telefonos en el mismo formato que GRUPOS_ORACION
+# para reutilizar _tel_href() sin cambios.
+DEPARTAMENTOS = [
+    {
+        "nombre": "Librería",
+        "descripcion": "Cuenta con toda clase de objetos religiosos y sacramentales que ayudan a fortalecer la vida espiritual, tanto de los servidores como de todos los hermanos que asisten a nuestros eventos. Está presente en cada uno de ellos, para que la comunidad pueda acercarse y adquirirlos. No cuenta con catálogo en línea: para hacer un pedido o preguntar por la existencia de algún artículo, comunicarse directamente con el departamento a través de los siguientes contactos.",
+        "coordinadores": [
+            ("Luisa Mejía", "(862) 271-4805"),
+            ("Cruz Acevedo", "(862) 262-1741"),
+        ],
+    },
+    {
+        "nombre": "Nutrición",
+        "descripcion": "Se encarga de que, en cada evento, los hermanos reciban el sustento — alimento y bebida — que necesitan, siempre bajo el cuidado de quien coordina el departamento. Según el tipo de evento, este sustento se ofrece de manera gratuita o a la venta a un precio módico. Interesados en donar alimentos o unirse como voluntarios pueden contactar a:",
+        "coordinadores": [
+            ("Luis González", "(973) 879-3469"),
+        ],
+    },
+    {
+        "nombre": "Higiene",
+        "descripcion": "Vela por que el salón, los baños y las demás áreas estén debidamente acondicionados en materia de higiene, antes, durante y después de cada evento — no solo en la Casa de la Renovación (Santa Teresita), sino en cualquier lugar donde nos reunamos. Interesados en donar artículos de higiene o unirse como voluntarios pueden contactar a:",
+        "coordinadores": [
+            ("Elizabeth Francisco", "(862) 899-2799"),
+        ],
+    },
+    {
+        "nombre": "Decoración",
+        "descripcion": "Se encarga de que cada evento tenga el esplendor que merece, acorde a nuestra fe y a nuestros símbolos, y acorde también al lugar donde nos reunimos — como Dios lo merece y como merecen quienes le servimos y quienes lo buscamos. Interesados en donar o unirse como voluntarios pueden contactar a:",
+        "coordinadores": [
+            ("Dionicia Matías", "(862) 218-3385"),
+            ("Juana Santana", "(917) 937-8169"),
+            ("Nancy Ruiz", "(973) 405-0954"),
+        ],
+    },
+]
