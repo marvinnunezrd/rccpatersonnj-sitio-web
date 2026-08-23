@@ -75,7 +75,8 @@ page(
     </div>
   </div>
 </section>
-''')
+''',
+  og_image="assets/img/ministerios/hombres-alabanza-og.jpg")
 
 # ---------- MUJERES DE ALABANZA ----------
 page(
@@ -130,7 +131,8 @@ page(
     </div>
   </div>
 </section>
-''')
+''',
+  og_image="assets/img/ministerios/mujeres-alabanza-og.jpg")
 
 # ---------- INTERCESION ----------
 page(
@@ -174,7 +176,8 @@ page(
     </div>
   </div>
 </section>
-''')
+''',
+  og_image="assets/img/ministerios/intercesion-og.jpg")
 
 # ---------- MINISTERIOS DE MÚSICA ----------
 SOCIAL_LABELS = {"ig": "Instagram", "fb": "Facebook", "tt": "TikTok", "yt": "YouTube", "wa": "WhatsApp", "mail": "Correo"}
@@ -353,7 +356,8 @@ page(
     </div>
   </div>
 </section>
-''')
+''',
+  og_image="assets/img/ministerios/hospitalidad-caridad-og.jpg")
 
 # ---------- COLABORADORES ----------
 page(
@@ -409,6 +413,7 @@ page(
     </div>
   </div>
 </section>
-''')
+''',
+  og_image="assets/img/ministerios/colaboradores-og.jpg")
 
 print("Páginas de ministerio generadas.")

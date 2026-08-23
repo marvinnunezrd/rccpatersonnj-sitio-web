@@ -9,7 +9,8 @@ html = head(
   "Escuela de Formación de Líderes — RCC Paterson NJ",
   "Escuela de Formación de Líderes (EFL) de la Renovación Carismática Católica de la Diócesis de Paterson. Inscripciones abiertas al Módulo 3.",
   root=R,
-  path="ministerios/escuela-formacion-lideres.html"
+  path="ministerios/escuela-formacion-lideres.html",
+  og_image="assets/img/ministerios/escuela-formacion-lideres-og.jpg"
 ) + f'''
 <header class="hero-sub">
   <div class="container">
