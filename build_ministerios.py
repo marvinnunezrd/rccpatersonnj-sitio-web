@@ -180,8 +180,8 @@ page(
   og_image="assets/img/ministerios/intercesion-og.jpg")
 
 # ---------- MINISTERIOS DE MÚSICA ----------
-SOCIAL_LABELS = {"ig": "Instagram", "fb": "Facebook", "tt": "TikTok", "yt": "YouTube", "wa": "WhatsApp", "mail": "Correo"}
-ICON_ORDER = ["ig", "fb", "tt", "yt", "wa", "mail"]
+SOCIAL_LABELS = {"ig": "Instagram", "fb": "Facebook", "tt": "TikTok", "yt": "YouTube", "spotify": "Spotify", "applemusic": "Apple Music", "wa": "WhatsApp", "mail": "Correo"}
+ICON_ORDER = ["ig", "fb", "tt", "yt", "spotify", "applemusic", "wa", "mail"]
 
 MUSICOS = [
     {"name": "Marvin Núñez", "role": "Director de Ministerios de Música", "photo": "comite/marvin-nunez.webp",
@@ -189,6 +189,8 @@ MUSICOS = [
      "fb": "https://www.facebook.com/marvinnunezrd",
      "tt": "https://www.tiktok.com/@marvinnunezrd",
      "yt": "https://www.youtube.com/@marvinnunezrd",
+     "spotify": "https://open.spotify.com/intl-es/artist/0vheEY20pbheuQIwpVD3RR?si=tZMP7yV7S0iPEW2hJfA6Aw",
+     "applemusic": "https://music.apple.com/us/artist/marvin-n%C3%BA%C3%B1ez/996812382",
      "wa": "https://wa.me/19295308974",
      "mail": "mailto:marvinnunezrd@gmail.com"},
     {"name": "Los Hijos del Padre", "role": "Ministerio de Música", "honor": "Rafael Beato — Ex-Director de los Ministerios de Música", "photo": "musica-los-hijos-del-padre.webp",
@@ -219,6 +221,17 @@ MUSICOS = [
      "ig": ("@son_dfe", "https://www.instagram.com/son_dfe/"),
      "fb": "https://www.facebook.com/profile.php?id=61579764351173",
      "wa": "https://wa.me/18622834237"},
+    {"name": "Griselda Ortiz", "role": "Ministerio de Música", "photo": "musica-griselda-ortiz.webp",
+     "ig": ("@griseldacieloytierra", "https://www.instagram.com/griseldacieloytierra/"),
+     "fb": "https://www.facebook.com/GriseldaCieloyTierra",
+     "tt": "https://www.tiktok.com/@griseldaortiz378",
+     "yt": "https://www.youtube.com/channel/UCx5yPk_pg3XT4XH96wolqQw",
+     "spotify": "https://open.spotify.com/intl-es/artist/0M1lin0wvyJ4HjkvmCmhkS",
+     "applemusic": "https://music.apple.com/us/artist/griselda-ortiz/1576749077",
+     "wa": "https://wa.me/12014968246",
+     "mail": "mailto:GRISELDACIELOYTIERA@gmail.com"},
+    {"name": "Ministerio Luz de Cristo", "role": "Ministerio de Música", "photo": "musica-luz-de-cristo.webp",
+     "wa": "https://wa.me/19733561292"},
 ]
 
 def musico_card(m):
