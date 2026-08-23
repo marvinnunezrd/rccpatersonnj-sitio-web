@@ -318,6 +318,21 @@ footer.site-footer .social-row{display:flex;justify-content:center;gap:18px;marg
 footer.site-footer .social-row a{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold-light);transition:.15s;}
 footer.site-footer .social-row a:hover{background:var(--gold);color:var(--navy-deep);transform:translateY(-3px);}
 footer.site-footer .social-row svg{width:20px;height:20px;fill:currentColor;}
+
+/* Tooltip al pasar el mouse sobre íconos de redes sociales -- reutiliza el
+   aria-label que ya trae cada <a> (Instagram, Spotify, etc.), sin necesidad
+   de tocar el HTML. Aplica al pie de página (todo el sitio) y a las tarjetas
+   de músicos en Ministerios de Música. */
+footer.site-footer .social-row a,
+.musico-social a{position:relative;}
+footer.site-footer .social-row a::after,
+.musico-social a::after{content:attr(aria-label);position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(4px);background:var(--navy-deep);color:var(--ivory);font-family:var(--font-title);font-size:.66rem;font-weight:600;letter-spacing:.02em;white-space:nowrap;padding:5px 11px;border-radius:6px;opacity:0;pointer-events:none;transition:opacity .15s ease,transform .15s ease;z-index:30;box-shadow:0 6px 16px rgba(0,0,0,.25);}
+footer.site-footer .social-row a::before,
+.musico-social a::before{content:"";position:absolute;bottom:calc(100% + 5px);left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:var(--navy-deep);opacity:0;pointer-events:none;transition:opacity .15s ease;z-index:30;}
+footer.site-footer .social-row a:hover::after,
+.musico-social a:hover::after{opacity:1;transform:translateX(-50%) translateY(0);}
+footer.site-footer .social-row a:hover::before,
+.musico-social a:hover::before{opacity:1;}
 footer.site-footer p{font-size:.85rem;color:rgba(255,243,214,.7);margin:0 0 10px;}
 footer.site-footer a{color:var(--gold-light);}
 .footer-affiliations{margin:0 auto 28px;padding-top:24px;max-width:460px;border-top:1px solid rgba(217,161,46,.2);}
