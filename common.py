@@ -64,6 +64,19 @@ def footer(root=""):
     return f'''<footer class="site-footer" id="contacto">
   <img class="footer-logo" src="{r}assets/img/escudo-rcc-oficial.webp" alt="Logo RCC Paterson NJ" width="700" height="700">
   {social_row()}
+  <div class="footer-affiliations">
+    <span class="footer-affiliations-label">En comunión con</span>
+    <div class="affiliation-logos">
+      <a href="https://rcdop.org/" target="_blank" rel="noopener" class="affiliation-logo">
+        <img src="{r}assets/img/logo-diocesis-paterson.webp" alt="Diócesis de Paterson" width="508" height="196" loading="lazy">
+        <span>Diócesis de Paterson</span>
+      </a>
+      <a href="https://rcchispana.org/" target="_blank" rel="noopener" class="affiliation-logo">
+        <img src="{r}assets/img/logo-rcc-hispana.webp" alt="Renovación Carismática Católica de los Estados Unidos y Canadá" width="358" height="179" loading="lazy">
+        <span>Renovación Carismática Católica de Estados Unidos y Canadá</span>
+      </a>
+    </div>
+  </div>
   <p class="footer-org">Renovación Carismática Católica &middot; Diócesis de Paterson</p>
   <p class="footer-email">
     <a href="mailto:renovacion@rccpaterson.org">{SOCIAL_ICONS['mail']} renovacion@rccpaterson.org</a>

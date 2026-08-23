@@ -315,6 +315,13 @@ footer.site-footer .social-row a:hover{background:var(--gold);color:var(--navy-d
 footer.site-footer .social-row svg{width:20px;height:20px;fill:currentColor;}
 footer.site-footer p{font-size:.85rem;color:rgba(255,243,214,.7);margin:0 0 10px;}
 footer.site-footer a{color:var(--gold-light);}
+.footer-affiliations{margin:0 auto 28px;padding-top:24px;max-width:460px;border-top:1px solid rgba(217,161,46,.2);}
+.footer-affiliations-label{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,243,214,.5);margin-bottom:18px;}
+.affiliation-logos{display:flex;justify-content:center;align-items:flex-start;gap:32px;flex-wrap:wrap;}
+.affiliation-logo{display:flex;flex-direction:column;align-items:center;gap:10px;max-width:170px;text-decoration:none;}
+.affiliation-logo img{height:52px;width:auto;max-width:160px;object-fit:contain;border-radius:4px;}
+.affiliation-logo span{font-size:.68rem;line-height:1.35;letter-spacing:.01em;color:rgba(255,243,214,.7);}
+.affiliation-logo:hover span{color:var(--gold-light);}
 .footer-org{font-size:.82rem;letter-spacing:.02em;color:rgba(255,243,214,.55);margin-bottom:14px;}
 .footer-email{margin-bottom:22px;}
 .footer-email a{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-title);font-size:.92rem;color:var(--gold-light);border:1px solid rgba(217,161,46,.4);padding:8px 20px;border-radius:999px;}
