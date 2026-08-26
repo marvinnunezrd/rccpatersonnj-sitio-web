@@ -148,7 +148,6 @@ DEPARTAMENTOS = [
         "descripcion": "Se encarga de que cada evento tenga el esplendor que merece, acorde a nuestra fe y a nuestros símbolos, y acorde también al lugar donde nos reunimos — como Dios lo merece y como merecen quienes le servimos y quienes lo buscamos. Interesados en donar o unirse como voluntarios pueden contactar a:",
         "coordinadores": [
             ("Dionicia Matías", "(862) 218-3385"),
-            ("Juana Santana", "(917) 937-8169"),
             ("Nancy Ruiz", "(973) 405-0954"),
         ],
     },
