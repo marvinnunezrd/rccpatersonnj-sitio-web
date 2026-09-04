@@ -103,6 +103,10 @@ GA_SNIPPET = f'''<script async src="https://www.googletagmanager.com/gtag/js?id=
   gtag('config', '{GA_MEASUREMENT_ID}');
 </script>'''
 
+# Metricool -- tracking de todas las paginas del sitio para analitica de
+# redes/campanas (ademas de Google Analytics). Agregado 2026-09-04.
+METRICOOL_SNIPPET = '''<script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"89a463aca221f0d17ad744ce528c4a01"})});</script>'''
+
 # Verificacion de propiedad en Google Search Console (metodo secundario,
 # ademas de la verificacion automatica via Google Analytics) -- agregado
 # 2026-08-22. No quitar aunque la verificacion ya este activa.
@@ -155,6 +159,7 @@ def head(title, desc, root="", extra="", path="", og_image="", og_description=""
 <meta charset="UTF-8">
 {GSC_VERIFICATION}
 {GA_SNIPPET}
+{METRICOOL_SNIPPET}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title}</title>
 <meta name="description" content="{desc}">
