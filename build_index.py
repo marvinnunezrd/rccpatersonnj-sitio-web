@@ -1,4 +1,5 @@
 import sys
+from urllib.parse import quote
 sys.path.insert(0, ".")
 from common import head, footer, TAIL, social_row, SOCIAL_ICONS
 from data import COMITE, ZONA_COORDINADORES, GRUPOS_ORACION, AGENDA, MINISTERIOS, PARROQUIA_URLS, DEPARTAMENTOS
@@ -110,7 +111,20 @@ def agenda_item(d, mes, anio, titulo, hora, lugar, nota, href=None):
 
 agenda_items_html = "\n".join(agenda_item(*a) for a in AGENDA)
 
-zona_legend = "\n".join(f'<div class="zona-chip"><strong>{z}</strong> — {c}</div>' for z, c in ZONA_COORDINADORES)
+def zona_chip(zona, nombre, wa_digits):
+    # No mostramos el numero en texto plano en ningun lado -- si hay WhatsApp
+    # confirmado, toda la caja (chip) es el link, sin icono, que abre la
+    # conversacion con un saludo inicial que ya menciona el nombre de la
+    # persona. Si no hay numero registrado (o la zona esta vacante), queda
+    # como una caja normal sin link.
+    label = f'<strong>{zona}</strong> — {nombre}'
+    if wa_digits:
+        saludo = quote(f"Hola {nombre}, te escribo desde la página web de la RCC Paterson.")
+        href = f"https://wa.me/{wa_digits}?text={saludo}"
+        return f'<a class="zona-chip" href="{href}" target="_blank" rel="noopener">{label}</a>'
+    return f'<div class="zona-chip">{label}</div>'
+
+zona_legend = "\n".join(zona_chip(*z) for z in ZONA_COORDINADORES)
 
 def _tel_href(telefono):
     # usa solo el primer numero si hay varios separados por " / "
@@ -137,6 +151,13 @@ def depto_card(d):
 
 depto_cards = "\n".join(depto_card(d) for d in DEPARTAMENTOS)
 
+def maps_link(direccion):
+    # Abre la app de mapa predeterminada del dispositivo (o Google Maps en el
+    # navegador si no hay ninguna) -- sin darle apariencia de link, se ve
+    # identico al texto plano gracias al reset global "a{color:inherit;
+    # text-decoration:none}" de style.css.
+    return f'<a href="https://www.google.com/maps/search/?api=1&query={quote(direccion)}" target="_blank" rel="noopener">{direccion}</a>'
+
 def grupo_row(g):
     horario = g["horario"] or "Por confirmar"
     return f'''
@@ -144,8 +165,8 @@ def grupo_row(g):
           <div class="gr-col gr-horario"><span class="gr-label">Horario</span><span class="gr-value">{horario}</span></div>
           <div class="gr-col gr-nombre"><span class="gr-label">Grupo</span><span class="gr-value">{g["grupo"]}</span></div>
           <div class="gr-col gr-parroquia"><span class="gr-label">Parroquia</span><span class="gr-value">{parish_link(g["parroquia"])}</span></div>
-          <div class="gr-col gr-direccion"><span class="gr-label">Dirección</span><span class="gr-value">{g["direccion"]}</span></div>
-          <div class="gr-col gr-coord"><span class="gr-label">Coordinador(a)</span><span class="gr-value">{g["coordinador"]}</span></div>
+          <div class="gr-col gr-direccion"><span class="gr-label">Dirección</span><span class="gr-value">{maps_link(g["direccion"])}</span></div>
+          <div class="gr-col gr-coord"><span class="gr-label">Coordinador(a)</span><span class="gr-value"><strong>{g["coordinador"]}</strong></span></div>
           <div class="gr-col gr-tel"><span class="gr-label">Teléfono</span><span class="gr-value"><a href="{_tel_href(g["telefono"])}">{PHONE_ICON} {g["telefono"]}</a></span></div>
           <div class="gr-col gr-zona"><span class="gr-label">Zona</span><span class="gr-value">{g["zona"]}</span></div>
         </div>'''
@@ -210,8 +231,8 @@ HTML = head(
     <p class="hero-tagline">El Centro Carismático Católico Digital de la Diócesis de Paterson</p>
     <p class="hero-lema">&ldquo;Ven Espíritu Santo, enciende tu fuego&rdquo;</p>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="eccads/index.html">ECCADS 2026 →</a>
-      <a class="btn btn-outline" href="#ministerios">Conoce nuestros ministerios</a>
+      <a class="btn btn-primary" href="#grupos-oracion">Encuentra un grupo de oración cerca de ti →</a>
+      <a class="btn btn-outline" href="#eventos">Próximos encuentros</a>
     </div>
     {social_row("hero-social")}
   </div>
@@ -239,7 +260,34 @@ HTML = head(
     </div>
   </div>
 </section>
-
+<section id="grupos-oracion" class="bg-navy">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Vida de oración</span>
+      <h2>Grupos de Oración</h2>
+      <p class="grupos-intro">Un Grupo de Oración es una familia que te espera con los brazos abiertos, sin importar el momento que estés viviendo. Es el lugar donde puedes llevar tu cansancio, la enfermedad de un ser querido, una relación rota o simplemente la sed de encontrarte con Dios — y hallar hermanos que oran contigo, te escuchan sin juzgarte y caminan a tu lado. No necesitas saber orar &ldquo;bien&rdquo;, ni conocer a nadie, ni tener nada resuelto en tu vida: solo el deseo de no atravesar tus luchas en soledad. Ven una vez, sin compromiso, a la parroquia más cerca de ti.</p>
+    </div>
+    <div class="grupos-by-day">{grupos_by_day_html}
+    </div>
+    <p class="grupos-note">El horario de 7:00 pm – 9:30 pm es provisional para todos los grupos mientras se confirma el horario real de cada uno con el Comité Diocesano. Si coordinas un grupo y tu información no aparece o necesita corrección, contáctanos.</p>
+    <div class="zona-legend-wrap">
+      <p class="zona-legend-label">¿No sabes en qué zona pastoral estás? Escríbele directo al coordinador o coordinadora de tu zona:</p>
+      <div class="zona-legend">{zona_legend}</div>
+    </div>
+  </div>
+</section>
+<section id="eventos">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Vida diocesana</span>
+      <h2>Nuestros próximos eventos</h2>
+      <p>Los próximos encuentros abiertos a toda la comunidad de la Renovación Carismática Católica de la Diócesis de Paterson.</p>
+    </div>
+    <div class="agenda-list">{agenda_items_html}
+    </div>
+    <p class="agenda-sync-note">Esta agenda se sincroniza con el calendario público oficial de la RCC Paterson. Horarios y sedes sujetos a confirmación final por el Comité Diocesano.</p>
+  </div>
+</section>
 <section id="identidad" class="bg-navy">
   <div class="container">
     <div class="section-title">
@@ -274,7 +322,6 @@ HTML = head(
     </div>
   </div>
 </section>
-
 <section id="comite">
   <div class="container">
     <div class="section-title">
@@ -286,7 +333,6 @@ HTML = head(
     </div>
   </div>
 </section>
-
 <section id="ministerios" class="bg-navy">
   <div class="container">
     <div class="section-title">
@@ -298,48 +344,20 @@ HTML = head(
     </div>
   </div>
 </section>
-
 <section id="escuela">
   <div class="container">
     <div class="featured-banner">
       <img src="{IMG['escudo_efl']}" alt="Logo Escuela de Formación de Líderes" width="560" height="560">
       <div>
         <span class="eyebrow">Formación</span>
-        <h2>Escuela de Formación de Líderes<span class="badge-live">Inscripciones abiertas</span></h2>
+        <h2>Escuela de Formación de Líderes</h2>
+        <span class="badge-live"><span class="badge-dot"></span>Inscripciones abiertas</span>
         <p>Un espacio formativo que equipa y madura servidores capaces de liderar con sabiduría y fidelidad a la Iglesia. Próximo taller: <strong>Módulo 3 — Seminario de Vida en el Espíritu</strong>, 28 y 29 de agosto de 2026.</p>
         <a class="btn btn-outline" href="ministerios/escuela-formacion-lideres.html">Ver detalles e inscribirme →</a>
       </div>
     </div>
   </div>
 </section>
-
-<section id="grupos-oracion" class="bg-navy">
-  <div class="container">
-    <div class="section-title">
-      <span class="eyebrow">Vida de oración</span>
-      <h2>Grupos de Oración</h2>
-      <p>Los grupos de oración que conforman la Renovación Carismática Católica de la Diócesis de Paterson, organizados por parroquia.</p>
-    </div>
-    <div class="zona-legend">{zona_legend}</div>
-    <div class="grupos-by-day">{grupos_by_day_html}
-    </div>
-    <p class="grupos-note">El horario de 7:00 pm – 9:30 pm es provisional para todos los grupos mientras se confirma el horario real de cada uno con el Comité Diocesano. Si coordinas un grupo y tu información no aparece o necesita corrección, contáctanos.</p>
-  </div>
-</section>
-
-<section id="eventos">
-  <div class="container">
-    <div class="section-title">
-      <span class="eyebrow">Vida diocesana</span>
-      <h2>Nuestros próximos eventos</h2>
-      <p>Los próximos encuentros abiertos a toda la comunidad de la Renovación Carismática Católica de la Diócesis de Paterson.</p>
-    </div>
-    <div class="agenda-list">{agenda_items_html}
-    </div>
-    <p class="agenda-sync-note">Esta agenda se sincroniza con el calendario público oficial de la RCC Paterson. Horarios y sedes sujetos a confirmación final por el Comité Diocesano.</p>
-  </div>
-</section>
-
 <section id="eccads-recap" class="bg-navy">
   <div class="container">
     <div class="section-title">
@@ -369,14 +387,12 @@ HTML = head(
     </div>
   </div>
 </section>
-
-
 <section id="departamentos">
   <div class="container">
     <div class="section-title">
       <span class="eyebrow">Vida diocesana</span>
       <h2>Departamentos</h2>
-      <p>Cuatro departamentos de apoyo interno sostienen la vida diocesana y cada uno de nuestros eventos. No son ministerios, sino equipos de servicio con sus propios coordinadores — comunícate directamente con ellos si deseas formar parte como voluntario, o apadrinar, patrocinar o donar para su labor.</p>
+      <p class="deptos-intro">Cuatro departamentos de apoyo interno sostienen la vida diocesana y cada uno de nuestros eventos. No son ministerios, sino equipos de servicio con sus propios coordinadores — comunícate directamente con ellos si deseas formar parte como voluntario, o apadrinar, patrocinar o donar para su labor.</p>
     </div>
     <div class="depto-grid">{depto_cards}
     </div>
@@ -386,8 +402,7 @@ HTML = head(
     </div>
   </div>
 </section>
-
-<section id="preguntas-frecuentes">
+<section id="preguntas-frecuentes" class="bg-navy">
   <div class="container">
     <div class="section-title">
       <span class="eyebrow">Preguntas frecuentes</span>
@@ -421,6 +436,18 @@ HTML = head(
     </div>
   </div>
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
 
 ''' + footer() + TAIL
 

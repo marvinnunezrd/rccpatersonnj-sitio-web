@@ -11,11 +11,18 @@ COMITE = [
     ("Marizabel Pérez", "Coordinadora Ministerio de Intercesión", "St. Anthony of Padua, Passaic"),
 ]
 
+# Cuarto valor: numero de WhatsApp en formato internacional solo digitos
+# (sin "+", sin espacios) para armar el link wa.me sin exponer el numero en
+# texto plano en la pagina. None si no tenemos numero registrado en la Base
+# de Datos RCC Paterson (columna "Telefono", hoja "Coordinador de Zona") --
+# ver notas de la hoja: Santos Arroyo (Zona A) no tiene telefono registrado;
+# Zona D sigue vacante. Numeros de Maria Santana y Juan Matias confirmados
+# por Marvin (jul 2026), tomados de sus contactos de Google.
 ZONA_COORDINADORES = [
-    ("Zona A", "Santos Arroyo"),
-    ("Zona B", "María Santana"),
-    ("Zona C", "Juan Matías"),
-    ("Zona D", "(Vacante)"),
+    ("Zona A", "Santos Arroyo", None),
+    ("Zona B", "María Santana", "19737674150"),
+    ("Zona C", "Juan Matías", "19738014751"),
+    ("Zona D", "(Vacante)", None),
 ]
 
 # Grupos de oración, uno por diccionario. "horario": la Base de Datos no registra la hora

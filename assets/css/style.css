@@ -177,7 +177,9 @@ section{padding:84px 20px;}
 .featured-banner h2{color:var(--white);font-size:1.8rem;margin-bottom:.3em;}
 .featured-banner p{color:rgba(255,243,214,.8);font-size:.96rem;margin-bottom:22px;max-width:560px;}
 .badge-soon{display:inline-block;background:rgba(217,161,46,.16);color:var(--gold-light);border:1px solid var(--gold);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:6px 14px;border-radius:999px;margin-left:12px;}
-.badge-live{display:inline-block;background:rgba(168,16,20,.18);color:#ff9d94;border:1px solid var(--red);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:6px 14px;border-radius:999px;margin-left:12px;}
+.badge-live{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy-deep);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:7px 16px 7px 13px;border-radius:999px;margin:14px 0 4px;}
+.badge-live .badge-dot{width:7px;height:7px;border-radius:50%;background:var(--navy-deep);box-shadow:0 0 0 0 rgba(8,43,76,.45);animation:badge-pulse 1.8s ease-out infinite;}
+@keyframes badge-pulse{0%{box-shadow:0 0 0 0 rgba(8,43,76,.45);}70%{box-shadow:0 0 0 6px rgba(8,43,76,0);}100%{box-shadow:0 0 0 0 rgba(8,43,76,0);}}
 @media (max-width:700px){.featured-banner{grid-template-columns:1fr;text-align:center;padding:38px 26px;}.featured-banner img{margin:0 auto;}.featured-banner p{margin-left:auto;margin-right:auto;}}
 
 /* agenda publica — tarjeta navy por defecto (para destacar sobre fondo crema); variante clara si algún día cae dentro de .bg-navy */
@@ -211,11 +213,38 @@ section{padding:84px 20px;}
 .contact-block .contact-phone:hover{color:var(--white);}
 .contact-block .contact-sub{font-size:.82rem;color:rgba(255,243,214,.65);margin:10px 0 20px;}
 .contact-block .contact-email{font-size:.9rem;color:var(--ivory);text-decoration:underline;text-underline-offset:3px;}
+/* boton de whatsapp -- variante "pill" con texto (llamado pastoral en el cuerpo)
+   y variante redonda solo-icono (bloque de contacto, sin numero visible) */
+.wa-cta-btn{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-weight:700;font-size:.92rem;padding:14px 26px;border-radius:999px;margin-top:10px;box-shadow:0 10px 24px rgba(37,211,102,.3);transition:transform .15s ease,box-shadow .15s ease;}
+.wa-cta-btn svg{width:22px;height:22px;fill:currentColor;flex-shrink:0;}
+.wa-cta-btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(37,211,102,.4);color:#fff;}
+.contact-block .contact-wa-icon{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#25D366;color:#fff;box-shadow:0 8px 20px rgba(37,211,102,.35);transition:transform .15s ease,box-shadow .15s ease;}
+.contact-block .contact-wa-icon svg{width:30px;height:30px;fill:currentColor;}
+.contact-block .contact-wa-icon:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 12px 26px rgba(37,211,102,.45);}
 .bg-navy .contact-block{background:var(--white);border-color:rgba(8,43,76,.12);box-shadow:0 10px 26px rgba(8,43,76,.15);}
 .bg-navy .contact-block .contact-phone{color:var(--wine);}
 .bg-navy .contact-block .contact-phone:hover{color:var(--red);}
 .bg-navy .contact-block .contact-sub{color:#666;}
 .bg-navy .contact-block .contact-email{color:var(--navy);}
+
+/* tarjeta unificada de liderazgo + contacto (ministerios) — un solo bloque
+   elegante en vez de team-card + contact-block apilados por separado */
+.leader-contact-card{max-width:300px;margin:40px auto 0;background:var(--navy);border:1px solid var(--gold);border-radius:16px;padding:34px 28px;text-align:center;box-shadow:0 12px 30px rgba(8,43,76,.2);}
+.leader-contact-card h4{font-family:var(--font-title);font-size:1.15rem;color:var(--white);margin:0 0 4px;}
+.leader-contact-card .role{font-size:.74rem;color:#ff9d94;font-weight:700;text-transform:uppercase;letter-spacing:.03em;}
+.leader-contact-card .card-divider{width:36px;height:1px;background:rgba(217,161,46,.4);margin:20px auto;}
+.leader-contact-card .contact-wa-icon{display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:50%;background:#25D366;color:#fff;box-shadow:0 8px 18px rgba(37,211,102,.35);transition:transform .15s ease,box-shadow .15s ease;}
+.leader-contact-card .contact-wa-icon svg{width:23px;height:23px;fill:currentColor;}
+.leader-contact-card .contact-wa-icon:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 12px 24px rgba(37,211,102,.45);}
+.leader-contact-card .contact-sub{font-size:.76rem;color:rgba(255,243,214,.65);margin-top:14px;}
+.bg-navy .leader-contact-card{background:var(--white);border-color:rgba(8,43,76,.1);box-shadow:0 8px 22px rgba(8,43,76,.08);}
+.bg-navy .leader-contact-card h4{color:var(--navy);}
+.bg-navy .leader-contact-card .role{color:var(--red);}
+.bg-navy .leader-contact-card .card-divider{background:rgba(8,43,76,.1);}
+.bg-navy .leader-contact-card .contact-sub{color:#666;}
+/* variante en cuadrícula — varios coordinadores lado a lado */
+.leader-contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,240px));justify-content:center;gap:26px;max-width:var(--max-width);margin:40px auto 0;}
+.leader-contact-grid .leader-contact-card{margin:0;max-width:none;}
 
 /* plan de estudios / cursos por nivel */
 .course-levels{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;max-width:var(--max-width);margin:0 auto;}
@@ -232,9 +261,17 @@ section{padding:84px 20px;}
 .bg-navy .team-card .phone{color:var(--navy);border-top-color:rgba(8,43,76,.08);}
 .bg-navy .team-card .phone:hover{color:var(--wine);}
 
+/* departamentos */
+#departamentos .section-title p.deptos-intro{max-width:var(--max-width);text-align:justify;text-align-last:center;}
+
 /* grupos de oracion */
-.zona-legend{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:44px;}
+#grupos-oracion .section-title p.grupos-intro{max-width:var(--max-width);text-align:justify;text-align-last:center;}
+.zona-legend-wrap{max-width:var(--max-width);margin:44px auto 0;padding-top:36px;border-top:1px solid rgba(217,161,46,.25);}
+.zona-legend-label{text-align:center;font-size:.85rem;color:rgba(255,243,214,.75);margin:0 0 18px;}
+.zona-legend{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
 .zona-chip{background:var(--white);border:1px solid rgba(8,43,76,.12);border-radius:999px;padding:8px 18px;font-size:.78rem;color:var(--navy);box-shadow:0 4px 12px rgba(8,43,76,.05);}
+a.zona-chip{transition:transform .15s ease,box-shadow .15s ease;}
+a.zona-chip:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(8,43,76,.12);}
 .zona-chip strong{color:var(--red);}
 .zona-group{margin-bottom:40px;}
 .zona-group-title{font-family:var(--font-title);color:var(--navy);font-size:1.15rem;margin-bottom:18px;text-align:center;border-bottom:1px solid rgba(217,161,46,.4);padding-bottom:10px;}
