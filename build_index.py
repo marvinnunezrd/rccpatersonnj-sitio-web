@@ -353,7 +353,7 @@ HTML = head(
         <h2>Escuela de Formación de Líderes</h2>
         <span class="badge-live"><span class="badge-dot"></span>Inscripciones abiertas</span>
         <p>Un espacio formativo que equipa y madura servidores capaces de liderar con sabiduría y fidelidad a la Iglesia. Próximo taller: <strong>Módulo 3 — Seminario de Vida en el Espíritu</strong>, 28 y 29 de agosto de 2026.</p>
-        <a class="btn btn-outline" href="ministerios/escuela-formacion-lideres.html">Ver detalles e inscribirme →</a>
+        <a class="btn btn-outline" href="/ministerios/escuela-formacion-lideres">Ver detalles e inscribirme →</a>
       </div>
     </div>
   </div>
@@ -372,7 +372,7 @@ HTML = head(
           <span class="event-tag event-tag--done">Realizado · 16 may 2026</span>
           <h3>Gran Vigilia de Pentecostés 2026</h3>
           <p>Resumen de la noche, nuestro obispo y sacerdotes, ministerios de música y más de 120 fotos del evento.</p>
-          <a class="card-link" href="pentecostes-2026/index.html">Ver evento completo →</a>
+          <a class="card-link" href="/pentecostes-2026/">Ver evento completo →</a>
         </div>
       </div>
       <div class="event-card">
@@ -381,7 +381,7 @@ HTML = head(
           <span class="event-tag event-tag--done">Realizado · 1 ago 2026</span>
           <h3>ECCADS 2026</h3>
           <p>Programa completo, invitados especiales, galería de fotos y video resumen del primer encuentro.</p>
-          <a class="card-link" href="eccads/index.html">Ver evento completo →</a>
+          <a class="card-link" href="/eccads/">Ver evento completo →</a>
         </div>
       </div>
     </div>

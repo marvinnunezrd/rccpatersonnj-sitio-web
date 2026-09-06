@@ -20,45 +20,50 @@ def social_row(cls="social-row"):
     </div>'''
 
 def nav(root=""):
-    """root = '' para paginas en la raiz, '../' para paginas en subcarpetas"""
+    """root = '' para paginas en la raiz, '../' para paginas en subcarpetas
+    (se usa solo para los assets: imagenes/css/js, que son relativos a la
+    ubicacion del archivo). Los enlaces de navegacion usan rutas absolutas
+    (ej. '/ministerios/intercesion') para que la URL en la barra de
+    direcciones sea siempre la misma forma limpia, sin '.html' ni
+    'index.html', sin importar desde que pagina se este navegando."""
     r = root
     return f'''<nav class="site-nav">
   <div class="container">
-    <a class="nav-brand" href="{r}index.html">
+    <a class="nav-brand" href="/">
       <img src="{r}assets/img/escudo-rcc-oficial.webp" alt="RCC Paterson NJ" width="700" height="700">
       RCC Paterson NJ
     </a>
     <button class="nav-toggle" aria-label="Abrir menú" onclick="document.querySelector('.nav-links').classList.toggle('is-open')">☰</button>
     <div class="nav-links">
       <div class="nav-item has-dropdown">
-        <a href="{r}index.html#quienes-somos">Quiénes Somos</a>
+        <a href="/#quienes-somos">Quiénes Somos</a>
         <div class="nav-dropdown">
-          <a href="{r}index.html#quienes-somos">Quiénes Somos</a>
-          <a href="{r}index.html#identidad">Misión, Visión y Valores</a>
-          <a href="{r}index.html#comite">Comité Diocesano</a>
-          <a href="{r}index.html#departamentos">Departamentos</a>
+          <a href="/#quienes-somos">Quiénes Somos</a>
+          <a href="/#identidad">Misión, Visión y Valores</a>
+          <a href="/#comite">Comité Diocesano</a>
+          <a href="/#departamentos">Departamentos</a>
         </div>
       </div>
       <div class="nav-item has-dropdown">
-        <a href="{r}index.html#ministerios">Ministerios</a>
+        <a href="/#ministerios">Ministerios</a>
         <div class="nav-dropdown">
-          <a href="{r}ministerios/intercesion.html">Intercesión</a>
-          <a href="{r}ministerios/hombres-alabanza.html">Hombres de Alabanza</a>
-          <a href="{r}ministerios/mujeres-alabanza.html">Mujeres de Alabanza</a>
-          <a href="{r}index.html#ministerios">Comunicación y Publicidad</a>
-          <a href="{r}ministerios/musica.html">Ministerios de Música</a>
-          <a href="{r}index.html#ministerios">RCC Youth</a>
-          <a href="{r}ministerios/escuela-formacion-lideres.html">Escuela de Formación de Líderes</a>
-          <a href="{r}ministerios/seminario-vida-espiritu.html">Seminario de Vida en el Espíritu</a>
-          <a href="{r}ministerios/hospitalidad-caridad.html">Hospitalidad y Caridad</a>
-          <a href="{r}ministerios/colaboradores.html">Colaboradores</a>
+          <a href="/ministerios/intercesion">Intercesión</a>
+          <a href="/ministerios/hombres-alabanza">Hombres de Alabanza</a>
+          <a href="/ministerios/mujeres-alabanza">Mujeres de Alabanza</a>
+          <a href="/#ministerios">Comunicación y Publicidad</a>
+          <a href="/ministerios/musica">Ministerios de Música</a>
+          <a href="/#ministerios">RCC Youth</a>
+          <a href="/ministerios/escuela-formacion-lideres">Escuela de Formación de Líderes</a>
+          <a href="/ministerios/seminario-vida-espiritu">Seminario de Vida en el Espíritu</a>
+          <a href="/ministerios/hospitalidad-caridad">Hospitalidad y Caridad</a>
+          <a href="/ministerios/colaboradores">Colaboradores</a>
         </div>
       </div>
-      <a href="{r}index.html#grupos-oracion">Grupos de Oración</a>
-      <a href="{r}ministerios/escuela-formacion-lideres.html">Escuela de Líderes</a>
-      <a href="{r}index.html#eventos">Eventos</a>
-      <a href="{r}index.html#preguntas-frecuentes">Preguntas</a>
-      <a href="{r}index.html#contacto">Contacto</a>
+      <a href="/#grupos-oracion">Grupos de Oración</a>
+      <a href="/ministerios/escuela-formacion-lideres">Escuela de Líderes</a>
+      <a href="/#eventos">Eventos</a>
+      <a href="/#preguntas-frecuentes">Preguntas</a>
+      <a href="/#contacto">Contacto</a>
     </div>
   </div>
 </nav>'''
@@ -85,7 +90,7 @@ def footer(root=""):
   <p class="footer-email">
     <a href="mailto:renovacion@rccpaterson.org">{SOCIAL_ICONS['mail']} renovacion@rccpaterson.org</a>
   </p>
-  <p><a class="back-home" href="{r}index.html">&larr; Volver al inicio</a></p>
+  <p><a class="back-home" href="/">&larr; Volver al inicio</a></p>
   <p class="fine-print">&copy; 2026 Renovación Carismática Católica — Diócesis de Paterson. Todos los derechos reservados.</p>
 </footer>
 
@@ -140,6 +145,23 @@ ORG_JSONLD = f'''<script type="application/ld+json">
 }}
 </script>'''
 
+def clean_url_path(path):
+    """Convierte una ruta de archivo (la que ya se venia pasando a `path` en
+    head(), ej. 'ministerios/intercesion.html', 'eccads/index.html',
+    'index.html', '') a la forma de URL limpia que queremos que aparezca en
+    Google y en la barra de direcciones: sin '.html' en archivos planos, y
+    con la barra final (sin 'index.html') en paginas que son carpetas reales
+    (eccads/, pentecostes-2026/), porque GitHub Pages ya redirige de forma
+    automatica y confiable a esa forma con barra. Agregado 2026-09 como parte
+    de la limpieza de URLs del sitio."""
+    if path in ("", "index.html"):
+        return ""
+    if path.endswith("/index.html"):
+        return path[: -len("index.html")]
+    if path.endswith(".html"):
+        return path[: -len(".html")]
+    return path
+
 def head(title, desc, root="", extra="", path="", og_image="", og_description=""):
     """path = ruta relativa desde la raiz del sitio para la URL canonica,
     ej. '' (home), 'eccads/', 'ministerios/intercesion.html'.
@@ -150,7 +172,7 @@ def head(title, desc, root="", extra="", path="", og_image="", og_description=""
     (la meta description de SEO). Se agregó 2026-08 para poder tener un mensaje
     de marca distinto al compartir el link sin afectar el snippet de Google."""
     r = root
-    canonical = f"{SITE_URL}/{path}"
+    canonical = f"{SITE_URL}/{clean_url_path(path)}"
     image = f"{SITE_URL}/{og_image}" if og_image else f"{SITE_URL}/assets/img/og-image.jpg"
     share_desc = og_description if og_description else desc
     return f'''<!DOCTYPE html>

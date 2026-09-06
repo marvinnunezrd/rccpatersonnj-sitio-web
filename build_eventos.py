@@ -45,7 +45,7 @@ EVENT_JSONLD = f'''<script type="application/ld+json">
     "price": "30",
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
-    "url": "{SITE_URL}/eventos/encuentro-regional-2026.html"
+    "url": "{SITE_URL}/eventos/encuentro-regional-2026"
   }}
 }}
 </script>
@@ -79,7 +79,7 @@ html = head(
 ) + f'''
 <header class="hero-sub">
   <div class="container">
-    <div class="breadcrumb"><a href="{R}index.html">Inicio</a> / <a href="{R}index.html#eventos">Eventos</a> / Encuentro Regional 2026</div>
+    <div class="breadcrumb"><a href="/">Inicio</a> / <a href="/#eventos">Eventos</a> / Encuentro Regional 2026</div>
     <span class="hero-edition">Renovación Carismática Católica Región 2</span>
     <h1>Encuentro Regional 2026</h1>
     <p class="lema">Llamados a la Santidad</p>
@@ -208,7 +208,7 @@ html = head(
 </section>
 
 <section class="bg-navy" style="text-align:center;padding-top:50px;padding-bottom:60px;">
-  <a class="btn btn-outline" href="{R}index.html#eventos">&larr; Volver a la agenda de eventos</a>
+  <a class="btn btn-outline" href="/#eventos">&larr; Volver a la agenda de eventos</a>
 </section>
 ''' + footer(root=R) + f'''
 <script src="{R}assets/js/lightbox.js"></script>
@@ -281,7 +281,7 @@ html = head(
 ) + f'''
 <header class="hero-sub">
   <div class="container">
-    <div class="breadcrumb"><a href="{R}index.html">Inicio</a> / <a href="{R}index.html#eventos">Eventos</a> / Gran Asamblea Diocesana</div>
+    <div class="breadcrumb"><a href="/">Inicio</a> / <a href="/#eventos">Eventos</a> / Gran Asamblea Diocesana</div>
     <span class="hero-edition">Renovación Carismática Católica — Diócesis de Paterson</span>
     <h1>Gran Asamblea Diocesana</h1>
     <p class="lema">Alma Sana, Corazón Libre</p>
@@ -418,7 +418,7 @@ html = head(
 </section>
 
 <section class="bg-navy" style="text-align:center;padding-top:50px;padding-bottom:60px;">
-  <a class="btn btn-outline" href="{R}index.html#eventos">&larr; Volver a la agenda de eventos</a>
+  <a class="btn btn-outline" href="/#eventos">&larr; Volver a la agenda de eventos</a>
 </section>
 ''' + footer(root=R) + f'''
 <script src="{R}assets/js/lightbox.js"></script>

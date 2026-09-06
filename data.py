@@ -74,8 +74,8 @@ GRUPOS_ORACION = [
 ]
 
 AGENDA = [
-  ("20","SEP","2026","Gran Asamblea Diocesana – Septiembre 2026","2:30 pm – 6:00 pm","Salón Principal de la Escuela Santa Teresita, 765 14th Ave, Paterson, NJ 07504","Predicación: Diácono José Luis Abreu · Música: Marvin Núñez","eventos/gran-asamblea-septiembre-2026.html"),
-  ("26","SEP","2026","Encuentro Regional 2026 — Llamados a la Santidad","9:00 am – 6:00 pm","Parroquia Our Lady of Libera, 5808 John F Kennedy Blvd, West New York, NJ 07093","Predican Su Excelencia Pedro Bismarck Chau (Obispo Auxiliar de Newark) y Mons. Joseph Malagreca · Donación: $30 (incluye almuerzo)","eventos/encuentro-regional-2026.html"),
+  ("20","SEP","2026","Gran Asamblea Diocesana – Septiembre 2026","2:30 pm – 6:00 pm","Salón Principal de la Escuela Santa Teresita, 765 14th Ave, Paterson, NJ 07504","Predicación: Diácono José Luis Abreu · Música: Marvin Núñez","/eventos/gran-asamblea-septiembre-2026"),
+  ("26","SEP","2026","Encuentro Regional 2026 — Llamados a la Santidad","9:00 am – 6:00 pm","Parroquia Our Lady of Libera, 5808 John F Kennedy Blvd, West New York, NJ 07093","Predican Su Excelencia Pedro Bismarck Chau (Obispo Auxiliar de Newark) y Mons. Joseph Malagreca · Donación: $30 (incluye almuerzo)","/eventos/encuentro-regional-2026"),
   ("24–25","OCT","2026","Gran Congreso de Sanación y Liberación","Sáb. 9:00 am – 5:00 pm · Dom. 2:30 pm – 6:00 pm","Ubicación por confirmar","Predicación: Osvaldo Fernández, P. Starli Castaños (sáb.) y P. Yasid Salas (dom.)"),
   ("15","NOV","2026","Gran Asamblea Diocesana – Noviembre 2026","2:30 pm – 6:00 pm","Salón Principal de la Escuela Santa Teresita, 765 14th Ave, Paterson, NJ 07504","Predicación: María Batista"),
   ("20","DIC","2026","Gran Asamblea Diocesana – Diciembre 2026","2:30 pm – 6:00 pm","Salón Principal de la Escuela Santa Teresita, 765 14th Ave, Paterson, NJ 07504",""),
@@ -110,16 +110,16 @@ PARROQUIA_URLS = {
 }
 
 MINISTERIOS = [
-  ("m_intercesion","Intercesión","El corazón orante de la Renovación: sostiene en oración a la comunidad, los eventos y a cada líder diocesano.","ministerios/intercesion.html"),
-  ("m_hombres","Hombres de Alabanza","Ministerio Diocesano de Acompañamiento Espiritual para el hombre: fraternidad, oración y sanación interior para vivir con fe su llamado como hijo de Dios, esposo y padre.","ministerios/hombres-alabanza.html"),
-  ("m_mujeres","Mujeres de Alabanza","Ministerio Diocesano de Acompañamiento Espiritual para la mujer: escucha, oración y acompañamiento en momentos de dolor, inspirado en María.","ministerios/mujeres-alabanza.html"),
+  ("m_intercesion","Intercesión","El corazón orante de la Renovación: sostiene en oración a la comunidad, los eventos y a cada líder diocesano.","/ministerios/intercesion"),
+  ("m_hombres","Hombres de Alabanza","Ministerio Diocesano de Acompañamiento Espiritual para el hombre: fraternidad, oración y sanación interior para vivir con fe su llamado como hijo de Dios, esposo y padre.","/ministerios/hombres-alabanza"),
+  ("m_mujeres","Mujeres de Alabanza","Ministerio Diocesano de Acompañamiento Espiritual para la mujer: escucha, oración y acompañamiento en momentos de dolor, inspirado en María.","/ministerios/mujeres-alabanza"),
   ("m_comunicacion","Comunicación y Publicidad","Evangelización a través de los medios: diseño, redes sociales e identidad de marca de toda la RCC Paterson.","#ministerios"),
-  ("m_musica","Ministerios de Música","Coordina, forma y anima a todos los grupos de música de la RCC Paterson. La música es oración, no espectáculo.","ministerios/musica.html"),
+  ("m_musica","Ministerios de Música","Coordina, forma y anima a todos los grupos de música de la RCC Paterson. La música es oración, no espectáculo.","/ministerios/musica"),
   ("m_youth","RCC Youth","Acompaña a los jóvenes en su encuentro personal con Jesucristo y los envía como evangelizadores a sus familias y escuelas.","#ministerios"),
-  ("escudo_efl","Escuela de Formación de Líderes","Forma y madura servidores capaces de liderar con sabiduría y fidelidad, desde lo humano, lo espiritual y lo doctrinal.","ministerios/escuela-formacion-lideres.html"),
-  ("m_sve","Seminario de Vida en el Espíritu","La puerta de entrada a la Renovación: siete sesiones que renuevan la fe bautismal y abren a los dones del Espíritu Santo.","ministerios/seminario-vida-espiritu.html"),
-  ("m_hospitalidad","Ministerio de Hospitalidad y Caridad","Manifiesta el amor de Cristo mediante la acogida fraterna y el servicio humilde: atiende con dignidad a los hermanos en los eventos y a quienes atraviesan enfermedad, soledad o dificultad.","ministerios/hospitalidad-caridad.html"),
-  ("m_colaboradores","Ministerio de Colaboradores","La puerta de entrada al servicio: acoge, forma y acompaña a quienes sienten el llamado inicial del Espíritu Santo para comenzar a servir.","ministerios/colaboradores.html"),
+  ("escudo_efl","Escuela de Formación de Líderes","Forma y madura servidores capaces de liderar con sabiduría y fidelidad, desde lo humano, lo espiritual y lo doctrinal.","/ministerios/escuela-formacion-lideres"),
+  ("m_sve","Seminario de Vida en el Espíritu","La puerta de entrada a la Renovación: siete sesiones que renuevan la fe bautismal y abren a los dones del Espíritu Santo.","/ministerios/seminario-vida-espiritu"),
+  ("m_hospitalidad","Ministerio de Hospitalidad y Caridad","Manifiesta el amor de Cristo mediante la acogida fraterna y el servicio humilde: atiende con dignidad a los hermanos en los eventos y a quienes atraviesan enfermedad, soledad o dificultad.","/ministerios/hospitalidad-caridad"),
+  ("m_colaboradores","Ministerio de Colaboradores","La puerta de entrada al servicio: acoge, forma y acompaña a quienes sienten el llamado inicial del Espíritu Santo para comenzar a servir.","/ministerios/colaboradores"),
 ]
 
 # Departamentos internos de apoyo (no son ministerios). Decision de Marvin

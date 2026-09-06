@@ -29,7 +29,7 @@ def page(filename, title, desc, escudo, breadcrumb_name, subtitle, content_html,
     html = head(title, desc, root=R, path=filename, extra=extra_head, og_image=og_image) + f'''
 <header class="hero-sub">
   <div class="container">
-    <div class="breadcrumb"><a href="{R}index.html">Inicio</a> / <a href="{R}index.html#ministerios">Ministerios</a> / {breadcrumb_name}</div>
+    <div class="breadcrumb"><a href="/">Inicio</a> / <a href="/#ministerios">Ministerios</a> / {breadcrumb_name}</div>
     <img class="hero-shield-sm" src="{R}assets/img/{escudo}" alt="Logo {breadcrumb_name}" width="560" height="560">
     <h1>{breadcrumb_name}</h1>
     <p class="subtitle{extra_subtitle_class}">{subtitle}</p>
