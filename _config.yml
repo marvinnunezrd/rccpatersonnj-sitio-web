@@ -1,0 +1,13 @@
+# Evita que GitHub Pages/Jekyll publique los scripts de generación del sitio
+# y otros archivos internos que no son parte del sitio público.
+exclude:
+  - build_index.py
+  - build_ministerios.py
+  - build_eventos.py
+  - build_efl.py
+  - common.py
+  - data.py
+  - LEEME.txt
+  - __pycache__
+  - _to_delete
+  - .vscode
