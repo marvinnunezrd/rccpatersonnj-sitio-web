@@ -168,6 +168,23 @@ INTERCESION_WA = "https://wa.me/18622493313?text=" + quote(
     "Saludos, equipo de Intercesión. Le escribo desde la página web de la RCC Paterson "
     "porque quisiera pedir su oración de intercesión."
 )
+
+# Estilo local para el aviso especial (temporal) de los Encuentros de
+# Formación sobre el Ministerio de Intercesión (Región 2) y su video
+# embebido. Se ve como un anuncio de temporada -- tarjeta con borde dorado
+# y etiqueta de "vigente hasta" -- y no como una sección permanente más de
+# la página, para que sea claro que es un aviso puntual mientras dure la
+# invitación. Agregado 2026-09-10.
+INTERCESION_STYLE = '''<style>
+.special-notice{position:relative;max-width:var(--max-width);margin:0 auto;background:linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);border:1px solid var(--gold);border-radius:16px;padding:52px clamp(20px,4vw,56px) 44px;box-shadow:0 20px 50px rgba(8,43,76,.18);}
+.special-notice::before{content:"Aviso especial · vigente hasta el 13 de septiembre";position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--navy-deep);font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:7px 18px;border-radius:999px;box-shadow:0 6px 14px rgba(8,43,76,.3);white-space:nowrap;}
+.special-notice .endorsement-line{max-width:640px;margin:14px auto 0;font-size:.88rem;font-style:italic;color:rgba(255,243,214,.85);}
+.special-notice .notice-validity{text-align:center;margin:44px 0 0;font-size:.78rem;color:rgba(255,243,214,.55);}
+.video-embed{position:relative;width:100%;max-width:640px;margin:0 auto;aspect-ratio:16/9;border-radius:12px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.35);background:#000;}
+.video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+@media (max-width:640px){.special-notice::before{font-size:.56rem;padding:6px 12px;white-space:normal;text-align:center;max-width:80%;}}
+</style>'''
+
 page(
   "ministerios/intercesion.html",
   "Intercesión — RCC Paterson NJ",
@@ -184,6 +201,59 @@ page(
       <p>Si hoy cargas una enfermedad propia o de un ser querido, una situación familiar que no sabes cómo resolver, una decisión difícil, una pérdida, o simplemente sientes que ya no tienes fuerzas para seguir orando tú solo — este ministerio existe para ti. El Ministerio de Intercesión de la RCC Paterson recibe tu petición y la lleva delante de Dios con la misma fe y constancia con la que orarías por un hijo.</p>
       <p>No necesitas explicar todo, ni pertenecer a ningún grupo, ni tener nada resuelto antes de pedirlo. Escríbenos tu petición — con el nombre que quieras compartir, o en total anonimato — y un equipo de intercesores orará por ti con total confidencialidad.</p>
       <a class="wa-cta-btn" href="{INTERCESION_WA}" target="_blank" rel="noopener">{WA_ICON}<span>Pedir oración por WhatsApp</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="formacion-intercesores-r2">
+  <div class="container">
+    <div class="special-notice bg-navy">
+      <div class="section-title">
+        <span class="eyebrow">Formación &middot; Región 2</span>
+        <h2>Encuentros de Formación sobre el Ministerio de Intercesión</h2>
+        <p>Un espacio de formación mensual, por Zoom, para intercesores y servidores de toda la Región 2 — de septiembre 2026 a junio 2027. Si sientes que Dios te está llamando a la intercesión, este es el momento de responder.</p>
+        <span class="badge-live"><span class="badge-dot"></span>Inscripciones abiertas</span>
+        <p class="endorsement-line">Con el respaldo de <strong>Marizabel Pérez</strong>, Coordinadora Diocesana del Ministerio de Intercesión, quien invita a toda nuestra comunidad a vivir este espacio de formación regional.</p>
+      </div>
+
+      <div class="flyer-block">
+        <a href="{R}assets/img/ministerios/formacion-intercesores-r2-flyer.webp" target="_blank" rel="noopener">
+          <img src="{R}assets/img/ministerios/formacion-intercesores-r2-flyer.webp" alt="Flyer oficial: Encuentros de Formación sobre el Ministerio de Intercesión, Región 2" width="988" height="1280">
+        </a>
+        <div class="flyer-details">
+          <h3>Primer encuentro: domingo 13 de septiembre</h3>
+          <ul class="details-list">
+            <li><span class="label">Horario</span><span class="value">Un domingo por mes, 8:30 pm</span></li>
+            <li><span class="label">Modalidad</span><span class="value">Por Zoom</span></li>
+            <li><span class="label">Duración</span><span class="value">Septiembre 2026 a junio 2027</span></li>
+            <li><span class="label">Dirigido a</span><span class="value">Intercesores en servicio en la R2; hermanos perseverantes de los grupos que quieran conocer más o discernir el llamado; servidores responsables de grupo y equipos de liderazgo (timones) de la R2</span></li>
+          </ul>
+          <div style="margin-top:22px;">
+            <a class="btn btn-primary" href="https://forms.gle/qwWT8iy31VpLEXE2A" target="_blank" rel="noopener">Inscribirme al curso →</a>
+          </div>
+          <p style="margin-top:14px;font-size:.82rem;color:rgba(255,243,214,.65);">¿Dudas? Consulta con el Responsable Diocesano de Intercesión o con el Coordinador de tu Diócesis.</p>
+        </div>
+      </div>
+
+      <div class="section-title" style="margin-top:54px;">
+        <span class="eyebrow">Presentado por</span>
+        <h2>Equipo de Formación Nacional y Regional</h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card"><h4>Cruz Teresa Rosero</h4><p class="role">Miembro del Equipo Nacional de Formación &middot; Ex Coordinadora Nacional de Intercesión (2018–2023)</p></div>
+        <div class="team-card"><h4>Yaneth Carreño</h4><p class="role">Miembro CNSH &middot; Coordinadora Nacional de Intercesión (2023 – hasta la fecha)</p></div>
+        <div class="team-card"><h4>Margot Romero Benítez</h4><p class="role">Responsable Regional de Intercesión — Región 2</p></div>
+      </div>
+
+      <div class="section-title" style="margin-top:54px;">
+        <span class="eyebrow">Escúchalo de viva voz</span>
+        <h2>El llamado, en sus propias palabras</h2>
+      </div>
+      <div class="video-embed">
+        <iframe src="https://www.youtube-nocookie.com/embed/bBc25WUNJoA" title="Anuncio: Encuentros de Formación sobre el Ministerio de Intercesión" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+
+      <p class="notice-validity">Esta invitación permanecerá publicada aquí hasta el primer encuentro del 13 de septiembre.</p>
     </div>
   </div>
 </section>
@@ -223,6 +293,7 @@ page(
   </div>
 </section>
 ''',
+  extra_head=INTERCESION_STYLE,
   og_image="assets/img/ministerios/intercesion-og.jpg")
 
 # ---------- MINISTERIOS DE MÚSICA ----------
