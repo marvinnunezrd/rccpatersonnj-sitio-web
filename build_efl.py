@@ -7,7 +7,7 @@ PHONE_ICON = SOCIAL_ICONS['phone']
 
 html = head(
   "Escuela de Formación de Líderes — RCC Paterson NJ",
-  "Escuela de Formación de Líderes (EFL) de la Renovación Carismática Católica de la Diócesis de Paterson. Inscripciones abiertas al Módulo 3.",
+  "Escuela de Formación de Líderes (EFL) de la Renovación Carismática Católica de la Diócesis de Paterson. Inscripciones abiertas al Módulo 4.",
   root=R,
   path="ministerios/escuela-formacion-lideres.html",
   og_image="assets/img/ministerios/escuela-formacion-lideres-og.jpg"
@@ -26,20 +26,20 @@ html = head(
     <div class="section-title">
       <span class="eyebrow">Próximo taller</span>
       <h2>Talleres de Formación Nacional</h2>
-      <p>Módulo 3: Seminario de Vida en el Espíritu — en comunión con el Comité Nacional de Servicio Hispano (CNSH).</p>
+      <p>Módulo 4: Grupos de Oración — en comunión con el Comité Nacional de Servicio Hispano (CNSH).</p>
     </div>
     <div class="flyer-block">
-      <img src="{R}assets/img/modulo-3-flyer.webp" alt="Flyer Módulo 3: Seminario de Vida en el Espíritu — Talleres de Formación Nacional, RCC Paterson NJ" width="853" height="1280">
+      <img src="{R}assets/img/modulo-4-flyer.webp" alt="Flyer Módulo 4: Grupos de Oración — Talleres de Formación Nacional, RCC Paterson NJ" width="1024" height="1536">
       <div class="flyer-details">
-        <h3>Módulo 3 — Seminario de Vida en el Espíritu</h3>
-        <p class="detail-line"><strong>Coordina</strong> Enrique Méndez, Coordinador de la Formación Nacional de la RCC de EE.UU. y Canadá</p>
-        <p class="detail-line"><strong>Viernes</strong> 28 de agosto, 2026 — 7:00 pm – 9:30 pm</p>
-        <p class="detail-line"><strong>Sábado</strong> 29 de agosto, 2026 — 8:30 am – 5:30 pm</p>
+        <h3>Módulo 4 — Grupos de Oración</h3>
+        <p class="detail-line"><strong>Instructor</strong> Juan De La Rosa, Instructor de Formación Nacional</p>
+        <p class="detail-line"><strong>Viernes</strong> 2 de octubre, 2026 — 7:00 pm – 9:30 pm</p>
+        <p class="detail-line"><strong>Sábado</strong> 3 de octubre, 2026 — 8:30 am – 5:30 pm</p>
         <p class="detail-line"><strong>Lugar</strong> Salón Parroquial, Escuela Sta. Teresita — 765 14th Ave, Paterson, NJ 07504</p>
         <p class="detail-line"><strong>Donación</strong> $30 (incluye desayuno y almuerzo)</p>
         <p class="detail-line"><strong>Info</strong> <a href="https://wa.me/18622647885" target="_blank" rel="noopener" style="color:var(--gold-light);">862-264-7885 (WhatsApp) →</a></p>
         <div style="margin-top:22px;">
-          <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc4Bcl6dMDr8Fw4jNe8nhwONLmG1qfJqn7XYCEmh6HuPJWSrQ/viewform?usp=header" target="_blank" rel="noopener">Inscribirme al Módulo 3 →</a>
+          <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc4Bcl6dMDr8Fw4jNe8nhwONLmG1qfJqn7XYCEmh6HuPJWSrQ/viewform?usp=header" target="_blank" rel="noopener">Inscribirme al Módulo 4 →</a>
         </div>
       </div>
     </div>

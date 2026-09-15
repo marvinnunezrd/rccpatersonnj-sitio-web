@@ -352,7 +352,7 @@ HTML = head(
         <span class="eyebrow">Formación</span>
         <h2>Escuela de Formación de Líderes</h2>
         <span class="badge-live"><span class="badge-dot"></span>Inscripciones abiertas</span>
-        <p>Un espacio formativo que equipa y madura servidores capaces de liderar con sabiduría y fidelidad a la Iglesia. Próximo taller: <strong>Módulo 3 — Seminario de Vida en el Espíritu</strong>, 28 y 29 de agosto de 2026.</p>
+        <p>Un espacio formativo que equipa y madura servidores capaces de liderar con sabiduría y fidelidad a la Iglesia. Próximo taller: <strong>Módulo 4 — Grupos de Oración</strong>, 2 y 3 de octubre de 2026.</p>
         <a class="btn btn-outline" href="/ministerios/escuela-formacion-lideres">Ver detalles e inscribirme →</a>
       </div>
     </div>
