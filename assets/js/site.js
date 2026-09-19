@@ -36,3 +36,20 @@
   }
   setTimeout(safeStart, 5000); // resguardo por si 'load' nunca dispara
 })();
+
+(function(){
+  // En móvil, el menú (.nav-links.is-open) se queda abierto y flotando sobre
+  // la página después de tocar un enlace, porque solo el botón ☰ lo cierra.
+  // Como el menú está pegado a la barra sticky, al saltar a una sección (ej.
+  // "Comité Diocesano") el menú abierto tapa la pantalla y parece que el
+  // salto no ocurrió. Aquí lo cerramos apenas se toca cualquier enlace
+  // dentro del menú, para que el salto a la sección quede visible.
+  // Agregado 2026-09-19.
+  var navLinks = document.querySelector('.nav-links');
+  if (!navLinks) return;
+  navLinks.addEventListener('click', function(e){
+    if (e.target.closest('a')) {
+      navLinks.classList.remove('is-open');
+    }
+  });
+})();
