@@ -57,7 +57,26 @@
   ]
 }
 </script>
-
+<style>
+.faculty-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px;max-width:var(--max-width);margin:0 auto;align-items:start;}
+.faculty-card{background:var(--ivory);border:1px solid rgba(0,0,0,.06);border-radius:14px;padding:32px 28px;box-shadow:0 10px 26px rgba(0,0,0,.18);}
+.faculty-card .faculty-photo{width:120px;height:120px;border-radius:50%;overflow:hidden;margin:0 auto 18px;border:3px solid var(--gold);box-shadow:0 8px 20px rgba(0,0,0,.15);}
+.faculty-card .faculty-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.faculty-card .faculty-track{display:block;text-align:center;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--wine);font-weight:700;margin-bottom:8px;}
+.faculty-card h3{text-align:center;color:var(--navy);font-family:var(--font-title);font-size:1.3rem;margin:0 0 2px;}
+.faculty-card .faculty-role{text-align:center;font-size:.76rem;color:var(--red);font-weight:700;text-transform:uppercase;letter-spacing:.03em;margin-bottom:16px;}
+.faculty-card .faculty-bio{font-size:.88rem;color:#3c3630;line-height:1.65;margin-bottom:20px;text-align:justify;}
+.faculty-card .faculty-bio strong{color:var(--navy);}
+.faculty-card .details-list .label{color:#8a7a55;font-weight:700;}
+.faculty-card .details-list .value{color:var(--navy);}
+.faculty-card .details-list li{border-bottom:1px solid rgba(0,0,0,.08);}
+.faculty-enroll-cta{text-align:center;max-width:520px;margin:44px auto 0;padding-top:34px;border-top:1px solid rgba(217,161,46,.25);}
+.faculty-enroll-cta .eyebrow{display:block;margin-bottom:10px;}
+.faculty-enroll-cta p{font-size:.92rem;color:rgba(255,243,214,.8);margin:0 0 20px;}
+#proximo-taller .flyer-details h3{color:var(--navy);}
+#proximo-taller .flyer-details .detail-line{color:#3c3630;}
+#proximo-taller .flyer-details .detail-line strong{color:var(--wine);}
+</style>
 </head>
 <body>
 <nav class="site-nav">
@@ -109,7 +128,7 @@
   </div>
 </header>
 
-<section class="bg-navy" style="padding-top:56px;">
+<section id="proximo-taller" style="padding-top:56px;">
   <div class="container">
     <div class="section-title">
       <span class="eyebrow">Próximo taller</span>
@@ -125,11 +144,55 @@
         <p class="detail-line"><strong>Sábado</strong> 3 de octubre, 2026 — 8:30 am – 5:30 pm</p>
         <p class="detail-line"><strong>Lugar</strong> Salón Parroquial, Escuela Sta. Teresita — 765 14th Ave, Paterson, NJ 07504</p>
         <p class="detail-line"><strong>Donación</strong> $30 (incluye desayuno y almuerzo)</p>
-        <p class="detail-line"><strong>Info</strong> <a href="https://wa.me/18622647885" target="_blank" rel="noopener" style="color:var(--gold-light);">862-264-7885 (WhatsApp) →</a></p>
+        <p class="detail-line"><strong>Info</strong> <a href="https://wa.me/18622647885" target="_blank" rel="noopener" style="color:var(--wine);">862-264-7885 (WhatsApp) →</a></p>
         <div style="margin-top:22px;">
           <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc4Bcl6dMDr8Fw4jNe8nhwONLmG1qfJqn7XYCEmh6HuPJWSrQ/viewform?usp=header" target="_blank" rel="noopener">Inscribirme al Módulo 4 →</a>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-navy">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Clases semanales</span>
+      <h2>Cursos Activos Ahora Mismo</h2>
+      <p>Además del taller nacional, la Escuela ofrece dos clases continuas cada semana — Alpha y ETA — cada una con su propio formador y su propio calendario de cursos.</p>
+    </div>
+    <div class="faculty-grid">
+      <div class="faculty-card">
+        <div class="faculty-photo">
+          <img src="../assets/img/ministerios/jose-cordero-formador-eta.webp" alt="José Cordero, formador de la Clase ETA" width="480" height="480">
+        </div>
+        <span class="faculty-track">Clase ETA &middot; lunes, 7:30 – 9:30 pm</span>
+        <h3>José Cordero</h3>
+        <p class="faculty-role">Formador</p>
+        <p class="faculty-bio"><strong>José Cordero</strong> llega a la Escuela con una trayectoria de más de dos décadas dedicada a la formación en la fe. Es Maestro en Teología Pastoral por la <strong>Universidad de Fordham</strong> — universidad católica jesuita de <strong>Nueva York</strong> — y cuenta además con estudios en Educación y en Música. Formado también en el <strong>Instituto de Estudios Religiosos y Pastorales del Centro Católico Carismático de Nueva York</strong>, ha servido como catequista, predicador y músico en distintas parroquias del área metropolitana, y hoy acompaña procesos de formación de fe en la <strong>Diócesis de Rockville Centre</strong>. Es además educador de profesión, vinculado al sistema de escuelas públicas de <strong>Nueva York</strong>.</p>
+        <ul class="details-list">
+          <li><span class="label">Curso activo</span><span class="value">Introducción a la Liturgia — 14 sept. al 12 oct.</span></li>
+          <li><span class="label">Próximo curso</span><span class="value">Predicación — 19 oct. al 16 nov.</span></li>
+          <li><span class="label">Costo</span><span class="value">$75 por curso (5 clases)</span></li>
+        </ul>
+      </div>
+      <div class="faculty-card">
+        <div class="faculty-photo">
+          <img src="../assets/img/ministerios/nector-garcia-formador-alpha.webp" alt="Néctor García, formador de la Clase Alpha" width="480" height="480">
+        </div>
+        <span class="faculty-track">Clase Alpha &middot; viernes, 7:30 – 9:30 pm</span>
+        <h3>Néctor García</h3>
+        <p class="faculty-role">Formador</p>
+        <ul class="details-list">
+          <li><span class="label">Curso activo</span><span class="value">La Moral y el Cristiano — 18 sept. al 16 oct.</span></li>
+          <li><span class="label">Próximo curso</span><span class="value">Los Sacramentos y Liturgia — 23 oct. al 20 nov.</span></li>
+          <li><span class="label">Costo</span><span class="value">$75 por curso (5 clases)</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="faculty-enroll-cta">
+      <span class="eyebrow">¿Te sientes llamado a formarte?</span>
+      <p>Para inscribirte en la Clase Alpha o la Clase ETA, comunícate directamente con la Escuela.</p>
+      <a class="wa-cta-btn" href="https://wa.me/18622647885" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.48 1.32 4.95L2 22l5.25-1.38c1.41.77 3 1.18 4.79 1.18h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.67c2.19 0 4.25.85 5.79 2.4a8.2 8.2 0 0 1 2.41 5.84c0 4.55-3.7 8.25-8.25 8.25h-.01c-1.57 0-3.1-.44-4.43-1.28l-.32-.19-3.11.82.83-3.04-.21-.31a8.19 8.19 0 0 1-1.27-4.4c0-4.55 3.71-8.25 8.26-8.25M8.53 6.9c-.16 0-.42.06-.64.31s-.85.83-.85 2.02.87 2.35.99 2.51 1.7 2.73 4.19 3.73c2.07.83 2.49.66 2.94.62.45-.04 1.44-.59 1.65-1.16s.21-1.06.15-1.16-.24-.16-.5-.28-1.55-.76-1.79-.85-.42-.13-.6.13-.68.85-.84 1.03-.31.19-.58.06a7.3 7.3 0 0 1-2.15-1.33 8.06 8.06 0 0 1-1.49-1.85c-.16-.27-.02-.41.12-.55.12-.12.27-.31.4-.47.13-.16.17-.27.26-.45.09-.19.04-.35-.02-.49s-.6-1.45-.82-1.98c-.22-.53-.44-.44-.6-.45z" fill="currentColor"/></svg><span>Escríbenos por WhatsApp</span></a>
     </div>
   </div>
 </section>
