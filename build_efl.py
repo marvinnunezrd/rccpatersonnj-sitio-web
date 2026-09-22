@@ -95,7 +95,7 @@ html = head(
         <span class="faculty-track">Clase ETA &middot; lunes, 7:30 – 9:30 pm</span>
         <h3>José Cordero</h3>
         <p class="faculty-role">Formador</p>
-        <p class="faculty-bio"><strong>José Cordero</strong> llega a la Escuela con una trayectoria de más de dos décadas dedicada a la formación en la fe. Es Maestro en Teología Pastoral por la <strong>Universidad de Fordham</strong> — universidad católica jesuita de <strong>Nueva York</strong> — y cuenta además con estudios en Educación y en Música. Formado también en el <strong>Instituto de Estudios Religiosos y Pastorales del Centro Católico Carismático de Nueva York</strong>, ha servido como catequista, predicador y músico en distintas parroquias del área metropolitana, y hoy acompaña procesos de formación de fe en la <strong>Diócesis de Rockville Centre</strong>. Es además educador de profesión, vinculado al sistema de escuelas públicas de <strong>Nueva York</strong>.</p>
+        <p class="faculty-bio"><strong>José Cordero</strong> llega a la Escuela con una trayectoria de más de dos décadas dedicada a la formación en la fe. Tiene una Maestría en Estudios Religiosos y Pastoral por la <strong>Universidad de Fordham</strong> — universidad católica jesuita de <strong>Nueva York</strong> — y cuenta además con estudios en Educación y en Música. Formado también en el <strong>Instituto de Estudios Religiosos y Pastorales del Centro Católico Carismático de Nueva York</strong>, ha servido como catequista, predicador y músico en distintas parroquias del área metropolitana, y hoy acompaña procesos de formación de fe en la <strong>Diócesis de Rockville Centre</strong>. Es además educador de profesión, vinculado al sistema de escuelas públicas de <strong>Nueva York</strong>.</p>
         <ul class="details-list">
           <li><span class="label">Curso activo</span><span class="value">Introducción a la Liturgia — 14 sept. al 12 oct.</span></li>
           <li><span class="label">Próximo curso</span><span class="value">Predicación — 19 oct. al 16 nov.</span></li>
@@ -141,7 +141,7 @@ html = head(
     <div class="section-title">
       <span class="eyebrow">Plan de estudios</span>
       <h2>Cursos por Nivel</h2>
-      <p>Programa oficial de la Escuela de Formación de Líderes, según el Manual del Estudiante (Edición 2025).</p>
+      <p>Programa oficial de la Escuela de Formación de Líderes.</p>
     </div>
     <div class="course-levels">
       <div class="course-level">
