@@ -71,7 +71,9 @@ def nav(root=""):
       <a href="/#eventos">Eventos</a>
       <a href="/#preguntas-frecuentes">Preguntas</a>
       <a href="/#contacto">Contacto</a>
-      <a class="nav-portal-link" href="{PORTAL_URL}" target="_blank" rel="noopener">🔐 Portal Interno</a>
+      <div class="nav-portal-row">
+        <a class="nav-portal-link" href="{PORTAL_URL}" target="_blank" rel="noopener">🔐 Portal Interno</a>
+      </div>
     </div>
   </div>
 </nav>'''
