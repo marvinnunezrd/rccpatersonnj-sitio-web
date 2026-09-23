@@ -27,6 +27,8 @@ h1,h2,h3{font-family:var(--font-title);margin:0 0 .5em 0;letter-spacing:.02em;}
 .nav-links > a, .nav-item > a{color:rgba(255,243,214,.82);font-size:.8rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;transition:color .15s ease;padding:8px 0;display:inline-block;}
 .nav-links > a:hover, .nav-item > a:hover{color:var(--gold-light);}
 .nav-toggle{display:none;background:none;border:1px solid var(--gold);color:var(--gold-light);font-size:1.1rem;padding:4px 10px;border-radius:4px;cursor:pointer;}
+.nav-links > a.nav-portal-link{border:1.5px solid var(--gold);border-radius:20px;padding:6px 16px;color:var(--gold-light);}
+.nav-links > a.nav-portal-link:hover{background:rgba(217,161,46,.14);color:var(--gold-light);}
 .nav-item{position:relative;}
 .nav-dropdown{
   display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);
@@ -42,6 +44,7 @@ h1,h2,h3{font-family:var(--font-title);margin:0 0 .5em 0;letter-spacing:.02em;}
   .nav-links.is-open{display:flex;}
   .nav-dropdown{position:static;transform:none;display:block;background:rgba(0,0,0,.18);box-shadow:none;margin:4px 0 8px;}
   .nav-item:hover .nav-dropdown{display:block;}
+  .nav-links > a.nav-portal-link{align-self:center;margin-top:8px;}
 }
 
 /* hero */

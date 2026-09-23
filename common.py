@@ -19,6 +19,13 @@ def social_row(cls="social-row"):
       <a href="https://youtube.com/@rccpatersonnj" target="_blank" rel="noopener" aria-label="YouTube">{SOCIAL_ICONS['yt']}</a>
     </div>'''
 
+# URL del portal interno (Firebase Hosting). Cuando Marvin conecte el
+# dominio personalizado portal.rccpatersonnj.com en GoDaddy (paso pendiente
+# documentado en el propio portal), cambiar este único valor y volver a
+# correr los builds -- se actualiza en todas las páginas a la vez, igual
+# que los links de redes sociales en social_row().
+PORTAL_URL = "https://rcc-paterson-portal.web.app"
+
 def nav(root=""):
     """root = '' para paginas en la raiz, '../' para paginas en subcarpetas
     (se usa solo para los assets: imagenes/css/js, que son relativos a la
@@ -64,6 +71,7 @@ def nav(root=""):
       <a href="/#eventos">Eventos</a>
       <a href="/#preguntas-frecuentes">Preguntas</a>
       <a href="/#contacto">Contacto</a>
+      <a class="nav-portal-link" href="{PORTAL_URL}" target="_blank" rel="noopener">🔐 Portal Interno</a>
     </div>
   </div>
 </nav>'''
