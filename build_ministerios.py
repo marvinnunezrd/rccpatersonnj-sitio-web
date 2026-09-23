@@ -189,6 +189,39 @@ page(
   </div>
 </section>
 
+<section id="pedir-oracion">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Pide oración ahora</span>
+      <h2 style="color:var(--navy);">Envíanos tu intención de oración</h2>
+      <p>Prefieres escribirla en vez de mandar un mensaje de WhatsApp — completa este formulario. Tu petición llega directo al equipo de Intercesión.</p>
+    </div>
+    <div class="int-req-card">
+      <form id="intRequestForm">
+        <div class="int-field">
+          <label for="reqTexto">Tu intención de oración</label>
+          <textarea id="reqTexto" required maxlength="1900" placeholder="Escribe aquí por qué necesitas oración..."></textarea>
+        </div>
+        <div class="int-field">
+          <label for="reqPorQuien">¿Por quién oramos? <span class="hint">(opcional)</span></label>
+          <input type="text" id="reqPorQuien" maxlength="190" placeholder="Ej. Mi papá, mi familia, un amigo...">
+        </div>
+        <div class="int-field">
+          <label for="reqPedidoPor">¿Quién pide la oración? <span class="hint">(opcional — puedes dejarlo en blanco para pedir de forma anónima)</span></label>
+          <input type="text" id="reqPedidoPor" maxlength="190" placeholder="Tu nombre, o déjalo en blanco">
+        </div>
+        <button type="submit" class="int-req-submit" id="reqSubmitBtn">Enviar mi intención de oración</button>
+        <p class="int-req-msg" id="reqMsg"></p>
+      </form>
+      <div class="int-req-success hidden" id="reqSuccess">
+        <strong>¡Tu intención fue enviada!</strong>
+        <p>Nuestro equipo de Intercesión la recibió y la llevará delante de Dios. Gracias por confiar en nosotros.</p>
+      </div>
+      <p class="int-req-privacy">Tu petición pasa primero por el equipo de Intercesión antes de sumarse a la cadena de oración de la comunidad. No compartimos tu información con nadie fuera del ministerio.</p>
+    </div>
+  </div>
+</section>
+
 <section class="bg-navy">
   <div class="container">
     <div class="section-title">
@@ -223,6 +256,8 @@ page(
     </div>
   </div>
 </section>
+
+<script type="module" src="{R}assets/js/intercesion-form.js"></script>
 ''',
   og_image="assets/img/ministerios/intercesion-og.jpg")
 

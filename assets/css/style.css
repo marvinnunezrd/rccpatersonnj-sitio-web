@@ -552,4 +552,24 @@ footer.site-footer .fine-print{margin-top:22px;padding-top:18px;border-top:1px s
 .faq-item p{margin:0;font-size:.92rem;color:rgba(255,243,214,.85);line-height:1.55;}
 .bg-navy .faq-item{background:var(--white);border-color:rgba(8,43,76,.1);box-shadow:0 6px 18px rgba(8,43,76,.06);}
 .bg-navy .faq-item h3{color:var(--navy);}
+
+/* ---------- Formulario público de intenciones de oración (Intercesión) ---------- */
+.hidden{display:none !important;}
+.int-req-card{background:linear-gradient(180deg,var(--navy) 0%,var(--navy-deep) 100%);border:1px solid rgba(217,161,46,.4);border-radius:18px;padding:38px 34px;box-shadow:0 18px 40px rgba(8,43,76,.28);max-width:640px;margin:0 auto;}
+.int-field{margin-bottom:18px;}
+.int-field label{display:block;font-family:var(--font-body);font-weight:700;font-size:.85rem;color:var(--gold-light);margin-bottom:7px;}
+.int-field label .hint{display:inline;font-weight:400;font-size:.78rem;color:rgba(255,243,214,.55);}
+.int-field input[type=text],.int-field textarea{width:100%;padding:12px 14px;border-radius:8px;border:1px solid rgba(217,161,46,.4);background:rgba(255,255,255,.06);color:var(--ivory);font-family:var(--font-body);font-size:.92rem;transition:border-color .15s ease,background .15s ease;}
+.int-field input[type=text]::placeholder,.int-field textarea::placeholder{color:rgba(255,243,214,.4);}
+.int-field input[type=text]:focus,.int-field textarea:focus{outline:none;border-color:var(--gold);background:rgba(255,255,255,.1);}
+.int-field textarea{min-height:110px;resize:vertical;font-family:var(--font-body);}
+.int-req-submit{display:block;width:100%;border:none;cursor:pointer;background:var(--red);color:var(--ivory);font-family:var(--font-body);font-weight:700;letter-spacing:.03em;text-transform:uppercase;font-size:.88rem;padding:15px 28px;border-radius:999px;box-shadow:0 10px 24px rgba(168,16,20,.35);transition:transform .15s ease,box-shadow .15s ease,background .15s ease;}
+.int-req-submit:hover{background:var(--wine);transform:translateY(-2px);}
+.int-req-submit:disabled{opacity:.6;cursor:default;transform:none;}
+.int-req-msg{margin-top:14px;font-size:.85rem;color:#ffb4b4;text-align:center;min-height:0;}
+.int-req-success{text-align:center;padding:10px 4px;}
+.int-req-success strong{display:block;font-family:var(--font-title);color:var(--gold-light);font-size:1.15rem;margin-bottom:8px;}
+.int-req-success p{color:rgba(255,243,214,.85);margin:0;}
+.int-req-privacy{font-size:.74rem;color:rgba(255,243,214,.5);text-align:center;margin-top:16px;line-height:1.5;}
+@media (max-width:560px){.int-req-card{padding:30px 22px;}}
 .bg-navy .faq-item p{color:#444;}
