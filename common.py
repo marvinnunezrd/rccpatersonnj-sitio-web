@@ -71,9 +71,6 @@ def nav(root=""):
       <a href="/#eventos">Eventos</a>
       <a href="/#preguntas-frecuentes">Preguntas</a>
       <a href="/#contacto">Contacto</a>
-      <div class="nav-portal-row">
-        <a class="nav-portal-link" href="{PORTAL_URL}" target="_blank" rel="noopener">🔐 Portal Interno</a>
-      </div>
     </div>
   </div>
 </nav>'''
@@ -100,6 +97,7 @@ def footer(root=""):
   <p class="footer-email">
     <a href="mailto:renovacion@rccpaterson.org">{SOCIAL_ICONS['mail']} renovacion@rccpaterson.org</a>
   </p>
+  <p class="footer-portal"><a class="footer-portal-link" href="{PORTAL_URL}" target="_blank" rel="noopener">🔐 Portal Interno</a></p>
   <p><a class="back-home" href="/">&larr; Volver al inicio</a></p>
   <p class="fine-print">&copy; 2026 Renovación Carismática Católica — Diócesis de Paterson. Todos los derechos reservados.</p>
 </footer>

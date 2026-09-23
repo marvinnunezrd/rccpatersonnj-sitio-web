@@ -27,9 +27,6 @@ h1,h2,h3{font-family:var(--font-title);margin:0 0 .5em 0;letter-spacing:.02em;}
 .nav-links > a, .nav-item > a{color:rgba(255,243,214,.82);font-size:.8rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;transition:color .15s ease;padding:8px 0;display:inline-block;}
 .nav-links > a:hover, .nav-item > a:hover{color:var(--gold-light);}
 .nav-toggle{display:none;background:none;border:1px solid var(--gold);color:var(--gold-light);font-size:1.1rem;padding:4px 10px;border-radius:4px;cursor:pointer;}
-.nav-portal-row{flex-basis:100%;display:flex;justify-content:center;margin-top:10px;padding-top:10px;border-top:1px solid rgba(217,161,46,.18);}
-.nav-portal-row .nav-portal-link{border:1.5px solid var(--gold);border-radius:20px;padding:6px 18px;color:var(--gold-light);}
-.nav-portal-row .nav-portal-link:hover{background:rgba(217,161,46,.14);color:var(--gold-light);}
 .nav-item{position:relative;}
 .nav-dropdown{
   display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);
@@ -45,7 +42,6 @@ h1,h2,h3{font-family:var(--font-title);margin:0 0 .5em 0;letter-spacing:.02em;}
   .nav-links.is-open{display:flex;}
   .nav-dropdown{position:static;transform:none;display:block;background:rgba(0,0,0,.18);box-shadow:none;margin:4px 0 8px;}
   .nav-item:hover .nav-dropdown{display:block;}
-  .nav-portal-row{margin-top:6px;padding-top:14px;}
 }
 
 /* hero */
@@ -387,6 +383,9 @@ footer.site-footer a{color:var(--gold-light);}
 .footer-email{margin-bottom:22px;}
 .footer-email a{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-title);font-size:.92rem;color:var(--gold-light);border:1px solid rgba(217,161,46,.4);padding:8px 20px;border-radius:999px;}
 .footer-email .mail-icon{width:15px;height:15px;fill:currentColor;opacity:.9;}
+.footer-portal{margin-bottom:18px;}
+.footer-portal-link{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-title);font-size:.85rem;color:var(--gold-light);border:1.5px solid var(--gold);padding:8px 22px;border-radius:999px;transition:background .15s ease,transform .15s ease;}
+.footer-portal-link:hover{background:rgba(217,161,46,.14);transform:translateY(-2px);}
 .back-home{font-size:.82rem;border-bottom:1px solid rgba(242,203,105,.35);padding-bottom:1px;}
 footer.site-footer .fine-print{margin-top:22px;padding-top:18px;border-top:1px solid rgba(217,161,46,.2);font-size:.72rem;letter-spacing:.04em;color:rgba(255,243,214,.45);}
 
