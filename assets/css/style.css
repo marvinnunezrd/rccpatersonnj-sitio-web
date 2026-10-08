@@ -570,6 +570,8 @@ footer.site-footer .fine-print{margin-top:22px;padding-top:18px;border-top:1px s
 .int-req-success{text-align:center;padding:10px 4px;}
 .int-req-success strong{display:block;font-family:var(--font-title);color:var(--gold-light);font-size:1.15rem;margin-bottom:8px;}
 .int-req-success p{color:rgba(255,243,214,.85);margin:0;}
+.int-req-verse{margin-top:14px !important;padding-top:14px;border-top:1px solid rgba(242,203,105,.25);font-family:var(--font-title);font-style:italic;color:var(--gold-light) !important;font-size:1.02rem;line-height:1.5;}
+.int-req-verse-cita{display:inline-block;margin-top:4px;font-family:var(--font-body);font-style:normal;font-size:.78rem;letter-spacing:.03em;color:rgba(255,243,214,.6) !important;}
 .int-req-privacy{font-size:.74rem;color:rgba(255,243,214,.5);text-align:center;margin-top:16px;line-height:1.5;}
 @media (max-width:560px){.int-req-card{padding:30px 22px;}}
 .bg-navy .faq-item p{color:#444;}

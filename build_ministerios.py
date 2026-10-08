@@ -215,7 +215,8 @@ page(
       </form>
       <div class="int-req-success hidden" id="reqSuccess">
         <strong>¡Tu intención fue enviada!</strong>
-        <p>Nuestro equipo de Intercesión la recibió y la llevará delante de Dios. Gracias por confiar en nosotros.</p>
+        <p>Nuestro equipo de Intercesión la recibió y la llevará delante de Dios.</p>
+        <p class="int-req-verse">&ldquo;La oración ferviente del justo tiene mucho poder.&rdquo;<br><span class="int-req-verse-cita">Santiago 5,16 (Biblia de Jerusalén)</span></p>
       </div>
     </div>
   </div>
