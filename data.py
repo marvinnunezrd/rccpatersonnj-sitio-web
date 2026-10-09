@@ -74,9 +74,7 @@ GRUPOS_ORACION = [
 ]
 
 AGENDA = [
-  ("20","SEP","2026","Gran Asamblea Diocesana – Septiembre 2026","2:30 pm – 6:00 pm","Salón Principal de la Escuela Santa Teresita, 765 14th Ave, Paterson, NJ 07504","Predicación: Diácono José Luis Abreu · Música: Marvin Núñez","/eventos/gran-asamblea-septiembre-2026"),
-  ("26","SEP","2026","Encuentro Regional 2026 — Llamados a la Santidad","9:00 am – 6:00 pm","Parroquia Our Lady of Libera, 5808 John F Kennedy Blvd, West New York, NJ 07093","Predican Su Excelencia Pedro Bismarck Chau (Obispo Auxiliar de Newark) y Mons. Joseph Malagreca · Donación: $30 (incluye almuerzo)","/eventos/encuentro-regional-2026"),
-  ("24–25","OCT","2026","Gran Congreso de Sanación y Liberación","Sáb. 9:00 am – 5:00 pm · Dom. 2:30 pm – 6:00 pm","Ubicación por confirmar","Predicación: Osvaldo Fernández, P. Starli Castaños (sáb.) y P. Yasid Salas (dom.)"),
+  ("24–25","OCT","2026","Congreso de Sanación y Liberación — Alma Sana, Corazón Libre","Sáb. 8:30 am – 4:30 pm · Dom. 3:00 pm – 6:30 pm","Gimnasio de la Parroquia St. Gerard, 501 West Broadway, Paterson, NJ 07522","Predican P. Alexis Coffi, Osvaldo Fernández y P. Yasid Salas · Música: Los Hijos Del Padre · Donativo: $35 (almuerzo incluido)","/eventos/congreso-sanacion-liberacion-2026"),
   ("15","NOV","2026","Gran Asamblea Diocesana – Noviembre 2026","2:30 pm – 6:00 pm","Salón Principal de la Escuela Santa Teresita, 765 14th Ave, Paterson, NJ 07504","Predicación: María Batista"),
   ("20","DIC","2026","Gran Asamblea Diocesana – Diciembre 2026","2:30 pm – 6:00 pm","Salón Principal de la Escuela Santa Teresita, 765 14th Ave, Paterson, NJ 07504",""),
 ]
