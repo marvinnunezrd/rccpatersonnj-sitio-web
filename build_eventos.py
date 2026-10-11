@@ -60,8 +60,8 @@ EVENT_JSONLD = f'''<script type="application/ld+json">
       "acceptedAnswer": {{"@type": "Answer", "text": "En la Parroquia Our Lady of Libera, 5808 John F Kennedy Blvd, West New York, NJ 07093."}}}},
     {{"@type": "Question", "name": "¿Cuánto cuesta la entrada al Encuentro Regional 2026?",
       "acceptedAnswer": {{"@type": "Answer", "text": "La donación es de $30 e incluye el almuerzo."}}}},
-    {{"@type": "Question", "name": "¿Habrá cuidado de niños en el Encuentro Regional 2026?",
-      "acceptedAnswer": {{"@type": "Answer", "text": "No, el flyer oficial indica que no habrá cuidado de niños en este encuentro."}}}},
+    {{"@type": "Question", "name": "¿Hubo cuidado de niños en el Encuentro Regional 2026?",
+      "acceptedAnswer": {{"@type": "Answer", "text": "No, el encuentro no contó con servicio de cuidado de niños."}}}},
     {{"@type": "Question", "name": "¿Quién organiza el Encuentro Regional 2026?",
       "acceptedAnswer": {{"@type": "Answer", "text": "Lo organiza la Renovación Carismática Católica Región 2 (Estados Unidos y Canadá), con la participación de Su Excelencia Pedro Bismarck Chau (Obispo Auxiliar de Newark), Mons. Joseph Malagreca, Mary Cruz y el Ministerio de Música Aroma de Cristo."}}}},
     {{"@type": "Question", "name": "¿Cómo pido más información sobre el Encuentro Regional 2026?",
@@ -193,8 +193,8 @@ html = head(
         <p>La donación es de $30 e incluye el almuerzo.</p>
       </div>
       <div class="faq-item">
-        <h3>¿Habrá cuidado de niños?</h3>
-        <p>No, el flyer oficial indica que no habrá cuidado de niños en este encuentro.</p>
+        <h3>¿Hubo cuidado de niños?</h3>
+        <p>No, el encuentro no contó con servicio de cuidado de niños.</p>
       </div>
       <div class="faq-item">
         <h3>¿Quién organiza el Encuentro Regional 2026?</h3>
@@ -265,8 +265,8 @@ ASAMBLEA_JSONLD = f'''<script type="application/ld+json">
       "acceptedAnswer": {{"@type": "Answer", "text": "El domingo 20 de septiembre de 2026, de 2:30 pm a 6:00 pm."}}}},
     {{"@type": "Question", "name": "¿Dónde fue la Gran Asamblea Diocesana de septiembre 2026?",
       "acceptedAnswer": {{"@type": "Answer", "text": "En el Salón Principal de la Escuela Santa Teresita, 765 14th Avenue, Paterson, NJ 07504."}}}},
-    {{"@type": "Question", "name": "¿Quién predica en la Gran Asamblea de septiembre 2026?",
-      "acceptedAnswer": {{"@type": "Answer", "text": "El Diácono José Luis Abreu, quien dirigirá la predicación y la Exposición del Santísimo. En la música participa Marvin Núñez."}}}},
+    {{"@type": "Question", "name": "¿Quién predicó en la Gran Asamblea de septiembre 2026?",
+      "acceptedAnswer": {{"@type": "Answer", "text": "El Diácono José Luis Abreu, quien dirigió la predicación y la Exposición del Santísimo. En la música participó Marvin Núñez."}}}},
     {{"@type": "Question", "name": "¿Cómo obtengo más información sobre la Gran Asamblea de septiembre 2026?",
       "acceptedAnswer": {{"@type": "Answer", "text": "Puedes llamar al 862-271-4805."}}}}
   ]
@@ -409,7 +409,7 @@ html = head(
       </div>
       <div class="faq-item">
         <h3>¿Quién predica?</h3>
-        <p>El Diácono José Luis Abreu, quien dirigirá la predicación y la Exposición del Santísimo. En la música participa Marvin Núñez.</p>
+        <p>El Diácono José Luis Abreu, quien dirigió la predicación y la Exposición del Santísimo. En la música participó Marvin Núñez.</p>
       </div>
       <div class="faq-item">
         <h3>¿Cómo obtengo más información?</h3>
@@ -553,7 +553,7 @@ html = head(
       <span class="eyebrow">Sobre el congreso</span>
       <h2>Alma sana, corazón libre</h2>
     </div>
-    <p style="max-width:760px;margin:0 auto 18px;">El <strong>Congreso de Sanación y Liberación</strong> de la Renovación Carismática Católica de la Diócesis de Paterson es un fin de semana de predicación, alabanza, Eucaristía y adoración, para dejar que el Señor sane las heridas del alma y nos devuelva la libertad de los hijos de Dios. Se celebrará el <strong>sábado 24 de octubre de 2026, de 8:30 am a 4:30 pm</strong>, y el <strong>domingo 25 de octubre, de 3:00 pm a 6:30 pm</strong>, en el <strong>Gimnasio de la Parroquia St. Gerard</strong>, en Paterson, NJ.</p>
+    <p style="max-width:760px;margin:0 auto 18px;">El <strong>Congreso de Sanación y Liberación</strong> de la Renovación Carismática Católica de la Diócesis de Paterson es un fin de semana de predicación y alabanza, para dejar que el Señor sane las heridas del alma y nos devuelva la libertad de los hijos de Dios. Se celebrará el <strong>sábado 24 de octubre de 2026, de 8:30 am a 4:30 pm</strong>, y el <strong>domingo 25 de octubre, de 3:00 pm a 6:30 pm</strong>, en el <strong>Gimnasio de la Parroquia St. Gerard</strong>, en Paterson, NJ.</p>
     <p style="max-width:760px;margin:0 auto;font-style:italic;">"Donde está el Espíritu del Señor, allí hay libertad." — 2 Corintios 3,17</p>
   </div>
 </section>
@@ -561,24 +561,11 @@ html = head(
 <section class="bg-navy">
   <div class="container">
     <div class="section-title">
-      <span class="eyebrow">Programa</span>
-      <h2>Dos días de sanación y libertad</h2>
-    </div>
-    <div class="team-grid">
-      <div class="team-card"><h4>Sábado 24 de octubre</h4><p class="role">8:30 am – 4:30 pm</p><p style="color:#3c3630;font-size:.9rem;margin-top:10px;">Predicación, alabanza y Santa Misa a las 10:30 am, celebrada por el Padre Alexis Coffi.</p></div>
-      <div class="team-card"><h4>Domingo 25 de octubre</h4><p class="role">3:00 pm – 6:30 pm</p><p style="color:#3c3630;font-size:.9rem;margin-top:10px;">Predicación del Padre Yasid Salas y Exposición del Santísimo a cargo del Padre Alexis Coffi.</p></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="section-title">
       <span class="eyebrow">Quiénes nos acompañan</span>
       <h2>Predicación y música</h2>
     </div>
     <div class="team-grid">
-      <div class="team-card"><h4>Padre Alexis Coffi</h4><p class="role">Predicación · Santa Misa · Exposición del Santísimo</p></div>
+      <div class="team-card"><h4>Padre Alexis Coffi</h4><p class="role">Predicación</p></div>
       <div class="team-card"><h4>Osvaldo Fernández</h4><p class="role">Predicación</p></div>
       <div class="team-card"><h4>Padre Yasid Salas</h4><p class="role">Predicación</p></div>
       <div class="team-card"><h4>Los Hijos Del Padre</h4><p class="role">Ministerio de Música</p></div>
@@ -586,7 +573,7 @@ html = head(
   </div>
 </section>
 
-<section class="bg-navy">
+<section>
   <div class="container">
     <div class="section-title">
       <span class="eyebrow">Ubicación</span>
@@ -601,7 +588,7 @@ html = head(
   </div>
 </section>
 
-<section>
+<section class="bg-navy">
   <div class="container">
     <div class="section-title">
       <span class="eyebrow">Contacto e información</span>
@@ -613,7 +600,7 @@ html = head(
   </div>
 </section>
 
-<section class="bg-navy">
+<section>
   <div class="container">
     <div class="section-title">
       <span class="eyebrow">Preguntas frecuentes</span>
@@ -648,7 +635,7 @@ html = head(
   </div>
 </section>
 
-<section style="text-align:center;padding-top:50px;padding-bottom:60px;">
+<section class="bg-navy" style="text-align:center;padding-top:50px;padding-bottom:60px;">
   <a class="btn btn-outline" href="/#eventos">&larr; Volver a la agenda de eventos</a>
 </section>
 ''' + footer(root=R) + f'''
