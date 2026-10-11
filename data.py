@@ -51,8 +51,6 @@ GRUPOS_ORACION = [
     {"dia": "Martes", "horario": "7:00 pm – 9:30 pm", "grupo": "\"Vive Jesús: El Amor\"", "parroquia": "St. Paul, Clifton",
      "direccion": "124 Union Ave, Clifton, NJ 07011", "coordinador": "Roberto Boiter", "telefono": "(646) 879-4655", "zona": "Zona C"},
 
-    {"dia": "Miércoles", "horario": "7:00 pm – 9:30 pm", "grupo": "Our Lady of Victories", "parroquia": "Our Lady of Victories, Paterson",
-     "direccion": "169 Broadway, Paterson, NJ 07501", "coordinador": "Israel Torres", "telefono": "(862) 271-9966", "zona": "Zona B"},
     {"dia": "Miércoles", "horario": "7:00 pm – 9:30 pm", "grupo": "\"Los Amigos de Jesús\"", "parroquia": "St. Therese de Lisieux, Paterson",
      "direccion": "80 13th Ave, Paterson, NJ 07504", "coordinador": "Reyna Nuesi", "telefono": "(201) 832-3010", "zona": "Zona B"},
     {"dia": "Miércoles", "horario": "7:00 pm – 9:30 pm", "grupo": "\"La Anunciación\"", "parroquia": "Sts. Cyril & Methodius, Clifton",
@@ -60,8 +58,6 @@ GRUPOS_ORACION = [
 
     {"dia": "Jueves", "horario": "7:00 pm – 9:30 pm", "grupo": "\"Alfa y Omega\"", "parroquia": "St. Joseph, Paterson",
      "direccion": "399 Market St, Paterson, NJ 07501", "coordinador": "Antonia Hernández (Henríquez)", "telefono": "(862) 600-4353", "zona": "Zona A"},
-    {"dia": "Jueves", "horario": "7:00 pm – 9:30 pm", "grupo": "\"Resurrección de Jesús\"", "parroquia": "St. Gerard Majella, Paterson",
-     "direccion": "501 West Broadway, Paterson, NJ 07522", "coordinador": "Edelmira Chollet (-Reyes)", "telefono": "(201) 341-3949", "zona": "Zona B"},
     {"dia": "Jueves", "horario": "7:00 pm – 9:30 pm", "grupo": "\"Santísima Trinidad\"", "parroquia": "Holy Trinity, Passaic",
      "direccion": "226 Harrison St, Passaic, NJ 07055", "coordinador": "Tony Jiménez", "telefono": "(973) 653-8469", "zona": "Zona C"},
     {"dia": "Jueves", "horario": "7:00 pm – 9:30 pm", "grupo": "\"Camino y Vida\"", "parroquia": "Sacred Heart & Holy Rosary, Dover",
