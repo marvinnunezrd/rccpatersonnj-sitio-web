@@ -50,6 +50,7 @@
   navLinks.addEventListener('click', function(e){
     if (e.target.closest('a')) {
       navLinks.classList.remove('is-open');
+      document.body.classList.remove('nav-open');
     }
   });
 })();

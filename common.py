@@ -40,7 +40,7 @@ def nav(root=""):
       <img src="{r}assets/img/escudo-rcc-oficial.webp" alt="RCC Paterson NJ" width="700" height="700">
       RCC Paterson NJ
     </a>
-    <button class="nav-toggle" aria-label="Abrir menú" onclick="document.querySelector('.nav-links').classList.toggle('is-open')">☰</button>
+    <button class="nav-toggle" aria-label="Abrir menú" onclick="document.body.classList.toggle('nav-open', document.querySelector('.nav-links').classList.toggle('is-open'))">☰</button>
     <div class="nav-links">
       <div class="nav-item has-dropdown">
         <a href="/#quienes-somos">Quiénes Somos</a>
