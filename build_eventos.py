@@ -646,3 +646,181 @@ filename = f"eventos/{CONGRESO_SLUG}.html"
 with open(filename, "w", encoding="utf-8") as f:
     f.write(html)
 print(filename, len(html.encode("utf-8")), "bytes")
+
+# ---------- ÁGAPE NAVIDEÑO DIOCESANO (5 DIC 2026) ----------
+# Agregado 2026-10-11. Evento PRIVADO (Equipo Diocesano y servidores de los
+# grupos de oración). URL corta /agape/ pensada para el QR del flyer.
+# Información PRELIMINAR (no definitiva). noindex: no aparece en Google ni en
+# el sitemap; solo se llega por la agenda del inicio o por el QR.
+# El registro con PIN todavía NO está activo. Regla: el PIN nunca se escribe
+# en este repo (es público); si se implementa del lado del sitio, solo su hash.
+
+AGAPE_STYLE = '''<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+.agape-hero{position:relative;overflow:hidden;text-align:center;color:var(--ivory);padding:70px 0 0;
+  background:
+    radial-gradient(1.5px 1.5px at 12% 18%,#fff 60%,transparent 61%),
+    radial-gradient(1px 1px at 28% 32%,#fff 60%,transparent 61%),
+    radial-gradient(1.5px 1.5px at 72% 14%,#fff 60%,transparent 61%),
+    radial-gradient(1px 1px at 86% 36%,#fff 60%,transparent 61%),
+    radial-gradient(1px 1px at 58% 26%,#fff 60%,transparent 61%),
+    radial-gradient(1.5px 1.5px at 40% 9%,#fff 60%,transparent 61%),
+    radial-gradient(1px 1px at 92% 58%,#fff 60%,transparent 61%),
+    radial-gradient(1px 1px at 6% 52%,#fff 60%,transparent 61%),
+    linear-gradient(180deg,#0B1D3F 0%,#1B2452 38%,#3A1E46 66%,#5A1424 100%);}
+.agape-hero .breadcrumb{color:rgba(255,243,214,.7);}
+.agape-hero .breadcrumb a{color:var(--gold-light);}
+.agape-shield{width:104px;margin:18px auto 14px;filter:drop-shadow(0 8px 20px rgba(0,0,0,.45));}
+.agape-org{font-family:'Cormorant Garamond',serif;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-light);font-size:1rem;margin:0;}
+.agape-dio{font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(255,243,214,.85);margin:2px 0 6px;font-size:1.05rem;}
+.agape-title{font-family:'Great Vibes',cursive;font-weight:400;font-size:clamp(4.2rem,15vw,8rem);line-height:1;margin:6px 0 0;letter-spacing:0;
+  background:linear-gradient(180deg,#F8DD8E 0%,#D9A12E 55%,#A8741A 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.agape-sub{font-family:'Cormorant Garamond',serif;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light);font-size:clamp(1.2rem,4.4vw,2rem);margin:0 0 6px;}
+.agape-star{width:120px;height:120px;margin:10px auto 0;position:relative;}
+.agape-star::before{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,rgba(255,236,170,.75) 0%,rgba(255,220,130,.25) 35%,transparent 70%);}
+.agape-star::after{content:"";position:absolute;left:50%;top:50%;width:84px;height:84px;transform:translate(-50%,-50%);background:#FFF6D8;
+  clip-path:polygon(50% 0,56% 44%,100% 50%,56% 56%,50% 100%,44% 56%,0 50%,44% 44%);}
+.agape-nativity{display:block;width:100%;max-width:900px;margin:-6px auto 0;}
+.agape-date{background:linear-gradient(180deg,#5A1424 0%,#4A0F1E 100%);color:var(--ivory);text-align:center;padding:34px 0 40px;}
+.agape-date .d{font-family:'Cormorant Garamond',serif;font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:clamp(1.5rem,5vw,2.4rem);margin:0;}
+.agape-date .h{font-family:'Cormorant Garamond',serif;color:var(--gold-light);font-size:clamp(1.3rem,4vw,1.8rem);margin:4px 0;}
+.agape-date .l{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,3.6vw,1.45rem);margin:0;}
+.agape-prelim{display:inline-block;margin-top:18px;border:1px solid rgba(242,203,105,.5);color:var(--gold-light);border-radius:999px;padding:6px 16px;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;}
+.agape-script{font-family:'Great Vibes',cursive;font-weight:400;color:var(--wine);font-size:clamp(2.4rem,8vw,3.4rem);letter-spacing:0;margin:0 0 4px;}
+.bg-navy .agape-script{color:var(--gold-light);}
+.agape-highlights{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;max-width:960px;margin:0 auto;}
+.agape-hl{text-align:center;border:1px solid rgba(217,161,46,.35);border-radius:14px;padding:28px 20px;background:rgba(255,255,255,.04);}
+.agape-hl .k{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--gold);margin:0 0 8px;}
+.agape-hl .v{font-family:'Cormorant Garamond',serif;font-size:1.45rem;color:var(--ivory);margin:0;line-height:1.25;}
+.agape-flyer-link.gallery-item{aspect-ratio:auto;width:300px;max-width:100%;margin:0 auto 8px;border:2px solid var(--gold);border-radius:12px;box-shadow:0 20px 50px rgba(5,27,50,.3);}
+.agape-flyer-link.gallery-item img{width:100%;height:auto;object-fit:unset;}
+.agape-lock{max-width:560px;margin:0 auto;text-align:center;background:#fff;border:1px solid rgba(217,161,46,.45);border-radius:16px;padding:34px 26px;box-shadow:0 14px 34px rgba(5,27,50,.12);}
+.agape-lock .ico{font-size:2rem;margin-bottom:6px;}
+.agape-lock h3{color:var(--navy);}
+.agape-lock p{color:#3c3630;font-size:.95rem;}
+.agape-pin{display:flex;gap:10px;justify-content:center;margin:18px 0 8px;}
+.agape-pin span{width:46px;height:56px;border:1.5px solid rgba(8,43,76,.25);border-radius:10px;background:var(--ivory);}
+.agape-lock .soon{display:inline-block;margin-top:10px;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--wine);}
+</style>'''
+
+AGAPE_NATIVITY = '''<svg class="agape-nativity" viewBox="0 0 900 210" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
+  <g fill="#1A1430">
+    <path d="M0 190 Q450 150 900 190 L900 210 L0 210 Z"/>
+    <path d="M95 182 l6-110 q-30 6-46 22 q18-22 44-26 q-26-10-50-4 q26-12 52 0 q-6-22-24-34 q24 12 30 32 q14-22 40-26 q-24 12-32 30 q26-4 46 10 q-26-8-46 0 q24 10 34 30 q-20-18-42-22 l-4 98z"/>
+    <path d="M790 182 l6-104 q-30 6-46 22 q18-22 44-26 q-26-10-50-4 q26-12 52 0 q-6-22-24-34 q24 12 30 32 q14-22 40-26 q-24 12-32 30 q26-4 46 10 q-26-8-46 0 q24 10 34 30 q-20-18-42-22 l-4 92z"/>
+    <path d="M300 92 L450 30 L600 92 L588 98 L580 94 L580 180 L568 180 L568 96 L332 96 L332 180 L320 180 L320 94 L312 98 Z"/>
+    <path d="M190 182 q2-34 16-40 q-10-14 0-24 q14-6 18 8 q2 10-6 16 q16 8 16 40 z"/>
+    <path d="M232 182 q0-40 14-48 l-4-16 l8 6 l4-10 l4 10 l8-6 l-4 16 q14 8 14 48 z"/>
+    <path d="M384 182 q-2-44 22-58 q-10-10-6-24 q10-12 24-4 q10 10 2 26 q20 18 16 60 z"/>
+    <path d="M426 170 h48 l-6 14 h-36 z"/>
+    <path d="M492 182 q-4-56 14-74 q-6-12 4-22 q14-8 22 4 q4 12-6 20 q18 22 14 72 z"/>
+    <path d="M640 182 q4-26 30-30 q10-18 30-14 l6-14 l6 8 q10 4 6 14 l-6 4 q18 10 10 32 l-6 0 q0-12-8-18 q-24 2-40 0 q-10 8-10 18 z"/>
+  </g>
+  <g fill="none" stroke="#E7C266" stroke-width="2" opacity=".85">
+    <circle cx="420" cy="112" r="15"/><circle cx="516" cy="96" r="15"/>
+  </g>
+  <ellipse cx="450" cy="168" rx="20" ry="7" fill="#FFF0B8" opacity=".9"/>
+  <line x1="450" y1="0" x2="450" y2="160" stroke="#FFF0B8" stroke-width="1.2" opacity=".55"/>
+</svg>'''
+
+html = head(
+    "Ágape Navideño Diocesano 2026 | RCC Paterson NJ",
+    "Ágape Navideño Diocesano de la Renovación Carismática Católica de la Diócesis de Paterson. Sábado 5 de diciembre de 2026, 6:00–9:00 pm, Escuela Santa Teresita, Paterson NJ.",
+    root=R, path="agape/index.html",
+    og_image="assets/img/eventos/agape-2026-og.jpg",
+    og_description="Ágape Navideño Diocesano · Sábado 5 de diciembre de 2026 · Para el Equipo Diocesano y los servidores de los grupos de oración.",
+    extra=AGAPE_STYLE
+) + f'''
+<header class="agape-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="/">Inicio</a> / <a href="/#eventos">Eventos</a> / Ágape Navideño</div>
+    <img class="agape-shield" src="{R}assets/img/escudo-rcc-oficial.webp" alt="Escudo oficial de la Renovación Carismática Católica — Diócesis de Paterson" width="420" height="420">
+    <p class="agape-org">Renovación Carismática Católica</p>
+    <p class="agape-dio">Diócesis de Paterson</p>
+    <h1 class="agape-title">Ágape</h1>
+    <p class="agape-sub">Navideño Diocesano</p>
+    <div class="agape-star"></div>
+  </div>
+  {AGAPE_NATIVITY}
+</header>
+
+<section class="agape-date">
+  <div class="container">
+    <p class="d">Sábado 5 de diciembre, 2026</p>
+    <p class="h">6:00 pm – 9:00 pm</p>
+    <p class="l">Salón Parroquial · Escuela Santa Teresita, Paterson</p>
+    <span class="agape-prelim">Información preliminar · sujeta a cambios</span>
+  </div>
+</section>
+
+<section>
+  <div class="container" style="text-align:center;">
+    <p class="agape-script">Una noche en familia</p>
+    <p style="max-width:720px;margin:0 auto 26px;">El <strong>Ágape Navideño Diocesano</strong> es nuestra celebración de Navidad como familia de la Renovación Carismática Católica de la Diócesis de Paterson: una noche para dar gracias a Dios por el año de servicio, compartir la mesa y celebrar juntos el nacimiento de Jesús. Está dedicada al <strong>Equipo Diocesano y a los servidores de los grupos de oración</strong>.</p>
+    <a class="agape-flyer-link gallery-item" href="{R}assets/img/eventos/agape-2026-flyer.webp">
+      <img src="{R}assets/img/eventos/agape-2026-thumb.webp" alt="Flyer del Ágape Navideño Diocesano 2026" width="420" height="525">
+    </a>
+    <p class="hero-flyer-caption" style="color:#6b5f4a;">Toca el flyer para verlo completo</p>
+  </div>
+</section>
+
+<section class="bg-navy">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Lo que viviremos</span>
+      <h2>Una noche para celebrar</h2>
+    </div>
+    <div class="agape-highlights">
+      <div class="agape-hl"><p class="k">Reconocimiento</p><p class="v">del año</p></div>
+      <div class="agape-hl"><p class="k">Alabanza</p><p class="v">Luis Castillo · Marvin Núñez</p></div>
+      <div class="agape-hl"><p class="k">Sorteo</p><p class="v">Gran Rifa TV 55"</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="registro">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Confirma tu asistencia</span>
+      <h2>Registro</h2>
+    </div>
+    <div class="agape-lock">
+      <div class="ico">🔒</div>
+      <h3>Registro con PIN de invitación</h3>
+      <p>Este es un encuentro privado. Para registrarte necesitarás el <strong>PIN de 4 dígitos</strong> que recibirás junto con tu invitación.</p>
+      <div class="agape-pin" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      <span class="soon">Registro disponible próximamente</span>
+    </div>
+  </div>
+</section>
+
+<section class="bg-navy">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Ubicación</span>
+      <h2>Cómo llegar</h2>
+    </div>
+    <div class="location-card">
+      <svg class="pin-icon-lg" viewBox="0 0 24 24"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.4 6.9 11.1 7.2 11.4a1.2 1.2 0 0 0 1.6 0C13.1 21.1 20 15.4 20 10c0-4.4-3.6-8-8-8zm0 10.8A2.8 2.8 0 1 1 12 7.2a2.8 2.8 0 0 1 0 5.6z"/></svg>
+      <h3>Escuela Santa Teresita — Salón Parroquial</h3>
+      <p class="address">765 14th Avenue<br>Paterson, NJ 07504</p>
+      <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=765+14th+Avenue%2C+Paterson%2C+NJ+07504" target="_blank" rel="noopener">Ver en Google Maps →</a>
+    </div>
+  </div>
+</section>
+
+<section style="text-align:center;padding-top:50px;padding-bottom:60px;">
+  <a class="btn btn-primary" href="/#eventos">&larr; Volver a la agenda de eventos</a>
+</section>
+''' + footer(root=R) + f'''
+<script src="{R}assets/js/lightbox.js"></script>
+''' + TAIL
+
+os.makedirs("agape", exist_ok=True)
+filename = "agape/index.html"
+with open(filename, "w", encoding="utf-8") as f:
+    f.write(html)
+print(filename, len(html.encode("utf-8")), "bytes")
