@@ -100,13 +100,16 @@ min_cards = "\n".join(min_card(*m) for m in MINISTERIOS)
 
 def agenda_item(d, mes, anio, titulo, hora, lugar, nota, href=None):
     nota_html = f'<p class="agenda-note">{nota}</p>' if nota else ""
-    link_html = f'<p class="agenda-note"><a class="agenda-link" href="{href}">Ver detalles y flyer completo →</a></p>' if href else ""
+    privado = not hora and not lugar  # evento privado: sin hora ni lugar publicos
+    link_txt = "Entrar con el PIN de tu invitación →" if privado else "Ver detalles y flyer completo →"
+    link_html = f'<p class="agenda-note"><a class="agenda-link" href="{href}">{link_txt}</a></p>' if href else ""
+    meta_html = '<p class="agenda-meta">🔒 Evento privado · solo con invitación</p>' if privado else f'<p class="agenda-meta">🕑 {hora} &nbsp;·&nbsp; 📍 {lugar}</p>'
     return f'''
       <div class="agenda-item">
         <div class="agenda-date"><div class="d">{d}</div><div class="m">{mes}</div><div class="y">{anio}</div></div>
         <div class="agenda-body">
           <h4>{titulo}</h4>
-          <p class="agenda-meta">🕑 {hora} &nbsp;·&nbsp; 📍 {lugar}</p>
+          {meta_html}
           {nota_html}{link_html}
         </div>
       </div>'''

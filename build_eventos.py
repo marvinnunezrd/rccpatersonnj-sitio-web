@@ -648,12 +648,16 @@ with open(filename, "w", encoding="utf-8") as f:
 print(filename, len(html.encode("utf-8")), "bytes")
 
 # ---------- ÁGAPE NAVIDEÑO DIOCESANO (5 DIC 2026) ----------
-# Agregado 2026-10-11. Evento PRIVADO (Equipo Diocesano y servidores de los
-# grupos de oración). URL corta /agape/ pensada para el QR del flyer.
-# Información PRELIMINAR (no definitiva). noindex: no aparece en Google ni en
-# el sitemap; solo se llega por la agenda del inicio o por el QR.
-# El registro con PIN todavía NO está activo. Regla: el PIN nunca se escribe
-# en este repo (es público); si se implementa del lado del sitio, solo su hash.
+# Evento PRIVADO. URL corta /agape/ (QR del flyer). noindex.
+# Los detalles (fecha, hora, lugar, flyer) NO están en este repo público:
+# viven en ../Privado-Sitio-Web/agape/ y se publican CIFRADOS con el PIN
+# (AES-256-GCM, clave PBKDF2-SHA256). El PIN nunca se escribe en archivos:
+# se pasa en la variable de entorno AGAPE_PIN al generar (ver LEEME de esa carpeta).
+# Sin AGAPE_PIN, este bloque NO toca agape/index.html.
+
+import base64, json, secrets as _secrets
+PRIV_AGAPE = os.path.join("..", "Privado-Sitio-Web", "agape")
+AGAPE_ITER = 600000
 
 AGAPE_STYLE = '''<meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -704,6 +708,12 @@ AGAPE_STYLE = '''<meta name="robots" content="noindex, nofollow">
 .agape-pin{display:flex;gap:10px;justify-content:center;margin:18px 0 8px;}
 .agape-pin span{width:46px;height:56px;border:1.5px solid rgba(8,43,76,.25);border-radius:10px;background:var(--ivory);}
 .agape-lock .soon{display:inline-block;margin-top:10px;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--wine);}
+.agape-gate{background:linear-gradient(180deg,#5A1424 0%,#4A0F1E 100%);color:var(--ivory);text-align:center;padding:40px 0 48px;}
+.agape-gate p{margin:0 auto 6px;max-width:520px;}
+.agape-gate form{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:18px auto 6px;}
+.agape-gate input{width:180px;font-size:1.6rem;letter-spacing:.5em;text-align:center;padding:10px 6px 10px 18px;border-radius:10px;border:1.5px solid var(--gold);background:rgba(255,255,255,.95);color:var(--navy);font-family:var(--font-body);}
+.agape-gate .msg{min-height:1.4em;color:var(--gold-light);font-size:.9rem;margin-top:8px;}
+.agape-gate .small{font-size:.8rem;color:rgba(255,243,214,.7);}
 </style>'''
 
 AGAPE_NATIVITY = '''<svg class="agape-nativity" viewBox="0 0 900 210" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
@@ -726,14 +736,71 @@ AGAPE_NATIVITY = '''<svg class="agape-nativity" viewBox="0 0 900 210" aria-hidde
   <line x1="450" y1="0" x2="450" y2="160" stroke="#FFF0B8" stroke-width="1.2" opacity=".55"/>
 </svg>'''
 
-html = head(
-    "Ágape Navideño Diocesano 2026 | RCC Paterson NJ",
-    "Ágape Navideño Diocesano de la Renovación Carismática Católica de la Diócesis de Paterson. Sábado 5 de diciembre de 2026, 6:00–9:00 pm, Escuela Santa Teresita, Paterson NJ.",
-    root=R, path="agape/index.html",
-    og_image="assets/img/eventos/agape-2026-og.jpg",
-    og_description="Ágape Navideño Diocesano · Sábado 5 de diciembre de 2026 · Para el Equipo Diocesano y los servidores de los grupos de oración.",
-    extra=AGAPE_STYLE
-) + f'''
+
+def _agape_encrypt(plaintext, pin):
+    from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+    from cryptography.hazmat.primitives import hashes
+    from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+    salt = _secrets.token_bytes(16); iv = _secrets.token_bytes(12)
+    key = PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=salt, iterations=AGAPE_ITER).derive(pin.encode())
+    ct = AESGCM(key).encrypt(iv, plaintext.encode("utf-8"), None)
+    b64 = lambda b: base64.b64encode(b).decode()
+    return {"s": b64(salt), "i": b64(iv), "c": b64(ct), "n": AGAPE_ITER}
+
+def _data_uri(path, mime="image/webp"):
+    with open(path, "rb") as fh:
+        return f"data:{mime};base64," + base64.b64encode(fh.read()).decode()
+
+AGAPE_GATE_JS = r"""<script>
+(function(){
+  var P = window.AGAPE_PAYLOAD;
+  var form = document.getElementById('agape-form'), input = document.getElementById('agape-pin'),
+      msg = document.getElementById('agape-msg'), gate = document.getElementById('agape-gate'),
+      box = document.getElementById('agape-privado');
+  function b(s){ return Uint8Array.from(atob(s), function(c){ return c.charCodeAt(0); }); }
+  async function open(pin){
+    var base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pin), 'PBKDF2', false, ['deriveKey']);
+    var key = await crypto.subtle.deriveKey({name:'PBKDF2', salt:b(P.s), iterations:P.n, hash:'SHA-256'}, base,
+                                            {name:'AES-GCM', length:256}, false, ['decrypt']);
+    var pt = await crypto.subtle.decrypt({name:'AES-GCM', iv:b(P.i)}, key, b(P.c));
+    box.innerHTML = new TextDecoder().decode(pt);
+    gate.style.display = 'none'; box.hidden = false;
+    var sc = document.createElement('script'); sc.src = '../assets/js/lightbox.js'; document.body.appendChild(sc);
+    try { sessionStorage.setItem('agape-pin', pin); } catch(e) {}
+  }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var pin = (input.value || '').replace(/\D/g, '');
+    if (pin.length < 4) { msg.textContent = 'Escribe el PIN completo.'; return; }
+    msg.textContent = 'Verificando…';
+    open(pin).then(function(){ msg.textContent = ''; }).catch(function(){
+      msg.textContent = 'PIN incorrecto. Revisa tu invitación.'; input.select();
+    });
+  });
+  try { var saved = sessionStorage.getItem('agape-pin'); if (saved) open(saved).catch(function(){}); } catch(e) {}
+})();
+</script>"""
+
+_agape_pin = os.environ.get("AGAPE_PIN", "").strip()
+if not _agape_pin:
+    print("AVISO: AGAPE_PIN no definido -> agape/index.html NO se regeneró.")
+elif not os.path.isdir(PRIV_AGAPE):
+    print("AVISO: falta la carpeta privada", PRIV_AGAPE, "-> agape/index.html NO se regeneró.")
+else:
+    with open(os.path.join(PRIV_AGAPE, "contenido.html"), encoding="utf-8") as fh:
+        privado = fh.read()
+    privado = privado.replace("{FLYER_THUMB}", _data_uri(os.path.join(PRIV_AGAPE, "agape-2026-thumb.webp")))
+    privado = privado.replace("{FLYER_FULL}", _data_uri(os.path.join(PRIV_AGAPE, "agape-2026-flyer.webp")))
+    payload = json.dumps(_agape_encrypt(privado, _agape_pin))
+
+    html = head(
+        "Ágape Navideño Diocesano | RCC Paterson NJ",
+        "Encuentro privado de la Renovación Carismática Católica de la Diócesis de Paterson para el Equipo Diocesano y los servidores de los grupos de oración. Acceso con PIN de invitación.",
+        root=R, path="agape/index.html",
+        og_image="assets/img/eventos/agape-2026-og.jpg",
+        og_description="Encuentro privado para el Equipo Diocesano y los servidores de los grupos de oración. Ingresa con el PIN de tu invitación.",
+        extra=AGAPE_STYLE
+    ) + f"""
 <header class="agape-hero">
   <div class="container">
     <div class="breadcrumb"><a href="/">Inicio</a> / <a href="/#eventos">Eventos</a> / Ágape Navideño</div>
@@ -747,80 +814,30 @@ html = head(
   {AGAPE_NATIVITY}
 </header>
 
-<section class="agape-date">
+<section class="agape-gate" id="agape-gate">
   <div class="container">
-    <p class="d">Sábado 5 de diciembre, 2026</p>
-    <p class="h">6:00 pm – 9:00 pm</p>
-    <p class="l">Salón Parroquial · Escuela Santa Teresita, Paterson</p>
-    <span class="agape-prelim">Información preliminar · sujeta a cambios</span>
+    <p style="font-size:1.6rem;">🔒</p>
+    <p><strong>Encuentro privado</strong> para el Equipo Diocesano y los servidores de los grupos de oración.</p>
+    <p class="small">Ingresa el PIN que recibiste con tu invitación para ver los detalles y registrarte.</p>
+    <form id="agape-form" autocomplete="off">
+      <input id="agape-pin" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="6" aria-label="PIN de invitación" placeholder="••••">
+      <button class="btn btn-outline" type="submit">Entrar</button>
+    </form>
+    <p class="msg" id="agape-msg" role="status"></p>
   </div>
 </section>
 
-<section>
-  <div class="container" style="text-align:center;">
-    <p class="agape-script">Una noche en familia</p>
-    <p style="max-width:720px;margin:0 auto 26px;">El <strong>Ágape Navideño Diocesano</strong> es nuestra celebración de Navidad como familia de la Renovación Carismática Católica de la Diócesis de Paterson: una noche para dar gracias a Dios por el año de servicio, compartir la mesa y celebrar juntos el nacimiento de Jesús. Está dedicada al <strong>Equipo Diocesano y a los servidores de los grupos de oración</strong>.</p>
-    <a class="agape-flyer-link gallery-item" href="{R}assets/img/eventos/agape-2026-flyer.webp">
-      <img src="{R}assets/img/eventos/agape-2026-thumb.webp" alt="Flyer del Ágape Navideño Diocesano 2026" width="420" height="525">
-    </a>
-    <p class="hero-flyer-caption" style="color:#6b5f4a;">Toca el flyer para verlo completo</p>
-  </div>
-</section>
-
-<section class="bg-navy">
-  <div class="container">
-    <div class="section-title">
-      <span class="eyebrow">Lo que viviremos</span>
-      <h2>Una noche para celebrar</h2>
-    </div>
-    <div class="agape-highlights">
-      <div class="agape-hl"><p class="k">Reconocimiento</p><p class="v">del año</p></div>
-      <div class="agape-hl"><p class="k">Alabanza</p><p class="v">Luis Castillo · Marvin Núñez</p></div>
-      <div class="agape-hl"><p class="k">Sorteo</p><p class="v">Gran Rifa TV 55"</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="registro">
-  <div class="container">
-    <div class="section-title">
-      <span class="eyebrow">Confirma tu asistencia</span>
-      <h2>Registro</h2>
-    </div>
-    <div class="agape-lock">
-      <div class="ico">🔒</div>
-      <h3>Registro con PIN de invitación</h3>
-      <p>Este es un encuentro privado. Para registrarte necesitarás el <strong>PIN de 4 dígitos</strong> que recibirás junto con tu invitación.</p>
-      <div class="agape-pin" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-      <span class="soon">Registro disponible próximamente</span>
-    </div>
-  </div>
-</section>
-
-<section class="bg-navy">
-  <div class="container">
-    <div class="section-title">
-      <span class="eyebrow">Ubicación</span>
-      <h2>Cómo llegar</h2>
-    </div>
-    <div class="location-card">
-      <svg class="pin-icon-lg" viewBox="0 0 24 24"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.4 6.9 11.1 7.2 11.4a1.2 1.2 0 0 0 1.6 0C13.1 21.1 20 15.4 20 10c0-4.4-3.6-8-8-8zm0 10.8A2.8 2.8 0 1 1 12 7.2a2.8 2.8 0 0 1 0 5.6z"/></svg>
-      <h3>Escuela Santa Teresita — Salón Parroquial</h3>
-      <p class="address">765 14th Avenue<br>Paterson, NJ 07504</p>
-      <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=765+14th+Avenue%2C+Paterson%2C+NJ+07504" target="_blank" rel="noopener">Ver en Google Maps →</a>
-    </div>
-  </div>
-</section>
+<div id="agape-privado" hidden></div>
 
 <section style="text-align:center;padding-top:50px;padding-bottom:60px;">
   <a class="btn btn-primary" href="/#eventos">&larr; Volver a la agenda de eventos</a>
 </section>
-''' + footer(root=R) + f'''
-<script src="{R}assets/js/lightbox.js"></script>
-''' + TAIL
+""" + footer(root=R) + f"""
+<script>window.AGAPE_PAYLOAD = {payload};</script>
+{AGAPE_GATE_JS}
+""" + TAIL
 
-os.makedirs("agape", exist_ok=True)
-filename = "agape/index.html"
-with open(filename, "w", encoding="utf-8") as f:
-    f.write(html)
-print(filename, len(html.encode("utf-8")), "bytes")
+    os.makedirs("agape", exist_ok=True)
+    with open("agape/index.html", "w", encoding="utf-8") as f:
+        f.write(html)
+    print("agape/index.html", len(html.encode("utf-8")), "bytes (contenido cifrado)")
