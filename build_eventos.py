@@ -685,14 +685,14 @@ html = head(
           <source src="{R}assets/video/eventos/congreso-2026-reel-teresa.mp4" type="video/mp4">
         </video>
         <h4>Teresa Amparo</h4>
-        <p>Invitación al Congreso</p>
+        <p>Coordinadora · RCC Paterson NJ</p>
       </div>
       <div class="video-card">
         <video controls playsinline preload="none" poster="{R}assets/img/eventos/congreso-2026-reel-osvaldo-poster.webp" width="720" height="1280">
           <source src="{R}assets/video/eventos/congreso-2026-reel-osvaldo.mp4" type="video/mp4">
         </video>
         <h4>Osvaldo Fernández</h4>
-        <p>Invitación al Congreso</p>
+        <p>Predicador católico</p>
       </div>
     </div>
   </div>
@@ -705,9 +705,9 @@ html = head(
       <h2>Predicación y música</h2>
     </div>
     <div class="team-grid">
-      <div class="team-card"><img class="team-photo" src="{R}assets/img/eventos/congreso-2026-padre-alexis-coffi.webp" alt="Padre Alexis Coffi" width="480" height="600" loading="lazy"><h4>Padre Alexis Coffi</h4><p class="role">Santa Misa · Tema I</p></div>
-      <div class="team-card"><img class="team-photo" src="{R}assets/img/eventos/congreso-2026-osvaldo-fernandez.webp" alt="Osvaldo Fernández, predicador" width="480" height="600" loading="lazy"><h4>Osvaldo Fernández</h4><p class="role">Predicación · Temas II a V</p></div>
-      <div class="team-card"><img class="team-photo" src="{R}assets/img/eventos/congreso-2026-padre-yasid-salas.webp" alt="Padre Yasid Salas" width="480" height="600" loading="lazy"><h4>Padre Yasid Salas</h4><p class="role">Tema VI · Exposición del Santísimo</p></div>
+      <div class="team-card"><img class="team-photo" src="{R}assets/img/eventos/congreso-2026-padre-alexis-coffi.webp" alt="Padre Alexis Coffi" width="480" height="600" loading="lazy"><h4>Padre Alexis Coffi</h4><p class="role">Vicario Parroquial · Parroquia San Antonio de Padua</p></div>
+      <div class="team-card"><img class="team-photo" src="{R}assets/img/eventos/congreso-2026-osvaldo-fernandez.webp" alt="Osvaldo Fernández, predicador" width="480" height="600" loading="lazy"><h4>Osvaldo Fernández</h4><p class="role">Predicador católico</p></div>
+      <div class="team-card"><img class="team-photo" src="{R}assets/img/eventos/congreso-2026-padre-yasid-salas.webp" alt="Padre Yasid Salas" width="480" height="600" loading="lazy"><h4>Padre Yasid Salas</h4><p class="role">Director Espiritual · RCC Paterson NJ</p></div>
       <div class="team-card"><img class="team-photo" src="{R}assets/img/musica-los-hijos-del-padre.webp" alt="Ministerio de música Los Hijos Del Padre" loading="lazy"><h4>Los Hijos Del Padre</h4><p class="role">Ministerio de Música</p></div>
     </div>
   </div>
