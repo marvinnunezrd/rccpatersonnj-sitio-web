@@ -484,7 +484,6 @@ for _dia, _fecha, _items in CONGRESO_PROGRAMA:
                "startDate": _iso(_fecha, _h), "location": _CONGRESO_PLACE,
                "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"}
         if _cita: _ev["description"] = f"Cita bíblica: {_cita}"
-        if _quien: _ev["performer"] = [{"@type": "Person", "name": n.strip()} for n in _quien.split(" y ")]
         _sub.append(_ev)
 CONGRESO_SUBEVENTS = json.dumps(_sub, ensure_ascii=False, indent=2)
 
@@ -575,7 +574,8 @@ def _prog_day(dia, fecha, items, n):
         extra = ""
         if tema: extra += f'<span class="prog-tema">“{tema}”</span>'
         if cita: extra += f'<span class="prog-cita">{cita}</span>'
-        if quien: extra += f'<span class="prog-quien">{quien}</span>'
+        # Por indicación de la coordinación: no se publica qué predicador da cada tema
+        if quien and "Hijos" in quien: extra += f'<span class="prog-quien">{quien}</span>'
         rows.append(f'<div class="prog-row{key}"><div class="prog-time">{h}</div><div><span class="prog-act">{act}</span>{extra}</div></div>')
     return f'''<div class="prog-day"><h3>{dia}</h3><p class="prog-sub">Día {n} de 2</p>{"".join(rows)}</div>'''
 
