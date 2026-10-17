@@ -1,4 +1,4 @@
-import sys, os
+import sys, os, json
 sys.path.insert(0, ".")
 from common import head, footer, TAIL, SOCIAL_ICONS, SITE_URL
 
@@ -436,6 +436,58 @@ print(filename, len(html.encode("utf-8")), "bytes")
 # calendario "Eventos Publicos RCCPatersonNJ" (evento confirmado 20 sep 2026).
 
 CONGRESO_SLUG = "congreso-sanacion-liberacion-2026"
+
+# Programa público (fuente: agenda oficial, oct 2026). Solo lo que ve el
+# asistente: SIN lectores, ujieres, moderadores, servidores, logística ni rifa.
+# (hora, actividad, tema, cita, predica)
+CONGRESO_PROGRAMA = [
+  ("Sábado 24 de octubre", "2026-10-24", [
+    ("8:35 am",  "Santo Rosario", "", "", ""),
+    ("9:05 am",  "Bienvenida", "", "", ""),
+    ("9:15 am",  "Avivamiento musical", "", "", "Los Hijos del Padre"),
+    ("9:25 am",  "Oraciones de intervención: Espíritu Santo y alabanzas", "", "", ""),
+    ("10:00 am", "Santa Misa — Tema I", "Alma Sana, Corazón Libre", "2 Cor 3,17", "Rev. Alexis Coffi"),
+    ("11:30 am", "Tema II", "¡Jesús Sana lo que el Alma Esconde!", "Salmo 147,3", "Osvaldo Fernández"),
+    ("12:45 pm", "Almuerzo", "", "", ""),
+    ("1:30 pm",  "Avivamiento", "", "", "Los Hijos del Padre"),
+    ("1:50 pm",  "Tema III", "¡Perdona, Suelta y Deja que Dios te Sane!", "Efesios 4,31-32", "Osvaldo Fernández"),
+    ("3:10 pm",  "Tema IV", "¡Levántate, Dios Renueva los Corazones Abatidos!", "Isaías 61,1-3 · Ezequiel 36,26", "Osvaldo Fernández"),
+    ("4:15 pm",  "Clausura del primer día", "", "", ""),
+  ]),
+  ("Domingo 25 de octubre", "2026-10-25", [
+    ("3:00 pm", "Coronilla de la Divina Misericordia", "", "", ""),
+    ("3:10 pm", "Bienvenida", "", "", ""),
+    ("3:15 pm", "Avivamiento", "", "", "Los Hijos del Padre"),
+    ("3:25 pm", "Oraciones de intervención: Espíritu Santo y alabanzas", "", "", ""),
+    ("3:40 pm", "Tema V", "¡El Espíritu Santo Rompe las Cadenas!", "2 Cor 3,17 · Romanos 8,1-2", "Osvaldo Fernández"),
+    ("4:30 pm", "Tema VI", "¡Ante Jesús Eucaristía, Toda Alma se Libera!", "Juan 8,36", "Rev. Yasid Salas"),
+    ("5:15 pm", "Exposición del Santísimo y oración final", "", "", "Rev. Yasid Salas y Osvaldo Fernández"),
+    ("6:15 pm", "Clausura del Congreso", "", "", ""),
+  ]),
+]
+
+def _iso(fecha, hora):
+    hm, ap = hora.split()
+    h, m = map(int, hm.split(":"))
+    if ap == "pm" and h != 12: h += 12
+    return f"{fecha}T{h:02d}:{m:02d}:00-04:00"
+
+_CONGRESO_PLACE = {"@type": "Place", "name": "Gimnasio de la Parroquia St. Gerard",
+  "address": {"@type": "PostalAddress", "streetAddress": "501 West Broadway", "addressLocality": "Paterson",
+              "addressRegion": "NJ", "postalCode": "07522", "addressCountry": "US"}}
+_sub = []
+for _dia, _fecha, _items in CONGRESO_PROGRAMA:
+    for _h, _act, _tema, _cita, _quien in _items:
+        if not (_tema or "Santísimo" in _act):
+            continue
+        _ev = {"@type": "Event", "name": f"{_act}: {_tema}" if _tema else _act,
+               "startDate": _iso(_fecha, _h), "location": _CONGRESO_PLACE,
+               "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"}
+        if _cita: _ev["description"] = f"Cita bíblica: {_cita}"
+        if _quien: _ev["performer"] = [{"@type": "Person", "name": n.strip()} for n in _quien.split(" y ")]
+        _sub.append(_ev)
+CONGRESO_SUBEVENTS = json.dumps(_sub, ensure_ascii=False, indent=2)
+
 CONGRESO_JSONLD = f'''<script type="application/ld+json">
 {{
   "@context": "https://schema.org",
@@ -445,18 +497,7 @@ CONGRESO_JSONLD = f'''<script type="application/ld+json">
   "endDate": "2026-10-25T18:30:00-04:00",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "eventStatus": "https://schema.org/EventScheduled",
-  "location": {{
-    "@type": "Place",
-    "name": "Gimnasio de la Parroquia St. Gerard",
-    "address": {{
-      "@type": "PostalAddress",
-      "streetAddress": "501 West Broadway",
-      "addressLocality": "Paterson",
-      "addressRegion": "NJ",
-      "postalCode": "07522",
-      "addressCountry": "US"
-    }}
-  }},
+  "location": {json.dumps(_CONGRESO_PLACE, ensure_ascii=False)},
   "image": ["{SITE_URL}/assets/img/eventos/congreso-sanacion-2026-og.jpg"],
   "description": "Congreso de Sanación y Liberación 'Alma Sana, Corazón Libre' (2 Corintios 3:17) de la Renovación Carismática Católica de la Diócesis de Paterson. Sábado 24 de octubre de 2026, 8:30 am a 4:30 pm, y domingo 25 de octubre, 3:00 pm a 6:30 pm, en el Gimnasio de la Parroquia St. Gerard, 501 West Broadway, Paterson, NJ. Predican el Padre Alexis Coffi, Osvaldo Fernández y el Padre Yasid Salas. Música: Los Hijos Del Padre.",
   "offers": {{
@@ -477,7 +518,8 @@ CONGRESO_JSONLD = f'''<script type="application/ld+json">
     {{"@type": "Person", "name": "Osvaldo Fernández"}},
     {{"@type": "Person", "name": "Padre Yasid Salas"}},
     {{"@type": "MusicGroup", "name": "Los Hijos Del Padre"}}
-  ]
+  ],
+  "subEvent": {CONGRESO_SUBEVENTS}
 }}
 </script>
 <script type="application/ld+json">
@@ -487,6 +529,8 @@ CONGRESO_JSONLD = f'''<script type="application/ld+json">
   "mainEntity": [
     {{"@type": "Question", "name": "¿Cuándo es el Congreso de Sanación y Liberación 2026?",
       "acceptedAnswer": {{"@type": "Answer", "text": "El sábado 24 de octubre de 2026, de 8:30 am a 4:30 pm, y el domingo 25 de octubre, de 3:00 pm a 6:30 pm."}}}},
+    {{"@type": "Question", "name": "¿A qué hora debo llegar al Congreso?",
+      "acceptedAnswer": {{"@type": "Answer", "text": "El sábado el Santo Rosario inicia a las 8:35 am; el domingo, la Coronilla de la Divina Misericordia inicia a las 3:00 pm."}}}},
     {{"@type": "Question", "name": "¿Dónde es el Congreso de Sanación y Liberación?",
       "acceptedAnswer": {{"@type": "Answer", "text": "En el Gimnasio de la Parroquia St. Gerard, 501 West Broadway, Paterson, NJ 07522."}}}},
     {{"@type": "Question", "name": "¿Cuánto cuesta el Congreso?",
@@ -501,12 +545,66 @@ CONGRESO_JSONLD = f'''<script type="application/ld+json">
 }}
 </script>'''
 
+CONGRESO_STYLE = '''<style>
+.prog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;max-width:var(--max-width);margin:0 auto;align-items:start;}
+@media (max-width:860px){.prog-grid{grid-template-columns:1fr;}}
+.prog-day{background:var(--ivory);border-radius:14px;padding:26px 24px;box-shadow:0 10px 26px rgba(0,0,0,.18);}
+.prog-day h3{color:var(--navy);text-align:center;margin:0 0 4px;}
+.prog-day .prog-sub{text-align:center;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--wine);font-weight:700;margin:0 0 16px;}
+.prog-row{display:grid;grid-template-columns:78px 1fr;gap:12px;padding:11px 0;border-top:1px solid rgba(8,43,76,.1);}
+.prog-time{font-weight:700;color:var(--wine);font-size:.86rem;}
+.prog-act{color:var(--navy);font-weight:600;font-size:.93rem;}
+.prog-tema{display:block;font-style:italic;color:#3c3630;font-size:.9rem;margin-top:2px;}
+.prog-cita{display:block;color:#8a6410;font-size:.8rem;margin-top:2px;}
+.prog-quien{display:block;color:#3c3630;font-size:.82rem;margin-top:2px;}
+.prog-row.is-key .prog-act{color:var(--wine);}
+.prog-cta{text-align:center;margin-top:30px;}
+.video-grid{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;}
+.video-card{width:300px;max-width:100%;text-align:center;}
+.video-card video{width:100%;height:auto;aspect-ratio:9/16;border-radius:14px;background:#000;box-shadow:0 14px 34px rgba(5,27,50,.25);display:block;}
+.video-card h4{color:var(--navy);margin:14px 0 2px;}
+.video-card p{font-size:.85rem;color:#6b5f4a;margin:0;}
+.team-card .team-photo{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:10px;margin-bottom:14px;}
+</style>'''
+
+def _prog_day(dia, fecha, items, n):
+    rows = []
+    for h, act, tema, cita, quien in items:
+        key = " is-key" if tema else ""
+        extra = ""
+        if tema: extra += f'<span class="prog-tema">“{tema}”</span>'
+        if cita: extra += f'<span class="prog-cita">{cita}</span>'
+        if quien: extra += f'<span class="prog-quien">{quien}</span>'
+        rows.append(f'<div class="prog-row{key}"><div class="prog-time">{h}</div><div><span class="prog-act">{act}</span>{extra}</div></div>')
+    return f'''<div class="prog-day"><h3>{dia}</h3><p class="prog-sub">Día {n} de 2</p>{"".join(rows)}</div>'''
+
+CONGRESO_PROG_HTML = "\n      ".join(_prog_day(d, f, it, i + 1) for i, (d, f, it) in enumerate(CONGRESO_PROGRAMA))
+
+# Archivo .ics para "Agregar a mi calendario" (ambos días, horario oficial del flyer)
+_ics = "\r\n".join([
+  "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//RCC Paterson NJ//Congreso 2026//ES", "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
+  "BEGIN:VEVENT", "UID:congreso-2026-dia1@rccpatersonnj.com", "DTSTAMP:20261017T120000Z",
+  "DTSTART:20261024T123000Z", "DTEND:20261024T203000Z",
+  "SUMMARY:Congreso de Sanación y Liberación — Día 1",
+  "LOCATION:Gimnasio de la Parroquia St. Gerard\\, 501 West Broadway\\, Paterson\\, NJ 07522",
+  "DESCRIPTION:Alma Sana\\, Corazón Libre. Santo Rosario 8:35 am. Programa: https://rccpatersonnj.com/eventos/congreso-sanacion-liberacion-2026",
+  "URL:https://rccpatersonnj.com/eventos/congreso-sanacion-liberacion-2026", "END:VEVENT",
+  "BEGIN:VEVENT", "UID:congreso-2026-dia2@rccpatersonnj.com", "DTSTAMP:20261017T120000Z",
+  "DTSTART:20261025T190000Z", "DTEND:20261025T223000Z",
+  "SUMMARY:Congreso de Sanación y Liberación — Día 2",
+  "LOCATION:Gimnasio de la Parroquia St. Gerard\\, 501 West Broadway\\, Paterson\\, NJ 07522",
+  "DESCRIPTION:Alma Sana\\, Corazón Libre. Coronilla de la Divina Misericordia 3:00 pm. Programa: https://rccpatersonnj.com/eventos/congreso-sanacion-liberacion-2026",
+  "URL:https://rccpatersonnj.com/eventos/congreso-sanacion-liberacion-2026", "END:VEVENT",
+  "END:VCALENDAR", ""])
+with open(f"eventos/{CONGRESO_SLUG}.ics", "w", encoding="utf-8", newline="") as f:
+    f.write(_ics)
+
 html = head(
     "Congreso de Sanación y Liberación 2026 — Alma Sana, Corazón Libre | RCC Paterson NJ",
-    "Congreso de Sanación y Liberación 'Alma Sana, Corazón Libre'. 24 y 25 de octubre de 2026, Parroquia St. Gerard, Paterson NJ. Donativo $35, almuerzo incluido.",
+    "Congreso de Sanación y Liberación 'Alma Sana, Corazón Libre'. 24 y 25 de octubre de 2026, Parroquia St. Gerard, Paterson NJ. Programa, predicadores, videos y donativo de $35 con almuerzo incluido.",
     root=R, path=f"eventos/{CONGRESO_SLUG}.html",
     og_image="assets/img/eventos/congreso-sanacion-2026-og.jpg",
-    extra=CONGRESO_JSONLD
+    extra=CONGRESO_JSONLD + CONGRESO_STYLE
 ) + f'''
 <header class="hero-sub">
   <div class="container">
@@ -519,6 +617,7 @@ html = head(
       <img src="{R}assets/img/eventos/congreso-sanacion-2026-thumb.webp" alt="Flyer oficial del Congreso de Sanación y Liberación — Alma Sana, Corazón Libre" width="420" height="525">
     </a>
     <p class="hero-flyer-caption">Toca el flyer para verlo completo</p>
+    <p style="margin-top:14px;"><a class="btn btn-outline" href="#programa">Ver el programa ↓</a></p>
   </div>
 </header>
 
@@ -553,8 +652,49 @@ html = head(
       <span class="eyebrow">Sobre el congreso</span>
       <h2>Alma sana, corazón libre</h2>
     </div>
-    <p style="max-width:760px;margin:0 auto 18px;">El <strong>Congreso de Sanación y Liberación</strong> de la Renovación Carismática Católica de la Diócesis de Paterson es un fin de semana de predicación y alabanza, para dejar que el Señor sane las heridas del alma y nos devuelva la libertad de los hijos de Dios. Se celebrará el <strong>sábado 24 de octubre de 2026, de 8:30 am a 4:30 pm</strong>, y el <strong>domingo 25 de octubre, de 3:00 pm a 6:30 pm</strong>, en el <strong>Gimnasio de la Parroquia St. Gerard</strong>, en Paterson, NJ.</p>
+    <p style="max-width:760px;margin:0 auto 18px;">El <strong>Congreso de Sanación y Liberación</strong> de la Renovación Carismática Católica de la Diócesis de Paterson es un fin de semana de oración, Eucaristía, predicación y alabanza, para dejar que el Señor sane las heridas del alma y nos devuelva la libertad de los hijos de Dios. Se celebrará el <strong>sábado 24 de octubre de 2026, de 8:30 am a 4:30 pm</strong>, y el <strong>domingo 25 de octubre, de 3:00 pm a 6:30 pm</strong>, en el <strong>Gimnasio de la Parroquia St. Gerard</strong>, en Paterson, NJ.</p>
     <p style="max-width:760px;margin:0 auto;font-style:italic;">"Donde está el Espíritu del Señor, allí hay libertad." — 2 Corintios 3,17</p>
+  </div>
+</section>
+
+<section class="bg-navy" id="programa">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Programa</span>
+      <h2>Dos días de sanación y libertad</h2>
+      <p>Seis temas de predicación, Santa Misa, alabanza y Exposición del Santísimo.</p>
+    </div>
+    <div class="prog-grid">
+      {CONGRESO_PROG_HTML}
+    </div>
+    <div class="prog-cta">
+      <a class="btn btn-primary" href="{R}eventos/{CONGRESO_SLUG}.ics" download>📅 Agregar a mi calendario</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Videos de invitación</span>
+      <h2>Te invitamos personalmente</h2>
+    </div>
+    <div class="video-grid">
+      <div class="video-card">
+        <video controls playsinline preload="none" poster="{R}assets/img/eventos/congreso-2026-reel-teresa-poster.webp" width="720" height="1280">
+          <source src="{R}assets/video/eventos/congreso-2026-reel-teresa.mp4" type="video/mp4">
+        </video>
+        <h4>Teresa Amparo</h4>
+        <p>Invitación al Congreso</p>
+      </div>
+      <div class="video-card">
+        <video controls playsinline preload="none" poster="{R}assets/img/eventos/congreso-2026-reel-osvaldo-poster.webp" width="720" height="1280">
+          <source src="{R}assets/video/eventos/congreso-2026-reel-osvaldo.mp4" type="video/mp4">
+        </video>
+        <h4>Osvaldo Fernández</h4>
+        <p>Invitación al Congreso</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -565,10 +705,10 @@ html = head(
       <h2>Predicación y música</h2>
     </div>
     <div class="team-grid">
-      <div class="team-card"><h4>Padre Alexis Coffi</h4><p class="role">Predicación</p></div>
-      <div class="team-card"><h4>Osvaldo Fernández</h4><p class="role">Predicación</p></div>
-      <div class="team-card"><h4>Padre Yasid Salas</h4><p class="role">Predicación</p></div>
-      <div class="team-card"><h4>Los Hijos Del Padre</h4><p class="role">Ministerio de Música</p></div>
+      <div class="team-card"><img class="team-photo" src="{R}assets/img/eventos/congreso-2026-padre-alexis-coffi.webp" alt="Padre Alexis Coffi" width="480" height="600" loading="lazy"><h4>Padre Alexis Coffi</h4><p class="role">Santa Misa · Tema I</p></div>
+      <div class="team-card"><img class="team-photo" src="{R}assets/img/eventos/congreso-2026-osvaldo-fernandez.webp" alt="Osvaldo Fernández, predicador" width="480" height="600" loading="lazy"><h4>Osvaldo Fernández</h4><p class="role">Predicación · Temas II a V</p></div>
+      <div class="team-card"><img class="team-photo" src="{R}assets/img/eventos/congreso-2026-padre-yasid-salas.webp" alt="Padre Yasid Salas" width="480" height="600" loading="lazy"><h4>Padre Yasid Salas</h4><p class="role">Tema VI · Exposición del Santísimo</p></div>
+      <div class="team-card"><img class="team-photo" src="{R}assets/img/musica-los-hijos-del-padre.webp" alt="Ministerio de música Los Hijos Del Padre" loading="lazy"><h4>Los Hijos Del Padre</h4><p class="role">Ministerio de Música</p></div>
     </div>
   </div>
 </section>
@@ -612,6 +752,10 @@ html = head(
         <p>El sábado 24 de octubre de 2026, de 8:30 am a 4:30 pm, y el domingo 25 de octubre, de 3:00 pm a 6:30 pm.</p>
       </div>
       <div class="faq-item">
+        <h3>¿A qué hora debo llegar?</h3>
+        <p>El sábado el Santo Rosario inicia a las 8:35 am; el domingo, la Coronilla de la Divina Misericordia inicia a las 3:00 pm. Te recomendamos llegar unos minutos antes.</p>
+      </div>
+      <div class="faq-item">
         <h3>¿Dónde es?</h3>
         <p>En el Gimnasio de la Parroquia St. Gerard, 501 West Broadway, Paterson, NJ 07522.</p>
       </div>
@@ -646,6 +790,7 @@ filename = f"eventos/{CONGRESO_SLUG}.html"
 with open(filename, "w", encoding="utf-8") as f:
     f.write(html)
 print(filename, len(html.encode("utf-8")), "bytes")
+
 
 # ---------- ÁGAPE NAVIDEÑO DIOCESANO (5 DIC 2026) ----------
 # Evento PRIVADO. URL corta /agape/ (QR del flyer). noindex.

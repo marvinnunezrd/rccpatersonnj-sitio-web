@@ -1,0 +1,26 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//RCC Paterson NJ//Congreso 2026//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:congreso-2026-dia1@rccpatersonnj.com
+DTSTAMP:20261017T120000Z
+DTSTART:20261024T123000Z
+DTEND:20261024T203000Z
+SUMMARY:Congreso de Sanación y Liberación — Día 1
+LOCATION:Gimnasio de la Parroquia St. Gerard\, 501 West Broadway\, Paterson\, NJ 07522
+DESCRIPTION:Alma Sana\, Corazón Libre. Santo Rosario 8:35 am. Programa: https://rccpatersonnj.com/eventos/congreso-sanacion-liberacion-2026
+URL:https://rccpatersonnj.com/eventos/congreso-sanacion-liberacion-2026
+END:VEVENT
+BEGIN:VEVENT
+UID:congreso-2026-dia2@rccpatersonnj.com
+DTSTAMP:20261017T120000Z
+DTSTART:20261025T190000Z
+DTEND:20261025T223000Z
+SUMMARY:Congreso de Sanación y Liberación — Día 2
+LOCATION:Gimnasio de la Parroquia St. Gerard\, 501 West Broadway\, Paterson\, NJ 07522
+DESCRIPTION:Alma Sana\, Corazón Libre. Coronilla de la Divina Misericordia 3:00 pm. Programa: https://rccpatersonnj.com/eventos/congreso-sanacion-liberacion-2026
+URL:https://rccpatersonnj.com/eventos/congreso-sanacion-liberacion-2026
+END:VEVENT
+END:VCALENDAR
