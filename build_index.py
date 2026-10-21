@@ -263,6 +263,16 @@ HTML = head(
         <div class="caption"><strong>Mons. Kevin Sweeney</strong> junto al Comité Diocesano — ECCADS 2026</div>
       </div>
     </div>
+    <div class="featured-banner patrocinio-banner" style="margin-top:56px;">
+      <img src="patrocinio/og-sembremos-juntos.jpg" alt="Sembremos juntos · Let’s sow together — propuesta de patrocinio de la RCC Paterson" width="1200" height="630" loading="lazy" style="width:300px;border-radius:10px;">
+      <div>
+        <span class="eyebrow">Apoya nuestra misión · Support our mission</span>
+        <h2>Sembremos juntos</h2>
+        <p>Una casa para la Renovación, un retiro para 25 jóvenes, la formación de nuevos líderes y nuestros grandes encuentros diocesanos. Conozca los proyectos que usted, su familia o su empresa pueden ayudar a sembrar.</p>
+        <a class="btn btn-outline" href="/patrocinio/#es">Ver la propuesta →</a>
+        <a class="btn btn-outline" href="/patrocinio/#en" lang="en" style="margin-left:8px;">View in English →</a>
+      </div>
+    </div>
   </div>
 </section>
 <section id="grupos-oracion" class="bg-navy">
