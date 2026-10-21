@@ -5,6 +5,8 @@ exclude:
   - build_ministerios.py
   - build_eventos.py
   - build_efl.py
+  - build_revista.py
+  - build_patrocinio.py
   - common.py
   - data.py
   - LEEME.txt
