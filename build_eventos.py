@@ -563,6 +563,8 @@ CONGRESO_STYLE = '''<style>
 .video-card video{width:100%;height:auto;aspect-ratio:9/16;border-radius:14px;background:#000;box-shadow:0 14px 34px rgba(5,27,50,.25);display:block;}
 .video-card h4{color:var(--navy);margin:14px 0 2px;}
 .video-card p{font-size:.85rem;color:#6b5f4a;margin:0;}
+.live-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px;}
+#en-vivo .video-card{width:320px;}
 .team-card .role-sub{color:var(--navy);font-weight:700;font-size:.86rem;margin:4px 0 0;}
 .team-card .team-photo{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:10px;margin-bottom:14px;}
 </style>'''
@@ -647,6 +649,29 @@ html = head(
   </div>
 </section>
 
+<section class="bg-navy" id="en-vivo">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">En vivo · Día 1</span>
+      <h2>Así vivimos el sábado 24</h2>
+      <p>Un primer día de oración, Eucaristía, alabanza y predicación. ¡Le esperamos este domingo desde las 3:00 pm!</p>
+    </div>
+    <div class="video-grid">
+      <div class="video-card">
+        <video controls playsinline preload="none" poster="{R}assets/img/eventos/congreso-2026-en-vivo-dia1-poster.webp" width="720" height="1280">
+          <source src="{R}assets/video/eventos/congreso-2026-en-vivo-dia1.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="live-links">
+      <a class="btn btn-outline" href="https://www.instagram.com/reel/De4bSpIlmBF/" target="_blank" rel="noopener">Instagram</a>
+      <a class="btn btn-outline" href="https://facebook.com/reel/1310777931116881" target="_blank" rel="noopener">Facebook</a>
+      <a class="btn btn-outline" href="https://www.youtube.com/shorts/_FEiF-5bWDw" target="_blank" rel="noopener">YouTube</a>
+      <a class="btn btn-outline" href="https://www.tiktok.com/@rccpatersonnj/video/7700252425122286862" target="_blank" rel="noopener">TikTok</a>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="container">
     <div class="section-title">
@@ -694,6 +719,13 @@ html = head(
         </video>
         <h4>Osvaldo Fernández</h4>
         <p>Predicador católico</p>
+      </div>
+      <div class="video-card">
+        <video controls playsinline preload="none" poster="{R}assets/img/eventos/congreso-2026-reel-los-hijos-del-padre-poster.webp" width="720" height="1280">
+          <source src="{R}assets/video/eventos/congreso-2026-reel-los-hijos-del-padre.mp4" type="video/mp4">
+        </video>
+        <h4>Los Hijos Del Padre</h4>
+        <p>Dariberkis y Rafael Beato · Ministerio de Música</p>
       </div>
     </div>
   </div>
@@ -788,6 +820,168 @@ html = head(
 ''' + TAIL
 
 filename = f"eventos/{CONGRESO_SLUG}.html"
+with open(filename, "w", encoding="utf-8") as f:
+    f.write(html)
+print(filename, len(html.encode("utf-8")), "bytes")
+
+
+# ---------- GRAN ASAMBLEA DIOCESANA — NOVIEMBRE 2026 (15 NOV) ----------
+# Fuente: "Asamblea Noviembre - Datos Confirmados.md" (19 oct). NO se publica: costo, tema de la prédica.
+ASAM_NOV_SLUG = "gran-asamblea-noviembre-2026"
+ASAM_NOV_JSONLD = f'''<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Gran Asamblea Diocesana — Noviembre 2026: En gratitud por las bendiciones del Señor",
+  "startDate": "2026-11-15T14:30:00-05:00",
+  "endDate": "2026-11-15T18:00:00-05:00",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {{
+    "@type": "Place",
+    "name": "Salón Principal de la Escuela Santa Teresita",
+    "address": {{"@type": "PostalAddress", "streetAddress": "765 14th Avenue", "addressLocality": "Paterson",
+                 "addressRegion": "NJ", "postalCode": "07504", "addressCountry": "US"}}
+  }},
+  "image": ["{SITE_URL}/assets/img/eventos/gran-asamblea-nov-2026-og.jpg"],
+  "description": "Gran Asamblea Diocesana de la Renovación Carismática Católica de la Diócesis de Paterson, 'En gratitud por las bendiciones del Señor' (Salmo 116,12). Domingo 15 de noviembre de 2026, de 2:30 pm a 6:00 pm, en el Salón Principal de la Escuela Santa Teresita, Paterson, NJ. Predica María Batista; música: Nueva Unción.",
+  "organizer": {{"@type": "Organization", "name": "Renovación Carismática Católica — Diócesis de Paterson", "url": "{SITE_URL}"}},
+  "performer": [{{"@type": "Person", "name": "María Batista"}}, {{"@type": "MusicGroup", "name": "Nueva Unción"}}]
+}}
+</script>
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {{"@type": "Question", "name": "¿Cuándo es la Gran Asamblea Diocesana de noviembre 2026?",
+      "acceptedAnswer": {{"@type": "Answer", "text": "El domingo 15 de noviembre de 2026, de 2:30 pm a 6:00 pm."}}}},
+    {{"@type": "Question", "name": "¿Dónde es la Gran Asamblea Diocesana de noviembre 2026?",
+      "acceptedAnswer": {{"@type": "Answer", "text": "En el Salón Principal de la Escuela Santa Teresita, 765 14th Avenue, Paterson, NJ 07504."}}}},
+    {{"@type": "Question", "name": "¿Quién predica en la Gran Asamblea de noviembre 2026?",
+      "acceptedAnswer": {{"@type": "Answer", "text": "Predica María Batista. La música está a cargo de Nueva Unción."}}}},
+    {{"@type": "Question", "name": "¿Cómo obtengo más información?",
+      "acceptedAnswer": {{"@type": "Answer", "text": "Puede llamar o escribir por WhatsApp al 862-271-4805."}}}}
+  ]
+}}
+</script>'''
+
+_ics_nov = "\r\n".join([
+  "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//RCC Paterson NJ//Gran Asamblea Nov 2026//ES", "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
+  "BEGIN:VEVENT", "UID:gran-asamblea-2026-11-15@rccpatersonnj.com", "DTSTAMP:20261024T120000Z",
+  "DTSTART:20261115T193000Z", "DTEND:20261115T230000Z",
+  "SUMMARY:Gran Asamblea Diocesana — En gratitud por las bendiciones del Señor",
+  "LOCATION:Salón Principal de la Escuela Santa Teresita\\, 765 14th Avenue\\, Paterson\\, NJ 07504",
+  "DESCRIPTION:Predica María Batista · Música: Nueva Unción. https://rccpatersonnj.com/eventos/gran-asamblea-noviembre-2026",
+  "URL:https://rccpatersonnj.com/eventos/gran-asamblea-noviembre-2026", "END:VEVENT", "END:VCALENDAR", ""])
+with open(f"eventos/{ASAM_NOV_SLUG}.ics", "w", encoding="utf-8", newline="") as f:
+    f.write(_ics_nov)
+
+html = head(
+    "Gran Asamblea Diocesana — Noviembre 2026 | RCC Paterson NJ",
+    "Gran Asamblea Diocesana de la RCC Paterson 'En gratitud por las bendiciones del Señor'. Domingo 15 de noviembre de 2026, 2:30–6:00 pm, Escuela Santa Teresita, Paterson NJ. Predica María Batista; música: Nueva Unción.",
+    root=R, path=f"eventos/{ASAM_NOV_SLUG}.html",
+    og_image="assets/img/eventos/gran-asamblea-nov-2026-og.jpg",
+    extra=ASAM_NOV_JSONLD
+) + f'''
+<header class="hero-sub">
+  <div class="container">
+    <div class="breadcrumb"><a href="/">Inicio</a> / <a href="/#eventos">Eventos</a> / Gran Asamblea Diocesana</div>
+    <span class="hero-edition">Renovación Carismática Católica — Diócesis de Paterson</span>
+    <h1>Gran Asamblea Diocesana</h1>
+    <p class="lema">En gratitud por las bendiciones del Señor</p>
+    <p class="subtitle">Domingo 15 de noviembre de 2026 · 2:30 pm – 6:00 pm · Salón Principal, Escuela Santa Teresita, Paterson, NJ</p>
+    <a class="hero-flyer gallery-item" href="{R}assets/img/eventos/gran-asamblea-nov-2026-flyer.webp">
+      <img src="{R}assets/img/eventos/gran-asamblea-nov-2026-thumb.webp" alt="Flyer oficial de la Gran Asamblea Diocesana de noviembre 2026: En gratitud por las bendiciones del Señor, domingo 15 de noviembre, 2:30 a 6:00 pm, Escuela Santa Teresita" width="420" height="525">
+    </a>
+    <p class="hero-flyer-caption">Toca el flyer para verlo completo</p>
+    <p style="margin-top:14px;"><a class="btn btn-outline" href="{R}eventos/{ASAM_NOV_SLUG}.ics" download>📅 Agregar a mi calendario</a></p>
+  </div>
+</header>
+
+<section class="info-strip">
+  <div class="container">
+    <div class="info-item"><div class="icon">📅</div><h3>Fecha</h3><p>Domingo 15 de noviembre de 2026</p></div>
+    <div class="info-item"><div class="icon">🕑</div><h3>Horario</h3><p>2:30 pm – 6:00 pm</p></div>
+    <div class="info-item"><div class="icon">📖</div><h3>Predicación</h3><p>María Batista</p></div>
+    <div class="info-item"><div class="icon">🎵</div><h3>Música</h3><p>Nueva Unción</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Sobre la asamblea</span>
+      <h2>En gratitud por las bendiciones del Señor</h2>
+    </div>
+    <p style="max-width:760px;margin:0 auto 18px;">La <strong>Gran Asamblea Diocesana</strong> reúne a toda la Renovación Carismática Católica de la Diócesis de Paterson para alabar y dar gracias a Dios por todo lo que ha hecho en nuestras vidas, nuestras familias y nuestros grupos de oración. Nos encontraremos el <strong>domingo 15 de noviembre de 2026, de 2:30 pm a 6:00 pm</strong>, en el <strong>Salón Principal de la Escuela Santa Teresita</strong>, en Paterson, NJ.</p>
+    <p style="max-width:760px;margin:0 auto;font-style:italic;">"¿Cómo pagaré al Señor todo el bien que me ha hecho?" — Salmo 116,12</p>
+  </div>
+</section>
+
+<section class="bg-navy">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Quiénes nos acompañan</span>
+      <h2>Predicación y música</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card"><h4>María Batista</h4><p class="role">En la prédica</p></div>
+      <div class="team-card"><h4>Nueva Unción</h4><p class="role">En la música</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Ubicación</span>
+      <h2>Cómo llegar</h2>
+    </div>
+    <div class="location-card">
+      <svg class="pin-icon-lg" viewBox="0 0 24 24"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.4 6.9 11.1 7.2 11.4a1.2 1.2 0 0 0 1.6 0C13.1 21.1 20 15.4 20 10c0-4.4-3.6-8-8-8zm0 10.8A2.8 2.8 0 1 1 12 7.2a2.8 2.8 0 0 1 0 5.6z"/></svg>
+      <h3>Escuela Santa Teresita — Salón Principal</h3>
+      <p class="address">765 14th Avenue<br>Paterson, NJ 07504</p>
+      <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=765+14th+Avenue%2C+Paterson%2C+NJ+07504" target="_blank" rel="noopener">Ver en Google Maps →</a>
+    </div>
+  </div>
+</section>
+
+<section class="bg-navy">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Contacto e información</span>
+      <h2>¿Tiene preguntas?</h2>
+    </div>
+    <div class="team-grid" style="max-width:340px;margin:0 auto;">
+      <div class="team-card"><h4>Información</h4><a class="phone" href="https://wa.me/18622714805" target="_blank" rel="noopener">{PHONE_ICON} 862-271-4805</a></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2>Todo lo que debe saber</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><h3>¿Cuándo es la Gran Asamblea de noviembre?</h3><p>El domingo 15 de noviembre de 2026, de 2:30 pm a 6:00 pm.</p></div>
+      <div class="faq-item"><h3>¿Dónde es?</h3><p>En el Salón Principal de la Escuela Santa Teresita, 765 14th Avenue, Paterson, NJ 07504.</p></div>
+      <div class="faq-item"><h3>¿Quién predica?</h3><p>Predica María Batista. La música está a cargo de Nueva Unción.</p></div>
+      <div class="faq-item"><h3>¿Cómo obtengo más información?</h3><p>Puede llamar o escribir por WhatsApp al 862-271-4805.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-navy" style="text-align:center;padding-top:50px;padding-bottom:60px;">
+  <a class="btn btn-outline" href="/#eventos">&larr; Volver a la agenda de eventos</a>
+</section>
+''' + footer(root=R) + f'''
+<script src="{R}assets/js/lightbox.js"></script>
+''' + TAIL
+
+filename = f"eventos/{ASAM_NOV_SLUG}.html"
 with open(filename, "w", encoding="utf-8") as f:
     f.write(html)
 print(filename, len(html.encode("utf-8")), "bytes")

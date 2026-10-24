@@ -375,8 +375,8 @@ HTML = head(
       <div>
         <span class="eyebrow">Formación</span>
         <h2>Escuela de Formación de Líderes</h2>
-        <span class="badge-live"><span class="badge-dot"></span>Próximamente · Módulo 5</span>
-        <p>Un espacio formativo que equipa y madura servidores capaces de liderar con sabiduría y fidelidad a la Iglesia. Próximo taller: <strong>Módulo 5 del Programa Nacional de Formación</strong>, 20 y 21 de noviembre de 2026. Muy pronto compartiremos todos los detalles.</p>
+        <span class="badge-live"><span class="badge-dot"></span>Inscripciones abiertas · Módulo 5</span>
+        <p>Un espacio formativo que equipa y madura servidores capaces de liderar con sabiduría y fidelidad a la Iglesia. Próximo taller: <strong>Módulo 5 «Carismas del Espíritu Santo»</strong>, con Cruz Teresa Rosero, 20 y 21 de noviembre de 2026.</p>
         <a class="btn btn-outline" href="/ministerios/escuela-formacion-lideres">Conocer la Escuela →</a>
       </div>
     </div>

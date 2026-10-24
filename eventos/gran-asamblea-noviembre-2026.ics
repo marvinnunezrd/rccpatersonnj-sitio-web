@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//RCC Paterson NJ//Gran Asamblea Nov 2026//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:gran-asamblea-2026-11-15@rccpatersonnj.com
+DTSTAMP:20261024T120000Z
+DTSTART:20261115T193000Z
+DTEND:20261115T230000Z
+SUMMARY:Gran Asamblea Diocesana — En gratitud por las bendiciones del Señor
+LOCATION:Salón Principal de la Escuela Santa Teresita\, 765 14th Avenue\, Paterson\, NJ 07504
+DESCRIPTION:Predica María Batista · Música: Nueva Unción. https://rccpatersonnj.com/eventos/gran-asamblea-noviembre-2026
+URL:https://rccpatersonnj.com/eventos/gran-asamblea-noviembre-2026
+END:VEVENT
+END:VCALENDAR

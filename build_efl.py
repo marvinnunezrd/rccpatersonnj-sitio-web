@@ -40,7 +40,7 @@ EFL_STYLE = '''<style>
 
 html = head(
   "Escuela de Formación de Líderes — RCC Paterson NJ",
-  "Escuela de Formación de Líderes (EFL) de la Renovación Carismática Católica de la Diócesis de Paterson. Próximo taller nacional: Módulo 5, 20 y 21 de noviembre de 2026.",
+  "Escuela de Formación de Líderes (EFL) de la Renovación Carismática Católica de la Diócesis de Paterson. Próximo taller nacional: Módulo 5 «Carismas del Espíritu Santo», 20 y 21 de noviembre de 2026. Inscripciones abiertas.",
   root=R,
   path="ministerios/escuela-formacion-lideres.html",
   og_image="assets/img/ministerios/escuela-formacion-lideres-og.jpg",
@@ -63,14 +63,20 @@ html = head(
       <p>Módulo 5 — en comunión con el Comité Nacional de Servicio Hispano (CNSH).</p>
     </div>
     <div class="flyer-block">
-      <img src="{R}assets/img/escudo-efl.webp" alt="Escudo de la Escuela de Formación de Líderes — RCC Paterson NJ" width="560" height="560" style="box-shadow:none;">
+      <a class="gallery-item" href="{R}assets/img/modulo-5-carismas-del-espiritu-santo.webp" style="aspect-ratio:auto;border:none;overflow:visible;">
+        <img src="{R}assets/img/modulo-5-carismas-del-espiritu-santo-thumb.webp" alt="Flyer del Módulo 5 del Programa Nacional de Formación: Carismas del Espíritu Santo, con Cruz Teresa Rosero, 20 y 21 de noviembre de 2026, Salón Parroquial de la Escuela Sta. Teresita, Paterson NJ." width="420" height="630" style="height:auto;object-fit:contain;">
+      </a>
       <div class="flyer-details">
-        <span class="badge-live"><span class="badge-dot"></span>Próximamente</span>
-        <h3>Módulo 5 — Programa Nacional de Formación</h3>
-        <p class="detail-line"><strong>Fechas</strong> Viernes 20 y sábado 21 de noviembre, 2026</p>
-        <p class="detail-line"><strong>Lugar</strong> Salón Parroquial, Escuela Sta. Teresita — 765 14th Ave, Paterson, NJ 07504</p>
-        <p class="detail-line"><strong>Detalles</strong> Muy pronto anunciaremos el tema, el instructor, el horario y el enlace de inscripción. ¡Reserva la fecha!</p>
-        <p class="detail-line"><strong>Info</strong> <a href="https://wa.me/18622647885" target="_blank" rel="noopener" style="color:var(--wine);">862-264-7885 (WhatsApp) →</a></p>
+        <span class="badge-live"><span class="badge-dot"></span>Inscripciones abiertas</span>
+        <h3>Módulo 5: Carismas del Espíritu Santo</h3>
+        <p class="detail-line"><strong>Formadora</strong> Cruz Teresa Rosero, miembro del Equipo Nacional de Formación</p>
+        <p class="detail-line"><strong>Viernes 20 nov</strong> Registración 6:30 pm · Salida 9:10 pm</p>
+        <p class="detail-line"><strong>Sábado 21 nov</strong> 8:00 am – 5:30 pm</p>
+        <p class="detail-line"><strong>Lugar</strong> Salón de la Parroquia Santa Teresita — 765 14th Ave, Paterson, NJ 07504</p>
+        <p class="detail-line"><strong>Donativo</strong> $30, con desayuno y almuerzo incluidos</p>
+        <p class="detail-line"><strong>Info</strong> <a href="https://wa.me/18622647885" target="_blank" rel="noopener" style="color:var(--wine);">862-264-7885 (WhatsApp de la Escuela) →</a></p>
+        <p style="margin-top:18px;"><a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc4Bcl6dMDr8Fw4jNe8nhwONLmG1qfJqn7XYCEmh6HuPJWSrQ/viewform" target="_blank" rel="noopener">Inscribirme al Módulo 5 →</a></p>
+        <p class="detail-line" style="font-style:italic;margin-top:14px;">"Hay diversidad de carismas, pero el Espíritu es el mismo." — 1 Corintios 12,4</p>
       </div>
     </div>
   </div>
@@ -200,7 +206,9 @@ html = head(
     <p style="text-align:center;margin-top:34px;font-size:.95rem;">¿Desea apoyar la formación de nuevos líderes? <a href="/patrocinio/#es" style="font-weight:700;">Sembremos juntos →</a></p>
   </div>
 </section>
-''' + footer(root=R) + TAIL
+''' + footer(root=R) + f'''
+<script src="{R}assets/js/lightbox.js"></script>
+''' + TAIL
 
 with open("ministerios/escuela-formacion-lideres.html", "w", encoding="utf-8") as f:
     f.write(html)
