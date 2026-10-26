@@ -409,7 +409,7 @@ HTML = head(
         </div>
       </div>
       <div class="event-card">
-        <div class="ev-top"><img src="assets/img/eventos/congreso-2026-logo-mini.webp" alt="Logo Alma Sana, Corazón Libre — Congreso de Sanación y Liberación 2026" width="420" height="420" style="width:190px;margin:-30px auto -34px;"></div>
+        <div class="ev-top"><img src="assets/img/eventos/logo-alma-sana-corazon-libre-glow-600.webp" alt="Logo del Congreso de Sanación y Liberación Alma Sana, Corazón Libre – RCC Paterson NJ" width="600" height="372" style="width:230px;margin:-14px auto -10px;"></div>
         <div class="ev-body">
           <span class="event-tag event-tag--done">Realizado · 24 y 25 oct 2026</span>
           <h3>Congreso de Sanación y Liberación 2026</h3>
