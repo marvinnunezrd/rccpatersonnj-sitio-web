@@ -50,13 +50,14 @@ def set_canonical(s, url):
         return re.sub(r'<link rel="canonical"[^>]*>', lambda m: tag, s, count=1)
     return s.replace("</head>", tag + "\n</head>", 1)
 
-ARCHIVO_LINK = ('<p class="small rev-archivo" style="margin-top:auto"><a href="/revista/ediciones/" '
-                'style="color:var(--gold-soft)">Ediciones anteriores ›</a></p>')
+ARCHIVO_LINK = ('<p class="small rev-archivo" style="margin-top:auto"><a href="/revista/#anteriores" '
+                'style="color:var(--gold-soft)">Todas las ediciones ›</a></p>')
 
 def preparar(s, url_pagina, url_imagen):
     s = set_meta(s, "og:url", url_pagina)
     s = set_meta(s, "og:image", url_imagen)
     s = set_canonical(s, url_pagina)
+    s = s.replace('href="/revista/ediciones/" style="color:var(--gold-soft)">Ediciones anteriores ›', 'href="/revista/#anteriores" style="color:var(--gold-soft)">Todas las ediciones ›')
     if "rev-archivo" not in s:
         # Se coloca en la última página (Fuentes), antes del cierre de la edición
         i = s.rfind('<p class="small" style="margin-top:auto">')
@@ -102,58 +103,106 @@ def construir():
         p = os.path.join(REV, d, "index.html")
         write(p, preparar(read(p), f"{SITE_URL}/revista/{d}/", f"{SITE_URL}/revista/{d}/og-portada.jpg"))
     ult = eds[0]
-    s = read(os.path.join(REV, ult, "index.html"))
-    write(os.path.join(REV, "index.html"), preparar(s, f"{SITE_URL}/revista/", f"{SITE_URL}/revista/og-portada.jpg"))
     shutil.copyfile(os.path.join(REV, ult, "og-portada.jpg"), os.path.join(REV, "og-portada.jpg"))
 
+    def descarga(d):
+        # Si Prensa entrega un PDF (revista/AAAA-MM-DD/*.pdf) se ofrece ese; si no, la revista
+        # completa como un solo archivo .html que se abre sin conexión.
+        pdfs = sorted(f for f in os.listdir(os.path.join(REV, d)) if f.lower().endswith(".pdf"))
+        if pdfs:
+            return f"/revista/{d}/{pdfs[0]}", f"El-Carismatico-de-Paterson-{d}.pdf", "Descargar PDF"
+        return f"/revista/{d}/index.html", f"El-Carismatico-de-Paterson-{d}.html", "Descargar edición"
+
+    t, desc = info(read(os.path.join(REV, ult, "index.html")))
+    href, fname, label = descarga(ult)
+    destacada = f'''<div class="rev-destacada">
+      <a class="rev-portada" href="/revista/{ult}/"><img src="/revista/{ult}/og-portada.jpg" alt="Portada: {htmlmod.escape(t)}" width="1200" height="630"></a>
+      <div class="rev-info">
+        <span class="badge-live"><span class="badge-dot"></span>Edición de esta semana</span>
+        <h2>{htmlmod.escape(t)}</h2>
+        <p class="rev-fecha">Lunes {fecha_larga(ult)}</p>
+        <p>{htmlmod.escape(desc)}</p>
+        <div class="rev-botones">
+          <a class="btn btn-primary" href="/revista/{ult}/">Leer en línea →</a>
+          <a class="btn btn-outline" href="{href}" download="{fname}">⬇ {label}</a>
+        </div>
+      </div>
+    </div>'''
+
     items = []
-    for d in eds:
-        t, desc = info(read(os.path.join(REV, d, "index.html")))
-        actual = ' <span class="badge-live"><span class="badge-dot"></span>Edición actual</span>' if d == ult else ""
-        items.append(f'''      <a class="rev-item" href="/revista/{d}/">
-        <img src="/revista/{d}/og-portada.jpg" alt="Portada: {htmlmod.escape(t)}" width="1200" height="630" loading="lazy">
-        <div><h3>{htmlmod.escape(t)}</h3>{actual}<p class="rev-fecha">Lunes {fecha_larga(d)}</p><p>{htmlmod.escape(desc)}</p></div>
-      </a>''')
+    for d in eds[1:]:
+        t2, desc2 = info(read(os.path.join(REV, d, "index.html")))
+        h2, f2, l2 = descarga(d)
+        items.append(f'''      <div class="rev-item">
+        <a href="/revista/{d}/"><img src="/revista/{d}/og-portada.jpg" alt="Portada: {htmlmod.escape(t2)}" width="1200" height="630" loading="lazy"></a>
+        <div><h3><a href="/revista/{d}/">{htmlmod.escape(t2)}</a></h3><p class="rev-fecha">Lunes {fecha_larga(d)}</p><p>{htmlmod.escape(desc2)}</p>
+        <p class="rev-acciones"><a href="/revista/{d}/">Leer →</a> · <a href="{h2}" download="{f2}">{l2}</a></p></div>
+      </div>''')
+    anteriores = ("\n".join(items) if items else
+                  '      <p class="rev-vacio">Aquí irán apareciendo las ediciones anteriores, una debajo de otra, cada lunes.</p>')
+
     style = '''<style>
+.rev-destacada{display:grid;grid-template-columns:1.15fr 1fr;gap:36px;max-width:var(--max-width);margin:0 auto;align-items:center;}
+.rev-portada img{width:100%;height:auto;border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,.35);display:block;}
+.rev-info h2{color:var(--white);margin:12px 0 4px;}
+.rev-info p{color:rgba(255,243,214,.85);}
+.rev-info .rev-fecha{color:var(--gold);font-weight:700;}
+.rev-botones{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;}
 .rev-list{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:22px;}
-.rev-item{display:grid;grid-template-columns:240px 1fr;gap:22px;align-items:center;background:var(--white);border:1px solid rgba(8,43,76,.12);border-radius:14px;padding:16px;text-decoration:none;color:inherit;box-shadow:0 10px 26px rgba(8,43,76,.08);}
+.rev-item{display:grid;grid-template-columns:240px 1fr;gap:22px;align-items:center;background:var(--white);border:1px solid rgba(8,43,76,.12);border-radius:14px;padding:16px;box-shadow:0 10px 26px rgba(8,43,76,.08);}
 .rev-item img{width:100%;height:auto;border-radius:10px;display:block;}
-.rev-item h3{color:var(--navy);margin:0 0 6px;}
-.rev-item .rev-fecha{color:var(--wine);font-weight:700;font-size:.85rem;margin:6px 0 4px;}
-.rev-item p{margin:0;font-size:.92rem;}
-@media (max-width:640px){.rev-item{grid-template-columns:1fr;}}
+.rev-item h3{margin:0 0 4px;}.rev-item h3 a{color:var(--navy);text-decoration:none;}
+.rev-item .rev-fecha{color:var(--wine);font-weight:700;font-size:.85rem;margin:4px 0;}
+.rev-item p{margin:0 0 6px;font-size:.92rem;}
+.rev-acciones a{font-weight:700;color:var(--wine);}
+.rev-vacio{text-align:center;color:#6b5f4a;}
+@media (max-width:760px){.rev-destacada{grid-template-columns:1fr;}.rev-item{grid-template-columns:1fr;}}
 </style>'''
-    page = head("Ediciones de El Carismático de Paterson | RCC Paterson NJ",
-                "Todas las ediciones de El Carismático de Paterson, la revista semanal de la Renovación Carismática Católica de la Diócesis de Paterson. Sale cada lunes.",
-                root="../../", path="revista/ediciones/index.html",
-                og_image="revista/og-portada.jpg", extra=style) + f'''
+    page = head("El Carismático de Paterson — revista semanal | RCC Paterson NJ",
+                "El Carismático de Paterson, la revista semanal de la Renovación Carismática Católica de la Diócesis de Paterson. Lea en línea o descargue la edición de esta semana y consulte las ediciones anteriores. Sale cada lunes.",
+                root="../", path="revista/index.html", og_image="revista/og-portada.jpg",
+                og_description=desc or None, extra=style) + f'''
 <header class="hero-sub">
   <div class="container">
-    <div class="breadcrumb"><a href="/">Inicio</a> / <a href="/revista/">Revista</a> / Ediciones</div>
+    <div class="breadcrumb"><a href="/">Inicio</a> / Revista</div>
     <h1>El Carismático de Paterson</h1>
-    <p class="lema">Ediciones anteriores</p>
-    <p class="subtitle">La revista semanal de la Renovación Carismática Católica de la Diócesis de Paterson · Sale cada lunes</p>
+    <p class="lema">La revista semanal de la Renovación Carismática Católica</p>
+    <p class="subtitle">Diócesis de Paterson, NJ · Sale cada lunes</p>
   </div>
 </header>
 
-<section>
+<section class="bg-navy" id="esta-semana">
   <div class="container">
-    <div class="rev-list">
-{chr(10).join(items)}
-    </div>
+    {destacada}
   </div>
 </section>
 
-<section class="bg-navy" style="text-align:center;padding-top:50px;padding-bottom:60px;">
-  <a class="btn btn-outline" href="/revista/">Leer la edición de esta semana →</a>
+<section id="anteriores">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Archivo</span>
+      <h2>Ediciones anteriores</h2>
+    </div>
+    <div class="rev-list">
+{anteriores}
+    </div>
+  </div>
 </section>
-''' + footer(root="../../") + TAIL
-    write(os.path.join(REV, "ediciones", "index.html"), page)
+''' + footer(root="../") + TAIL
+    write(os.path.join(REV, "index.html"), page)
 
-    hoy = date.today().isoformat()
-    urls = [(f"{SITE_URL}/revista/", ult, "weekly", "0.8"), (f"{SITE_URL}/revista/ediciones/", ult, "weekly", "0.5")]
-    urls += [(f"{SITE_URL}/revista/{d}/", d, "yearly", "0.4") for d in eds]
+    # /revista/ediciones/ (enlace antiguo) -> redirige a /revista/#anteriores
+    write(os.path.join(REV, "ediciones", "index.html"),
+          '<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="robots" content="noindex">'
+          f'<link rel="canonical" href="{SITE_URL}/revista/"><meta http-equiv="refresh" content="0; url=/revista/#anteriores">'
+          '<title>Ediciones · El Carismático de Paterson</title></head><body><p><a href="/revista/#anteriores">Ver las ediciones</a></p></body></html>\n')
+
+    urls = [(f"{SITE_URL}/revista/", ult, "weekly", "0.8")]
+    urls += [(f"{SITE_URL}/revista/{d}/", d, "yearly", "0.5") for d in eds]
     upsert_sitemap(urls)
+    sm = read("sitemap.xml")
+    sm = re.sub(r"  <url>\s*<loc>%s</loc>.*?</url>\n" % re.escape(f"{SITE_URL}/revista/ediciones/"), "", sm, flags=re.S)
+    write("sitemap.xml", sm)
     print("Revista: actual =", ult, "· ediciones =", len(eds))
 
 if __name__ == "__main__":
