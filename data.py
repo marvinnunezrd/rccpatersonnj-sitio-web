@@ -70,7 +70,6 @@ GRUPOS_ORACION = [
 ]
 
 AGENDA = [
-  ("24–25","OCT","2026","Congreso de Sanación y Liberación — Alma Sana, Corazón Libre","Sáb. 8:30 am – 4:30 pm · Dom. 3:00 pm – 6:30 pm","Gimnasio de la Parroquia St. Gerard, 501 West Broadway, Paterson, NJ 07522","Predican P. Alexis Coffi, Osvaldo Fernández y P. Yasid Salas · Música: Los Hijos Del Padre · Donativo: $35 (almuerzo incluido)","/eventos/congreso-sanacion-liberacion-2026"),
   ("15","NOV","2026","Gran Asamblea Diocesana – Noviembre 2026","2:30 pm – 6:00 pm","Salón Principal de la Escuela Santa Teresita, 765 14th Ave, Paterson, NJ 07504","Predica María Batista · Música: Nueva Unción · «En gratitud por las bendiciones del Señor»","/eventos/gran-asamblea-noviembre-2026"),
   ("🔒","DIC","2026","Ágape Navideño Diocesano","","","Encuentro privado para el Equipo Diocesano y los servidores de los grupos de oración · Ingresa con el PIN de tu invitación","/agape/"),
   ("20","DIC","2026","Gran Asamblea Diocesana – Diciembre 2026","2:30 pm – 6:00 pm","Salón Principal de la Escuela Santa Teresita, 765 14th Ave, Paterson, NJ 07504",""),

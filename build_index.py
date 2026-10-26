@@ -408,6 +408,15 @@ HTML = head(
           <a class="card-link" href="/eccads/">Ver evento completo →</a>
         </div>
       </div>
+      <div class="event-card">
+        <div class="ev-top"><img src="assets/img/eventos/congreso-2026-logo-mini.webp" alt="Así vivimos el Congreso de Sanación y Liberación «Alma Sana, Corazón Libre» 2026" width="336" height="420"></div>
+        <div class="ev-body">
+          <span class="event-tag event-tag--done">Realizado · 24 y 25 oct 2026</span>
+          <h3>Congreso de Sanación y Liberación 2026</h3>
+          <p>«Alma Sana, Corazón Libre»: resumen de los dos días, galería de fotos y videos del Congreso.</p>
+          <a class="card-link" href="/eventos/congreso-sanacion-liberacion-2026">Ver evento completo →</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>

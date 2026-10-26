@@ -1,4 +1,4 @@
-import sys, os, json
+import sys, os, json, re
 sys.path.insert(0, ".")
 from common import head, footer, TAIL, SOCIAL_ICONS, SITE_URL
 
@@ -526,18 +526,12 @@ CONGRESO_JSONLD = f'''<script type="application/ld+json">
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {{"@type": "Question", "name": "¿Cuándo es el Congreso de Sanación y Liberación 2026?",
+    {{"@type": "Question", "name": "¿Cuándo fue el Congreso de Sanación y Liberación 2026?",
       "acceptedAnswer": {{"@type": "Answer", "text": "El sábado 24 de octubre de 2026, de 8:30 am a 4:30 pm, y el domingo 25 de octubre, de 3:00 pm a 6:30 pm."}}}},
-    {{"@type": "Question", "name": "¿A qué hora debo llegar al Congreso?",
-      "acceptedAnswer": {{"@type": "Answer", "text": "El sábado el Santo Rosario inicia a las 8:35 am; el domingo, la Coronilla de la Divina Misericordia inicia a las 3:00 pm."}}}},
-    {{"@type": "Question", "name": "¿Dónde es el Congreso de Sanación y Liberación?",
+    {{"@type": "Question", "name": "¿Dónde fue el Congreso de Sanación y Liberación 2026?",
       "acceptedAnswer": {{"@type": "Answer", "text": "En el Gimnasio de la Parroquia St. Gerard, 501 West Broadway, Paterson, NJ 07522."}}}},
-    {{"@type": "Question", "name": "¿Cuánto cuesta el Congreso?",
-      "acceptedAnswer": {{"@type": "Answer", "text": "Donativo de $35, con almuerzo incluido."}}}},
-    {{"@type": "Question", "name": "¿Quién predica en el Congreso?",
-      "acceptedAnswer": {{"@type": "Answer", "text": "El Padre Alexis Coffi, Osvaldo Fernández y el Padre Yasid Salas. La música está a cargo de Los Hijos Del Padre."}}}},
-    {{"@type": "Question", "name": "¿Habrá cuidado de niños?",
-      "acceptedAnswer": {{"@type": "Answer", "text": "No. En este Congreso no habrá servicio de cuidado de niños."}}}},
+    {{"@type": "Question", "name": "¿Quién predicó en el Congreso 2026?",
+      "acceptedAnswer": {{"@type": "Answer", "text": "El Padre Alexis Coffi, Osvaldo Fernández y el Padre Yasid Salas. La música estuvo a cargo de Los Hijos Del Padre."}}}},
     {{"@type": "Question", "name": "¿Cómo obtengo más información?",
       "acceptedAnswer": {{"@type": "Answer", "text": "Puedes llamar o escribir por WhatsApp al +1 862-271-4805."}}}}
   ]
@@ -602,25 +596,73 @@ _ics = "\r\n".join([
 with open(f"eventos/{CONGRESO_SLUG}.ics", "w", encoding="utf-8", newline="") as f:
     f.write(_ics)
 
+
+# Galería post-evento (3. Diseño, 26 oct). Fotos optimizadas en assets/img/eventos/congreso-2026-galeria/
+_GAL_DIR = "assets/img/eventos/congreso-2026-galeria"
+_ALT_WORDS = {"alabanza":"alabanza","mesa":"mesa","libros":"de libros","globos":"con globos","panoramica":"vista panorámica","escenario":"escenario","salon":"salón","lleno":"lleno","manos":"manos","alzadas":"alzadas","equipo":"equipo","registro":"de registro","ministracion":"ministración","altar":"altar","foto":"foto","grupo":"de grupo","servidores":"de servidores","completo":"completo","jovenes":"jóvenes","primer":"primer","plano":"plano","ministerio":"ministerio","musica":"de música","misa":"Santa Misa","monaguillos":"monaguillos","vista":"vista","general":"general","lectora":"lectora","ambon":"en el ambón","padre":"Padre","alexis":"Alexis Coffi","homilia":"homilía","lectores":"lectores","procesion":"procesión","entrada":"de entrada","bendicion":"bendición","osvaldo":"Osvaldo Fernández","con":"con","servidora":"servidora","al":"al","frente":"frente","servidor":"servidor","bandera":"con bandera","pasillo":"en el pasillo","banderas":"con banderas","adoracion":"adoración","fieles":"y fieles","oracion":"oración","ora":"ora","por":"por","yasid":"Yasid Salas","y":"y","abrazo":"abrazo"}
+def _alt(base):
+    m = re.match(r"congreso-alma-sana-2026-dia-(\d)-\d+-(.*)$", base)
+    dia, slug = m.group(1), m.group(2)
+    words = [w for w in slug.split("-") if not w.isdigit()]
+    txt = " ".join(_ALT_WORDS.get(w, w) for w in words)
+    txt = txt[0].upper() + txt[1:]
+    return f"{txt}, Día {dia} del Congreso Alma Sana, Corazón Libre"
+def _galeria(dia):
+    items = []
+    for f in sorted(os.listdir(_GAL_DIR)):
+        if f.startswith(f"congreso-alma-sana-2026-dia-{dia}-") and f.endswith(".webp") and not f.endswith("-thumb.webp"):
+            b = f[:-5]
+            items.append(f'      <a class="gallery-item" href="{R}{_GAL_DIR}/{b}.webp"><img src="{R}{_GAL_DIR}/{b}-thumb.webp" alt="{_alt(b)}" loading="lazy"></a>')
+    return "\n".join(items)
+GALERIA_DIA1, GALERIA_DIA2 = _galeria(1), _galeria(2)
+
+# Resumen post-evento: se completa con el texto de Teresa Amparo (aprobado por Marvin).
+CONGRESO_RESUMEN_HTML = """<p>Durante dos días, la comunidad de la Renovación Carismática Católica de la Diócesis de Paterson vivió un tiempo de gran bendición en el Gimnasio de la Parroquia St. Gerard. Entre alabanza, la Santa Misa, la prédica y la exposición del Santísimo, el lema del año se hizo realidad: muchas personas recibieron sanación física y espiritual, y fueron liberadas por el toque tierno del Espíritu Santo.</p>
+        <h3>Los predicadores</h3>
+        <ul class="resumen-lista">
+          <li>El <strong>Padre Alexis Coffi</strong> presidió la Santa Misa con una homilía llena de fervor sobre «Alma Sana, Corazón Libre»: el corazón es la puerta de nuestro ser para dejar entrar a Dios y que nuestra vida sea transformada.</li>
+          <li>El hermano <strong>Osvaldo Fernández</strong> fue usado grandemente por el Señor: a través de su prédica y sus oraciones, el Espíritu Santo marcó la vida de muchas personas.</li>
+          <li>El <strong>Padre Yasid Salas</strong>, Director Espiritual, predicó sobre cómo el alma es liberada ante Jesús Eucaristía, y culminó con la exposición del Santísimo.</li>
+        </ul>
+        <h3>Frutos del Congreso</h3>
+        <p>Jóvenes tocados por el Señor que desean integrarse a la Renovación, personas que se acercaron para formar parte de un grupo de oración y muchos que compartieron cómo el Señor les transformó la vida.</p>
+        <blockquote class="resumen-testimonio">«El pueblo se fue con otro brillo: alegre, contento, liberado, sanado. Muy agradecidos quedamos todos con las proezas y maravillas que Cristo hizo durante este Congreso.»<cite>— Teresa Amparo, Coordinadora de la RCC Paterson</cite></blockquote>"""
+
+CONGRESO_POST_STYLE = '''<style>
+.resumen-grid{display:grid;grid-template-columns:320px 1fr;gap:40px;max-width:960px;margin:0 auto;align-items:start;}
+.resumen-portada{aspect-ratio:auto!important;border:none!important;}
+.resumen-portada img{height:auto!important;object-fit:contain!important;border-radius:12px;box-shadow:0 18px 40px rgba(8,43,76,.22);}
+.resumen-texto p{margin:0 0 14px;}
+.resumen-texto h3{color:var(--navy);margin:22px 0 10px;font-size:1.15rem;}
+.resumen-lista{margin:0 0 14px;padding-left:1.1em;}
+.resumen-lista li{margin-bottom:10px;}
+.resumen-testimonio{margin:22px 0;padding:18px 22px;border-left:4px solid var(--gold);background:rgba(217,161,46,.10);border-radius:0 12px 12px 0;font-style:italic;color:var(--navy);}
+.resumen-testimonio cite{display:block;margin-top:10px;font-style:normal;font-weight:700;font-size:.88rem;color:var(--wine);}
+.resumen-cita{font-style:italic;color:var(--wine);}
+.hero-sub .event-tag--done{background:var(--gold);color:var(--navy);}
+@media (max-width:600px){#galeria-sabado .gallery-grid,#galeria-domingo .gallery-grid{grid-template-columns:repeat(2,1fr);gap:8px;}}
+@media (max-width:760px){.resumen-grid{grid-template-columns:1fr;}.resumen-portada{max-width:300px;margin:0 auto;}}
+</style>'''
+
 html = head(
     "Congreso de Sanación y Liberación 2026 — Alma Sana, Corazón Libre | RCC Paterson NJ",
-    "Congreso de Sanación y Liberación 'Alma Sana, Corazón Libre'. 24 y 25 de octubre de 2026, Parroquia St. Gerard, Paterson NJ. Programa, predicadores, videos y donativo de $35 con almuerzo incluido.",
+    "Así vivimos el Congreso de Sanación y Liberación 'Alma Sana, Corazón Libre', 24 y 25 de octubre de 2026 en la Parroquia St. Gerard, Paterson NJ: resumen, galería de fotos y videos.",
     root=R, path=f"eventos/{CONGRESO_SLUG}.html",
     og_image="assets/img/eventos/congreso-sanacion-2026-og.jpg",
-    extra=CONGRESO_JSONLD + CONGRESO_STYLE
+    extra=CONGRESO_JSONLD + CONGRESO_STYLE + CONGRESO_POST_STYLE
 ) + f'''
 <header class="hero-sub">
   <div class="container">
     <div class="breadcrumb"><a href="/">Inicio</a> / <a href="/#eventos">Eventos</a> / Congreso de Sanación y Liberación</div>
+    <span class="event-tag event-tag--done">Realizado · 24 y 25 de octubre de 2026</span>
     <span class="hero-edition">Renovación Carismática Católica — Diócesis de Paterson</span>
     <h1>Congreso de Sanación y Liberación</h1>
     <p class="lema">Alma Sana, Corazón Libre</p>
-    <p class="subtitle">Sábado 24 y domingo 25 de octubre de 2026 · Gimnasio de la Parroquia St. Gerard, Paterson, NJ</p>
+    <p class="subtitle">24 y 25 de octubre de 2026 · Gimnasio de la Parroquia St. Gerard, Paterson, NJ</p>
     <a class="hero-flyer gallery-item" href="{R}assets/img/eventos/congreso-sanacion-2026-flyer.webp">
       <img src="{R}assets/img/eventos/congreso-sanacion-2026-thumb.webp" alt="Flyer oficial del Congreso de Sanación y Liberación — Alma Sana, Corazón Libre" width="420" height="525">
     </a>
     <p class="hero-flyer-caption">Toca el flyer para verlo completo</p>
-    <p style="margin-top:14px;"><a class="btn btn-outline" href="#programa">Ver el programa ↓</a></p>
   </div>
 </header>
 
@@ -637,9 +679,9 @@ html = head(
       <p>3:00 pm – 6:30 pm</p>
     </div>
     <div class="info-item">
-      <div class="icon">🎟️</div>
-      <h3>Donativo</h3>
-      <p>$35 · almuerzo incluido</p>
+      <div class="icon">📍</div>
+      <h3>Lugar</h3>
+      <p>St. Gerard, Paterson, NJ</p>
     </div>
     <div class="info-item">
       <div class="icon">🎵</div>
@@ -649,12 +691,54 @@ html = head(
   </div>
 </section>
 
+<section id="resumen">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Así vivimos el Congreso</span>
+      <h2>Alma sana, corazón libre</h2>
+    </div>
+    <div class="resumen-grid">
+      <a class="gallery-item resumen-portada" href="{R}assets/img/eventos/congreso-2026-resumen-portada.webp"><img src="{R}assets/img/eventos/congreso-2026-resumen-portada.webp" alt="Así vivimos el Congreso de Sanación y Liberación «Alma Sana, Corazón Libre» 2026" width="1080" height="1350" loading="lazy"></a>
+      <div class="resumen-texto">
+        {CONGRESO_RESUMEN_HTML}
+        <p class="resumen-cita">«Donde está el Espíritu del Señor, hay libertad» (2 Corintios 3,17). <strong>¡Gracias a todos los que vinieron y sirvieron!</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-navy" id="galeria-sabado">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Galería · Sábado 24 de octubre</span>
+      <h2>Día 1: alabanza, Santa Misa y prédica</h2>
+      <p>Toca una foto para verla completa.</p>
+    </div>
+    <div class="gallery-grid">
+{GALERIA_DIA1}
+    </div>
+  </div>
+</section>
+
+<section id="galeria-domingo">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Galería · Domingo 25 de octubre</span>
+      <h2>Día 2: alabanza, oración y ministración</h2>
+      <p>Toca una foto para verla completa.</p>
+    </div>
+    <div class="gallery-grid">
+{GALERIA_DIA2}
+    </div>
+  </div>
+</section>
+
 <section class="bg-navy" id="en-vivo">
   <div class="container">
     <div class="section-title">
       <span class="eyebrow">En vivo · Día 1</span>
       <h2>Así vivimos el sábado 24</h2>
-      <p>Un primer día de oración, Eucaristía, alabanza y predicación. ¡Le esperamos este domingo desde las 3:00 pm!</p>
+      <p>El reel que compartimos en vivo el primer día del Congreso.</p>
     </div>
     <div class="video-grid">
       <div class="video-card">
@@ -668,33 +752,6 @@ html = head(
       <a class="btn btn-outline" href="https://facebook.com/reel/1310777931116881" target="_blank" rel="noopener">Facebook</a>
       <a class="btn btn-outline" href="https://www.youtube.com/shorts/_FEiF-5bWDw" target="_blank" rel="noopener">YouTube</a>
       <a class="btn btn-outline" href="https://www.tiktok.com/@rccpatersonnj/video/7700252425122286862" target="_blank" rel="noopener">TikTok</a>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="section-title">
-      <span class="eyebrow">Sobre el congreso</span>
-      <h2>Alma sana, corazón libre</h2>
-    </div>
-    <p style="max-width:760px;margin:0 auto 18px;">El <strong>Congreso de Sanación y Liberación</strong> de la Renovación Carismática Católica de la Diócesis de Paterson es un fin de semana de oración, Eucaristía, predicación y alabanza, para dejar que el Señor sane las heridas del alma y nos devuelva la libertad de los hijos de Dios. Se celebrará el <strong>sábado 24 de octubre de 2026, de 8:30 am a 4:30 pm</strong>, y el <strong>domingo 25 de octubre, de 3:00 pm a 6:30 pm</strong>, en el <strong>Gimnasio de la Parroquia St. Gerard</strong>, en Paterson, NJ.</p>
-    <p style="max-width:760px;margin:0 auto;font-style:italic;">"Donde está el Espíritu del Señor, allí hay libertad." — 2 Corintios 3,17</p>
-  </div>
-</section>
-
-<section class="bg-navy" id="programa">
-  <div class="container">
-    <div class="section-title">
-      <span class="eyebrow">Programa</span>
-      <h2>Dos días de sanación y libertad</h2>
-      <p>Seis temas de predicación, Santa Misa, alabanza y Exposición del Santísimo.</p>
-    </div>
-    <div class="prog-grid">
-      {CONGRESO_PROG_HTML}
-    </div>
-    <div class="prog-cta">
-      <a class="btn btn-primary" href="{R}eventos/{CONGRESO_SLUG}.ics" download>📅 Agregar a mi calendario</a>
     </div>
   </div>
 </section>
@@ -764,55 +821,31 @@ html = head(
 <section class="bg-navy">
   <div class="container">
     <div class="section-title">
-      <span class="eyebrow">Contacto e información</span>
-      <h2>¿Tienes preguntas?</h2>
-    </div>
-    <div class="team-grid" style="max-width:340px;margin:0 auto;">
-      <div class="team-card"><h4>Información</h4><a class="phone" href="https://wa.me/18622714805" target="_blank" rel="noopener">{PHONE_ICON} +1 862-271-4805</a></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="section-title">
       <span class="eyebrow">Preguntas frecuentes</span>
-      <h2>Todo lo que debes saber</h2>
+      <h2>Sobre el Congreso 2026</h2>
     </div>
     <div class="faq-list">
       <div class="faq-item">
-        <h3>¿Cuándo es el Congreso?</h3>
+        <h3>¿Cuándo fue el Congreso?</h3>
         <p>El sábado 24 de octubre de 2026, de 8:30 am a 4:30 pm, y el domingo 25 de octubre, de 3:00 pm a 6:30 pm.</p>
       </div>
       <div class="faq-item">
-        <h3>¿A qué hora debo llegar?</h3>
-        <p>El sábado el Santo Rosario inicia a las 8:35 am; el domingo, la Coronilla de la Divina Misericordia inicia a las 3:00 pm. Te recomendamos llegar unos minutos antes.</p>
-      </div>
-      <div class="faq-item">
-        <h3>¿Dónde es?</h3>
+        <h3>¿Dónde fue?</h3>
         <p>En el Gimnasio de la Parroquia St. Gerard, 501 West Broadway, Paterson, NJ 07522.</p>
       </div>
       <div class="faq-item">
-        <h3>¿Cuánto cuesta?</h3>
-        <p>Donativo de $35, con almuerzo incluido.</p>
+        <h3>¿Quién predicó?</h3>
+        <p>El Padre Alexis Coffi, Osvaldo Fernández y el Padre Yasid Salas. La música estuvo a cargo de Los Hijos Del Padre.</p>
       </div>
       <div class="faq-item">
-        <h3>¿Habrá cuidado de niños?</h3>
-        <p>No. En este Congreso no habrá servicio de cuidado de niños.</p>
-      </div>
-      <div class="faq-item">
-        <h3>¿Habrá venta de artículos religiosos?</h3>
-        <p>Sí, habrá venta de objetos religiosos durante el Congreso.</p>
-      </div>
-      <div class="faq-item">
-        <h3>¿Cómo obtengo más información?</h3>
-        <p>Puedes llamar o escribir por WhatsApp al +1 862-271-4805.</p>
+        <h3>¿Dónde veo los próximos eventos?</h3>
+        <p>En la <a href="/#eventos">agenda de eventos</a> del sitio. Para más información, llame o escriba por WhatsApp al +1 862-271-4805.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="bg-navy" style="text-align:center;padding-top:50px;padding-bottom:60px;">
+<section style="text-align:center;padding-top:50px;padding-bottom:60px;">
   <a class="btn btn-outline" href="/#eventos">&larr; Volver a la agenda de eventos</a>
 </section>
 ''' + footer(root=R) + f'''
