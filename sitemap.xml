@@ -80,15 +80,9 @@
   </url>
   <url>
     <loc>https://rccpatersonnj.com/revista/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rccpatersonnj.com/revista/2026-10-19/</loc>
-    <lastmod>2026-10-19</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rccpatersonnj.com/patrocinio/</loc>
@@ -101,5 +95,17 @@
     <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rccpatersonnj.com/revista/edicion-01-2026-10-19/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rccpatersonnj.com/revista/edicion-02-2026-10-26/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
