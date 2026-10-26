@@ -487,3 +487,64 @@ HTML = head(
 with open("index.html", "w", encoding="utf-8") as f:
     f.write(HTML)
 print("index.html bytes:", len(HTML.encode("utf-8")))
+
+# ---------- 404 propia (GitHub Pages sirve /404.html) ----------
+from common import head as _head, footer as _footer, TAIL as _TAIL
+_p404 = _head("Página no encontrada | RCC Paterson NJ",
+              "La página que busca no existe o cambió de dirección. Visite la agenda de eventos, los grupos de oración o la revista de la RCC Paterson NJ.",
+              root="/", path="404.html", extra='<meta name="robots" content="noindex">') + """
+<header class="hero-sub">
+  <div class="container">
+    <h1>Página no encontrada</h1>
+    <p class="subtitle">La dirección que buscó no existe o cambió. Estas son las secciones más visitadas:</p>
+    <p style="margin-top:22px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+      <a class="btn btn-primary" href="/">Inicio</a>
+      <a class="btn btn-outline" href="/#eventos">Próximos eventos</a>
+      <a class="btn btn-outline" href="/#grupos-oracion">Grupos de oración</a>
+      <a class="btn btn-outline" href="/revista/">Revista</a>
+    </p>
+  </div>
+</header>
+""" + _footer(root="/") + _TAIL
+with open("404.html", "w", encoding="utf-8") as f:
+    f.write(_p404)
+
+# ---------- llms.txt (resumen para motores de respuesta con IA) ----------
+_prox = "\n".join(f"- {a[0]} {a[1]} {a[2]}: {a[3]}" + (f" — {a[4]}" if a[4] else "") + (f" — {a[5]}" if a[5] else "") + (f" — https://rccpatersonnj.com{a[7]}" if len(a) > 7 and a[7] else "")
+                  for a in AGENDA if a[0] != "🔒")
+_llms = f"""# Renovación Carismática Católica — Diócesis de Paterson (RCC Paterson NJ)
+
+> Comunidad hispana de la Renovación Carismática Católica en la Diócesis de Paterson, Nueva Jersey (EE. UU.), en comunión con la Diócesis de Paterson, la Renovación Carismática Católica Hispana Región 2 y el Comité Nacional de Servicio Hispano (Estados Unidos y Canadá). Promueve la experiencia del Bautismo en el Espíritu Santo a través de {len(GRUPOS_ORACION)} grupos de oración, ministerios diocesanos, la Escuela de Formación de Líderes y encuentros diocesanos.
+
+Sitio oficial: https://rccpatersonnj.com · Correo: renovacion@rccpaterson.org · Teléfono/WhatsApp: +1 862-271-4805 · Redes: @rccpatersonnj (Facebook, Instagram, YouTube, TikTok)
+
+## Información principal
+- [Inicio: quiénes somos, grupos de oración, agenda, Comité Diocesano y preguntas frecuentes](https://rccpatersonnj.com/)
+- [Grupos de oración por día y parroquia](https://rccpatersonnj.com/#grupos-oracion)
+- [Escuela de Formación de Líderes](https://rccpatersonnj.com/ministerios/escuela-formacion-lideres)
+- [Seminario de Vida en el Espíritu](https://rccpatersonnj.com/ministerios/seminario-vida-espiritu)
+- [El Carismático de Paterson, revista semanal (cada lunes)](https://rccpatersonnj.com/revista/)
+- [Sembremos juntos: propuesta de patrocinio (ES/EN)](https://rccpatersonnj.com/patrocinio/)
+
+## Ministerios
+- [Intercesión](https://rccpatersonnj.com/ministerios/intercesion)
+- [Hombres de Alabanza](https://rccpatersonnj.com/ministerios/hombres-alabanza)
+- [Mujeres de Alabanza](https://rccpatersonnj.com/ministerios/mujeres-alabanza)
+- [Ministerios de Música](https://rccpatersonnj.com/ministerios/musica)
+- [Hospitalidad y Caridad](https://rccpatersonnj.com/ministerios/hospitalidad-caridad)
+- [Colaboradores](https://rccpatersonnj.com/ministerios/colaboradores)
+
+## Próximos eventos
+- 20–21 NOV 2026: Escuela de Formación de Líderes — Módulo 5 «Carismas del Espíritu Santo» con Cruz Teresa Rosero — Salón de la Parroquia Santa Teresita, 765 14th Ave, Paterson, NJ 07504 — https://rccpatersonnj.com/ministerios/escuela-formacion-lideres
+{_prox}
+
+## Eventos realizados
+- [Congreso de Sanación y Liberación «Alma Sana, Corazón Libre» (24 y 25 oct 2026)](https://rccpatersonnj.com/eventos/congreso-sanacion-liberacion-2026)
+- [ECCADS 2026](https://rccpatersonnj.com/eccads/)
+- [Gran Vigilia de Pentecostés 2026](https://rccpatersonnj.com/pentecostes-2026/)
+- [Gran Asamblea Diocesana, septiembre 2026](https://rccpatersonnj.com/eventos/gran-asamblea-septiembre-2026)
+- [Encuentro Regional 2026, Región 2](https://rccpatersonnj.com/eventos/encuentro-regional-2026)
+"""
+with open("llms.txt", "w", encoding="utf-8", newline="\n") as f:
+    f.write(_llms)
+print("404.html y llms.txt generados")

@@ -17,7 +17,7 @@ Accesos directos por idioma: /patrocinio/#es y /patrocinio/#en
 """
 import sys, os, re, io, shutil, base64
 sys.path.insert(0, ".")
-from common import SITE_URL
+from common import SITE_URL, GA_SNIPPET
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 SRC = sys.argv[1] if len(sys.argv) > 1 else os.path.join("..", "Comunicacion y Publicidad", "Contenido y Diseños", "Propuesta de Patrocinio", "Version Digital 2026-10-20")
@@ -103,7 +103,8 @@ def main():
     # 1) <head>: título bilingüe en las etiquetas sociales, favicon y Open Graph/Twitter
     anchor = re.search(r'<meta name="description"[^>]*>\n', s)
     if not anchor: raise SystemExit("No se encontró <meta name=description> en el brochure.")
-    s = s[:anchor.end()] + HEAD_TAGS + s[anchor.end():]
+    track = open("assets/js/site.js", encoding="utf-8").read().split("(function(){\n  // Eventos clave", 1)[1]
+    s = s[:anchor.end()] + HEAD_TAGS + GA_SNIPPET + "\n<script>(function(){\n  // Eventos clave" + track + "</script>\n" + s[anchor.end():]
     # 2) CSS de los botones de descarga (al final del <style> existente)
     s = s.replace("</style>", PDF_CSS + "</style>", 1)
     # 3) Botones en la última lámina (después de las redes sociales del agradecimiento)

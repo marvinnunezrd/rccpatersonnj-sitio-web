@@ -54,3 +54,18 @@
     }
   });
 })();
+
+(function(){
+  // Eventos clave para GA4: WhatsApp, inscripciones (Google Forms), descargas, teléfono y correo.
+  document.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a || typeof gtag !== 'function') return;
+    var h = a.getAttribute('href') || '', ev = null;
+    if (/wa\.me|api\.whatsapp\.com/.test(h)) ev = 'whatsapp_click';
+    else if (/docs\.google\.com\/forms|forms\.gle/.test(h)) ev = 'inscripcion_click';
+    else if (a.hasAttribute('download') || /\.(pdf|ics)(\?|$)/i.test(h)) ev = 'descarga';
+    else if (/^tel:/.test(h)) ev = 'llamada_click';
+    else if (/^mailto:/.test(h)) ev = 'correo_click';
+    if (ev) gtag('event', ev, {link_url: a.href, page_path: location.pathname});
+  }, true);
+})();

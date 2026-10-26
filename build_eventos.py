@@ -612,7 +612,9 @@ def _galeria(dia):
     for f in sorted(os.listdir(_GAL_DIR)):
         if f.startswith(f"congreso-alma-sana-2026-dia-{dia}-") and f.endswith(".webp") and not f.endswith("-thumb.webp"):
             b = f[:-5]
-            items.append(f'      <a class="gallery-item" href="{R}{_GAL_DIR}/{b}.webp"><img src="{R}{_GAL_DIR}/{b}-thumb.webp" alt="{_alt(b)}" loading="lazy"></a>')
+            from PIL import Image as _Im
+            _w, _h = _Im.open(f"{_GAL_DIR}/{b}-thumb.webp").size
+            items.append(f'      <a class="gallery-item" href="{R}{_GAL_DIR}/{b}.webp"><img src="{R}{_GAL_DIR}/{b}-thumb.webp" alt="{_alt(b)}" width="{_w}" height="{_h}" loading="lazy"></a>')
     return "\n".join(items)
 GALERIA_DIA1, GALERIA_DIA2 = _galeria(1), _galeria(2)
 
@@ -647,8 +649,8 @@ CONGRESO_POST_STYLE = '''<style>
 </style>'''
 
 html = head(
-    "Congreso de Sanación y Liberación 2026 — Alma Sana, Corazón Libre | RCC Paterson NJ",
-    "Así vivimos el Congreso de Sanación y Liberación 'Alma Sana, Corazón Libre', 24 y 25 de octubre de 2026 en la Parroquia St. Gerard, Paterson NJ: resumen, galería de fotos y videos.",
+    "Congreso de Sanación y Liberación 2026 | RCC Paterson NJ",
+    "Así vivimos el Congreso «Alma Sana, Corazón Libre», 24 y 25 de octubre de 2026 en St. Gerard, Paterson NJ: resumen, fotos y videos.",
     root=R, path=f"eventos/{CONGRESO_SLUG}.html",
     og_image="assets/img/eventos/congreso-sanacion-2026-og.jpg",
     extra=CONGRESO_JSONLD + CONGRESO_STYLE + CONGRESO_POST_STYLE
@@ -854,6 +856,12 @@ html = head(
 <script src="{R}assets/js/lightbox.js"></script>
 ''' + TAIL
 
+# Enlace cortado que Google encontró (/eventos/congreso-): redirige a la página del Congreso
+with open("eventos/congreso-.html", "w", encoding="utf-8") as f:
+    f.write(f'<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="robots" content="noindex">'
+            f'<link rel="canonical" href="{SITE_URL}/eventos/{CONGRESO_SLUG}"><meta http-equiv="refresh" content="0; url=/eventos/{CONGRESO_SLUG}">'
+            f'<title>Congreso de Sanación y Liberación 2026</title></head><body><p><a href="/eventos/{CONGRESO_SLUG}">Ir al Congreso de Sanación y Liberación</a></p></body></html>\n')
+
 filename = f"eventos/{CONGRESO_SLUG}.html"
 with open(filename, "w", encoding="utf-8") as f:
     f.write(html)
@@ -914,7 +922,7 @@ with open(f"eventos/{ASAM_NOV_SLUG}.ics", "w", encoding="utf-8", newline="") as 
 
 html = head(
     "Gran Asamblea Diocesana — Noviembre 2026 | RCC Paterson NJ",
-    "Gran Asamblea Diocesana de la RCC Paterson 'En gratitud por las bendiciones del Señor'. Domingo 15 de noviembre de 2026, 2:30–6:00 pm, Escuela Santa Teresita, Paterson NJ. Predica María Batista; música: Nueva Unción.",
+    "Gran Asamblea Diocesana de la RCC Paterson: domingo 15 de noviembre de 2026, 2:30–6:00 pm, Escuela Santa Teresita, Paterson NJ. Predica María Batista.",
     root=R, path=f"eventos/{ASAM_NOV_SLUG}.html",
     og_image="assets/img/eventos/gran-asamblea-nov-2026-og.jpg",
     extra=ASAM_NOV_JSONLD

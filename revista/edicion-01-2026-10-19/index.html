@@ -162,6 +162,28 @@ p{margin:0}
 .count{font-size:11.5px;letter-spacing:.06em;color:var(--ink-soft);font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
 </style>
 <link rel="canonical" href="https://rccpatersonnj.com/revista/edicion-01-2026-10-19/">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZNXPXCSJ95"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZNXPXCSJ95');
+</script>
+<script>(function(){
+  // Eventos clave para GA4: WhatsApp, inscripciones (Google Forms), descargas, teléfono y correo.
+  document.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a || typeof gtag !== 'function') return;
+    var h = a.getAttribute('href') || '', ev = null;
+    if (/wa\.me|api\.whatsapp\.com/.test(h)) ev = 'whatsapp_click';
+    else if (/docs\.google\.com\/forms|forms\.gle/.test(h)) ev = 'inscripcion_click';
+    else if (a.hasAttribute('download') || /\.(pdf|ics)(\?|$)/i.test(h)) ev = 'descarga';
+    else if (/^tel:/.test(h)) ev = 'llamada_click';
+    else if (/^mailto:/.test(h)) ev = 'correo_click';
+    if (ev) gtag('event', ev, {link_url: a.href, page_path: location.pathname});
+  }, true);
+})();
+</script>
 </head>
 <body>
 

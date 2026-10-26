@@ -14,43 +14,43 @@
   </url>
   <url>
     <loc>https://rccpatersonnj.com/ministerios/intercesion</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://rccpatersonnj.com/ministerios/hombres-alabanza</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://rccpatersonnj.com/ministerios/mujeres-alabanza</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://rccpatersonnj.com/ministerios/escuela-formacion-lideres</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rccpatersonnj.com/ministerios/hospitalidad-caridad</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://rccpatersonnj.com/ministerios/colaboradores</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://rccpatersonnj.com/ministerios/seminario-vida-espiritu</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -62,13 +62,13 @@
   </url>
   <url>
     <loc>https://rccpatersonnj.com/eventos/encuentro-regional-2026</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rccpatersonnj.com/eventos/gran-asamblea-septiembre-2026</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -86,13 +86,13 @@
   </url>
   <url>
     <loc>https://rccpatersonnj.com/patrocinio/</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://rccpatersonnj.com/eventos/gran-asamblea-noviembre-2026</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -107,5 +107,11 @@
     <lastmod>2026-10-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rccpatersonnj.com/ministerios/musica</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

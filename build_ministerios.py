@@ -363,7 +363,7 @@ MUSICA_STYLE = '''<style>
 page(
   "ministerios/musica.html",
   "Ministerios de Música — RCC Paterson NJ",
-  "Ministerios de Música de la Renovación Carismática Católica de la Diócesis de Paterson: los cantantes, músicos y grupos que animan con su talento nuestros eventos y celebraciones.",
+  "Ministerios de Música de la RCC de la Diócesis de Paterson: cantantes, músicos y grupos que animan nuestros eventos y celebraciones.",
   "ministerios/musica.webp",
   "Ministerios de Música",
   '<span class="quote-text">El que canta ora dos veces</span><cite>— San Agustín</cite>',
@@ -402,7 +402,7 @@ HOSPITALIDAD_WA = wa_href("18626860358", "Hola, le escribo desde la página web 
 page(
   "ministerios/hospitalidad-caridad.html",
   "Ministerio de Hospitalidad y Caridad — RCC Paterson NJ",
-  "Ministerio de Hospitalidad y Caridad de la Renovación Carismática Católica de la Diócesis de Paterson: acogida fraterna, servicio humilde y atención a quienes atraviesan enfermedad, soledad o dificultad.",
+  "Hospitalidad y Caridad de la RCC de la Diócesis de Paterson: acogida fraterna y atención a quienes viven enfermedad, soledad o dificultad.",
   "escudo-hospitalidad-caridad.webp",
   "Ministerio de Hospitalidad y Caridad",
   "Acoger al hermano es recibir a Cristo; atenderlo con amor es hacer visible su misericordia.",
@@ -464,7 +464,7 @@ COLABORADORES_WA = wa_href("18626687852", "Hola, le escribo desde la página web
 page(
   "ministerios/colaboradores.html",
   "Ministerio de Colaboradores — RCC Paterson NJ",
-  "Ministerio de Colaboradores de la Renovación Carismática Católica de la Diócesis de Paterson: la puerta de entrada al servicio, con formación y acompañamiento para quienes comienzan a servir.",
+  "Ministerio de Colaboradores de la RCC de la Diócesis de Paterson: la puerta de entrada al servicio, con formación y acompañamiento.",
   "escudo-colaboradores.webp",
   "Ministerio de Colaboradores",
   "Les he dado ejemplo para que hagan lo mismo que yo hice con ustedes.",
@@ -537,7 +537,7 @@ SVE_STYLE = '''<style>
 page(
   "ministerios/seminario-vida-espiritu.html",
   "Seminario de Vida en el Espíritu — RCC Paterson NJ",
-  "Seminario de Vida en el Espíritu (SVE) de la Renovación Carismática Católica de la Diócesis de Paterson: la puerta de entrada a la experiencia del Bautismo en el Espíritu Santo.",
+  "Seminario de Vida en el Espíritu (SVE) de la RCC de la Diócesis de Paterson: la puerta de entrada al Bautismo en el Espíritu Santo.",
   "escudo-sve.webp",
   "Seminario de Vida en el Espíritu",
   '<span class="quote-text">Yo enviaré sobre ustedes la promesa de mi Padre.</span><cite>— Lucas 24,49</cite>',

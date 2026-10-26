@@ -22,7 +22,7 @@ El texto y el diseño de cada edición NO se modifican.
 import sys, os, re, shutil, html as htmlmod
 from datetime import date, timedelta
 sys.path.insert(0, ".")
-from common import head, footer, TAIL, SITE_URL
+from common import head, footer, TAIL, SITE_URL, GA_SNIPPET
 
 REV = "revista"
 DESC_DIR = os.path.join(REV, "descargas")
@@ -61,6 +61,13 @@ def set_canonical(s, url):
     if re.search(r'<link rel="canonical"[^>]*>', s):
         return re.sub(r'<link rel="canonical"[^>]*>', lambda m: tag, s, count=1)
     return s.replace("</head>", tag + "\n</head>", 1)
+
+def con_analytics(s):
+    # GA4 + eventos clave (aprobado por Marvin 26 oct). No cambia el contenido de la edición.
+    if "googletagmanager.com/gtag" in s: return s
+    track = open("assets/js/site.js", encoding="utf-8").read().split("(function(){\n  // Eventos clave", 1)
+    js = "<script>(function(){\n  // Eventos clave" + track[1] + "</script>" if len(track) == 2 else ""
+    return s.replace("</head>", GA_SNIPPET + "\n" + js + "\n</head>", 1)
 
 def numero(s):
     m = re.search(r'Edici[óo]n n\.º\s*(\d+)', s)
@@ -123,6 +130,7 @@ def construir():
         p = os.path.join(REV, slug, "index.html"); url = f"{SITE_URL}/revista/{slug}/"
         s = read(p)
         s = set_meta(s, "og:url", url); s = set_meta(s, "og:image", OG_IMG); s = set_canonical(s, url)
+        s = con_analytics(s)
         write(p, s)
 
     def botones(d, n, slug, cls_leer, cls_desc):
@@ -168,7 +176,7 @@ def construir():
 @media (max-width:760px){.rev-destacada{grid-template-columns:1fr;}.rev-item{grid-template-columns:64px 1fr;gap:14px;}.rev-num{width:64px;height:64px;font-size:1.05rem;}}
 </style>'''
     page = head("El Carismático de Paterson — revista semanal | RCC Paterson NJ",
-                "El Carismático de Paterson, la revista semanal de la Renovación Carismática Católica de la Diócesis de Paterson, NJ. Lea o descargue la edición de esta semana y consulte las ediciones anteriores. Sale cada lunes.",
+                "El Carismático de Paterson, revista semanal de la Renovación Carismática Católica de la Diócesis de Paterson, NJ. Lea o descargue la edición de cada lunes.",
                 root="../", path="revista/index.html", og_image="revista/og-portada.jpg", extra=style) + f'''
 <header class="hero-sub">
   <div class="container">

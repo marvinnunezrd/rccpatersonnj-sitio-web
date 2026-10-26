@@ -1,6 +1,6 @@
 import sys
 sys.path.insert(0, ".")
-from common import head, footer, TAIL, SOCIAL_ICONS
+from common import head, footer, TAIL, SOCIAL_ICONS, SITE_URL
 
 R = "../"
 PHONE_ICON = SOCIAL_ICONS['phone']
@@ -38,13 +38,34 @@ EFL_STYLE = '''<style>
 #proximo-taller .flyer-details .detail-line strong{color:var(--wine);}
 </style>'''
 
+
+# Datos estructurados del Módulo 5 (fuente: "Modulo 5 - Datos Confirmados.md"; dirección aprobada por Marvin 24 oct)
+EFL_JSONLD = f'''<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Módulo 5 del Programa Nacional de Formación: Carismas del Espíritu Santo",
+  "startDate": "2026-11-20T18:30:00-05:00",
+  "endDate": "2026-11-21T17:30:00-05:00",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {{"@type": "Place", "name": "Salón de la Parroquia Santa Teresita",
+    "address": {{"@type": "PostalAddress", "streetAddress": "765 14th Avenue", "addressLocality": "Paterson", "addressRegion": "NJ", "postalCode": "07504", "addressCountry": "US"}}}},
+  "image": ["{SITE_URL}/assets/img/modulo-5-carismas-del-espiritu-santo.webp"],
+  "description": "Taller del Programa Nacional de Formación de la Renovación Carismática Católica, impartido por Cruz Teresa Rosero, miembro del Equipo Nacional de Formación. Viernes 20 de noviembre (registración 6:30 pm) y sábado 21 de noviembre de 2026, 8:00 am a 5:30 pm.",
+  "performer": {{"@type": "Person", "name": "Cruz Teresa Rosero"}},
+  "offers": {{"@type": "Offer", "price": "30", "priceCurrency": "USD", "description": "Donativo (desayuno y almuerzo incluidos)", "availability": "https://schema.org/InStock", "url": "https://docs.google.com/forms/d/e/1FAIpQLSc4Bcl6dMDr8Fw4jNe8nhwONLmG1qfJqn7XYCEmh6HuPJWSrQ/viewform"}},
+  "organizer": {{"@type": "Organization", "name": "Escuela de Formación de Líderes — Renovación Carismática Católica, Diócesis de Paterson", "url": "{SITE_URL}/ministerios/escuela-formacion-lideres"}}
+}}
+</script>'''
+
 html = head(
   "Escuela de Formación de Líderes — RCC Paterson NJ",
-  "Escuela de Formación de Líderes (EFL) de la Renovación Carismática Católica de la Diócesis de Paterson. Próximo taller nacional: Módulo 5 «Carismas del Espíritu Santo», 20 y 21 de noviembre de 2026. Inscripciones abiertas.",
+  "Escuela de Formación de Líderes de la RCC de la Diócesis de Paterson. Módulo 5 «Carismas del Espíritu Santo»: 20 y 21 de noviembre de 2026. Inscripciones abiertas.",
   root=R,
   path="ministerios/escuela-formacion-lideres.html",
   og_image="assets/img/ministerios/escuela-formacion-lideres-og.jpg",
-  extra=EFL_STYLE
+  extra=EFL_STYLE + EFL_JSONLD
 ) + f'''
 <header class="hero-sub">
   <div class="container">

@@ -140,6 +140,12 @@ ORG_JSONLD = f'''<script type="application/ld+json">
   "logo": "{SITE_URL}/assets/img/escudo-rcc-oficial.webp",
   "image": "{SITE_URL}/assets/img/escudo-rcc-oficial.webp",
   "email": "renovacion@rccpaterson.org",
+  "telephone": "+1-862-271-4805",
+  "memberOf": [
+    {{"@type": "Organization", "name": "Diócesis de Paterson", "url": "https://rcdop.org/"}},
+    {{"@type": "Organization", "name": "Renovación Carismática Católica Hispana — Región 2"}},
+    {{"@type": "Organization", "name": "Comité Nacional de Servicio Hispano (CNSH) — Renovación Carismática Católica de Estados Unidos y Canadá", "url": "https://rcchispana.org/"}}
+  ],
   "areaServed": {{
     "@type": "AdministrativeArea",
     "name": "Diócesis de Paterson, Nueva Jersey"
