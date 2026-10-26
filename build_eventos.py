@@ -623,7 +623,9 @@ CONGRESO_RESUMEN_HTML = """<p>Durante dos días, la comunidad de la Renovación 
           <li>El <strong>Padre Alexis Coffi</strong> presidió la Santa Misa con una homilía llena de fervor sobre «Alma Sana, Corazón Libre»: el corazón es la puerta de nuestro ser para dejar entrar a Dios y que nuestra vida sea transformada.</li>
           <li>El hermano <strong>Osvaldo Fernández</strong> fue usado grandemente por el Señor: a través de su prédica y sus oraciones, el Espíritu Santo marcó la vida de muchas personas.</li>
           <li>El <strong>Padre Yasid Salas</strong>, Director Espiritual, predicó sobre cómo el alma es liberada ante Jesús Eucaristía, y culminó con la exposición del Santísimo.</li>
+          <li>En la música, el ministerio <strong>Los Hijos Del Padre</strong> acompañó con su alabanza los dos días del Congreso.</li>
         </ul>
+        <blockquote class="resumen-testimonio">«Los Hijos Del Padre hicieron honor al nombre de su ministerio, porque realmente se dejaron usar por Él. ¡Qué hermosas voces y cuánta unción!»<cite>— Marizabel Pérez, Coordinadora de Intercesión</cite></blockquote>
         <h3>Frutos del Congreso</h3>
         <p>Jóvenes tocados por el Señor que desean integrarse a la Renovación, personas que se acercaron para formar parte de un grupo de oración y muchos que compartieron cómo el Señor les transformó la vida.</p>
         <blockquote class="resumen-testimonio">«El pueblo se fue con otro brillo: alegre, contento, liberado, sanado. Muy agradecidos quedamos todos con las proezas y maravillas que Cristo hizo durante este Congreso.»<cite>— Teresa Amparo, Coordinadora de la RCC Paterson</cite></blockquote>"""
