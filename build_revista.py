@@ -175,8 +175,11 @@ def construir():
 .rev-vacio{text-align:center;color:#6b5f4a;}
 @media (max-width:760px){.rev-destacada{grid-template-columns:1fr;}.rev-item{grid-template-columns:64px 1fr;gap:14px;}.rev-num{width:64px;height:64px;font-size:1.05rem;}}
 </style>'''
-    page = head("El Carismático de Paterson — revista semanal | RCC Paterson NJ",
-                "El Carismático de Paterson, revista semanal de la Renovación Carismática Católica de la Diócesis de Paterson, NJ. Lea o descargue la edición de cada lunes.",
+    a0 = date.fromisoformat(d0); b0 = a0 + timedelta(days=6)
+    rango = (f"{a0.day} al {b0.day} de {MESES[b0.month-1]}" if a0.month == b0.month
+             else f"{a0.day} de {MESES[a0.month-1]} al {b0.day} de {MESES[b0.month-1]}")
+    page = head(f"El Carismático de Paterson n.º {n0} · {semana(d0)} | RCC Paterson NJ",
+                f"Edición n.º {n0} de El Carismático de Paterson, revista semanal de la RCC de la Diócesis de Paterson, NJ: semana del {rango} de {b0.year}. Léala o descárguela.",
                 root="../", path="revista/index.html", og_image="revista/og-portada.jpg", extra=style) + f'''
 <header class="hero-sub">
   <div class="container">
