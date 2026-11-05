@@ -42,8 +42,6 @@ GRUPOS_ORACION = [
      "direccion": "86 Martin St, Paterson, NJ 07501", "coordinador": "Sandra García", "telefono": "(973) 816-7291", "zona": "Zona A"},
     {"dia": "Martes", "horario": "7:00 pm – 9:30 pm", "grupo": "\"María Auxiliadora\"", "parroquia": "St. Mary Help of Christians, Paterson",
      "direccion": "410 Union Ave, Paterson, NJ 07502", "coordinador": "Luz Rivas", "telefono": "(862) 213-7760", "zona": "Zona B"},
-    {"dia": "Martes", "horario": "7:00 pm – 9:30 pm", "grupo": "Our Lady of Lourdes", "parroquia": "Our Lady of Lourdes, Paterson",
-     "direccion": "440 River St, Paterson, NJ 07524", "coordinador": "Rosy Taveras", "telefono": "(973) 849-5180", "zona": "Zona B"},
     {"dia": "Martes", "horario": "7:00 pm – 9:30 pm", "grupo": "\"Luz de María\"", "parroquia": "St. Mary Assumption, Passaic",
      "direccion": "181 Market St, Passaic, NJ 07055", "coordinador": "Crecita Reyes", "telefono": "(973) 653-7911", "zona": "Zona C"},
     {"dia": "Martes", "horario": "7:00 pm – 9:30 pm", "grupo": "\"Ríos de Agua Viva\"", "parroquia": "St. Brendan, Clifton",
@@ -67,6 +65,8 @@ GRUPOS_ORACION = [
      "direccion": "153 Washington Pl, Passaic, NJ 07055", "coordinador": "Susano José (Joseito)", "telefono": "(862) 571-7598", "zona": "Zona C"},
     {"dia": "Viernes", "horario": "7:00 pm – 9:30 pm", "grupo": "\"Sal y Luz del Mundo\"", "parroquia": "St. Margaret of Scotland, Morristown",
      "direccion": "6 Sussex Ave, Morristown, NJ 07960", "coordinador": "Daniel Cornejo", "telefono": "(202) 286-0759", "zona": "Zona D"},
+    {"dia": "Viernes", "horario": "7:00 pm – 9:30 pm", "grupo": "Our Lady of Lourdes", "parroquia": "Our Lady of Lourdes, Paterson",
+     "direccion": "440 River St, Paterson, NJ 07524", "coordinador": "Rosy Taveras", "telefono": "(973) 849-5180", "zona": "Zona B"},
 ]
 
 AGENDA = [
