@@ -80,7 +80,7 @@
   </url>
   <url>
     <loc>https://rccpatersonnj.com/revista/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -117,6 +117,12 @@
   <url>
     <loc>https://rccpatersonnj.com/revista/edicion-03-2026-11-02/</loc>
     <lastmod>2026-11-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rccpatersonnj.com/revista/edicion-04-2026-11-09/</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
