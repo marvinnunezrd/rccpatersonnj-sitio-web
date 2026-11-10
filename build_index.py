@@ -58,6 +58,7 @@ COMITE_PHOTOS = {
     "Juana De Jesús": "assets/img/comite/juana-de-jesus.webp",
     "Marvin Núñez": "assets/img/comite/marvin-nunez.webp",
     "Marizabel Pérez": "assets/img/comite/marizabel-perez.webp",
+    "Starlyn Veloz": "assets/img/comite/starlyn-veloz.webp",
 }
 
 def parish_link(name):

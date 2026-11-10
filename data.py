@@ -7,7 +7,8 @@ COMITE = [
     ("Dariberkis Taveras-Beato", "Secretaria Diocesana", "St. Stephen, Paterson"),
     ("Alis Amparo", "Tesorero", "St. John the Baptist, Paterson"),
     ("Juana De Jesús", "Directora Escuela de Formación de Líderes (EFL)", "St. Therese de Lisieux, Paterson"),
-    ("Marvin Núñez", "Director de Ministerios de Música y Comunicación/Publicidad", "St. Anthony of Padua, Passaic"),
+    ("Marvin Núñez", "Director de Comunicación y Publicidad", "St. Anthony of Padua, Passaic"),
+    ("Starlyn Veloz", "Director de los Ministerios de Música", ""),  # Parroquia: POR CONFIRMAR con Marvin
     ("Marizabel Pérez", "Coordinadora Ministerio de Intercesión", "St. Anthony of Padua, Passaic"),
 ]
 

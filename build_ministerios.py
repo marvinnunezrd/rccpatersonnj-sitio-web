@@ -266,7 +266,13 @@ SOCIAL_LABELS = {"ig": "Instagram", "fb": "Facebook", "tt": "TikTok", "yt": "You
 ICON_ORDER = ["ig", "fb", "tt", "yt", "spotify", "applemusic", "wa", "mail"]
 
 MUSICOS = [
-    {"name": "Marvin Núñez", "role": "Director de Ministerios de Música", "photo": "comite/marvin-nunez.webp",
+    {"name": "Starlyn Veloz", "role": "Director de los Ministerios de Música", "photo": "comite/starlyn-veloz.webp",
+     "ig": ("@starlynveloz98", "https://www.instagram.com/starlynveloz98/"),
+     "fb": "https://www.facebook.com/starlin.velozbaez",
+     "yt": "https://www.youtube.com/channel/UCJt5eRy_uWbR4xNB3r16VjQ",
+     "wa": "https://wa.me/18622834237",
+     "mail": "mailto:Starlinveloz98@gmail.com"},
+    {"name": "Marvin Núñez", "role": "Ministerio de Música", "honor": "Ex-Director de los Ministerios de Música", "photo": "comite/marvin-nunez.webp",
      "ig": ("@marvinnunezrd", "https://www.instagram.com/marvinnunezrd/"),
      "fb": "https://www.facebook.com/marvinnunezrd",
      "tt": "https://www.tiktok.com/@marvinnunezrd",
@@ -293,12 +299,6 @@ MUSICOS = [
      "fb": "https://www.facebook.com/salvatore.moreno1",
      "tt": "https://www.tiktok.com/@salvatoremoreno1",
      "wa": "https://wa.me/19739791977"},
-    {"name": "Starlyn Veloz", "role": "Ministerio de Música", "photo": "musica-starlyn-veloz.webp",
-     "ig": ("@starlynveloz98", "https://www.instagram.com/starlynveloz98/"),
-     "fb": "https://www.facebook.com/starlin.velozbaez",
-     "yt": "https://www.youtube.com/channel/UCJt5eRy_uWbR4xNB3r16VjQ",
-     "wa": "https://wa.me/18622834237",
-     "mail": "mailto:Starlinveloz98@gmail.com"},
     {"name": "Son D' Fe", "role": "Ministerio de Música", "photo": "pentecostes-2026-musica-starlyn-veloz-son-de-fe.webp",
      "ig": ("@son_dfe", "https://www.instagram.com/son_dfe/"),
      "fb": "https://www.facebook.com/profile.php?id=61579764351173",
@@ -376,7 +376,7 @@ page(
       <span class="eyebrow">Identidad y Misión</span>
       <h2 style="color:var(--navy);">La música que prepara el corazón para el encuentro con Dios</h2>
       <p>Los Ministerios de Música de la Renovación Carismática Católica de la Diócesis de Paterson acompañan con su talento cada Seminario de Vida en el Espíritu, Asamblea, Congreso, Vigilia de Pentecostés y demás actividades de nuestra comunidad diocesana. Su misión es preparar el corazón del pueblo para el encuentro con Dios a través del canto, la alabanza y la adoración.</p>
-      <p>Coordinados por Marvin Núñez, Director de Ministerios de Música de la RCC Paterson, estos hermanos y hermanas ponen sus dones y su talento al servicio del Espíritu Santo, conscientes siempre de que cada canto es, ante todo, una ofrenda de oración.</p>
+      <p>Coordinados por Starlyn Veloz, Director de los Ministerios de Música de la RCC Paterson, estos hermanos y hermanas ponen sus dones y su talento al servicio del Espíritu Santo, conscientes siempre de que cada canto es, ante todo, una ofrenda de oración.</p>
     </div>
   </div>
 </section>
