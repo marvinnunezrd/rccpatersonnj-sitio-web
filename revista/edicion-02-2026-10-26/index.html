@@ -172,6 +172,17 @@ p{margin:0}
 .media img{width:100%;border-radius:8px;box-shadow:0 6px 16px -10px rgba(7,26,61,.6);display:block}
 .credit{font-size:.6em;color:var(--ink-soft);line-height:1.3;margin-top:.25em}
 .icon-top{width:4.2em;height:4.2em;align-self:flex-start}
+
+/* ===== Modo doble página (escritorio) — no afecta al móvil ===== */
+.spread-spacer{display:none}
+@media (min-width:1024px) and (orientation:landscape){
+  .app{max-width:min(100vw,calc((100vh - 118px)*1.5));max-width:min(100vw,calc((100dvh - 118px)*1.5));box-shadow:0 0 0 1px var(--rule),0 18px 50px -20px rgba(7,26,61,.35)}
+  .pages .page,.pages .spread-spacer{flex:0 0 50%;width:50%;scroll-snap-align:none;scroll-snap-stop:normal}
+  .pages .spread-l{scroll-snap-align:start;scroll-snap-stop:always}
+  .pages .spread-spacer{display:block;height:100%;background:radial-gradient(120% 80% at 50% 40%,rgba(217,164,65,.14),transparent 60%),var(--night)}
+  .pages .spread-l{box-shadow:inset -16px 0 16px -14px rgba(7,26,61,.30)}
+  .pages .spread-r{box-shadow:inset 16px 0 16px -14px rgba(7,26,61,.30)}
+}
 </style>
 <link rel="canonical" href="https://rccpatersonnj.com/revista/edicion-02-2026-10-26/">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZNXPXCSJ95"></script>
@@ -530,35 +541,70 @@ p{margin:0}
 <script>
 (function(){
   const box=document.getElementById('pages');
-  const pages=[...box.querySelectorAll('.page')];
+  const pages=[...box.querySelectorAll('.page')], N=pages.length;
   const count=document.getElementById('count'), fill=document.getElementById('barFill');
   const prev=document.getElementById('prev'), next=document.getElementById('next');
   const sec=document.getElementById('secLabel'), hint=document.getElementById('hint');
-  let cur=-1;
+  const ED='Edición n.º 2', HIDEHINT=false;
 
-  /* Cada página debe verse completa: si en una pantalla pequeña no cabe, se reduce su letra hasta que quepa. */
+  /* Modo doble página en computadora: la portada va sola a la derecha; luego pliegos 2–3, 4–5… */
+  const mkSpacer=()=>{const d=document.createElement('div');d.className='spread-spacer';d.setAttribute('aria-hidden','true');return d;};
+  box.insertBefore(mkSpacer(),pages[0]);
+  if(N%2===0)box.appendChild(mkSpacer());
+  const units=[...box.children].filter(el=>el.classList.contains('page')||el.classList.contains('spread-spacer'));
+  units.forEach((u,k)=>u.classList.add(k%2?'spread-r':'spread-l'));
+  const mq=window.matchMedia('(min-width:1024px) and (orientation:landscape)');
+  let dbl=mq.matches, cur=-1, curPage=0;
+  const screenOf=i=>dbl?Math.floor((i+1)/2):i;
+  const maxScreen=()=>dbl?units.length/2-1:N-1;
+  const shown=s=>dbl?[2*s,2*s+1].filter(n=>n>=1&&n<=N):[s+1];
+
+  /* Cada página debe verse completa: si no cabe, se reduce su letra hasta que quepa;
+     si le sobra mucho espacio, se agranda un poco (máx. 19 px) para que no quede vacía. */
+  function used(p){
+    const cs=getComputedStyle(p), gap=parseFloat(cs.rowGap)||0;
+    const kids=[...p.children].filter(k=>{const c=getComputedStyle(k);return c.position!=='absolute'&&c.display!=='none';});
+    let h=parseFloat(cs.paddingTop)+parseFloat(cs.paddingBottom)+gap*Math.max(0,kids.length-1);
+    kids.forEach(k=>{const c=getComputedStyle(k);h+=k.offsetHeight+(parseFloat(c.marginTop)||0)+(parseFloat(c.marginBottom)||0);});
+    return h;
+  }
   function fit(){
     pages.forEach(p=>{
       let fs=16; p.style.fontSize=fs+'px';
       while(p.scrollHeight>p.clientHeight+1 && fs>11){fs-=.5;p.style.fontSize=fs+'px';}
+      if(fs<16)return;
+      const fmax=dbl?24:20;
+      while(fs<fmax && used(p)<p.clientHeight*.9){
+        fs+=.5; p.style.fontSize=fs+'px';
+        if(p.scrollHeight>p.clientHeight+1||used(p)>p.clientHeight){fs-=.5;p.style.fontSize=fs+'px';break;}
+      }
+      p.style.justifyContent='';
+      if(used(p)<p.clientHeight*.82)p.style.justifyContent='center';
     });
   }
-  function go(i){i=Math.max(0,Math.min(pages.length-1,i));box.scrollTo({left:i*box.clientWidth});}
+  function goScreen(s){s=Math.max(0,Math.min(maxScreen(),s));box.scrollTo({left:s*box.clientWidth});}
+  function go(i){i=Math.max(0,Math.min(N-1,i));goScreen(screenOf(i));}
   function update(){
-    const i=Math.round(box.scrollLeft/Math.max(1,box.clientWidth));
-    if(i===cur)return; cur=i;
-    count.textContent='Página '+(i+1)+' de '+pages.length;
-    fill.style.width=((i+1)/pages.length*100)+'%';
-    prev.disabled=i===0; next.disabled=i===pages.length-1;
-    sec.textContent=i===0?'Edición n.º 2':pages[i].dataset.sec;
-    
+    const s=Math.round(box.scrollLeft/Math.max(1,box.clientWidth));
+    if(s===cur)return; cur=s;
+    const v=shown(s); curPage=v[0]-1;
+    count.textContent=v.length>1?('Páginas '+v[0]+'–'+v[1]+' de '+N):('Página '+v[0]+' de '+N);
+    fill.style.width=(v[v.length-1]/N*100)+'%';
+    prev.disabled=s===0; next.disabled=s===maxScreen();
+    sec.textContent=curPage===0?ED:pages[curPage].dataset.sec;
+    if(HIDEHINT&&curPage>0&&hint)hint.style.visibility='hidden';
+  }
+  function relayout(){
+    dbl=mq.matches; fit();
+    box.style.scrollBehavior='auto'; box.scrollLeft=screenOf(curPage)*box.clientWidth; box.style.scrollBehavior='';
+    cur=-1; update();
   }
   let raf;box.addEventListener('scroll',()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(update);},{passive:true});
-  window.addEventListener('resize',()=>{fit();box.style.scrollBehavior='auto';box.scrollLeft=Math.max(cur,0)*box.clientWidth;box.style.scrollBehavior='';});
-  prev.addEventListener('click',()=>go(cur-1));
-  next.addEventListener('click',()=>go(cur+1));
+  window.addEventListener('resize',relayout);
+  prev.addEventListener('click',()=>goScreen(cur-1));
+  next.addEventListener('click',()=>goScreen(cur+1));
   document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>go(pages.findIndex(p=>p.id===b.dataset.go))));
-  document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1);});
+  document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')goScreen(cur+1);if(e.key==='ArrowLeft')goScreen(cur-1);});
   document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{
     const el=document.getElementById(b.dataset.copy),txt=el.textContent;
     const done=()=>{b.textContent='Copiado';setTimeout(()=>b.textContent='Copiar',1600);};
@@ -569,7 +615,7 @@ p{margin:0}
   [...document.images].forEach(im=>{if(!im.complete)im.addEventListener('load',fit,{once:true});});
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
   const h=location.hash.slice(1),start=h?pages.findIndex(p=>p.id===h):-1;
-  if(start>0){box.style.scrollBehavior='auto';box.scrollLeft=start*box.clientWidth;box.style.scrollBehavior='';}
+  if(start>0){curPage=start;box.style.scrollBehavior='auto';box.scrollLeft=screenOf(start)*box.clientWidth;box.style.scrollBehavior='';}
   update();
 })();
 </script>
