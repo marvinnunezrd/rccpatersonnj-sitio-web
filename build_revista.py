@@ -130,6 +130,7 @@ def construir():
         p = os.path.join(REV, slug, "index.html"); url = f"{SITE_URL}/revista/{slug}/"
         s = read(p)
         s = set_meta(s, "og:url", url); s = set_meta(s, "og:image", OG_IMG); s = set_canonical(s, url)
+        s = re.sub(r"<title>[^<]*</title>", f"<title>El Carismático de Paterson · Edición n.º {n} · {semana(d)}</title>", s, count=1)
         s = con_analytics(s)
         write(p, s)
 
